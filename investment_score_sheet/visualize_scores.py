@@ -1,193 +1,387 @@
 #!/usr/bin/env python3
 """
-Simple visualization script for symbol scores
+Optimized visualization script for symbol scores
 Creates a lightweight HTML file with color-coded scores
 """
 
 import json
 import os
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple, Set, Any
+from dataclasses import dataclass
+from collections import defaultdict
 
-def get_score_color(score):
-    """Determine color based on score
-    Improved thresholds based on enhanced scoring system (max score ~8-10)
-    """
-    if score is None:
-        return "#CCCCCC", "N/A"  # Gray for missing data
-    
-    # Updated thresholds for enhanced scoring (max ~8-10)
-    if score >= 6:
-        return "#006400", "Great Buy"  # Dark green - very strong signals
-    elif score >= 4:
-        return "#32CD32", "Strong Buy"  # Medium green - strong signals
-    elif score >= 2:
-        return "#90EE90", "OK Buy"  # Light green - moderate signals
-    elif score >= 0:
-        return "#FFD700", "Neutral"  # Yellow - weak/neutral signals
-    elif score >= -2:
-        return "#FFA500", "OK Sell"  # Orange - moderate bearish signals
-    else:  # score < -2
-        return "#FF4500", "Best Sell"  # Red-orange - strong bearish signals
 
-def create_visualization():
-    """Create HTML visualization of scores - dynamically reads config from data"""
-    
-    # Load results (look in parent directory if not found locally)
-    import os
-    results_path = 'all_results.json'
-    if not os.path.exists(results_path):
-        results_path = '../all_results.json'
-    with open(results_path, 'r') as f:
-        data = json.load(f)
-    
-    # Dynamically detect all symbols, timeframes, and sources
-    # Group symbols by category (if available from investment_score_sheet.py)
-    try:
-        from investment_score_sheet import TECH_STOCKS, CRYPTOCURRENCIES, PRECIOUS_METALS
-        # Create ordered list: tech stocks, then crypto, then metals
-        category_order = TECH_STOCKS + CRYPTOCURRENCIES + PRECIOUS_METALS
-        # Filter to only symbols that exist in data, maintaining category order
-        all_symbols = [s for s in category_order if s in data.keys()]
-        # Add any remaining symbols not in categories (sorted)
-        remaining = sorted(set(data.keys()) - set(all_symbols))
-        all_symbols.extend(remaining)
-    except ImportError:
-        # Fallback: just sort alphabetically if can't import categories
-        all_symbols = sorted(data.keys())
-    
-    all_timeframes = set()
-    all_sources = set()
-    all_denominations = set()  # USD, Gold
-    
-    # Collect all scores and detect structure
-    symbol_scores = {}
-    
-    for symbol in data:
-        symbol_scores[symbol] = {}
-        
-        for timeframe in data[symbol]:
-            all_timeframes.add(timeframe)
-            
-            for source in data[symbol][timeframe]:
-                if isinstance(data[symbol][timeframe][source], dict):
-                    all_sources.add(source)
-                    
-                    # Check for USD and Gold pairs
-                    for denomination in ['usd', 'gold']:
-                        if denomination in data[symbol][timeframe][source]:
-                            all_denominations.add(denomination)
-                            
-                            # Get scores from both calculation methods
-                            scores = []
-                            for calc_method in ['ta_library', 'tradingview_library']:
-                                if calc_method in data[symbol][timeframe][source][denomination]:
-                                    score = data[symbol][timeframe][source][denomination][calc_method].get('score')
-                                    if score is not None:
-                                        scores.append(score)
-                            
-                            if scores:
-                                # Use maximum score (best of both methods) instead of average
-                                # This ensures we show a score if at least one method has a non-negative value
-                                max_score = max(scores)
-                                # Include all scores (positive and negative)
-                                key = f"{timeframe}_{source}_{denomination}"
-                                symbol_scores[symbol][key] = {
-                                    'score': round(max_score, 1),
-                                    'timeframe': timeframe,
-                                    'source': source,
-                                    'denomination': denomination
-                                }
-    
-    # Sort timeframes from smallest to largest period
-    # Custom sort order: 1W, 2W, 1M, 2M, 6M, etc.
-    def sort_timeframes(tf):
-        """Sort timeframes by period length"""
-        # Extract number and unit
-        if tf.endswith('W'):
-            return (0, int(tf[:-1]))  # Weeks first
-        elif tf.endswith('M'):
-            return (1, int(tf[:-1]))  # Months second
-        elif tf.endswith('Y'):
-            return (2, int(tf[:-1]))  # Years third
-        else:
-            return (3, 0)  # Unknown format last
-    
-    all_timeframes = sorted(all_timeframes, key=sort_timeframes)
-    all_sources = sorted(all_sources)
-    all_denominations = sorted(all_denominations)  # ['gold', 'usd']
-    
-    # Generate HTML
-    html = """<!DOCTYPE html>
+# ======================================================
+# CONSTANTS
+# ======================================================
+
+SCORE_THRESHOLDS = [
+    (6, "#006400", "Great Buy"),      # Dark green - very strong signals
+    (4, "#32CD32", "Strong Buy"),     # Medium green - strong signals
+    (2, "#90EE90", "OK Buy"),         # Light green - moderate signals
+    (0, "#FFD700", "Neutral"),        # Yellow - weak/neutral signals
+    (-2, "#FFA500", "OK Sell"),       # Orange - moderate bearish signals
+    (float('-inf'), "#FF4500", "Best Sell"),  # Red-orange - strong bearish signals
+]
+
+MISSING_DATA_COLOR = "#CCCCCC"
+MISSING_DATA_LABEL = "N/A"
+
+CALC_METHODS = ['ta_library', 'tradingview_library']
+DENOMINATIONS = ['usd', 'gold']
+
+HTML_TEMPLATE = """<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Stock Scores Visualization</title>
     <style>
-        body {
+        body {{
             font-family: Arial, sans-serif;
             margin: 20px;
             background-color: #f5f5f5;
-        }
-        h1 {
+        }}
+        h1 {{
             color: #333;
             text-align: center;
-        }
-        table {
+        }}
+        table {{
             width: 100%;
             border-collapse: collapse;
             background-color: white;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin: 20px 0;
-        }
-        th {
+        }}
+        th {{
             background-color: #4CAF50;
             color: white;
             padding: 12px;
             text-align: left;
             font-weight: bold;
-        }
-        td {
+        }}
+        td {{
             padding: 10px;
             border-bottom: 1px solid #ddd;
-        }
-        tr:hover {
+        }}
+        tr:hover {{
             background-color: #f5f5f5;
-        }
-        .score-cell {
+        }}
+        .score-cell {{
             text-align: center;
             font-weight: bold;
             color: white;
             border-radius: 4px;
             padding: 8px;
-        }
-        .legend {
+        }}
+        .legend {{
             margin: 20px 0;
             padding: 15px;
             background-color: white;
             border-radius: 4px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .legend-item {
+        }}
+        .legend-item {{
             display: inline-block;
             margin: 5px 15px;
             padding: 5px 10px;
             border-radius: 4px;
             color: white;
             font-weight: bold;
-        }
+        }}
     </style>
 </head>
 <body>
     <h1>Stock Technical Analysis Scores</h1>
     
-    <div class="legend">
+    {legend}
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Symbol</th>{headers}
+            </tr>
+        </thead>
+        <tbody>
+{rows}
+        </tbody>
+    </table>
+    
+    <p style="text-align: center; color: #666; margin-top: 20px;">
+        Generated from technical analysis indicators (RSI, StochRSI, EMA50, GMMA, ATR)
+    </p>
+</body>
+</html>"""
+
+
+# ======================================================
+# DATA CLASSES
+# ======================================================
+
+@dataclass
+class ScoreInfo:
+    """Container for score information"""
+    score: float
+    timeframe: str
+    source: str
+    denomination: str
+    upside_potential: Optional[float] = None
+    downside_potential: Optional[float] = None
+
+
+@dataclass
+class VisualizationData:
+    """Container for all visualization data"""
+    symbols: List[str]
+    timeframes: List[str]
+    sources: List[str]
+    denominations: List[str]
+    symbol_scores: Dict[str, Dict[str, ScoreInfo]]
+    raw_data: Dict[str, Any]
+
+
+# ======================================================
+# UTILITY FUNCTIONS
+# ======================================================
+
+def get_score_color(score: Optional[float]) -> Tuple[str, str]:
+    """
+    Determine color and label based on score.
+    
+    Args:
+        score: The score value or None
+        
+    Returns:
+        Tuple of (color_hex, label)
+    """
+    if score is None:
+        return MISSING_DATA_COLOR, MISSING_DATA_LABEL
+    
+    # Check thresholds in order (highest to lowest)
+    for threshold, color, label in SCORE_THRESHOLDS:
+        if score >= threshold:
+            return color, label
+    
+    # Fallback (should never reach here)
+    return MISSING_DATA_COLOR, MISSING_DATA_LABEL
+
+
+def sort_timeframes(timeframe: str) -> Tuple[int, int]:
+    """
+    Sort timeframes by period length.
+    
+    Args:
+        timeframe: Timeframe string (e.g., "1W", "2M", "1Y")
+        
+    Returns:
+        Tuple for sorting: (unit_priority, numeric_value)
+    """
+    if timeframe.endswith('W'):
+        return (0, int(timeframe[:-1]))  # Weeks first
+    elif timeframe.endswith('M'):
+        return (1, int(timeframe[:-1]))  # Months second
+    elif timeframe.endswith('Y'):
+        return (2, int(timeframe[:-1]))  # Years third
+    else:
+        return (3, 0)  # Unknown format last
+
+
+def find_results_file() -> Path:
+    """
+    Find the results JSON file in current or parent directory.
+    
+    Returns:
+        Path to the results file
+        
+    Raises:
+        FileNotFoundError: If results file cannot be found
+    """
+    current_dir = Path.cwd()
+    possible_paths = [
+        current_dir / 'all_results.json',
+        current_dir.parent / 'all_results.json',
+    ]
+    
+    for path in possible_paths:
+        if path.exists():
+            return path
+    
+    raise FileNotFoundError(
+        f"Could not find all_results.json in {current_dir} or {current_dir.parent}"
+    )
+
+
+def load_symbol_categories() -> Tuple[List[str], ...]:
+    """
+    Load symbol categories from investment_score_sheet module.
+    
+    Returns:
+        Tuple of (tech_stocks, cryptocurrencies, precious_metals)
+    """
+    try:
+        from investment_score_sheet import TECH_STOCKS, CRYPTOCURRENCIES, PRECIOUS_METALS
+        return TECH_STOCKS, CRYPTOCURRENCIES, PRECIOUS_METALS
+    except ImportError:
+        return [], [], []
+
+
+# ======================================================
+# DATA PROCESSING
+# ======================================================
+
+def extract_scores_from_data(data: Dict[str, Any]) -> Tuple[
+    Dict[str, Dict[str, ScoreInfo]],
+    Set[str],
+    Set[str],
+    Set[str]
+]:
+    """
+    Extract scores and detect structure from data.
+    
+    Args:
+        data: The loaded JSON data
+        
+    Returns:
+        Tuple of (symbol_scores, timeframes, sources, denominations)
+    """
+    symbol_scores: Dict[str, Dict[str, ScoreInfo]] = defaultdict(dict)
+    timeframes: Set[str] = set()
+    sources: Set[str] = set()
+    denominations: Set[str] = set()
+    
+    for symbol, symbol_data in data.items():
+        for timeframe, timeframe_data in symbol_data.items():
+            if not isinstance(timeframe_data, dict):
+                continue
+                
+            timeframes.add(timeframe)
+            
+            for source, source_data in timeframe_data.items():
+                if not isinstance(source_data, dict):
+                    continue
+                    
+                sources.add(source)
+                
+                # Check for USD and Gold pairs
+                for denomination in DENOMINATIONS:
+                    if denomination not in source_data:
+                        continue
+                        
+                    denominations.add(denomination)
+                    denom_data = source_data[denomination]
+                    
+                    if not isinstance(denom_data, dict):
+                        continue
+                    
+                    # Get scores from both calculation methods
+                    scores = []
+                    for calc_method in CALC_METHODS:
+                        if calc_method in denom_data:
+                            score = denom_data[calc_method].get('score')
+                            if score is not None:
+                                scores.append(score)
+                    
+                    if scores:
+                        # Use maximum score (best of both methods)
+                        max_score = max(scores)
+                        key = f"{timeframe}_{source}_{denomination}"
+                        
+                        # Extract potential info if available
+                        potential = denom_data.get('ta_library', {}).get('relative_potential', {})
+                        upside = potential.get('upside_potential_pct')
+                        downside = potential.get('downside_potential_pct')
+                        
+                        symbol_scores[symbol][key] = ScoreInfo(
+                            score=round(max_score, 1),
+                            timeframe=timeframe,
+                            source=source,
+                            denomination=denomination,
+                            upside_potential=upside,
+                            downside_potential=downside
+                        )
+    
+    return symbol_scores, timeframes, sources, denominations
+
+
+def organize_symbols(data: Dict[str, Any]) -> List[str]:
+    """
+    Organize symbols by category order.
+    
+    Args:
+        data: The loaded JSON data
+        
+    Returns:
+        Ordered list of symbols
+    """
+    tech_stocks, cryptocurrencies, precious_metals = load_symbol_categories()
+    
+    if not any([tech_stocks, cryptocurrencies, precious_metals]):
+        # Fallback: just sort alphabetically
+        return sorted(data.keys())
+    
+    # Create ordered list: tech stocks, then crypto, then metals
+    category_order = tech_stocks + cryptocurrencies + precious_metals
+    
+    # Filter to only symbols that exist in data, maintaining category order
+    all_symbols = [s for s in category_order if s in data]
+    
+    # Add any remaining symbols not in categories (sorted)
+    remaining = sorted(set(data.keys()) - set(all_symbols))
+    all_symbols.extend(remaining)
+    
+    return all_symbols
+
+
+def prepare_visualization_data(data: Dict[str, Any]) -> VisualizationData:
+    """
+    Prepare all data needed for visualization.
+    
+    Args:
+        data: The loaded JSON data
+        
+    Returns:
+        VisualizationData object with all processed data
+    """
+    # Extract scores and structure
+    symbol_scores, timeframes, sources, denominations = extract_scores_from_data(data)
+    
+    # Organize symbols
+    symbols = organize_symbols(data)
+    
+    # Sort collections
+    sorted_timeframes = sorted(timeframes, key=sort_timeframes)
+    sorted_sources = sorted(sources)
+    sorted_denominations = sorted(denominations)
+    
+    return VisualizationData(
+        symbols=symbols,
+        timeframes=sorted_timeframes,
+        sources=sorted_sources,
+        denominations=sorted_denominations,
+        symbol_scores=dict(symbol_scores),
+        raw_data=data
+    )
+
+
+# ======================================================
+# HTML GENERATION
+# ======================================================
+
+def generate_legend() -> str:
+    """Generate the legend HTML."""
+    legend_items = [
+        '<span class="legend-item" style="background-color: #006400;">&gt;=6: Great Buy</span>',
+        '<span class="legend-item" style="background-color: #32CD32;">4-5: Strong Buy</span>',
+        '<span class="legend-item" style="background-color: #90EE90;">2-3: OK Buy</span>',
+        '<span class="legend-item" style="background-color: #FFD700; color: #333;">0-1: Neutral</span>',
+        '<span class="legend-item" style="background-color: #FFA500;">-2 to -1: OK Sell</span>',
+        '<span class="legend-item" style="background-color: #FF4500;">&lt;-2: Best Sell</span>',
+    ]
+    
+    legend_html = f"""    <div class="legend">
         <h3>Score Legend:</h3>
-        <span class="legend-item" style="background-color: #006400;">&gt;=6: Great Buy</span>
-        <span class="legend-item" style="background-color: #32CD32;">4-5: Strong Buy</span>
-        <span class="legend-item" style="background-color: #90EE90;">2-3: OK Buy</span>
-        <span class="legend-item" style="background-color: #FFD700; color: #333;">0-1: Neutral</span>
-        <span class="legend-item" style="background-color: #FFA500;">-2 to -1: OK Sell</span>
-        <span class="legend-item" style="background-color: #FF4500;">&lt;-2: Best Sell</span>
+        {''.join(legend_items)}
         <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
             Enhanced scoring includes: RSI, StochRSI, MACD, Volume, Momentum, EMA50, GMMA, ATR, Support levels
         </p>
@@ -202,75 +396,142 @@ def create_visualization():
         <p style="margin: 5px 0; font-size: 0.9em; color: #666;">
             Potential percentages show how far price could move to reach recent highs/lows based on 52-week range (252 trading days).
         </p>
-    </div>
+    </div>"""
     
-    <table>
-        <thead>
-            <tr>
-                <th>Symbol</th>"""
-    
-    # Dynamically generate column headers: timeframe -> source -> denomination
-    for timeframe in all_timeframes:
-        for source in all_sources:
-            for denomination in all_denominations:
+    return legend_html
+
+
+def generate_headers(viz_data: VisualizationData) -> str:
+    """Generate table header HTML."""
+    headers = []
+    for timeframe in viz_data.timeframes:
+        for source in viz_data.sources:
+            for denomination in viz_data.denominations:
                 denom_label = "Gold" if denomination == "gold" else "USD"
-                html += f"\n                <th>{timeframe} ({source})<br><small>{denom_label}</small></th>"
+                headers.append(
+                    f'\n                <th>{timeframe} ({source})<br><small>{denom_label}</small></th>'
+                )
+    return ''.join(headers)
+
+
+def generate_cell_content(score_info: Optional[ScoreInfo]) -> str:
+    """
+    Generate HTML content for a single cell.
     
-    html += """
-            </tr>
-        </thead>
-        <tbody>
-"""
-    
-    # Generate table rows dynamically
-    for symbol in all_symbols:
-        html += f"            <tr>\n                <td><strong>{symbol}</strong></td>\n"
+    Args:
+        score_info: ScoreInfo object or None
         
-        # Add scores for each timeframe/source/denomination combination (in same order as headers)
-        for timeframe in all_timeframes:
-            for source in all_sources:
-                for denomination in all_denominations:
+    Returns:
+        HTML string for the cell
+    """
+    if score_info is None:
+        color = MISSING_DATA_COLOR
+        content = MISSING_DATA_LABEL
+        potential_info = ""
+    else:
+        color, _ = get_score_color(score_info.score)
+        content = str(score_info.score)
+        
+        # Add potential info if available
+        if score_info.upside_potential is not None and score_info.downside_potential is not None:
+            potential_info = (
+                f"<br><small style='font-size: 0.75em; opacity: 0.8;'>"
+                f"&uarr;{score_info.upside_potential:.1f}% "
+                f"&darr;{score_info.downside_potential:.1f}%</small>"
+            )
+        else:
+            potential_info = ""
+    
+    return (
+        f"                <td>"
+        f"<div class='score-cell' style='background-color: {color};'>"
+        f"{content}{potential_info}</div></td>"
+    )
+
+
+def generate_rows(viz_data: VisualizationData) -> str:
+    """Generate table row HTML."""
+    rows = []
+    
+    for symbol in viz_data.symbols:
+        row_cells = [f"            <tr>\n                <td><strong>{symbol}</strong></td>\n"]
+        
+        # Add scores for each timeframe/source/denomination combination
+        for timeframe in viz_data.timeframes:
+            for source in viz_data.sources:
+                for denomination in viz_data.denominations:
                     key = f"{timeframe}_{source}_{denomination}"
-                    if key in symbol_scores[symbol]:
-                        score = symbol_scores[symbol][key]['score']
-                        color, label = get_score_color(score)
-                        
-                        # Get relative potential if available
-                        potential_info = ""
-                        try:
-                            if symbol in data and timeframe in data[symbol] and source in data[symbol][timeframe]:
-                                source_data = data[symbol][timeframe][source]
-                                if denomination in source_data and 'ta_library' in source_data[denomination]:
-                                    potential = source_data[denomination]['ta_library'].get('relative_potential', {})
-                                    upside = potential.get('upside_potential_pct')
-                                    downside = potential.get('downside_potential_pct')
-                                    if upside is not None and downside is not None:
-                                        potential_info = f"<br><small style='font-size: 0.75em; opacity: 0.8;'>&uarr;{upside:.1f}% &darr;{downside:.1f}%</small>"
-                        except:
-                            pass
-                        
-                        html += f"                <td><div class='score-cell' style='background-color: {color};'>{score}{potential_info}</div></td>\n"
-                    else:
-                        html += f"                <td><div class='score-cell' style='background-color: #CCCCCC;'>N/A</div></td>\n"
+                    score_info = viz_data.symbol_scores.get(symbol, {}).get(key)
+                    row_cells.append(generate_cell_content(score_info) + "\n")
         
-        html += "            </tr>\n"
+        row_cells.append("            </tr>")
+        rows.append(''.join(row_cells))
     
-    html += """        </tbody>
-    </table>
+    return '\n'.join(rows)
+
+
+def generate_html(viz_data: VisualizationData) -> str:
+    """
+    Generate the complete HTML visualization.
     
-    <p style="text-align: center; color: #666; margin-top: 20px;">
-        Generated from technical analysis indicators (RSI, StochRSI, EMA50, GMMA, ATR)
-    </p>
-</body>
-</html>"""
+    Args:
+        viz_data: VisualizationData object
+        
+    Returns:
+        Complete HTML string
+    """
+    legend = generate_legend()
+    headers = generate_headers(viz_data)
+    rows = generate_rows(viz_data)
     
-    # Save HTML file (in current directory)
-    html_path = 'scores_visualization.html'
-    with open(html_path, 'w') as f:
-        f.write(html)
+    return HTML_TEMPLATE.format(
+        legend=legend,
+        headers=headers,
+        rows=rows
+    )
+
+
+# ======================================================
+# MAIN FUNCTION
+# ======================================================
+
+def create_visualization(output_path: Optional[str] = None) -> Path:
+    """
+    Create HTML visualization of scores.
     
-    print("✓ Visualization created: scores_visualization.html")
+    Args:
+        output_path: Optional path for output file (default: scores_visualization.html)
+        
+    Returns:
+        Path to the created HTML file
+        
+    Raises:
+        FileNotFoundError: If results file cannot be found
+        IOError: If HTML file cannot be written
+    """
+    # Load results
+    results_path = find_results_file()
+    with open(results_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    # Prepare visualization data
+    viz_data = prepare_visualization_data(data)
+    
+    # Generate HTML
+    html_content = generate_html(viz_data)
+    
+    # Save HTML file
+    if output_path is None:
+        output_path = 'scores_visualization.html'
+    
+    html_path = Path(output_path)
+    html_path.write_text(html_content, encoding='utf-8')
+    
+    print(f"✓ Visualization created: {html_path}")
     print("  Open it in your browser to view!")
+    
+    return html_path
+
 
 if __name__ == "__main__":
     create_visualization()
