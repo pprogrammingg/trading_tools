@@ -1,0 +1,5 @@
+yfinance
+pandas
+ta
+tradingview-indicators
+tradingview-ta
