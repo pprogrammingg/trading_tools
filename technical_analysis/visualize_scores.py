@@ -110,7 +110,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </table>
     
     <p style="text-align: center; color: #666; margin-top: 20px;">
-        Generated from technical analysis indicators (RSI, StochRSI, EMA50, GMMA, ATR)
+        Generated from technical analysis indicators (RSI, ADX, CCI, MACD, OBV, A/D, EMA50/200, SMA50/200, GMMA, Volume, Momentum)
     </p>
 </body>
 </html>"""
@@ -428,7 +428,7 @@ def generate_legend() -> str:
         <h3>Score Legend:</h3>
         {''.join(legend_items)}
         <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
-            Enhanced scoring includes: RSI, StochRSI, MACD, Volume, Momentum, EMA50, GMMA, ATR, Support levels
+            Enhanced scoring includes: RSI (context-aware), ADX (trend strength), CCI (commodities), MACD, OBV, A/D (volume), EMA50/200, SMA50/200 (Golden Cross), GMMA, Volume, Momentum
         </p>
     </div>
     

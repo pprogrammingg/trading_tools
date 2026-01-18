@@ -28,11 +28,20 @@
     "TSLA",
     "APLD",
     "ARM",
-    "ABNB"
+    "ABNB",
+    "AMD",
+    "AVGO",
+    "CRWD",
+    "QCOM",
+    "MU",
+    "WDC"
   ],
   "tech_stocks": [
     "TMUS",
-    "NOW"
+    "NOW",
+    "PATH",
+    "DLO",
+    "PGY"
   ],
   "cryptocurrencies": [
     "BTC-USD",
@@ -49,5 +58,30 @@
     "SPY",
     "IWM",
     "VTWO"
+  ],
+  "clean_energy_materials": [
+    "ALB",
+    "CCJ",
+    "AEM",
+    "FCX"
+  ],
+  "silver_miners_esg": [
+    "PAAS",
+    "AG",
+    "WPM",
+    "HL",
+    "SVM"
+  ],
+  "renewable_energy": [
+    "ENPH",
+    "SEDG",
+    "RUN",
+    "NEE",
+    "PLUG"
+  ],
+  "battery_storage": [
+    "QS",
+    "SLDP",
+    "AMSC"
   ]
 }

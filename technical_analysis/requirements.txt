@@ -4,3 +4,5 @@ ta
 tradingview-indicators
 tradingview-ta
 sendgrid>=6.10.0
+praw>=7.7.0
+textblob>=0.17.1

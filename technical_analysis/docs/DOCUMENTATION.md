@@ -2,7 +2,11 @@
 
 ## Overview
 
-Automated technical analysis system that calculates buy/sell scores for financial instruments using multiple technical indicators. Analyzes symbols in both USD and Gold denominations across multiple timeframes.
+Automated technical analysis system that calculates buy/sell scores for financial instruments using multiple technical indicators. Based on research into why RSI failed to predict gold's 1970s 600% move, this system incorporates **trend-following indicators (ADX, CCI, OBV)** alongside mean-reverting ones (RSI) to catch major moves that RSI misses.
+
+**Key Innovation**: Context-aware RSI that reduces weight when strong trends are detected (ADX > 25), preventing false signals during major bull runs.
+
+Analyzes symbols in both USD and Gold denominations across multiple timeframes.
 
 ## Quick Start
 
@@ -66,11 +70,12 @@ python visualize_scores.py
 
 ### Core Indicators (Simplified)
 
-1. **RSI (14 period)**
-   - Oversold (<30): +2 points
-   - Slightly oversold (30-40): +1 point
-   - Overbought (>70): -2 points
-   - Approaching overbought (>65): -1 point
+1. **RSI (14 period)** - Context-aware based on trend strength
+   - Oversold (<30): +2 points (reduced to +1 if ADX > 25, strong trend)
+   - Slightly oversold (30-40): +1 point (reduced to +0.5 if ADX > 25)
+   - Overbought (>70): -2 points (reduced to -1 if ADX > 25)
+   - Approaching overbought (>65): -1 point (reduced to -0.5 if ADX > 25)
+   - **Why context-aware?** RSI is mean-reverting and fails in strong trends (like gold's 1970s move). When ADX shows strong trend, RSI signals are less reliable.
 
 2. **Moving Averages**
    - EMA50, EMA200: Trend following
@@ -93,17 +98,30 @@ python visualize_scores.py
    - High volatility can indicate opportunity (crypto, growth stocks)
    - Volatility is already reflected in momentum and price action
 
-6. **Volume**
-   - Above 120% of 20-day average: +1
+6. **ADX (Average Directional Index)** - Trend strength indicator
+   - Very strong trend (ADX > 30): +2 points
+   - Strong trend (ADX > 25): +1.5 points
+   - **Key insight:** ADX measures trend strength, not direction. High ADX = strong trend (up OR down). This would have caught gold's 1970s move that RSI missed.
 
-7. **Momentum (Rate of Change)**
+7. **CCI (Commodity Channel Index)** - Better for commodities than RSI
+   - Oversold recovery (CCI < -100): +1.5 points
+   - Overbought (CCI > 100): -1.5 points
+   - Bullish momentum (CCI > 0): +0.5 points
+   - **Why better?** CCI was designed for commodities and is less prone to false signals in trending markets.
+
+8. **Volume Analysis**
+   - Above 120% of 20-day average: +1
+   - **OBV (On-Balance Volume) trending up:** +1 (shows accumulation)
+   - **Accumulation/Distribution Line trending up:** +1 (institutional buying)
+
+9. **Momentum (Rate of Change)**
    - Very strong (>15%): +1
    - Strong (8-15%): +0.5
    - Moderate (3-8%): +0.5
    - Very negative (<-15%): -1.5
    - Negative (<-8%): -1
 
-8. **4-Week Low**
+10. **4-Week Low**
    - At or near 4-week low: +1
 
 ### Removed Indicators
@@ -123,7 +141,13 @@ python visualize_scores.py
 - **0-1**: Neutral (Yellow) - Weak/neutral signals
 - **<0**: Bearish (Red) - Bearish signals
 
-**Maximum Possible Score:** ~7-8 points
+**Maximum Possible Score:** ~10-12 points (increased with ADX, CCI, OBV, A/D indicators)
+
+**Key Improvements Based on Gold RSI Research:**
+- **ADX** detects strong trends that RSI misses (would have caught gold's 1970s 600% move)
+- **CCI** better for commodities than RSI (less false signals)
+- **OBV/A/D** show accumulation before price moves
+- **RSI is context-aware** - reduced weight when strong trend detected (ADX > 25)
 
 ## Data Caching
 

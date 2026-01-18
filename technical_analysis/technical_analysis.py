@@ -10,8 +10,9 @@ import pickle
 import yfinance as yf
 import pandas as pd
 from ta.momentum import RSIIndicator, StochRSIIndicator
-from ta.trend import MACD
+from ta.trend import MACD, ADXIndicator, CCIIndicator
 from ta.volatility import AverageTrueRange
+from ta.volume import OnBalanceVolumeIndicator, AccDistIndexIndicator
 import numpy as np
 from tradingview_indicators import RSI, ema, sma
 from ta.trend import SMAIndicator
@@ -346,6 +347,13 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
         "macd_positive": None,
         "volume_above_avg": None,
         "momentum": None,
+        "adx": None,
+        "adx_strong_trend": None,
+        "cci": None,
+        "obv": None,
+        "obv_trending_up": None,
+        "acc_dist": None,
+        "acc_dist_trending_up": None,
         "score": 0,
         "score_breakdown": {}
     }
@@ -402,23 +410,67 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
     if len(close) >= 4:
         result["4w_low"] = round(close[-4:].min(), 4)
     
-    # === RSI ===
+    # === ADX (Average Directional Index) - Measure trend strength FIRST ===
+    # ADX is calculated before RSI to make RSI context-aware
+    adx_value = None
+    if len(df) >= 14:  # ADX needs at least 14 periods
+        try:
+            adx_indicator = ADXIndicator(high, low, close, window=14)
+            adx_series = adx_indicator.adx()
+            if len(adx_series) > 0 and not pd.isna(adx_series.iloc[-1]):
+                adx_value = adx_series.iloc[-1]
+                result["adx"] = round(adx_value, 2)
+                result["adx_strong_trend"] = bool(adx_value > 25)
+        except:
+            pass
+    
+    # === RSI (Context-aware: reduce weight when strong trend detected) ===
     if len(close) >= INDICATOR_WINDOWS["rsi"]:
         rsi_values = RSI(close, INDICATOR_WINDOWS["rsi"])
         rsi_value = rsi_values.iloc[-1]
         result["rsi"] = round(rsi_value, 2)
+        
+        # If ADX shows strong trend, RSI signals are less reliable (trend-following > mean-reverting)
+        # Reduce RSI weight when ADX > 25 (strong trend)
+        rsi_multiplier = 0.5 if (adx_value is not None and adx_value > 25) else 1.0
+        
         if rsi_value < 30:
-            result["score"] += 2
-            result["score_breakdown"]["rsi_oversold"] = 2
+            score_add = 2 * rsi_multiplier
+            result["score"] += score_add
+            result["score_breakdown"]["rsi_oversold"] = round(score_add, 1)
         elif rsi_value < 40:
-            result["score"] += 1  # Slightly oversold - mild bullish signal
-            result["score_breakdown"]["rsi_slightly_oversold"] = 1
+            score_add = 1 * rsi_multiplier
+            result["score"] += score_add
+            result["score_breakdown"]["rsi_slightly_oversold"] = round(score_add, 1)
         elif rsi_value > 70:
-            result["score"] -= 2  # Stronger penalty for overbought
-            result["score_breakdown"]["rsi_overbought"] = -2
+            score_sub = 2 * rsi_multiplier
+            result["score"] -= score_sub
+            result["score_breakdown"]["rsi_overbought"] = round(-score_sub, 1)
         elif rsi_value > 65:
-            result["score"] -= 1  # Moderate penalty for approaching overbought
-            result["score_breakdown"]["rsi_approaching_overbought"] = -1
+            score_sub = 1 * rsi_multiplier
+            result["score"] -= score_sub
+            result["score_breakdown"]["rsi_approaching_overbought"] = round(-score_sub, 1)
+    
+    # === CCI (Commodity Channel Index) - Better for commodities than RSI ===
+    if len(df) >= 20:  # CCI typically uses 20 periods
+        try:
+            cci_indicator = CCIIndicator(high, low, close, window=20)
+            cci_series = cci_indicator.cci()
+            if len(cci_series) > 0 and not pd.isna(cci_series.iloc[-1]):
+                cci_value = cci_series.iloc[-1]
+                result["cci"] = round(cci_value, 2)
+                # CCI signals: >100 = overbought, <-100 = oversold, but less prone to false signals
+                if cci_value < -100:  # Oversold recovery
+                    result["score"] += 1.5
+                    result["score_breakdown"]["cci_oversold_recovery"] = 1.5
+                elif cci_value > 100:  # Overbought
+                    result["score"] -= 1.5
+                    result["score_breakdown"]["cci_overbought"] = -1.5
+                elif cci_value > 0:  # Above zero = bullish momentum
+                    result["score"] += 0.5
+                    result["score_breakdown"]["cci_bullish"] = 0.5
+        except:
+            pass
     
     # StochRSI removed - redundant with RSI for momentum/overbought-oversold signals
     
@@ -456,7 +508,7 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
                 result["score"] += 1
                 result["score_breakdown"]["macd_bullish"] = 1
 
-    # === Volume Analysis ===
+    # === Enhanced Volume Analysis ===
     if len(volume) >= 20:
         volume_avg = volume.rolling(window=20).mean()
         if len(volume_avg) > 0 and volume_avg.iloc[-1] > 0:
@@ -465,6 +517,40 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
             if result["volume_above_avg"]:
                 result["score"] += 1
                 result["score_breakdown"]["volume_confirmation"] = 1
+    
+    # === OBV (On-Balance Volume) - Shows accumulation/distribution ===
+    if len(volume) >= 20:
+        try:
+            obv_indicator = OnBalanceVolumeIndicator(close, volume)
+            obv_series = obv_indicator.on_balance_volume()
+            if len(obv_series) > 0:
+                result["obv"] = round(obv_series.iloc[-1], 2)
+                # Check if OBV is trending up (last 5 periods)
+                if len(obv_series) >= 5:
+                    obv_trend = obv_series.iloc[-5:].diff().mean()
+                    result["obv_trending_up"] = bool(obv_trend > 0)
+                    if result["obv_trending_up"]:
+                        result["score"] += 1
+                        result["score_breakdown"]["obv_trending_up"] = 1
+        except:
+            pass
+    
+    # === Accumulation/Distribution Line ===
+    if len(df) >= 20:
+        try:
+            acc_dist_indicator = AccDistIndexIndicator(high, low, close, volume)
+            acc_dist_series = acc_dist_indicator.acc_dist_index()
+            if len(acc_dist_series) > 0:
+                result["acc_dist"] = round(acc_dist_series.iloc[-1], 2)
+                # Check if A/D is trending up (last 5 periods)
+                if len(acc_dist_series) >= 5:
+                    acc_dist_trend = acc_dist_series.iloc[-5:].diff().mean()
+                    result["acc_dist_trending_up"] = bool(acc_dist_trend > 0)
+                    if result["acc_dist_trending_up"]:
+                        result["score"] += 1
+                        result["score_breakdown"]["acc_dist_trending_up"] = 1
+        except:
+            pass
 
     # === Momentum (Rate of Change) ===
     # Use approximately 10-14 periods for momentum calculation
@@ -496,6 +582,19 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
             result["score"] -= 1
             result["score_breakdown"]["negative_momentum"] = -1
 
+    # === ADX Trend Strength Scoring ===
+    if result["adx"] is not None:
+        if result["adx"] > 30:  # Very strong trend
+            result["score"] += 2
+            result["score_breakdown"]["adx_very_strong_trend"] = 2
+        elif result["adx"] > 25:  # Strong trend
+            result["score"] += 1.5
+            result["score_breakdown"]["adx_strong_trend"] = 1.5
+        elif result["adx"] < 20:  # Weak trend / choppy market
+            # In weak trends, reduce confidence in trend-following signals
+            # Don't penalize, but note that trend signals are less reliable
+            pass
+    
     # === Score additions from price vs Moving Averages / GMMA conditions ===
     # NOTE: Using only EMAs for scoring to avoid double-counting with SMAs
     # SMAs are still calculated and stored for reference, but not used in scoring
@@ -511,6 +610,7 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
         result["score_breakdown"]["price_above_ema200"] = 1
     
     # Golden Cross / Death Cross detection (SMA50 vs SMA200) - major signal
+    # This is a key indicator that would have caught gold's 1970s move
     if result["sma50"] is not None and result["sma200"] is not None:
         if result["sma50"] > result["sma200"]:
             result["score"] += 1.5
@@ -562,6 +662,13 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
         "macd_positive": None,  # MACD histogram positive
         "volume_above_avg": None,  # Volume above 20-day average
         "momentum": None,  # Rate of change
+        "adx": None,
+        "adx_strong_trend": None,
+        "cci": None,
+        "obv": None,
+        "obv_trending_up": None,
+        "acc_dist": None,
+        "acc_dist_trending_up": None,
         "score": 0,
         "score_breakdown": {}  # Track what contributed to score
     }
@@ -614,23 +721,67 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
     if len(close) >= 4:
         result["4w_low"] = round(close[-4:].min(), 4)
 
-    # === RSI ===
+    # === ADX (Average Directional Index) - Measure trend strength FIRST ===
+    # ADX is calculated before RSI to make RSI context-aware
+    adx_value = None
+    if len(df) >= 14:  # ADX needs at least 14 periods
+        try:
+            adx_indicator = ADXIndicator(high, low, close, window=14)
+            adx_series = adx_indicator.adx()
+            if len(adx_series) > 0 and not pd.isna(adx_series.iloc[-1]):
+                adx_value = adx_series.iloc[-1]
+                result["adx"] = round(adx_value, 2)
+                result["adx_strong_trend"] = bool(adx_value > 25)
+        except:
+            pass
+
+    # === RSI (Context-aware: reduce weight when strong trend detected) ===
     if len(close) >= INDICATOR_WINDOWS["rsi"]:
         rsi = RSIIndicator(close, INDICATOR_WINDOWS["rsi"]).rsi()
         rsi_value = rsi.iloc[-1]
         result["rsi"] = round(rsi_value, 2)
+        
+        # If ADX shows strong trend, RSI signals are less reliable (trend-following > mean-reverting)
+        # Reduce RSI weight when ADX > 25 (strong trend)
+        rsi_multiplier = 0.5 if (adx_value is not None and adx_value > 25) else 1.0
+        
         if rsi_value < 30:
-            result["score"] += 2
-            result["score_breakdown"]["rsi_oversold"] = 2
+            score_add = 2 * rsi_multiplier
+            result["score"] += score_add
+            result["score_breakdown"]["rsi_oversold"] = round(score_add, 1)
         elif rsi_value < 40:
-            result["score"] += 1  # Slightly oversold - mild bullish signal
-            result["score_breakdown"]["rsi_slightly_oversold"] = 1
+            score_add = 1 * rsi_multiplier
+            result["score"] += score_add
+            result["score_breakdown"]["rsi_slightly_oversold"] = round(score_add, 1)
         elif rsi_value > 70:
-            result["score"] -= 2  # Stronger penalty for overbought
-            result["score_breakdown"]["rsi_overbought"] = -2
+            score_sub = 2 * rsi_multiplier
+            result["score"] -= score_sub
+            result["score_breakdown"]["rsi_overbought"] = round(-score_sub, 1)
         elif rsi_value > 65:
-            result["score"] -= 1  # Moderate penalty for approaching overbought
-            result["score_breakdown"]["rsi_approaching_overbought"] = -1
+            score_sub = 1 * rsi_multiplier
+            result["score"] -= score_sub
+            result["score_breakdown"]["rsi_approaching_overbought"] = round(-score_sub, 1)
+    
+    # === CCI (Commodity Channel Index) - Better for commodities than RSI ===
+    if len(df) >= 20:  # CCI typically uses 20 periods
+        try:
+            cci_indicator = CCIIndicator(high, low, close, window=20)
+            cci_series = cci_indicator.cci()
+            if len(cci_series) > 0 and not pd.isna(cci_series.iloc[-1]):
+                cci_value = cci_series.iloc[-1]
+                result["cci"] = round(cci_value, 2)
+                # CCI signals: >100 = overbought, <-100 = oversold, but less prone to false signals
+                if cci_value < -100:  # Oversold recovery
+                    result["score"] += 1.5
+                    result["score_breakdown"]["cci_oversold_recovery"] = 1.5
+                elif cci_value > 100:  # Overbought
+                    result["score"] -= 1.5
+                    result["score_breakdown"]["cci_overbought"] = -1.5
+                elif cci_value > 0:  # Above zero = bullish momentum
+                    result["score"] += 0.5
+                    result["score_breakdown"]["cci_bullish"] = 0.5
+        except:
+            pass
 
     # StochRSI removed - redundant with RSI for momentum/overbought-oversold signals
 
@@ -662,7 +813,7 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
                 result["score"] += 1
                 result["score_breakdown"]["macd_bullish"] = 1
 
-    # === Volume Analysis ===
+    # === Enhanced Volume Analysis ===
     if len(volume) >= 20:
         volume_avg = volume.rolling(window=20).mean()
         if len(volume_avg) > 0 and volume_avg.iloc[-1] > 0:
@@ -671,6 +822,40 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
             if result["volume_above_avg"]:
                 result["score"] += 1  # Volume confirmation
                 result["score_breakdown"]["volume_confirmation"] = 1
+    
+    # === OBV (On-Balance Volume) - Shows accumulation/distribution ===
+    if len(volume) >= 20:
+        try:
+            obv_indicator = OnBalanceVolumeIndicator(close, volume)
+            obv_series = obv_indicator.on_balance_volume()
+            if len(obv_series) > 0:
+                result["obv"] = round(obv_series.iloc[-1], 2)
+                # Check if OBV is trending up (last 5 periods)
+                if len(obv_series) >= 5:
+                    obv_trend = obv_series.iloc[-5:].diff().mean()
+                    result["obv_trending_up"] = bool(obv_trend > 0)
+                    if result["obv_trending_up"]:
+                        result["score"] += 1
+                        result["score_breakdown"]["obv_trending_up"] = 1
+        except:
+            pass
+    
+    # === Accumulation/Distribution Line ===
+    if len(df) >= 20:
+        try:
+            acc_dist_indicator = AccDistIndexIndicator(high, low, close, volume)
+            acc_dist_series = acc_dist_indicator.acc_dist_index()
+            if len(acc_dist_series) > 0:
+                result["acc_dist"] = round(acc_dist_series.iloc[-1], 2)
+                # Check if A/D is trending up (last 5 periods)
+                if len(acc_dist_series) >= 5:
+                    acc_dist_trend = acc_dist_series.iloc[-5:].diff().mean()
+                    result["acc_dist_trending_up"] = bool(acc_dist_trend > 0)
+                    if result["acc_dist_trending_up"]:
+                        result["score"] += 1
+                        result["score_breakdown"]["acc_dist_trending_up"] = 1
+        except:
+            pass
 
     # === Momentum (Rate of Change) ===
     # Use approximately 10-14 periods for momentum calculation
@@ -702,6 +887,19 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
             result["score"] -= 1
             result["score_breakdown"]["negative_momentum"] = -1
 
+    # === ADX Trend Strength Scoring ===
+    if result["adx"] is not None:
+        if result["adx"] > 30:  # Very strong trend
+            result["score"] += 2
+            result["score_breakdown"]["adx_very_strong_trend"] = 2
+        elif result["adx"] > 25:  # Strong trend
+            result["score"] += 1.5
+            result["score_breakdown"]["adx_strong_trend"] = 1.5
+        elif result["adx"] < 20:  # Weak trend / choppy market
+            # In weak trends, reduce confidence in trend-following signals
+            # Don't penalize, but note that trend signals are less reliable
+            pass
+
     # === Score additions from price vs Moving Averages / GMMA conditions ===
     # NOTE: Using only EMAs for scoring to avoid double-counting with SMAs
     # SMAs are still calculated and stored for reference, but not used in scoring
@@ -717,6 +915,7 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
         result["score_breakdown"]["price_above_ema200"] = 1
     
     # Golden Cross / Death Cross detection (SMA50 vs SMA200) - major signal
+    # This is a key indicator that would have caught gold's 1970s move
     if result["sma50"] is not None and result["sma200"] is not None:
         if result["sma50"] > result["sma200"]:
             result["score"] += 1.5

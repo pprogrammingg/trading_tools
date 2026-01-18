@@ -37,7 +37,7 @@ for html_file in visualizations_output/*.html; do
         fi
         echo "  Opening $filename..."
         if command -v open >/dev/null 2>&1; then
-            open "$html_file"
+        open "$html_file"
         else
             echo "    Error: 'open' command not available on this system"
             exit 1
