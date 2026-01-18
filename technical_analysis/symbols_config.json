@@ -1,0 +1,53 @@
+{
+  "quantum": [
+    "IONQ",
+    "QTUM",
+    "QBTS",
+    "RGTI"
+  ],
+  "miner_hpc": [
+    "MNRS",
+    "IREN",
+    "BMNR",
+    "HUT",
+    "CIFR",
+    "WULF",
+    "CORZ",
+    "BITF",
+    "CLSK",
+    "WGMI"
+  ],
+  "faang_hot_stocks": [
+    "META",
+    "AAPL",
+    "AMZN",
+    "NFLX",
+    "GOOGL",
+    "MSFT",
+    "NVDA",
+    "TSLA",
+    "APLD",
+    "ARM",
+    "ABNB"
+  ],
+  "tech_stocks": [
+    "TMUS",
+    "NOW"
+  ],
+  "cryptocurrencies": [
+    "BTC-USD",
+    "ETH-USD",
+    "SOL-USD"
+  ],
+  "precious_metals": [
+    "GC=F",
+    "SI=F",
+    "PA=F",
+    "PL=F"
+  ],
+  "index_etfs": [
+    "SPY",
+    "IWM",
+    "VTWO"
+  ]
+}

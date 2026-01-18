@@ -1,0 +1,60 @@
+name: Weekly Technical Analysis Report
+
+on:
+  schedule:
+    # Every Sunday at 5 PM UTC (17:00 UTC)
+    - cron: '0 17 * * 0'
+  workflow_dispatch:  # Allow manual triggering from GitHub UI
+
+jobs:
+  generate-and-send-report:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install sendgrid  # For email sending
+      
+      - name: Generate technical analysis data
+        run: |
+          cd technical_analysis
+          python technical_analysis.py --refresh
+      
+      - name: Generate visualizations
+        run: |
+          cd technical_analysis
+          python visualize_scores.py
+      
+      - name: Send email report
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          SENDGRID_FROM_EMAIL: ${{ secrets.SENDGRID_FROM_EMAIL }}
+          EMAIL_SUBSCRIBERS: ${{ secrets.EMAIL_SUBSCRIBERS }}
+          # Fallback to SMTP if SendGrid not configured
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          SMTP_FROM_EMAIL: ${{ secrets.SMTP_FROM_EMAIL }}
+        run: |
+          cd technical_analysis
+          python send_email_report.py
+      
+      - name: Upload visualization artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-report-visualizations
+          path: technical_analysis/visualizations_output/*.html
+          retention-days: 7

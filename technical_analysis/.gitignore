@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Data cache
+data_cache/
+*.pkl
+
+# Results (optional - you may want to commit these)
+# result_scores/
+# visualizations_output/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets (never commit!)
+.env
+*.key
+secrets.json

@@ -1,0 +1,1228 @@
+{
+  "TMUS": {
+    "1W": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 30.65,
+            "atr": 10.3128,
+            "atr_pct": 5.53,
+            "close": 186.32,
+            "ema50": 220.3691,
+            "ema200": 189.5688,
+            "sma50": 234.8008,
+            "sma200": 178.5844,
+            "4w_low": 186.32,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -19.02,
+            "score": 1.0,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5,
+              "golden_cross": 1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 30.65,
+            "atr": 9.9879,
+            "atr_pct": 5.36,
+            "close": 186.32,
+            "ema50": 220.3696,
+            "ema200": 185.0964,
+            "sma50": 234.8008,
+            "sma200": 178.5844,
+            "4w_low": 186.32,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -19.02,
+            "score": 2.0,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5,
+              "price_above_ema200": 1,
+              "golden_cross": 1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 25.21,
+            "atr": 0.0033,
+            "atr_pct": 8.09,
+            "close": 0.0406,
+            "ema50": 0.0625,
+            "ema200": 0.0717,
+            "sma50": 0.0674,
+            "sma200": 0.0744,
+            "4w_low": 0.0406,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -23.47,
+            "score": -0.5,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "very_negative_momentum": -1.5,
+              "death_cross": -1.5,
+              "oversold_reversal_potential": 0.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 25.21,
+            "atr": 0.003,
+            "atr_pct": 7.34,
+            "close": 0.0406,
+            "ema50": 0.0625,
+            "ema200": 0.0715,
+            "sma50": 0.0674,
+            "sma200": 0.0744,
+            "4w_low": 0.0406,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -23.47,
+            "score": -1.0,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "very_negative_momentum": -1.5,
+              "death_cross": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
+    "2W": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 36.64,
+            "atr": 15.8932,
+            "atr_pct": 8.53,
+            "close": 186.32,
+            "ema50": 210.3035,
+            "ema200": null,
+            "sma50": 214.8952,
+            "sma200": null,
+            "4w_low": 186.32,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -21.78,
+            "score": -0.5,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 36.64,
+            "atr": 15.5493,
+            "atr_pct": 8.35,
+            "close": 186.32,
+            "ema50": 210.2327,
+            "ema200": null,
+            "sma50": 214.8952,
+            "sma200": null,
+            "4w_low": 186.32,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -21.78,
+            "score": -0.5,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 25.24,
+            "atr": 0.0055,
+            "atr_pct": 13.51,
+            "close": 0.0406,
+            "ema50": 0.0678,
+            "ema200": null,
+            "sma50": 0.0722,
+            "sma200": null,
+            "4w_low": 0.0406,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -43.59,
+            "score": 1.0,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "very_negative_momentum": -1.5,
+              "oversold_reversal_potential": 0.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 25.24,
+            "atr": 0.0051,
+            "atr_pct": 12.58,
+            "close": 0.0406,
+            "ema50": 0.0678,
+            "ema200": null,
+            "sma50": 0.0722,
+            "sma200": null,
+            "4w_low": 0.0406,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -43.59,
+            "score": 0.5,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
+    "1M": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 43.66,
+            "atr": 22.0832,
+            "atr_pct": 11.85,
+            "close": 186.32,
+            "ema50": 186.1323,
+            "ema200": null,
+            "sma50": 175.107,
+            "sma200": null,
+            "4w_low": 186.32,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -16.46,
+            "score": -1.0,
+            "score_breakdown": {
+              "very_negative_momentum": -1.5,
+              "price_above_ema50": 0.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 43.74,
+            "atr": 27.3779,
+            "atr_pct": 14.69,
+            "close": 186.32,
+            "ema50": 179.361,
+            "ema200": null,
+            "sma50": 175.107,
+            "sma200": null,
+            "4w_low": 186.32,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -16.46,
+            "score": -1.0,
+            "score_breakdown": {
+              "very_negative_momentum": -1.5,
+              "price_above_ema50": 0.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 29.25,
+            "atr": 0.0085,
+            "atr_pct": 20.94,
+            "close": 0.0406,
+            "ema50": 0.0711,
+            "ema200": null,
+            "sma50": 0.0734,
+            "sma200": null,
+            "4w_low": 0.0406,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -50,
+            "score": 1.0,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "very_negative_momentum": -1.5,
+              "oversold_reversal_potential": 0.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 29.47,
+            "atr": 0.0098,
+            "atr_pct": 24.06,
+            "close": 0.0406,
+            "ema50": 0.0706,
+            "ema200": null,
+            "sma50": 0.0734,
+            "sma200": null,
+            "4w_low": 0.0406,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -50,
+            "score": 0.5,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
+    "2M": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 50.76,
+            "atr": 27.2389,
+            "atr_pct": 14.62,
+            "close": 186.32,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 186.32,
+            "gmma_bullish": true,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": 14.96,
+            "score": 2.5,
+            "score_breakdown": {
+              "strong_momentum": 0.5,
+              "gmma_bullish": 2
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 51.27,
+            "atr": 30.8864,
+            "atr_pct": 16.58,
+            "close": 186.32,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 186.32,
+            "gmma_bullish": true,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": 14.96,
+            "score": 2.5,
+            "score_breakdown": {
+              "strong_momentum": 0.5,
+              "gmma_bullish": 2
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 30.55,
+            "atr": 0.0117,
+            "atr_pct": 28.89,
+            "close": 0.0406,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 0.0406,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -49.04,
+            "score": -0.5,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 32.88,
+            "atr": 0.0122,
+            "atr_pct": 30.12,
+            "close": 0.0406,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 0.0406,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -49.04,
+            "score": -0.5,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
+    "6M": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": null,
+            "atr": null,
+            "atr_pct": null,
+            "close": 186.32,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 186.32,
+            "gmma_bullish": true,
+            "gmma_early_expansion": false,
+            "macd_bullish": null,
+            "macd_positive": null,
+            "volume_above_avg": null,
+            "momentum": 50,
+            "score": 3,
+            "score_breakdown": {
+              "very_strong_momentum": 1,
+              "gmma_bullish": 2
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": null,
+            "atr": null,
+            "atr_pct": null,
+            "close": 186.32,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 186.32,
+            "gmma_bullish": null,
+            "gmma_early_expansion": null,
+            "macd_bullish": null,
+            "macd_positive": null,
+            "volume_above_avg": null,
+            "momentum": 50,
+            "score": 1,
+            "score_breakdown": {
+              "very_strong_momentum": 1
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": null,
+            "atr": null,
+            "atr_pct": null,
+            "close": 0.0406,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 0.0406,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": null,
+            "macd_positive": null,
+            "volume_above_avg": null,
+            "momentum": -32.84,
+            "score": -1.5,
+            "score_breakdown": {
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": null,
+            "atr": null,
+            "atr_pct": null,
+            "close": 0.0406,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 0.0406,
+            "gmma_bullish": null,
+            "gmma_early_expansion": null,
+            "macd_bullish": null,
+            "macd_positive": null,
+            "volume_above_avg": null,
+            "momentum": -32.84,
+            "score": -1.5,
+            "score_breakdown": {
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    }
+  },
+  "NOW": {
+    "1W": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 25.88,
+            "atr": 11.8457,
+            "atr_pct": 9.3,
+            "close": 127.31,
+            "ema50": 174.3276,
+            "ema200": 152.5593,
+            "sma50": 179.3107,
+            "sma200": 139.6752,
+            "4w_low": 127.31,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -30.63,
+            "score": 4.5,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "volume_confirmation": 1,
+              "very_negative_momentum": -1.5,
+              "golden_cross": 1.5,
+              "at_4w_low": 1,
+              "oversold_reversal_potential": 0.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 25.88,
+            "atr": 11.302,
+            "atr_pct": 8.88,
+            "close": 127.31,
+            "ema50": 174.3267,
+            "ema200": 147.7935,
+            "sma50": 179.3107,
+            "sma200": 139.6752,
+            "4w_low": 127.31,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -30.63,
+            "score": 4.0,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "volume_confirmation": 1,
+              "very_negative_momentum": -1.5,
+              "golden_cross": 1.5,
+              "at_4w_low": 1
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 23.34,
+            "atr": 0.0035,
+            "atr_pct": 12.55,
+            "close": 0.0277,
+            "ema50": 0.0497,
+            "ema200": 0.0578,
+            "sma50": 0.0512,
+            "sma200": 0.0574,
+            "4w_low": 0.0277,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -34.44,
+            "score": 0.5,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "volume_confirmation": 1,
+              "very_negative_momentum": -1.5,
+              "death_cross": -1.5,
+              "oversold_reversal_potential": 0.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 23.34,
+            "atr": 0.0033,
+            "atr_pct": 11.76,
+            "close": 0.0277,
+            "ema50": 0.0497,
+            "ema200": 0.0571,
+            "sma50": 0.0512,
+            "sma200": 0.0574,
+            "4w_low": 0.0277,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -34.44,
+            "score": 0.0,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "volume_confirmation": 1,
+              "very_negative_momentum": -1.5,
+              "death_cross": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
+    "2W": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 32.6,
+            "atr": 17.2655,
+            "atr_pct": 13.56,
+            "close": 127.31,
+            "ema50": 167.2764,
+            "ema200": null,
+            "sma50": 175.4714,
+            "sma200": null,
+            "4w_low": 127.31,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -35.42,
+            "score": 0.5,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5,
+              "at_4w_low": 1
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 32.6,
+            "atr": 15.8379,
+            "atr_pct": 12.44,
+            "close": 127.31,
+            "ema50": 167.4742,
+            "ema200": null,
+            "sma50": 175.4714,
+            "sma200": null,
+            "4w_low": 127.31,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -35.42,
+            "score": 0.5,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5,
+              "at_4w_low": 1
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 28.17,
+            "atr": 0.0057,
+            "atr_pct": 20.62,
+            "close": 0.0277,
+            "ema50": 0.0544,
+            "ema200": null,
+            "sma50": 0.0596,
+            "sma200": null,
+            "4w_low": 0.0277,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -50,
+            "score": 1.0,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "very_negative_momentum": -1.5,
+              "oversold_reversal_potential": 0.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 28.17,
+            "atr": 0.0049,
+            "atr_pct": 17.7,
+            "close": 0.0277,
+            "ema50": 0.0545,
+            "ema200": null,
+            "sma50": 0.0596,
+            "sma200": null,
+            "4w_low": 0.0277,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -50,
+            "score": 0.5,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
+    "1M": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 39.71,
+            "atr": 26.4106,
+            "atr_pct": 20.75,
+            "close": 127.31,
+            "ema50": 150.9572,
+            "ema200": null,
+            "sma50": 137.53,
+            "sma200": null,
+            "4w_low": 127.31,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -41.14,
+            "score": 0.5,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5,
+              "at_4w_low": 1
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 39.81,
+            "atr": 30.8423,
+            "atr_pct": 24.23,
+            "close": 127.31,
+            "ema50": 142.1813,
+            "ema200": null,
+            "sma50": 137.53,
+            "sma200": null,
+            "4w_low": 127.31,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -41.14,
+            "score": 0.5,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5,
+              "at_4w_low": 1
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 29.57,
+            "atr": 0.0094,
+            "atr_pct": 33.7,
+            "close": 0.0277,
+            "ema50": 0.058,
+            "ema200": null,
+            "sma50": 0.0571,
+            "sma200": null,
+            "4w_low": 0.0277,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -50,
+            "score": 1.0,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "very_negative_momentum": -1.5,
+              "oversold_reversal_potential": 0.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 29.88,
+            "atr": 0.0099,
+            "atr_pct": 35.82,
+            "close": 0.0277,
+            "ema50": 0.056,
+            "ema200": null,
+            "sma50": 0.0571,
+            "sma200": null,
+            "4w_low": 0.0277,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -50,
+            "score": 0.5,
+            "score_breakdown": {
+              "rsi_oversold": 2,
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
+    "2M": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 45.41,
+            "atr": 31.7388,
+            "atr_pct": 24.93,
+            "close": 127.31,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 127.31,
+            "gmma_bullish": true,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -5.74,
+            "score": 3,
+            "score_breakdown": {
+              "gmma_bullish": 2,
+              "at_4w_low": 1
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 45.77,
+            "atr": 35.044,
+            "atr_pct": 27.53,
+            "close": 127.31,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 127.31,
+            "gmma_bullish": true,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -5.74,
+            "score": 3,
+            "score_breakdown": {
+              "gmma_bullish": 2,
+              "at_4w_low": 1
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 34.23,
+            "atr": 0.0132,
+            "atr_pct": 47.69,
+            "close": 0.0277,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 0.0277,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -50,
+            "score": -0.5,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 35.61,
+            "atr": 0.0134,
+            "atr_pct": 48.47,
+            "close": 0.0277,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 0.0277,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -50,
+            "score": -0.5,
+            "score_breakdown": {
+              "rsi_slightly_oversold": 1,
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
+    "6M": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": null,
+            "atr": null,
+            "atr_pct": null,
+            "close": 127.31,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 127.31,
+            "gmma_bullish": true,
+            "gmma_early_expansion": false,
+            "macd_bullish": null,
+            "macd_positive": null,
+            "volume_above_avg": null,
+            "momentum": 22.12,
+            "score": 4,
+            "score_breakdown": {
+              "very_strong_momentum": 1,
+              "gmma_bullish": 2,
+              "at_4w_low": 1
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": null,
+            "atr": null,
+            "atr_pct": null,
+            "close": 127.31,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 127.31,
+            "gmma_bullish": null,
+            "gmma_early_expansion": null,
+            "macd_bullish": null,
+            "macd_positive": null,
+            "volume_above_avg": null,
+            "momentum": 22.12,
+            "score": 2,
+            "score_breakdown": {
+              "very_strong_momentum": 1,
+              "at_4w_low": 1
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": null,
+            "atr": null,
+            "atr_pct": null,
+            "close": 0.0277,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 0.0277,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": null,
+            "macd_positive": null,
+            "volume_above_avg": null,
+            "momentum": -50,
+            "score": -1.5,
+            "score_breakdown": {
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": null,
+            "atr": null,
+            "atr_pct": null,
+            "close": 0.0277,
+            "ema50": null,
+            "ema200": null,
+            "sma50": null,
+            "sma200": null,
+            "4w_low": 0.0277,
+            "gmma_bullish": null,
+            "gmma_early_expansion": null,
+            "macd_bullish": null,
+            "macd_positive": null,
+            "volume_above_avg": null,
+            "momentum": -50,
+            "score": -1.5,
+            "score_breakdown": {
+              "very_negative_momentum": -1.5
+            },
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    }
+  }
+}
