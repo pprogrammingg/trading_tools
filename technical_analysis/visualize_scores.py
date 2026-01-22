@@ -170,22 +170,26 @@ def get_score_color(score: Optional[float]) -> Tuple[str, str]:
 
 def sort_timeframes(timeframe: str) -> Tuple[int, int]:
     """
-    Sort timeframes by period length.
+    Sort timeframes by period length: 2D, 1W, 2W, 1M, 2M, 6M
     
     Args:
-        timeframe: Timeframe string (e.g., "1W", "2M", "1Y")
+        timeframe: Timeframe string (e.g., "2D", "1W", "2M", "1Y")
         
     Returns:
         Tuple for sorting: (unit_priority, numeric_value)
     """
-    if timeframe.endswith('W'):
-        return (0, int(timeframe[:-1]))  # Weeks first
+    if timeframe == "2D":
+        return (0, 2)  # Days first
+    elif timeframe.endswith('D'):
+        return (0, int(timeframe[:-1]))  # Other days
+    elif timeframe.endswith('W'):
+        return (1, int(timeframe[:-1]))  # Weeks second
     elif timeframe.endswith('M'):
-        return (1, int(timeframe[:-1]))  # Months second
+        return (2, int(timeframe[:-1]))  # Months third
     elif timeframe.endswith('Y'):
-        return (2, int(timeframe[:-1]))  # Years third
+        return (3, int(timeframe[:-1]))  # Years fourth
     else:
-        return (3, 0)  # Unknown format last
+        return (4, 0)  # Unknown format last
 
 
 def find_results_files() -> list:

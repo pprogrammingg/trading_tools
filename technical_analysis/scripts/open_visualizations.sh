@@ -5,7 +5,8 @@
 
 # Get the directory where this script is located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd "$SCRIPT_DIR" || exit 1
+# Change to parent directory (technical_analysis root)
+cd "$SCRIPT_DIR/.." || exit 1
 
 # Check if visualizations_output directory exists
 if [ ! -d "visualizations_output" ]; then

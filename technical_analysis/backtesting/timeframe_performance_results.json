@@ -1,0 +1,25 @@
+{
+  "timestamp": "2026-01-22T13:31:26.974388",
+  "timeframe_results": {
+    "2D": {
+      "total_moves": 632,
+      "high_score_count": 327,
+      "good_score_count": 397
+    },
+    "1W": {
+      "total_moves": 565,
+      "high_score_count": 236,
+      "good_score_count": 271
+    },
+    "2W": {
+      "total_moves": 431,
+      "high_score_count": 0,
+      "good_score_count": 0
+    },
+    "1M": {
+      "total_moves": 0,
+      "high_score_count": 0,
+      "good_score_count": 0
+    }
+  }
+}

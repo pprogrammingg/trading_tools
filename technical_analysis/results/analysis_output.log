@@ -1,0 +1,1228 @@
+Using Python: ../venv/bin/python
+
+==========================================
+Step 1: Regenerating investment score data...
+==========================================
+Running: ../venv/bin/python technical_analysis.py 
+
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/indicators/predictive_indicators.py:289: RuntimeWarning: divide by zero encountered in scalar divide
+  change_pct = ((current_adx / past_adx) - 1) * 100
+============================================================
+BENCHMARKING MODE ENABLED
+⚠️  Relative potential calculation DISABLED (use --calculate-potential to enable)
+   This saves ~30-45% execution time
+============================================================
+
+Downloading gold prices (GC=F) for gold-denominated analysis...
+  ✓ Gold prices downloaded (1258 rows) (cached) [0.00s]
+
+============================================================
+Processing category: QUANTUM
+Symbols: IONQ, QTUM, QBTS, RGTI
+============================================================
+
+Processing IONQ...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing QTUM...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing QBTS...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing RGTI...
+  Fetching data... ✓ (1191 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - QUANTUM
+============================================================
+Total execution time: 0.85s (0.01 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.00s (0.5%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 0.39s (45.8%)
+  Gold conversion: 0.04s (5.0%)
+  Gold indicators: 0.38s (44.8%)
+  JSON write: 0.00s (0.5%)
+
+Slowest symbols (top 3):
+  IONQ: 0.20s
+  QTUM: 0.20s
+  QBTS: 0.18s
+
+✓ Saved results to result_scores/quantum_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+Processing category: MINER_HPC
+Symbols: MNRS, IREN, BMNR, HUT, CIFR, WULF, CORZ, BITF, CLSK, WGMI
+============================================================
+
+Processing MNRS...
+  Fetching data... ✓ (243 rows) (cached) [0.00s]
+
+Processing IREN...
+  Fetching data... ✓ (1045 rows) (cached) [0.00s]
+
+Processing BMNR...
+  Fetching data... ✓ (156 rows) (cached) [0.00s]
+
+Processing HUT...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing CIFR...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing WULF...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing CORZ...
+  Fetching data... ✓ (498 rows) (cached) [0.00s]
+
+Processing BITF...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing CLSK...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing WGMI...
+  Fetching data... ✓ (989 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - MINER_HPC
+============================================================
+Total execution time: 1.70s (0.03 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.01s (0.6%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 0.76s (44.7%)
+  Gold conversion: 0.11s (6.3%)
+  Gold indicators: 0.76s (44.7%)
+  JSON write: 0.01s (0.5%)
+
+Slowest symbols (top 3):
+  BITF: 0.19s
+  HUT: 0.18s
+  CIFR: 0.18s
+
+✓ Saved results to result_scores/miner_hpc_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+Processing category: FAANG_HOT_STOCKS
+Symbols: META, AAPL, AMZN, NFLX, GOOGL, MSFT, NVDA, TSLA, APLD, ARM, ABNB, AMD, AVGO, CRWD, QCOM, MU, WDC
+============================================================
+
+Processing META...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing AAPL...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing AMZN...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing NFLX...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing GOOGL...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing MSFT...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing NVDA...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing TSLA...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing APLD...
+  Fetching data... ✓ (944 rows) (cached) [0.00s]
+
+Processing ARM...
+  Fetching data... ✓ (588 rows) (cached) [0.00s]
+
+Processing ABNB...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing AMD...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing AVGO...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing CRWD...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing QCOM...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing MU...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing WDC...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - FAANG_HOT_STOCKS
+============================================================
+Total execution time: 3.40s (0.06 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.02s (0.6%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 1.54s (45.2%)
+  Gold conversion: 0.17s (5.0%)
+  Gold indicators: 1.57s (46.0%)
+  JSON write: 0.01s (0.4%)
+
+Slowest symbols (top 3):
+  AVGO: 0.20s
+  QCOM: 0.20s
+  AMZN: 0.20s
+
+✓ Saved results to result_scores/faang_hot_stocks_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+Processing category: TECH_STOCKS
+Symbols: TMUS, NOW, PATH, DLO, PGY
+============================================================
+
+Processing TMUS...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing NOW...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing PATH...
+  Fetching data... ✓ (1192 rows) (cached) [0.00s]
+
+Processing DLO...
+  Fetching data... ✓ (1162 rows) (cached) [0.00s]
+
+Processing PGY...
+  Fetching data... ✓ (1192 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - TECH_STOCKS
+============================================================
+Total execution time: 1.10s (0.02 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.01s (0.6%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 0.47s (42.8%)
+  Gold conversion: 0.06s (5.1%)
+  Gold indicators: 0.53s (47.8%)
+  JSON write: 0.00s (0.4%)
+
+Slowest symbols (top 3):
+  PATH: 0.25s
+  DLO: 0.20s
+  PGY: 0.19s
+
+✓ Saved results to result_scores/tech_stocks_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+Processing category: CRYPTOCURRENCIES
+Symbols: BTC-USD, ETH-USD, SOL-USD
+============================================================
+
+Processing BTC-USD...
+  Fetching data... ✓ (1827 rows) (cached) [0.00s]
+
+Processing ETH-USD...
+  Fetching data... ✓ (1827 rows) (cached) [0.00s]
+
+Processing SOL-USD...
+  Fetching data... ✓ (1827 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - CRYPTOCURRENCIES
+============================================================
+Total execution time: 0.61s (0.01 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.00s (0.6%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 0.28s (45.3%)
+  Gold conversion: 0.04s (5.8%)
+  Gold indicators: 0.27s (45.0%)
+  JSON write: 0.00s (0.6%)
+
+Slowest symbols (top 3):
+  BTC-USD: 0.18s
+  SOL-USD: 0.18s
+  ETH-USD: 0.18s
+
+✓ Saved results to result_scores/cryptocurrencies_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+Processing category: PRECIOUS_METALS
+Symbols: GC=F, SI=F, PA=F, PL=F
+============================================================
+
+Processing GC=F...
+  Fetching data... ✓ (1258 rows) (cached) [0.00s]
+
+Processing SI=F...
+  Fetching data... ✓ (1258 rows) (cached) [0.00s]
+
+Processing PA=F...
+  Fetching data... ✓ (1257 rows) (cached) [0.00s]
+
+Processing PL=F...
+  Fetching data... ✓ (1258 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - PRECIOUS_METALS
+============================================================
+Total execution time: 0.71s (0.01 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.01s (0.7%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 0.37s (51.8%)
+  Gold conversion: 0.03s (4.0%)
+  Gold indicators: 0.28s (39.8%)
+  JSON write: 0.00s (0.5%)
+
+Slowest symbols (top 3):
+  PL=F: 0.19s
+  SI=F: 0.19s
+  PA=F: 0.18s
+
+✓ Saved results to result_scores/precious_metals_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+Processing category: INDEX_ETFS
+Symbols: SPY, IWM, VTWO
+============================================================
+
+Processing SPY...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing IWM...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing VTWO...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - INDEX_ETFS
+============================================================
+Total execution time: 0.61s (0.01 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.00s (0.4%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 0.28s (46.2%)
+  Gold conversion: 0.03s (4.7%)
+  Gold indicators: 0.28s (45.6%)
+  JSON write: 0.00s (0.5%)
+
+Slowest symbols (top 3):
+  SPY: 0.19s
+  IWM: 0.19s
+  VTWO: 0.19s
+
+✓ Saved results to result_scores/index_etfs_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+Processing category: CLEAN_ENERGY_MATERIALS
+Symbols: ALB, CCJ, AEM, FCX
+============================================================
+
+Processing ALB...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing CCJ...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing AEM...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing FCX...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - CLEAN_ENERGY_MATERIALS
+============================================================
+Total execution time: 0.80s (0.01 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.00s (0.5%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 0.37s (45.8%)
+  Gold conversion: 0.04s (4.8%)
+  Gold indicators: 0.36s (45.5%)
+  JSON write: 0.00s (0.6%)
+
+Slowest symbols (top 3):
+  ALB: 0.19s
+  FCX: 0.18s
+  CCJ: 0.18s
+
+✓ Saved results to result_scores/clean_energy_materials_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+Processing category: SILVER_MINERS_ESG
+Symbols: PAAS, AG, WPM, HL, SVM
+============================================================
+
+Processing PAAS...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing AG...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing WPM...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing HL...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing SVM...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - SILVER_MINERS_ESG
+============================================================
+Total execution time: 1.04s (0.02 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.01s (0.6%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 0.48s (45.7%)
+  Gold conversion: 0.05s (4.7%)
+  Gold indicators: 0.48s (45.7%)
+  JSON write: 0.01s (0.6%)
+
+Slowest symbols (top 3):
+  AG: 0.20s
+  WPM: 0.19s
+  HL: 0.19s
+
+✓ Saved results to result_scores/silver_miners_esg_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+Processing category: RENEWABLE_ENERGY
+Symbols: ENPH, SEDG, RUN, NEE, PLUG
+============================================================
+
+Processing ENPH...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing SEDG...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing RUN...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing NEE...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing PLUG...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - RENEWABLE_ENERGY
+============================================================
+Total execution time: 1.00s (0.02 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.01s (0.7%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 0.45s (45.4%)
+  Gold conversion: 0.05s (5.0%)
+  Gold indicators: 0.46s (45.6%)
+  JSON write: 0.01s (0.6%)
+
+Slowest symbols (top 3):
+  SEDG: 0.19s
+  PLUG: 0.18s
+  NEE: 0.18s
+
+✓ Saved results to result_scores/renewable_energy_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+Processing category: BATTERY_STORAGE
+Symbols: QS, SLDP, AMSC
+============================================================
+
+Processing QS...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing SLDP...
+  Fetching data... ✓ (1173 rows) (cached) [0.00s]
+
+Processing AMSC...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - BATTERY_STORAGE
+============================================================
+Total execution time: 0.60s (0.01 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.00s (0.6%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 0.27s (45.1%)
+  Gold conversion: 0.03s (5.3%)
+  Gold indicators: 0.27s (45.5%)
+  JSON write: 0.00s (0.7%)
+
+Slowest symbols (top 3):
+  SLDP: 0.18s
+  AMSC: 0.18s
+  QS: 0.18s
+
+✓ Saved results to result_scores/battery_storage_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+Processing category: NEXT_GEN_AUTOMOTIVE
+Symbols: TSLA, NIO, LI, XPEV, RIVN, LCID, F, GM, TM
+============================================================
+
+Processing TSLA...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing NIO...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing LI...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing XPEV...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing RIVN...
+  Fetching data... ✓ (1052 rows) (cached) [0.00s]
+
+Processing LCID...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing F...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing GM...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+Processing TM...
+  Fetching data... ✓ (1256 rows) (cached) [0.00s]
+
+============================================================
+BENCHMARK SUMMARY - NEXT_GEN_AUTOMOTIVE
+============================================================
+Total execution time: 1.81s (0.03 minutes)
+
+Breakdown:
+  Gold download: 0.00s (0.0%)
+  Data downloads: 0.01s (0.8%)
+  Relative potential: 0.00s (0.0%)
+  USD indicators: 0.81s (44.5%)
+  Gold conversion: 0.11s (5.8%)
+  Gold indicators: 0.83s (45.7%)
+  JSON write: 0.01s (0.4%)
+
+Slowest symbols (top 3):
+  TM: 0.19s
+  GM: 0.19s
+  TSLA: 0.19s
+
+✓ Saved results to result_scores/next_gen_automotive_results.json
+
+Note: Results use yFinance data with two calculation methods:
+      - ta_library: Standard technical analysis library
+      - tradingview_library: TradingView-style calculations
+
+============================================================
+OVERALL SUMMARY
+============================================================
+Total time for all categories: 14.22s (0.24 minutes)
+Categories processed: 12
+  quantum: 0.85s
+  miner_hpc: 1.69s
+  faang_hot_stocks: 3.40s
+  tech_stocks: 1.10s
+  cryptocurrencies: 0.61s
+  precious_metals: 0.71s
+  index_etfs: 0.61s
+  clean_energy_materials: 0.80s
+  silver_miners_esg: 1.04s
+  renewable_energy: 1.00s
+  battery_storage: 0.60s
+  next_gen_automotive: 1.81s
+
+==========================================
+Step 2: Generating visualizations...
+==========================================
+Running: ../venv/bin/python visualize_scores.py
+
+============================================================
+VISUALIZATION BENCHMARKING
+============================================================
+Found 12 result file(s): 0.3ms
+  Loaded clean_energy_materials (4 symbols): 0.00s
+
+  Processing clean_energy_materials...
+    ✓ Generated clean_energy_materials_scores.html (8239 chars, 0.00s)
+  Loaded precious_metals (4 symbols): 0.00s
+
+  Processing precious_metals...
+    ✓ Generated precious_metals_scores.html (8237 chars, 0.00s)
+  Loaded cryptocurrencies (3 symbols): 0.00s
+
+  Processing cryptocurrencies...
+    ✓ Generated cryptocurrencies_scores.html (7230 chars, 0.00s)
+  Loaded silver_miners_esg (5 symbols): 0.00s
+
+  Processing silver_miners_esg...
+    ✓ Generated silver_miners_esg_scores.html (9243 chars, 0.00s)
+  Loaded battery_storage (3 symbols): 0.00s
+
+  Processing battery_storage...
+    ✓ Generated battery_storage_scores.html (7218 chars, 0.00s)
+  Loaded renewable_energy (5 symbols): 0.00s
+
+  Processing renewable_energy...
+    ✓ Generated renewable_energy_scores.html (9249 chars, 0.00s)
+  Loaded index_etfs (3 symbols): 0.00s
+
+  Processing index_etfs...
+    ✓ Generated index_etfs_scores.html (7205 chars, 0.00s)
+  Loaded faang_hot_stocks (17 symbols): 0.00s
+
+  Processing faang_hot_stocks...
+    ✓ Generated faang_hot_stocks_scores.html (22416 chars, 0.00s)
+  Loaded next_gen_automotive (9 symbols): 0.00s
+
+  Processing next_gen_automotive...
+    ✓ Generated next_gen_automotive_scores.html (14319 chars, 0.00s)
+  Loaded miner_hpc (10 symbols): 0.00s
+
+  Processing miner_hpc...
+    ✓ Generated miner_hpc_scores.html (14295 chars, 0.00s)
+  Loaded quantum (4 symbols): 0.00s
+
+  Processing quantum...
+    ✓ Generated quantum_scores.html (8215 chars, 0.00s)
+  Loaded tech_stocks (5 symbols): 0.00s
+
+  Processing tech_stocks...
+    ✓ Generated tech_stocks_scores.html (9235 chars, 0.00s)
+
+============================================================
+VISUALIZATION BENCHMARK SUMMARY
+============================================================
+Total time: 0.017s
+  File find: 0.3ms (1.7%)
+  JSON load: 0.01s (61.1%)
+  Processing: 0.02s (98.1%)
+============================================================
+
+✓ Created 12 visualization(s):
+  - visualizations_output/clean_energy_materials_scores.html
+  - visualizations_output/precious_metals_scores.html
+  - visualizations_output/cryptocurrencies_scores.html
+  - visualizations_output/silver_miners_esg_scores.html
+  - visualizations_output/battery_storage_scores.html
+  - visualizations_output/renewable_energy_scores.html
+  - visualizations_output/index_etfs_scores.html
+  - visualizations_output/faang_hot_stocks_scores.html
+  - visualizations_output/next_gen_automotive_scores.html
+  - visualizations_output/miner_hpc_scores.html
+  - visualizations_output/quantum_scores.html
+  - visualizations_output/tech_stocks_scores.html
+
+==========================================
+✓ Complete! Opening visualizations in browser...
+==========================================
+==========================================
+Opening 13 visualization(s) in browser...
+==========================================
+  Opening battery_storage_scores.html...
+  Opening clean_energy_materials_scores.html...
+  Opening cryptocurrencies_scores.html...
+  Opening faang_hot_stocks_scores.html...
+  Opening index_etfs_scores.html...
+  Opening miner_hpc_scores.html...
+  Opening next_gen_automotive_scores.html...
+  Opening precious_metals_scores.html...
+  Opening quantum_scores.html...
+  Opening renewable_energy_scores.html...
+  Opening scores_visualization.html...
+  Opening silver_miners_esg_scores.html...
+  Opening tech_stocks_scores.html...
+
+✓ Opened 13 file(s) in browser

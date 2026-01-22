@@ -1,0 +1,148 @@
+================================================================================
+SCORING SYSTEM OPTIMIZATION
+================================================================================
+
+Running comprehensive backtest...
+
+Analyzing results...
+
+================================================================================
+BACKTEST ANALYSIS
+================================================================================
+
+Total Explosive Moves: 700
+  High Score (>=6): 172 (24.6%)
+  Good Score (>=4): 193 (27.6%)
+  OK Score (>=2): 250 (35.7%)
+  Low Score (<2): 85 (12.1%)
+
+Average Returns by Score:
+  Ok: 109.00%
+  High: 171.59%
+  Good: 100.41%
+  Low: 129.10%
+
+Category Performance:
+  battery_storage: 75 moves, 18.7% high score, 29.3% good score
+    Avg return (high score): 380.63%
+    Avg return (good score): 157.08%
+  clean_energy_materials: 95 moves, 24.2% high score, 27.4% good score
+    Avg return (high score): 164.68%
+    Avg return (good score): 108.51%
+  cryptocurrencies: 48 moves, 41.7% high score, 20.8% good score
+    Avg return (high score): 109.41%
+    Avg return (good score): 56.71%
+  faang_hot_stocks: 31 moves, 41.9% high score, 29.0% good score
+    Avg return (high score): 40.80%
+    Avg return (good score): 32.87%
+  index_etfs: 23 moves, 91.3% high score, 8.7% good score
+    Avg return (high score): 38.15%
+    Avg return (good score): 31.60%
+  miner_hpc: 28 moves, 46.4% high score, 0.0% good score
+    Avg return (high score): 785.24%
+  next_gen_automotive: 51 moves, 29.4% high score, 19.6% good score
+    Avg return (high score): 66.51%
+    Avg return (good score): 55.14%
+  precious_metals: 97 moves, 10.3% high score, 28.9% good score
+    Avg return (high score): 66.79%
+    Avg return (good score): 66.85%
+  quantum: 70 moves, 14.3% high score, 40.0% good score
+    Avg return (high score): 132.03%
+    Avg return (good score): 173.56%
+  renewable_energy: 46 moves, 30.4% high score, 26.1% good score
+    Avg return (high score): 170.74%
+    Avg return (good score): 86.69%
+  silver_miners_esg: 101 moves, 7.9% high score, 39.6% good score
+    Avg return (high score): 82.38%
+    Avg return (good score): 87.70%
+  tech_stocks: 35 moves, 31.4% high score, 17.1% good score
+    Avg return (high score): 57.69%
+    Avg return (good score): 57.52%
+
+================================================================================
+TOP 10 BEST OPPORTUNITIES
+================================================================================
+
+1. IREN (miner_hpc)
+   Entry: 2025-04-20 00:00:00-04:00 @ $5.59
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 1025.22% in 189 days
+   Score: 9.5
+   RSI: 32.69, ADX: 30.5
+
+2. IREN (miner_hpc)
+   Entry: 2025-04-13 00:00:00-04:00 @ $5.63
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 1017.23% in 196 days
+   Score: 9.5
+   RSI: 32.08, ADX: 30.24
+
+3. IREN (miner_hpc)
+   Entry: 2025-04-06 00:00:00-04:00 @ $5.94
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 958.92% in 203 days
+   Score: 9.5
+   RSI: 35.32, ADX: 30.22
+
+4. IREN (miner_hpc)
+   Entry: 2025-03-30 00:00:00-04:00 @ $6.07
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 936.24% in 210 days
+   Score: 9.5
+   RSI: 33.33, ADX: 30.8
+
+5. IREN (miner_hpc)
+   Entry: 2025-05-04 00:00:00-04:00 @ $6.53
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 863.25% in 175 days
+   Score: 8.0
+   RSI: 26.21, ADX: 30.81
+
+6. IREN (miner_hpc)
+   Entry: 2025-04-27 00:00:00-04:00 @ $6.54
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 861.77% in 182 days
+   Score: 8.0
+   RSI: 32.52, ADX: 30.26
+
+7. IREN (miner_hpc)
+   Entry: 2025-05-11 00:00:00-04:00 @ $7.04
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 793.47% in 168 days
+   Score: 8.0
+   RSI: 36.38, ADX: 30.94
+
+8. IREN (miner_hpc)
+   Entry: 2025-03-23 00:00:00-04:00 @ $7.15
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 779.72% in 217 days
+   Score: 9.5
+   RSI: 32.91, ADX: 31.94
+
+9. IREN (miner_hpc)
+   Entry: 2025-06-01 00:00:00-04:00 @ $8.39
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 649.70% in 147 days
+   Score: 6.0
+   RSI: 36.99, ADX: 30.15
+
+10. IREN (miner_hpc)
+   Entry: 2025-05-18 00:00:00-04:00 @ $8.41
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 647.92% in 161 days
+   Score: 9.0
+   RSI: 31.2, ADX: 30.96
+
+✓ Results saved to optimized_backtest_results.json
+
+================================================================================
+OPTIMIZATION METRICS
+================================================================================
+High Score Catch Rate: 24.6%
+Good Score Catch Rate: 27.6%
+Target: 50-70% catch rate
+
+⚠️  Still below target. Consider:
+  - Adjusting explosive bottom detection thresholds
+  - Category-specific parameter tuning
+  - Additional indicator combinations

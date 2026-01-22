@@ -12,7 +12,8 @@ set -e  # Exit on error
 
 # Get the directory where this script is located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd "$SCRIPT_DIR" || exit 1
+# Change to parent directory (technical_analysis root)
+cd "$SCRIPT_DIR/.." || exit 1
 
 # Determine Python executable
 if [ -f "../venv/bin/python" ]; then
@@ -76,7 +77,7 @@ if [ -d "visualizations_output" ] && [ -n "$(ls -A visualizations_output/*.html 
     echo "✓ Complete! Opening visualizations in browser..."
     echo "=========================================="
     # Use the open_visualizations script
-    bash open_visualizations.sh
+    bash scripts/open_visualizations.sh
 else
     echo ""
     echo "Error: No HTML visualizations were created!"

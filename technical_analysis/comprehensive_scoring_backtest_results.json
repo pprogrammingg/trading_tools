@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-01-22T13:43:09.805231",
+  "market_context": {
+    "spx_gold_ratio": 1.4109001268543162,
+    "spx_gold_trend": "near_low",
+    "market_bearish": true,
+    "market_adjustment": -2.0,
+    "ratio_slope_pct": -4.700869007803595
+  },
+  "timeframe_results": {
+    "2D": {
+      "total_moves": 632,
+      "high_score_count": 28,
+      "good_score_count": 170
+    },
+    "1W": {
+      "total_moves": 565,
+      "high_score_count": 66,
+      "good_score_count": 162
+    },
+    "2W": {
+      "total_moves": 431,
+      "high_score_count": 0,
+      "good_score_count": 0
+    },
+    "1M": {
+      "total_moves": 0,
+      "high_score_count": 0,
+      "good_score_count": 0
+    }
+  }
+}

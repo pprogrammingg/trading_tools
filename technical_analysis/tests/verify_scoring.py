@@ -4,7 +4,12 @@ Verification script to check scoring logic completeness
 """
 
 import re
+import sys
+import os
 from pathlib import Path
+
+# Add parent directory to path
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def verify_scoring_components():
     """Verify all scoring components are present"""
@@ -12,7 +17,7 @@ def verify_scoring_components():
     print("SCORING COMPONENT VERIFICATION")
     print("=" * 60)
     
-    file_path = Path("technical_analysis.py")
+    file_path = Path(__file__).parent.parent / "technical_analysis.py"
     if not file_path.exists():
         print(f"❌ {file_path} not found")
         return False
@@ -96,7 +101,7 @@ def verify_imports():
     print("IMPORT VERIFICATION")
     print("=" * 60)
     
-    file_path = Path("technical_analysis.py")
+    file_path = Path(__file__).parent.parent / "technical_analysis.py"
     if not file_path.exists():
         return False
     

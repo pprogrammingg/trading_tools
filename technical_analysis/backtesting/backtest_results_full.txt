@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/Users/chemipoo/wip/scripting/trading_tools/technical_analysis/category_aware_backtest.py", line 8, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'

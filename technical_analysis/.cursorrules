@@ -1,0 +1,55 @@
+# File Organization Rules
+
+## When creating new files, always organize them in the proper directory structure:
+
+### Indicators
+- All indicator calculation modules → `indicators/`
+  - Market context analysis → `indicators/market_context.py`
+  - Pattern detection → `indicators/bottoming_structures.py`
+  - Wave analysis → `indicators/elliott_wave.py`
+  - Advanced indicators → `indicators/advanced_indicators.py`
+  - Common indicators → `indicators/indicators_common.py`
+- **Always update** `indicators/__init__.py` to export new functions
+
+### Scoring
+- All scoring logic → `scoring/`
+  - Main scoring function → `scoring/improved_scoring.py`
+  - Category optimization → `scoring/category_optimization.py`
+  - Integration layer → `scoring/scoring_integration.py`
+  - Common scoring → `scoring/scoring_common.py`
+- **Always update** `scoring/__init__.py` to export new functions
+
+### Backtesting
+- All backtest scripts → `backtesting/`
+  - Framework → `backtesting/backtest_framework.py`
+  - Specific backtests → `backtesting/[name]_backtest.py`
+  - Results → `backtesting/[name]_results.json`
+
+### Documentation
+- All documentation → `docs/`
+  - Markdown files → `docs/*.md`
+  - HTML files → `docs/*.html`
+
+### Scripts
+- All executable scripts → `scripts/`
+  - Shell scripts → `scripts/*.sh`
+  - Python scripts → `scripts/*.py`
+
+### Tests
+- All test files → `tests/`
+  - Test files → `tests/test_*.py`
+
+### Results
+- Analysis results → `result_scores/`
+- Visualizations → `visualizations_output/`
+
+## Import Path Rules
+- Use relative imports within modules: `from ..indicators import ...`
+- Use absolute imports from root: `from indicators import ...`
+- Always handle ImportError gracefully with fallbacks
+
+## File Naming
+- Use snake_case for Python files
+- Use descriptive names that indicate purpose
+- Backtest files: `[purpose]_backtest.py`
+- Indicator files: `[indicator_name].py` or `[category]_indicators.py`

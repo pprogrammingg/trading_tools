@@ -14,7 +14,8 @@ set -e  # Exit on error
 
 # Get the directory where this script is located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd "$SCRIPT_DIR" || exit 1
+# Change to parent directory (technical_analysis root)
+cd "$SCRIPT_DIR/.." || exit 1
 
 # Determine Python executable
 if [ -f "../venv/bin/python" ]; then
@@ -52,4 +53,4 @@ echo ""
 echo "=========================================="
 echo "Opening visualizations in browser..."
 echo "=========================================="
-bash open_visualizations.sh
+bash scripts/open_visualizations.sh

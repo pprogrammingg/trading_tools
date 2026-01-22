@@ -1,0 +1,756 @@
+================================================================================
+CATEGORY-AWARE PREDICTIVE SCORING BACKTEST
+================================================================================
+
+Testing on diverse uncorrelated assets by category...
+Including: BTC-USD, ETH-USD, SOL-USD for crypto validation
+
+
+CRYPTOCURRENCIES:
+  Testing BTC-USD (cryptocurrencies)...
+    ✓ 9 test points
+  Testing ETH-USD (cryptocurrencies)...
+    ✓ 9 test points
+  Testing SOL-USD (cryptocurrencies)...
+    ✓ 9 test points
+
+TECH_STOCKS:
+  Testing AAPL (tech_stocks)...
+    ✓ 8 test points
+  Testing MSFT (tech_stocks)...
+    ✓ 8 test points
+  Testing NVDA (tech_stocks)...
+    ✓ 8 test points
+  Testing GOOGL (tech_stocks)...
+    ✓ 8 test points
+  Testing META (tech_stocks)...
+    ✓ 8 test points
+
+COMMODITIES:
+  Testing GC=F (commodities)...
+    ✓ 9 test points
+  Testing SI=F (commodities)...
+    ✓ 9 test points
+  Testing CL=F (commodities)...
+    ✓ 9 test points
+  Testing PA=F (commodities)...
+    ✓ 9 test points
+
+MINING:
+  Testing AEM (mining)...
+    ✓ 8 test points
+  Testing AG (mining)...
+    ✓ 8 test points
+  Testing PAAS (mining)...
+    ✓ 8 test points
+  Testing HL (mining)...
+    ✓ 8 test points
+
+RENEWABLE_ENERGY:
+  Testing ENPH (renewable_energy)...
+    ✓ 8 test points
+  Testing SEDG (renewable_energy)...
+    ✓ 8 test points
+  Testing NEE (renewable_energy)...
+    ✓ 8 test points
+
+SEMICONDUCTORS:
+  Testing AVGO (semiconductors)...
+    ✓ 8 test points
+  Testing AMD (semiconductors)...
+    ✓ 8 test points
+  Testing QCOM (semiconductors)...
+    ✓ 8 test points
+
+INDEX_ETFS:
+  Testing SPY (index_etfs)...
+    ✓ 8 test points
+  Testing IWM (index_etfs)...
+    ✓ 8 test points
+  Testing QQQ (index_etfs)...
+    ✓ 8 test points
+
+================================================================================
+ANALYZING RESULTS BY CATEGORY...
+================================================================================
+
+================================================================================
+CATEGORY-SPECIFIC ANALYSIS
+================================================================================
+
+================================================================================
+COMMODITIES
+================================================================================
+Total test points: 36
+
+Predictive Power (Score vs Forward Returns):
+
+  10d forward:
+    Correlation: 0.213
+    Avg return (score >= 6): 6.94% (n=6)
+    Avg return (score <= 2): -0.96% (n=6)
+    Total sample: 36
+
+  20d forward:
+    Correlation: 0.141
+    Avg return (score >= 6): 15.03% (n=6)
+    Avg return (score <= 2): 3.74% (n=6)
+    Total sample: 36
+
+  30d forward:
+    Correlation: 0.069
+    Avg return (score >= 6): 32.17% (n=6)
+    Avg return (score <= 2): 13.77% (n=6)
+    Total sample: 36
+
+  5d forward:
+    Correlation: 0.066
+    Avg return (score >= 6): 2.92% (n=6)
+    Avg return (score <= 2): 1.30% (n=6)
+    Total sample: 36
+
+Indicator Effectiveness:
+
+  ADX:
+    adx_30d_return                : Avg return  31.25%, Win rate  77.8% (n=36)
+    adx_20d_return                : Avg return  14.47%, Win rate  80.6% (n=36)
+    adx_10d_return                : Avg return   6.43%, Win rate  72.2% (n=36)
+    adx_5d_return                 : Avg return   3.49%, Win rate  63.9% (n=36)
+
+  BASE:
+    base_formation_30d_return     : Avg return  31.25%, Win rate  77.8% (n=36)
+    base_formation_20d_return     : Avg return  14.47%, Win rate  80.6% (n=36)
+    base_formation_10d_return     : Avg return   6.43%, Win rate  72.2% (n=36)
+    base_formation_5d_return      : Avg return   3.49%, Win rate  63.9% (n=36)
+
+  CCI:
+    cci_30d_return                : Avg return  31.25%, Win rate  77.8% (n=36)
+    cci_20d_return                : Avg return  14.47%, Win rate  80.6% (n=36)
+    cci_10d_return                : Avg return   6.43%, Win rate  72.2% (n=36)
+    cci_5d_return                 : Avg return   3.49%, Win rate  63.9% (n=36)
+
+  MACD:
+    macd_divergence_30d_return    : Avg return  31.25%, Win rate  77.8% (n=36)
+    macd_divergence_20d_return    : Avg return  14.47%, Win rate  80.6% (n=36)
+    macd_divergence_10d_return    : Avg return   6.43%, Win rate  72.2% (n=36)
+    macd_divergence_5d_return     : Avg return   3.49%, Win rate  63.9% (n=36)
+
+  MOMENTUM:
+    momentum_30d_return           : Avg return  31.25%, Win rate  77.8% (n=36)
+    momentum_20d_return           : Avg return  14.47%, Win rate  80.6% (n=36)
+    momentum_10d_return           : Avg return   6.43%, Win rate  72.2% (n=36)
+    momentum_5d_return            : Avg return   3.49%, Win rate  63.9% (n=36)
+
+  OVEREXTENSION:
+    overextension_30d_return      : Avg return  31.25%, Win rate  77.8% (n=36)
+    overextension_20d_return      : Avg return  14.47%, Win rate  80.6% (n=36)
+    overextension_10d_return      : Avg return   6.43%, Win rate  72.2% (n=36)
+    overextension_5d_return       : Avg return   3.49%, Win rate  63.9% (n=36)
+
+  RSI:
+    rsi_30d_return                : Avg return  31.25%, Win rate  77.8% (n=36)
+    rsi_divergence_30d_return     : Avg return  31.25%, Win rate  77.8% (n=36)
+    rsi_20d_return                : Avg return  14.47%, Win rate  80.6% (n=36)
+    rsi_divergence_20d_return     : Avg return  14.47%, Win rate  80.6% (n=36)
+    rsi_10d_return                : Avg return   6.43%, Win rate  72.2% (n=36)
+
+  VOLUME:
+    volume_surge_30d_return       : Avg return  31.25%, Win rate  77.8% (n=36)
+    volume_surge_20d_return       : Avg return  14.47%, Win rate  80.6% (n=36)
+    volume_surge_10d_return       : Avg return   6.43%, Win rate  72.2% (n=36)
+    volume_surge_5d_return        : Avg return   3.49%, Win rate  63.9% (n=36)
+
+High Score (>=6) vs Low Score (<=2):
+  High score: 14.26% avg return, 79.2% win rate (n=24)
+  Low score:  4.46% avg return, 54.2% win rate (n=24)
+  Improvement: +9.80%
+
+================================================================================
+CRYPTOCURRENCIES
+================================================================================
+Total test points: 27
+
+Predictive Power (Score vs Forward Returns):
+
+  10d forward:
+    Correlation: -0.255
+    Avg return (score >= 6): -17.88% (n=8)
+    Avg return (score <= 2): -1.58% (n=4)
+    Total sample: 27
+
+  20d forward:
+    Correlation: -0.343
+    Avg return (score >= 6): 0.57% (n=8)
+    Avg return (score <= 2): 38.40% (n=4)
+    Total sample: 27
+
+  30d forward:
+    Correlation: -0.234
+    Avg return (score >= 6): 14.83% (n=8)
+    Avg return (score <= 2): 31.52% (n=4)
+    Total sample: 27
+
+  5d forward:
+    Correlation: -0.091
+    Avg return (score >= 6): -5.00% (n=8)
+    Avg return (score <= 2): 6.18% (n=4)
+    Total sample: 27
+
+Indicator Effectiveness:
+
+  ADX:
+    adx_20d_return                : Avg return  30.65%, Win rate  77.8% (n=27)
+    adx_30d_return                : Avg return  23.21%, Win rate  70.4% (n=27)
+    adx_10d_return                : Avg return   4.52%, Win rate  55.6% (n=27)
+    adx_5d_return                 : Avg return   0.76%, Win rate  48.1% (n=27)
+
+  BASE:
+    base_formation_20d_return     : Avg return  30.65%, Win rate  77.8% (n=27)
+    base_formation_30d_return     : Avg return  23.21%, Win rate  70.4% (n=27)
+    base_formation_10d_return     : Avg return   4.52%, Win rate  55.6% (n=27)
+    base_formation_5d_return      : Avg return   0.76%, Win rate  48.1% (n=27)
+
+  CCI:
+    cci_20d_return                : Avg return  30.65%, Win rate  77.8% (n=27)
+    cci_30d_return                : Avg return  23.21%, Win rate  70.4% (n=27)
+    cci_10d_return                : Avg return   4.52%, Win rate  55.6% (n=27)
+    cci_5d_return                 : Avg return   0.76%, Win rate  48.1% (n=27)
+
+  MACD:
+    macd_divergence_20d_return    : Avg return  30.65%, Win rate  77.8% (n=27)
+    macd_divergence_30d_return    : Avg return  23.21%, Win rate  70.4% (n=27)
+    macd_divergence_10d_return    : Avg return   4.52%, Win rate  55.6% (n=27)
+    macd_divergence_5d_return     : Avg return   0.76%, Win rate  48.1% (n=27)
+
+  MOMENTUM:
+    momentum_20d_return           : Avg return  30.65%, Win rate  77.8% (n=27)
+    momentum_30d_return           : Avg return  23.21%, Win rate  70.4% (n=27)
+    momentum_10d_return           : Avg return   4.52%, Win rate  55.6% (n=27)
+    momentum_5d_return            : Avg return   0.76%, Win rate  48.1% (n=27)
+
+  OVEREXTENSION:
+    overextension_20d_return      : Avg return  30.65%, Win rate  77.8% (n=27)
+    overextension_30d_return      : Avg return  23.21%, Win rate  70.4% (n=27)
+    overextension_10d_return      : Avg return   4.52%, Win rate  55.6% (n=27)
+    overextension_5d_return       : Avg return   0.76%, Win rate  48.1% (n=27)
+
+  RSI:
+    rsi_20d_return                : Avg return  30.65%, Win rate  77.8% (n=27)
+    rsi_divergence_20d_return     : Avg return  30.65%, Win rate  77.8% (n=27)
+    rsi_30d_return                : Avg return  23.21%, Win rate  70.4% (n=27)
+    rsi_divergence_30d_return     : Avg return  23.21%, Win rate  70.4% (n=27)
+    rsi_10d_return                : Avg return   4.52%, Win rate  55.6% (n=27)
+
+  VOLUME:
+    volume_surge_20d_return       : Avg return  30.65%, Win rate  77.8% (n=27)
+    volume_surge_30d_return       : Avg return  23.21%, Win rate  70.4% (n=27)
+    volume_surge_10d_return       : Avg return   4.52%, Win rate  55.6% (n=27)
+    volume_surge_5d_return        : Avg return   0.76%, Win rate  48.1% (n=27)
+
+High Score (>=6) vs Low Score (<=2):
+  High score: -1.87% avg return, 50.0% win rate (n=32)
+  Low score:  18.63% avg return, 75.0% win rate (n=16)
+  Improvement: -20.50%
+
+================================================================================
+INDEX_ETFS
+================================================================================
+Total test points: 24
+
+Predictive Power (Score vs Forward Returns):
+
+  10d forward:
+    Correlation: 0.147
+    Avg return (score >= 6): 5.24% (n=7)
+    Avg return (score <= 2): 6.29% (n=2)
+    Total sample: 24
+
+  20d forward:
+    Correlation: 0.224
+    Avg return (score >= 6): 14.88% (n=7)
+    Avg return (score <= 2): 14.43% (n=2)
+    Total sample: 24
+
+  30d forward:
+    Correlation: 0.173
+    Avg return (score >= 6): 19.70% (n=7)
+    Avg return (score <= 2): 18.37% (n=2)
+    Total sample: 24
+
+  5d forward:
+    Correlation: 0.089
+    Avg return (score >= 6): 1.89% (n=7)
+    Avg return (score <= 2): 1.37% (n=2)
+    Total sample: 24
+
+Indicator Effectiveness:
+
+  ADX:
+    adx_30d_return                : Avg return  18.26%, Win rate 100.0% (n=24)
+    adx_20d_return                : Avg return  12.28%, Win rate  87.5% (n=24)
+    adx_10d_return                : Avg return   3.61%, Win rate  62.5% (n=24)
+    adx_5d_return                 : Avg return   1.04%, Win rate  58.3% (n=24)
+
+  BASE:
+    base_formation_30d_return     : Avg return  18.26%, Win rate 100.0% (n=24)
+    base_formation_20d_return     : Avg return  12.28%, Win rate  87.5% (n=24)
+    base_formation_10d_return     : Avg return   3.61%, Win rate  62.5% (n=24)
+    base_formation_5d_return      : Avg return   1.04%, Win rate  58.3% (n=24)
+
+  CCI:
+    cci_30d_return                : Avg return  18.26%, Win rate 100.0% (n=24)
+    cci_20d_return                : Avg return  12.28%, Win rate  87.5% (n=24)
+    cci_10d_return                : Avg return   3.61%, Win rate  62.5% (n=24)
+    cci_5d_return                 : Avg return   1.04%, Win rate  58.3% (n=24)
+
+  MACD:
+    macd_divergence_30d_return    : Avg return  18.26%, Win rate 100.0% (n=24)
+    macd_divergence_20d_return    : Avg return  12.28%, Win rate  87.5% (n=24)
+    macd_divergence_10d_return    : Avg return   3.61%, Win rate  62.5% (n=24)
+    macd_divergence_5d_return     : Avg return   1.04%, Win rate  58.3% (n=24)
+
+  MOMENTUM:
+    momentum_30d_return           : Avg return  18.26%, Win rate 100.0% (n=24)
+    momentum_20d_return           : Avg return  12.28%, Win rate  87.5% (n=24)
+    momentum_10d_return           : Avg return   3.61%, Win rate  62.5% (n=24)
+    momentum_5d_return            : Avg return   1.04%, Win rate  58.3% (n=24)
+
+  OVEREXTENSION:
+    overextension_30d_return      : Avg return  18.26%, Win rate 100.0% (n=24)
+    overextension_20d_return      : Avg return  12.28%, Win rate  87.5% (n=24)
+    overextension_10d_return      : Avg return   3.61%, Win rate  62.5% (n=24)
+    overextension_5d_return       : Avg return   1.04%, Win rate  58.3% (n=24)
+
+  RSI:
+    rsi_30d_return                : Avg return  18.26%, Win rate 100.0% (n=24)
+    rsi_divergence_30d_return     : Avg return  18.26%, Win rate 100.0% (n=24)
+    rsi_20d_return                : Avg return  12.28%, Win rate  87.5% (n=24)
+    rsi_divergence_20d_return     : Avg return  12.28%, Win rate  87.5% (n=24)
+    rsi_10d_return                : Avg return   3.61%, Win rate  62.5% (n=24)
+
+  VOLUME:
+    volume_surge_30d_return       : Avg return  18.26%, Win rate 100.0% (n=24)
+    volume_surge_20d_return       : Avg return  12.28%, Win rate  87.5% (n=24)
+    volume_surge_10d_return       : Avg return   3.61%, Win rate  62.5% (n=24)
+    volume_surge_5d_return        : Avg return   1.04%, Win rate  58.3% (n=24)
+
+High Score (>=6) vs Low Score (<=2):
+  High score: 10.43% avg return, 85.7% win rate (n=28)
+  Low score:  10.12% avg return, 75.0% win rate (n=8)
+  Improvement: +0.31%
+
+================================================================================
+MINING
+================================================================================
+Total test points: 32
+
+Predictive Power (Score vs Forward Returns):
+
+  10d forward:
+    Correlation: 0.044
+    Avg return (score >= 6): 14.57% (n=11)
+    Avg return (score <= 2): 14.36% (n=6)
+    Total sample: 32
+
+  20d forward:
+    Correlation: 0.047
+    Avg return (score >= 6): 48.09% (n=11)
+    Avg return (score <= 2): 41.93% (n=6)
+    Total sample: 32
+
+  30d forward:
+    Correlation: -0.042
+    Avg return (score >= 6): 88.31% (n=11)
+    Avg return (score <= 2): 90.13% (n=6)
+    Total sample: 32
+
+  5d forward:
+    Correlation: -0.156
+    Avg return (score >= 6): 6.99% (n=11)
+    Avg return (score <= 2): 12.74% (n=6)
+    Total sample: 32
+
+Indicator Effectiveness:
+
+  ADX:
+    adx_30d_return                : Avg return  89.31%, Win rate 100.0% (n=32)
+    adx_20d_return                : Avg return  44.41%, Win rate  93.8% (n=32)
+    adx_10d_return                : Avg return  15.42%, Win rate  84.4% (n=32)
+    adx_5d_return                 : Avg return   8.64%, Win rate  78.1% (n=32)
+
+  BASE:
+    base_formation_30d_return     : Avg return  89.31%, Win rate 100.0% (n=32)
+    base_formation_20d_return     : Avg return  44.41%, Win rate  93.8% (n=32)
+    base_formation_10d_return     : Avg return  15.42%, Win rate  84.4% (n=32)
+    base_formation_5d_return      : Avg return   8.64%, Win rate  78.1% (n=32)
+
+  CCI:
+    cci_30d_return                : Avg return  89.31%, Win rate 100.0% (n=32)
+    cci_20d_return                : Avg return  44.41%, Win rate  93.8% (n=32)
+    cci_10d_return                : Avg return  15.42%, Win rate  84.4% (n=32)
+    cci_5d_return                 : Avg return   8.64%, Win rate  78.1% (n=32)
+
+  MACD:
+    macd_divergence_30d_return    : Avg return  89.31%, Win rate 100.0% (n=32)
+    macd_divergence_20d_return    : Avg return  44.41%, Win rate  93.8% (n=32)
+    macd_divergence_10d_return    : Avg return  15.42%, Win rate  84.4% (n=32)
+    macd_divergence_5d_return     : Avg return   8.64%, Win rate  78.1% (n=32)
+
+  MOMENTUM:
+    momentum_30d_return           : Avg return  89.31%, Win rate 100.0% (n=32)
+    momentum_20d_return           : Avg return  44.41%, Win rate  93.8% (n=32)
+    momentum_10d_return           : Avg return  15.42%, Win rate  84.4% (n=32)
+    momentum_5d_return            : Avg return   8.64%, Win rate  78.1% (n=32)
+
+  OVEREXTENSION:
+    overextension_30d_return      : Avg return  89.31%, Win rate 100.0% (n=32)
+    overextension_20d_return      : Avg return  44.41%, Win rate  93.8% (n=32)
+    overextension_10d_return      : Avg return  15.42%, Win rate  84.4% (n=32)
+    overextension_5d_return       : Avg return   8.64%, Win rate  78.1% (n=32)
+
+  RSI:
+    rsi_30d_return                : Avg return  89.31%, Win rate 100.0% (n=32)
+    rsi_divergence_30d_return     : Avg return  89.31%, Win rate 100.0% (n=32)
+    rsi_20d_return                : Avg return  44.41%, Win rate  93.8% (n=32)
+    rsi_divergence_20d_return     : Avg return  44.41%, Win rate  93.8% (n=32)
+    rsi_10d_return                : Avg return  15.42%, Win rate  84.4% (n=32)
+
+  VOLUME:
+    volume_surge_30d_return       : Avg return  89.31%, Win rate 100.0% (n=32)
+    volume_surge_20d_return       : Avg return  44.41%, Win rate  93.8% (n=32)
+    volume_surge_10d_return       : Avg return  15.42%, Win rate  84.4% (n=32)
+    volume_surge_5d_return        : Avg return   8.64%, Win rate  78.1% (n=32)
+
+High Score (>=6) vs Low Score (<=2):
+  High score: 39.49% avg return, 84.1% win rate (n=44)
+  Low score:  39.79% avg return, 87.5% win rate (n=24)
+  Improvement: -0.30%
+
+================================================================================
+RENEWABLE_ENERGY
+================================================================================
+Total test points: 24
+
+Predictive Power (Score vs Forward Returns):
+
+  10d forward:
+    Correlation: -0.193
+    Avg return (score >= 6): -10.44% (n=5)
+    Avg return (score <= 2): 1.59% (n=8)
+    Total sample: 24
+
+  20d forward:
+    Correlation: -0.099
+    Avg return (score >= 6): -3.18% (n=5)
+    Avg return (score <= 2): 7.41% (n=8)
+    Total sample: 24
+
+  30d forward:
+    Correlation: -0.277
+    Avg return (score >= 6): -16.43% (n=5)
+    Avg return (score <= 2): 24.92% (n=8)
+    Total sample: 24
+
+  5d forward:
+    Correlation: -0.446
+    Avg return (score >= 6): -13.56% (n=5)
+    Avg return (score <= 2): 6.75% (n=8)
+    Total sample: 24
+
+Indicator Effectiveness:
+
+  ADX:
+    adx_30d_return                : Avg return  27.36%, Win rate  66.7% (n=24)
+    adx_20d_return                : Avg return  16.88%, Win rate  62.5% (n=24)
+    adx_10d_return                : Avg return   4.54%, Win rate  41.7% (n=24)
+    adx_5d_return                 : Avg return   1.48%, Win rate  45.8% (n=24)
+
+  BASE:
+    base_formation_30d_return     : Avg return  27.36%, Win rate  66.7% (n=24)
+    base_formation_20d_return     : Avg return  16.88%, Win rate  62.5% (n=24)
+    base_formation_10d_return     : Avg return   4.54%, Win rate  41.7% (n=24)
+    base_formation_5d_return      : Avg return   1.48%, Win rate  45.8% (n=24)
+
+  CCI:
+    cci_30d_return                : Avg return  27.36%, Win rate  66.7% (n=24)
+    cci_20d_return                : Avg return  16.88%, Win rate  62.5% (n=24)
+    cci_10d_return                : Avg return   4.54%, Win rate  41.7% (n=24)
+    cci_5d_return                 : Avg return   1.48%, Win rate  45.8% (n=24)
+
+  MACD:
+    macd_divergence_30d_return    : Avg return  27.36%, Win rate  66.7% (n=24)
+    macd_divergence_20d_return    : Avg return  16.88%, Win rate  62.5% (n=24)
+    macd_divergence_10d_return    : Avg return   4.54%, Win rate  41.7% (n=24)
+    macd_divergence_5d_return     : Avg return   1.48%, Win rate  45.8% (n=24)
+
+  MOMENTUM:
+    momentum_30d_return           : Avg return  27.36%, Win rate  66.7% (n=24)
+    momentum_20d_return           : Avg return  16.88%, Win rate  62.5% (n=24)
+    momentum_10d_return           : Avg return   4.54%, Win rate  41.7% (n=24)
+    momentum_5d_return            : Avg return   1.48%, Win rate  45.8% (n=24)
+
+  OVEREXTENSION:
+    overextension_30d_return      : Avg return  27.36%, Win rate  66.7% (n=24)
+    overextension_20d_return      : Avg return  16.88%, Win rate  62.5% (n=24)
+    overextension_10d_return      : Avg return   4.54%, Win rate  41.7% (n=24)
+    overextension_5d_return       : Avg return   1.48%, Win rate  45.8% (n=24)
+
+  RSI:
+    rsi_30d_return                : Avg return  27.36%, Win rate  66.7% (n=24)
+    rsi_divergence_30d_return     : Avg return  27.36%, Win rate  66.7% (n=24)
+    rsi_20d_return                : Avg return  16.88%, Win rate  62.5% (n=24)
+    rsi_divergence_20d_return     : Avg return  16.88%, Win rate  62.5% (n=24)
+    rsi_10d_return                : Avg return   4.54%, Win rate  41.7% (n=24)
+
+  VOLUME:
+    volume_surge_30d_return       : Avg return  27.36%, Win rate  66.7% (n=24)
+    volume_surge_20d_return       : Avg return  16.88%, Win rate  62.5% (n=24)
+    volume_surge_10d_return       : Avg return   4.54%, Win rate  41.7% (n=24)
+    volume_surge_5d_return        : Avg return   1.48%, Win rate  45.8% (n=24)
+
+High Score (>=6) vs Low Score (<=2):
+  High score: -10.90% avg return, 30.0% win rate (n=20)
+  Low score:  10.17% avg return, 53.1% win rate (n=32)
+  Improvement: -21.07%
+
+================================================================================
+SEMICONDUCTORS
+================================================================================
+Total test points: 24
+
+Predictive Power (Score vs Forward Returns):
+
+  10d forward:
+    Correlation: 0.068
+    Avg return (score >= 6): 17.26% (n=3)
+    Avg return (score <= 2): 8.11% (n=6)
+    Total sample: 24
+
+  20d forward:
+    Correlation: 0.165
+    Avg return (score >= 6): 34.25% (n=3)
+    Avg return (score <= 2): 21.57% (n=6)
+    Total sample: 24
+
+  30d forward:
+    Correlation: 0.174
+    Avg return (score >= 6): 57.70% (n=3)
+    Avg return (score <= 2): 42.96% (n=6)
+    Total sample: 24
+
+  5d forward:
+    Correlation: -0.058
+    Avg return (score >= 6): 2.39% (n=3)
+    Avg return (score <= 2): 4.95% (n=6)
+    Total sample: 24
+
+Indicator Effectiveness:
+
+  ADX:
+    adx_30d_return                : Avg return  55.67%, Win rate  87.5% (n=24)
+    adx_20d_return                : Avg return  34.92%, Win rate  79.2% (n=24)
+    adx_10d_return                : Avg return  12.04%, Win rate  62.5% (n=24)
+    adx_5d_return                 : Avg return   3.36%, Win rate  50.0% (n=24)
+
+  BASE:
+    base_formation_30d_return     : Avg return  55.67%, Win rate  87.5% (n=24)
+    base_formation_20d_return     : Avg return  34.92%, Win rate  79.2% (n=24)
+    base_formation_10d_return     : Avg return  12.04%, Win rate  62.5% (n=24)
+    base_formation_5d_return      : Avg return   3.36%, Win rate  50.0% (n=24)
+
+  CCI:
+    cci_30d_return                : Avg return  55.67%, Win rate  87.5% (n=24)
+    cci_20d_return                : Avg return  34.92%, Win rate  79.2% (n=24)
+    cci_10d_return                : Avg return  12.04%, Win rate  62.5% (n=24)
+    cci_5d_return                 : Avg return   3.36%, Win rate  50.0% (n=24)
+
+  MACD:
+    macd_divergence_30d_return    : Avg return  55.67%, Win rate  87.5% (n=24)
+    macd_divergence_20d_return    : Avg return  34.92%, Win rate  79.2% (n=24)
+    macd_divergence_10d_return    : Avg return  12.04%, Win rate  62.5% (n=24)
+    macd_divergence_5d_return     : Avg return   3.36%, Win rate  50.0% (n=24)
+
+  MOMENTUM:
+    momentum_30d_return           : Avg return  55.67%, Win rate  87.5% (n=24)
+    momentum_20d_return           : Avg return  34.92%, Win rate  79.2% (n=24)
+    momentum_10d_return           : Avg return  12.04%, Win rate  62.5% (n=24)
+    momentum_5d_return            : Avg return   3.36%, Win rate  50.0% (n=24)
+
+  OVEREXTENSION:
+    overextension_30d_return      : Avg return  55.67%, Win rate  87.5% (n=24)
+    overextension_20d_return      : Avg return  34.92%, Win rate  79.2% (n=24)
+    overextension_10d_return      : Avg return  12.04%, Win rate  62.5% (n=24)
+    overextension_5d_return       : Avg return   3.36%, Win rate  50.0% (n=24)
+
+  RSI:
+    rsi_30d_return                : Avg return  55.67%, Win rate  87.5% (n=24)
+    rsi_divergence_30d_return     : Avg return  55.67%, Win rate  87.5% (n=24)
+    rsi_20d_return                : Avg return  34.92%, Win rate  79.2% (n=24)
+    rsi_divergence_20d_return     : Avg return  34.92%, Win rate  79.2% (n=24)
+    rsi_10d_return                : Avg return  12.04%, Win rate  62.5% (n=24)
+
+  VOLUME:
+    volume_surge_30d_return       : Avg return  55.67%, Win rate  87.5% (n=24)
+    volume_surge_20d_return       : Avg return  34.92%, Win rate  79.2% (n=24)
+    volume_surge_10d_return       : Avg return  12.04%, Win rate  62.5% (n=24)
+    volume_surge_5d_return        : Avg return   3.36%, Win rate  50.0% (n=24)
+
+High Score (>=6) vs Low Score (<=2):
+  High score: 27.90% avg return, 83.3% win rate (n=12)
+  Low score:  19.40% avg return, 50.0% win rate (n=24)
+  Improvement: +8.50%
+
+================================================================================
+TECH_STOCKS
+================================================================================
+Total test points: 40
+
+Predictive Power (Score vs Forward Returns):
+
+  10d forward:
+    Correlation: -0.452
+    Avg return (score >= 6): -8.61% (n=9)
+    Avg return (score <= 2): 11.27% (n=8)
+    Total sample: 40
+
+  20d forward:
+    Correlation: -0.521
+    Avg return (score >= 6): 0.58% (n=9)
+    Avg return (score <= 2): 33.39% (n=8)
+    Total sample: 40
+
+  30d forward:
+    Correlation: -0.447
+    Avg return (score >= 6): 9.37% (n=9)
+    Avg return (score <= 2): 45.89% (n=8)
+    Total sample: 40
+
+  5d forward:
+    Correlation: -0.213
+    Avg return (score >= 6): -5.41% (n=9)
+    Avg return (score <= 2): -1.13% (n=8)
+    Total sample: 40
+
+Indicator Effectiveness:
+
+  ADX:
+    adx_30d_return                : Avg return  31.67%, Win rate  92.5% (n=40)
+    adx_20d_return                : Avg return  20.87%, Win rate  80.0% (n=40)
+    adx_10d_return                : Avg return   6.66%, Win rate  62.5% (n=40)
+    adx_5d_return                 : Avg return   1.09%, Win rate  55.0% (n=40)
+
+  BASE:
+    base_formation_30d_return     : Avg return  31.67%, Win rate  92.5% (n=40)
+    base_formation_20d_return     : Avg return  20.87%, Win rate  80.0% (n=40)
+    base_formation_10d_return     : Avg return   6.66%, Win rate  62.5% (n=40)
+    base_formation_5d_return      : Avg return   1.09%, Win rate  55.0% (n=40)
+
+  CCI:
+    cci_30d_return                : Avg return  31.67%, Win rate  92.5% (n=40)
+    cci_20d_return                : Avg return  20.87%, Win rate  80.0% (n=40)
+    cci_10d_return                : Avg return   6.66%, Win rate  62.5% (n=40)
+    cci_5d_return                 : Avg return   1.09%, Win rate  55.0% (n=40)
+
+  MACD:
+    macd_divergence_30d_return    : Avg return  31.67%, Win rate  92.5% (n=40)
+    macd_divergence_20d_return    : Avg return  20.87%, Win rate  80.0% (n=40)
+    macd_divergence_10d_return    : Avg return   6.66%, Win rate  62.5% (n=40)
+    macd_divergence_5d_return     : Avg return   1.09%, Win rate  55.0% (n=40)
+
+  MOMENTUM:
+    momentum_30d_return           : Avg return  31.67%, Win rate  92.5% (n=40)
+    momentum_20d_return           : Avg return  20.87%, Win rate  80.0% (n=40)
+    momentum_10d_return           : Avg return   6.66%, Win rate  62.5% (n=40)
+    momentum_5d_return            : Avg return   1.09%, Win rate  55.0% (n=40)
+
+  OVEREXTENSION:
+    overextension_30d_return      : Avg return  31.67%, Win rate  92.5% (n=40)
+    overextension_20d_return      : Avg return  20.87%, Win rate  80.0% (n=40)
+    overextension_10d_return      : Avg return   6.66%, Win rate  62.5% (n=40)
+    overextension_5d_return       : Avg return   1.09%, Win rate  55.0% (n=40)
+
+  RSI:
+    rsi_30d_return                : Avg return  31.67%, Win rate  92.5% (n=40)
+    rsi_divergence_30d_return     : Avg return  31.67%, Win rate  92.5% (n=40)
+    rsi_20d_return                : Avg return  20.87%, Win rate  80.0% (n=40)
+    rsi_divergence_20d_return     : Avg return  20.87%, Win rate  80.0% (n=40)
+    rsi_10d_return                : Avg return   6.66%, Win rate  62.5% (n=40)
+
+  VOLUME:
+    volume_surge_30d_return       : Avg return  31.67%, Win rate  92.5% (n=40)
+    volume_surge_20d_return       : Avg return  20.87%, Win rate  80.0% (n=40)
+    volume_surge_10d_return       : Avg return   6.66%, Win rate  62.5% (n=40)
+    volume_surge_5d_return        : Avg return   1.09%, Win rate  55.0% (n=40)
+
+High Score (>=6) vs Low Score (<=2):
+  High score: -1.02% avg return, 44.4% win rate (n=36)
+  Low score:  22.35% avg return, 87.5% win rate (n=32)
+  Improvement: -23.37%
+
+================================================================================
+CATEGORY COMPARISON
+================================================================================
+
+Predictive Power by Category (20d forward returns):
+Category             Correlation  High Score Return  Low Score Return   Sample  
+--------------------------------------------------------------------------------
+commodities               0.141             15.03%                 3.74%          36
+cryptocurrencies         -0.343              0.57%                38.40%          27
+index_etfs                0.224             14.88%                14.43%          24
+mining                    0.047             48.09%                41.93%          32
+renewable_energy         -0.099             -3.18%                 7.41%          24
+semiconductors            0.165             34.25%                21.57%          24
+tech_stocks              -0.521              0.58%                33.39%          40
+
+
+Best Performing Indicators by Category:
+
+COMMODITIES:
+  rsi            :  31.25% avg return,  77.8% win rate
+  adx            :  31.25% avg return,  77.8% win rate
+  cci            :  31.25% avg return,  77.8% win rate
+
+CRYPTOCURRENCIES:
+  rsi            :  30.65% avg return,  77.8% win rate
+  adx            :  30.65% avg return,  77.8% win rate
+  cci            :  30.65% avg return,  77.8% win rate
+
+INDEX_ETFS:
+  rsi            :  18.26% avg return, 100.0% win rate
+  adx            :  18.26% avg return, 100.0% win rate
+  cci            :  18.26% avg return, 100.0% win rate
+
+MINING:
+  rsi            :  89.31% avg return, 100.0% win rate
+  adx            :  89.31% avg return, 100.0% win rate
+  cci            :  89.31% avg return, 100.0% win rate
+
+RENEWABLE_ENERGY:
+  rsi            :  27.36% avg return,  66.7% win rate
+  adx            :  27.36% avg return,  66.7% win rate
+  cci            :  27.36% avg return,  66.7% win rate
+
+SEMICONDUCTORS:
+  rsi            :  55.67% avg return,  87.5% win rate
+  adx            :  55.67% avg return,  87.5% win rate
+  cci            :  55.67% avg return,  87.5% win rate
+
+TECH_STOCKS:
+  rsi            :  31.67% avg return,  92.5% win rate
+  adx            :  31.67% avg return,  92.5% win rate
+  cci            :  31.67% avg return,  92.5% win rate
+
+✓ Detailed results saved to category_aware_backtest_results.json
+
+================================================================================
+RECOMMENDATIONS
+================================================================================
+
+Categories with strong predictive power:
+  ✓ index_etfs: Correlation 0.224
+
+Categories that may need scoring adjustments:
+  ⚠ tech_stocks: Correlation -0.521 (may need category-specific tuning)
+  ⚠ cryptocurrencies: Correlation -0.343 (may need category-specific tuning)
+  ⚠ renewable_energy: Correlation -0.099 (may need category-specific tuning)
+  ⚠ mining: Correlation 0.047 (may need category-specific tuning)

@@ -1,0 +1,372 @@
+{
+  "timestamp": "2026-01-21T21:13:17.317369",
+  "analysis": {
+    "total_moves": 597,
+    "by_category": {
+      "quantum": {
+        "total": 75,
+        "high_score": 63,
+        "good_score": 10,
+        "ok_score": 2,
+        "low_score": 0,
+        "explosive_bottom": 9,
+        "trend_continuation": 65,
+        "avg_return_high": 89.81813513079462,
+        "avg_return_good": 48.23009208509683
+      },
+      "miner_hpc": {
+        "total": 88,
+        "high_score": 86,
+        "good_score": 1,
+        "ok_score": 1,
+        "low_score": 0,
+        "explosive_bottom": 29,
+        "trend_continuation": 55,
+        "avg_return_high": 81.84406058318412,
+        "avg_return_good": 65.89742646101374
+      },
+      "faang_hot_stocks": {
+        "total": 9,
+        "high_score": 8,
+        "good_score": 1,
+        "ok_score": 0,
+        "low_score": 0,
+        "explosive_bottom": 0,
+        "trend_continuation": 8,
+        "avg_return_high": 33.74746134872461,
+        "avg_return_good": 39.130160580850124
+      },
+      "tech_stocks": {
+        "total": 56,
+        "high_score": 23,
+        "good_score": 12,
+        "ok_score": 9,
+        "low_score": 12,
+        "explosive_bottom": 8,
+        "trend_continuation": 13,
+        "avg_return_high": 51.414322736465316,
+        "avg_return_good": 44.139666174094835
+      },
+      "cryptocurrencies": {
+        "total": 31,
+        "high_score": 16,
+        "good_score": 5,
+        "ok_score": 7,
+        "low_score": 3,
+        "explosive_bottom": 8,
+        "trend_continuation": 8,
+        "avg_return_high": 42.66492507857165,
+        "avg_return_good": 69.16273971068068
+      },
+      "precious_metals": {
+        "total": 36,
+        "high_score": 27,
+        "good_score": 7,
+        "ok_score": 1,
+        "low_score": 1,
+        "explosive_bottom": 0,
+        "trend_continuation": 34,
+        "avg_return_high": 46.739461354163346,
+        "avg_return_good": 38.194999246002915
+      },
+      "clean_energy_materials": {
+        "total": 47,
+        "high_score": 24,
+        "good_score": 11,
+        "ok_score": 12,
+        "low_score": 0,
+        "explosive_bottom": 7,
+        "trend_continuation": 23,
+        "avg_return_high": 39.75272025070943,
+        "avg_return_good": 39.27716252293633
+      },
+      "silver_miners_esg": {
+        "total": 80,
+        "high_score": 60,
+        "good_score": 8,
+        "ok_score": 10,
+        "low_score": 2,
+        "explosive_bottom": 2,
+        "trend_continuation": 65,
+        "avg_return_high": 46.95763439188633,
+        "avg_return_good": 52.72266262585775
+      },
+      "renewable_energy": {
+        "total": 61,
+        "high_score": 25,
+        "good_score": 8,
+        "ok_score": 22,
+        "low_score": 6,
+        "explosive_bottom": 19,
+        "trend_continuation": 2,
+        "avg_return_high": 70.94067125888743,
+        "avg_return_good": 65.72331753881639
+      },
+      "battery_storage": {
+        "total": 63,
+        "high_score": 43,
+        "good_score": 4,
+        "ok_score": 10,
+        "low_score": 6,
+        "explosive_bottom": 7,
+        "trend_continuation": 40,
+        "avg_return_high": 82.45548011401809,
+        "avg_return_good": 54.76735813724202
+      },
+      "next_gen_automotive": {
+        "total": 51,
+        "high_score": 21,
+        "good_score": 3,
+        "ok_score": 19,
+        "low_score": 8,
+        "explosive_bottom": 11,
+        "trend_continuation": 13,
+        "avg_return_high": 47.0395466710894,
+        "avg_return_good": 39.15412106832665
+      }
+    },
+    "by_score_level": {
+      "high": {
+        "count": 396,
+        "avg_return": 66.09268017914134
+      },
+      "good": {
+        "count": 70,
+        "avg_return": 49.2333088583005
+      },
+      "ok": {
+        "count": 93,
+        "avg_return": 64.25858292391369
+      },
+      "low": {
+        "count": 38,
+        "avg_return": 68.88877455114398
+      }
+    }
+  },
+  "top_opportunities": [
+    {
+      "entry_date": "2025-05-25 00:00:00-04:00",
+      "entry_price": 3.9700000286102295,
+      "peak_date": "2025-07-20 00:00:00-04:00",
+      "peak_price": 14.640000343322754,
+      "return_pct": 268.76574906342637,
+      "days_to_peak": 56,
+      "score_at_entry": 3.0,
+      "rsi": 32.19,
+      "adx": 24.34,
+      "momentum": -23.36,
+      "breakdown": {
+        "rsi_oversold": 2.0,
+        "pi_moderate": 1.0
+      },
+      "has_explosive_bottom": false,
+      "has_continuation": false,
+      "symbol": "QS",
+      "category": "battery_storage"
+    },
+    {
+      "entry_date": "2025-06-01 00:00:00-04:00",
+      "entry_price": 4.0,
+      "peak_date": "2025-07-20 00:00:00-04:00",
+      "peak_price": 14.640000343322754,
+      "return_pct": 266.00000858306885,
+      "days_to_peak": 49,
+      "score_at_entry": 2.0,
+      "rsi": 33.23,
+      "adx": 23.62,
+      "momentum": -14.71,
+      "breakdown": {
+        "rsi_oversold": 2.0
+      },
+      "has_explosive_bottom": false,
+      "has_continuation": false,
+      "symbol": "QS",
+      "category": "battery_storage"
+    },
+    {
+      "entry_date": "2025-06-08 00:00:00-04:00",
+      "entry_price": 4.130000114440918,
+      "peak_date": "2025-07-20 00:00:00-04:00",
+      "peak_price": 14.640000343322754,
+      "return_pct": 254.47941737659212,
+      "days_to_peak": 42,
+      "score_at_entry": 0.0,
+      "rsi": 41.12,
+      "adx": 23.28,
+      "momentum": -7.81,
+      "breakdown": {},
+      "has_explosive_bottom": false,
+      "has_continuation": false,
+      "symbol": "QS",
+      "category": "battery_storage"
+    },
+    {
+      "entry_date": "2025-06-22 00:00:00-04:00",
+      "entry_price": 4.289999961853027,
+      "peak_date": "2025-07-20 00:00:00-04:00",
+      "peak_price": 14.640000343322754,
+      "return_pct": 241.25875229609878,
+      "days_to_peak": 28,
+      "score_at_entry": 0.0,
+      "rsi": 48.85,
+      "adx": 23.27,
+      "momentum": -5.51,
+      "breakdown": {},
+      "has_explosive_bottom": false,
+      "has_continuation": false,
+      "symbol": "QS",
+      "category": "battery_storage"
+    },
+    {
+      "entry_date": "2025-06-15 00:00:00-04:00",
+      "entry_price": 4.340000152587891,
+      "peak_date": "2025-07-20 00:00:00-04:00",
+      "peak_price": 14.640000343322754,
+      "return_pct": 237.3271849908368,
+      "days_to_peak": 35,
+      "score_at_entry": 0.0,
+      "rsi": 47.76,
+      "adx": 23.35,
+      "momentum": -0.46,
+      "breakdown": {},
+      "has_explosive_bottom": false,
+      "has_continuation": false,
+      "symbol": "QS",
+      "category": "battery_storage"
+    },
+    {
+      "entry_date": "2025-08-17 00:00:00-04:00",
+      "entry_price": 5.210000038146973,
+      "peak_date": "2025-10-12 00:00:00-04:00",
+      "peak_price": 16.969999313354492,
+      "return_pct": 225.7197541094485,
+      "days_to_peak": 56,
+      "score_at_entry": 11.8,
+      "rsi": 64.16,
+      "adx": 42.69,
+      "momentum": 34.97,
+      "breakdown": {
+        "trend_continuation_strong": 2.5,
+        "trend_continuation_very_strong": 1.5,
+        "trend_continuation_momentum": 1.0,
+        "price_above_ema50": 0.5,
+        "price_above_ema200": 1.0,
+        "adx_very_strong": 2.0,
+        "very_strong_momentum": 1.0,
+        "volume_building": 2.2
+      },
+      "has_explosive_bottom": false,
+      "has_continuation": true,
+      "symbol": "CIFR",
+      "category": "miner_hpc"
+    },
+    {
+      "entry_date": "2025-08-24 00:00:00-04:00",
+      "entry_price": 14.819999694824219,
+      "peak_date": "2025-10-19 00:00:00-04:00",
+      "peak_price": 46.380001068115234,
+      "return_pct": 212.9554792387285,
+      "days_to_peak": 56,
+      "score_at_entry": 7.6,
+      "rsi": 56.93,
+      "adx": 49.97,
+      "momentum": 5.71,
+      "breakdown": {
+        "trend_continuation_strong": 2.0,
+        "trend_continuation_very_strong": 1.1,
+        "trend_continuation_momentum": 1.0,
+        "trend_continuation_healthy_rsi": 1.0,
+        "price_above_ema50": 0.5,
+        "price_above_ema200": 1.0,
+        "adx_rising_very_strong": 1.9,
+        "overextension": -0.9
+      },
+      "has_explosive_bottom": false,
+      "has_continuation": true,
+      "symbol": "RGTI",
+      "category": "quantum"
+    },
+    {
+      "entry_date": "2025-08-10 00:00:00-04:00",
+      "entry_price": 4.75,
+      "peak_date": "2025-10-05 00:00:00-04:00",
+      "peak_price": 14.699999809265137,
+      "return_pct": 209.4736801950555,
+      "days_to_peak": 56,
+      "score_at_entry": 11.8,
+      "rsi": 60.46,
+      "adx": 43.65,
+      "momentum": 50,
+      "breakdown": {
+        "trend_continuation_strong": 2.5,
+        "trend_continuation_very_strong": 1.5,
+        "trend_continuation_momentum": 1.0,
+        "price_above_ema50": 0.5,
+        "price_above_ema200": 1.0,
+        "adx_very_strong": 2.0,
+        "very_strong_momentum": 1.0,
+        "volume_building": 2.2
+      },
+      "has_explosive_bottom": false,
+      "has_continuation": true,
+      "symbol": "CIFR",
+      "category": "miner_hpc"
+    },
+    {
+      "entry_date": "2025-09-07 00:00:00-04:00",
+      "entry_price": 15.100000381469727,
+      "peak_date": "2025-10-19 00:00:00-04:00",
+      "peak_price": 46.380001068115234,
+      "return_pct": 207.15231719484854,
+      "days_to_peak": 42,
+      "score_at_entry": 8.6,
+      "rsi": 57.52,
+      "adx": 51.37,
+      "momentum": 33.87,
+      "breakdown": {
+        "trend_continuation_strong": 2.0,
+        "trend_continuation_very_strong": 1.1,
+        "trend_continuation_momentum": 1.0,
+        "trend_continuation_healthy_rsi": 1.0,
+        "price_above_ema50": 0.5,
+        "price_above_ema200": 1.0,
+        "adx_rising_very_strong": 1.9,
+        "very_strong_momentum": 1.0,
+        "overextension": -0.9
+      },
+      "has_explosive_bottom": false,
+      "has_continuation": true,
+      "symbol": "RGTI",
+      "category": "quantum"
+    },
+    {
+      "entry_date": "2025-08-17 00:00:00-04:00",
+      "entry_price": 19.690000534057617,
+      "peak_date": "2025-10-12 00:00:00-04:00",
+      "peak_price": 59.77000045776367,
+      "return_pct": 203.55509820520342,
+      "days_to_peak": 56,
+      "score_at_entry": 9.2,
+      "rsi": 81.04,
+      "adx": 60.99,
+      "momentum": 50,
+      "breakdown": {
+        "trend_continuation_strong": 2.5,
+        "trend_continuation_very_strong": 1.5,
+        "trend_continuation_momentum": 1.0,
+        "rsi_overbought": -2.0,
+        "price_above_ema50": 0.5,
+        "price_above_ema200": 1.0,
+        "adx_rising_very_strong": 2.5,
+        "very_strong_momentum": 1.0,
+        "volume_building": 2.2,
+        "overextension": -1.0
+      },
+      "has_explosive_bottom": false,
+      "has_continuation": true,
+      "symbol": "IREN",
+      "category": "miner_hpc"
+    }
+  ]
+}

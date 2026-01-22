@@ -1,0 +1,169 @@
+================================================================================
+EXPLOSIVE MOVES BACKTEST
+Testing PI Indicator and Scoring System
+================================================================================
+
+QUANTUM:
+  Testing IONQ (quantum)...
+    ✓ Found 26 explosive move(s)
+  Testing QTUM (quantum)...
+    ✓ Found 16 explosive move(s)
+
+MINER_HPC:
+  Testing MNRS (miner_hpc)...
+    ✗ No explosive moves found (>30% within 60 days)
+  Testing IREN (miner_hpc)...
+    ✓ Found 28 explosive move(s)
+
+FAANG_HOT_STOCKS:
+  Testing META (faang_hot_stocks)...
+    ✓ Found 8 explosive move(s)
+  Testing AAPL (faang_hot_stocks)...
+    ✓ Found 18 explosive move(s)
+
+TECH_STOCKS:
+  Testing TMUS (tech_stocks)...
+    ✗ No explosive moves found (>30% within 60 days)
+  Testing NOW (tech_stocks)...
+    ✓ Found 4 explosive move(s)
+
+CRYPTOCURRENCIES:
+  Testing BTC-USD (cryptocurrencies)...
+    ✓ Found 8 explosive move(s)
+  Testing ETH-USD (cryptocurrencies)...
+    ✓ Found 19 explosive move(s)
+
+PRECIOUS_METALS:
+  Testing GC=F (precious_metals)...
+    ✓ Found 26 explosive move(s)
+  Testing SI=F (precious_metals)...
+    ✓ Found 35 explosive move(s)
+
+INDEX_ETFS:
+  Testing SPY (index_etfs)...
+    ✓ Found 3 explosive move(s)
+  Testing IWM (index_etfs)...
+    ✓ Found 10 explosive move(s)
+
+CLEAN_ENERGY_MATERIALS:
+  Testing ALB (clean_energy_materials)...
+    ✓ Found 35 explosive move(s)
+  Testing CCJ (clean_energy_materials)...
+    ✓ Found 34 explosive move(s)
+
+SILVER_MINERS_ESG:
+  Testing PAAS (silver_miners_esg)...
+    ✓ Found 35 explosive move(s)
+  Testing AG (silver_miners_esg)...
+    ✓ Found 35 explosive move(s)
+
+RENEWABLE_ENERGY:
+  Testing ENPH (renewable_energy)...
+    ✗ No explosive moves found (>30% within 60 days)
+  Testing SEDG (renewable_energy)...
+    ✓ Found 23 explosive move(s)
+
+BATTERY_STORAGE:
+  Testing QS (battery_storage)...
+    ✓ Found 27 explosive move(s)
+  Testing SLDP (battery_storage)...
+    ✓ Found 29 explosive move(s)
+
+NEXT_GEN_AUTOMOTIVE:
+  Testing TSLA (next_gen_automotive)...
+    ✓ Found 25 explosive move(s)
+  Testing NIO (next_gen_automotive)...
+    ✓ Found 22 explosive move(s)
+
+================================================================================
+ANALYSIS
+================================================================================
+Total Explosive Moves: 466
+Moves with High Score (>=6): 0 (0.0%)
+Moves with Good Score (>=4): 11 (2.4%)
+
+================================================================================
+TOP 10 BEST BUY OPPORTUNITIES
+================================================================================
+
+1. IREN (miner_hpc)
+   Entry: 2025-04-20 00:00:00-04:00 @ $5.59
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 1025.22% in 189 days
+   Score: 1.5
+   PI: None
+   RSI: 32.69, ADX: 30.5
+
+2. IREN (miner_hpc)
+   Entry: 2025-04-13 00:00:00-04:00 @ $5.63
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 1017.23% in 196 days
+   Score: 1.5
+   PI: None
+   RSI: 32.08, ADX: 30.24
+
+3. IREN (miner_hpc)
+   Entry: 2025-04-06 00:00:00-04:00 @ $5.94
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 958.92% in 203 days
+   Score: 1.5
+   PI: None
+   RSI: 35.32, ADX: 30.22
+
+4. IREN (miner_hpc)
+   Entry: 2025-03-30 00:00:00-04:00 @ $6.07
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 936.24% in 210 days
+   Score: 1.5
+   PI: None
+   RSI: 33.33, ADX: 30.8
+
+5. IREN (miner_hpc)
+   Entry: 2025-05-04 00:00:00-04:00 @ $6.53
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 863.25% in 175 days
+   Score: 4.5
+   PI: None
+   RSI: 26.21, ADX: 30.81
+
+6. IREN (miner_hpc)
+   Entry: 2025-04-27 00:00:00-04:00 @ $6.54
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 861.77% in 182 days
+   Score: 2.5
+   PI: None
+   RSI: 32.52, ADX: 30.26
+
+7. IREN (miner_hpc)
+   Entry: 2025-05-11 00:00:00-04:00 @ $7.04
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 793.47% in 168 days
+   Score: 2.5
+   PI: None
+   RSI: 36.39, ADX: 30.94
+
+8. IREN (miner_hpc)
+   Entry: 2025-03-23 00:00:00-04:00 @ $7.15
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 779.72% in 217 days
+   Score: 2.5
+   PI: None
+   RSI: 32.91, ADX: 31.94
+
+9. IREN (miner_hpc)
+   Entry: 2025-06-01 00:00:00-04:00 @ $8.39
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 649.70% in 147 days
+   Score: 2.5
+   PI: None
+   RSI: 36.99, ADX: 30.15
+
+10. IREN (miner_hpc)
+   Entry: 2025-05-18 00:00:00-04:00 @ $8.41
+   Peak: 2025-10-26 00:00:00-04:00 @ $62.90
+   Return: 647.92% in 161 days
+   Score: 2.5
+   PI: None
+   RSI: 31.2, ADX: 30.96
+
+✓ Results saved to explosive_moves_results.json

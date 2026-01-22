@@ -17,6 +17,25 @@ import numpy as np
 from tradingview_indicators import RSI, ema, sma
 from ta.trend import SMAIndicator
 
+# Import predictive indicators
+try:
+    from indicators.predictive_indicators import (
+        detect_rsi_divergence, detect_macd_divergence,
+        detect_volume_surge, detect_consolidation_base,
+        detect_volatility_compression, detect_adx_trend
+    )
+    PREDICTIVE_INDICATORS_AVAILABLE = True
+except ImportError:
+    try:
+        from predictive_indicators import (
+            detect_rsi_divergence, detect_macd_divergence,
+            detect_volume_surge, detect_consolidation_base,
+            detect_volatility_compression, detect_adx_trend
+        )
+        PREDICTIVE_INDICATORS_AVAILABLE = True
+    except ImportError:
+        PREDICTIVE_INDICATORS_AVAILABLE = False
+
 # Data source: yFinance only
 
 # ======================================================
@@ -58,6 +77,7 @@ PRECIOUS_METALS = [
 SYMBOLS = TECH_STOCKS + CRYPTOCURRENCIES + PRECIOUS_METALS
 
 TIMEFRAMES = {
+    "2D": "2D",      # 2 calendar days
     "1W": "7D",      # 7 calendar days (not trading days)
     "2W": "14D",     # 14 calendar days
     "1M": "30D",     # 30 calendar days
@@ -322,7 +342,7 @@ def compute_stochrsi_tv(rsi_values, k_period=3, d_period=3, stoch_period=14):
     
     return stoch_k, stoch_d
 
-def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = False):
+def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = False, timeframe: str = "1W", market_context: dict = None):
     """
     Compute indicators using tradingview-indicators library (TradingView-style calculations)
     
@@ -413,43 +433,77 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
     # === ADX (Average Directional Index) - Measure trend strength FIRST ===
     # ADX is calculated before RSI to make RSI context-aware
     adx_value = None
+    adx_series_stored = None
     if len(df) >= 14:  # ADX needs at least 14 periods
         try:
             adx_indicator = ADXIndicator(high, low, close, window=14)
-            adx_series = adx_indicator.adx()
-            if len(adx_series) > 0 and not pd.isna(adx_series.iloc[-1]):
-                adx_value = adx_series.iloc[-1]
+            adx_series_stored = adx_indicator.adx()
+            if len(adx_series_stored) > 0 and not pd.isna(adx_series_stored.iloc[-1]):
+                adx_value = adx_series_stored.iloc[-1]
                 result["adx"] = round(adx_value, 2)
                 result["adx_strong_trend"] = bool(adx_value > 25)
         except:
             pass
     
     # === RSI (Context-aware: reduce weight when strong trend detected) ===
+    # CATEGORY-SPECIFIC: Crypto and tech stocks show mean-reversion (invert RSI logic)
+    is_crypto = category == "cryptocurrencies"
+    is_tech_stock = category in ["tech_stocks", "faang_hot_stocks", "semiconductors"]
+    use_mean_reversion = is_crypto or is_tech_stock
+    
     if len(close) >= INDICATOR_WINDOWS["rsi"]:
         rsi_values = RSI(close, INDICATOR_WINDOWS["rsi"])
         rsi_value = rsi_values.iloc[-1]
         result["rsi"] = round(rsi_value, 2)
         
         # If ADX shows strong trend, RSI signals are less reliable (trend-following > mean-reverting)
-        # Reduce RSI weight when ADX > 25 (strong trend)
-        rsi_multiplier = 0.5 if (adx_value is not None and adx_value > 25) else 1.0
+        # BUT: For crypto/tech, mean-reversion works better, so don't reduce weight
+        rsi_multiplier = 0.5 if (adx_value is not None and adx_value > 25 and not use_mean_reversion) else 1.0
         
-        if rsi_value < 30:
-            score_add = 2 * rsi_multiplier
-            result["score"] += score_add
-            result["score_breakdown"]["rsi_oversold"] = round(score_add, 1)
-        elif rsi_value < 40:
-            score_add = 1 * rsi_multiplier
-            result["score"] += score_add
-            result["score_breakdown"]["rsi_slightly_oversold"] = round(score_add, 1)
-        elif rsi_value > 70:
-            score_sub = 2 * rsi_multiplier
-            result["score"] -= score_sub
-            result["score_breakdown"]["rsi_overbought"] = round(-score_sub, 1)
-        elif rsi_value > 65:
-            score_sub = 1 * rsi_multiplier
-            result["score"] -= score_sub
-            result["score_breakdown"]["rsi_approaching_overbought"] = round(-score_sub, 1)
+        if use_mean_reversion:
+            # MEAN REVERSION LOGIC (Crypto/Tech): Overbought = good entry, Oversold = bad
+            if rsi_value > 75:  # Very overbought = mean reversion opportunity
+                score_add = 1.5 * rsi_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["rsi_overbought_mean_reversion"] = round(score_add, 1)
+            elif rsi_value > 70:  # Overbought = potential entry
+                score_add = 1 * rsi_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["rsi_overbought_mean_reversion"] = round(score_add, 1)
+            elif rsi_value < 30:  # Oversold = avoid (may continue down)
+                score_sub = 1.5 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_oversold_avoid"] = round(-score_sub, 1)
+            elif rsi_value < 40:  # Slightly oversold = caution
+                score_sub = 0.5 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_slightly_oversold_avoid"] = round(-score_sub, 1)
+        else:
+            # TREND-FOLLOWING LOGIC (Commodities/ETFs): Standard RSI interpretation
+            if rsi_value < 30:
+                score_add = 2 * rsi_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["rsi_oversold"] = round(score_add, 1)
+            elif rsi_value < 40:
+                score_add = 1 * rsi_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["rsi_slightly_oversold"] = round(score_add, 1)
+            elif rsi_value > 80:  # Extreme overbought
+                score_sub = 3 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_extreme_overbought"] = round(-score_sub, 1)
+            elif rsi_value > 75:  # Very overbought
+                score_sub = 2.5 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_very_overbought"] = round(-score_sub, 1)
+            elif rsi_value > 70:  # Overbought
+                score_sub = 2 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_overbought"] = round(-score_sub, 1)
+            elif rsi_value > 65:  # Approaching overbought
+                score_sub = 1 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_approaching_overbought"] = round(-score_sub, 1)
     
     # === CCI (Commodity Channel Index) - Better for commodities than RSI ===
     if len(df) >= 20:  # CCI typically uses 20 periods
@@ -582,18 +636,39 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
             result["score"] -= 1
             result["score_breakdown"]["negative_momentum"] = -1
 
-    # === ADX Trend Strength Scoring ===
+    # === ADX Trend Strength Scoring (Improved: Detect Rising vs Falling) ===
     if result["adx"] is not None:
+        adx_trend = None
+        if PREDICTIVE_INDICATORS_AVAILABLE and adx_series_stored is not None:
+            adx_trend = detect_adx_trend(adx_series_stored, periods=5)
+        
         if result["adx"] > 30:  # Very strong trend
-            result["score"] += 2
-            result["score_breakdown"]["adx_very_strong_trend"] = 2
+            if adx_trend == 'rising':
+                result["score"] += 2.5  # Bonus for rising ADX
+                result["score_breakdown"]["adx_very_strong_trend_rising"] = 2.5
+            elif adx_trend == 'falling':
+                result["score"] += 1  # Penalty for falling ADX (trend weakening)
+                result["score_breakdown"]["adx_very_strong_trend_falling"] = 1
+            else:
+                result["score"] += 2
+                result["score_breakdown"]["adx_very_strong_trend"] = 2
         elif result["adx"] > 25:  # Strong trend
-            result["score"] += 1.5
-            result["score_breakdown"]["adx_strong_trend"] = 1.5
+            if adx_trend == 'rising':
+                result["score"] += 2  # Bonus for rising ADX (trend starting)
+                result["score_breakdown"]["adx_strong_trend_rising"] = 2
+            elif adx_trend == 'falling':
+                result["score"] += 0.5  # Reduced score for falling ADX
+                result["score_breakdown"]["adx_strong_trend_falling"] = 0.5
+            else:
+                result["score"] += 1.5
+                result["score_breakdown"]["adx_strong_trend"] = 1.5
         elif result["adx"] < 20:  # Weak trend / choppy market
             # In weak trends, reduce confidence in trend-following signals
             # Don't penalize, but note that trend signals are less reliable
             pass
+        elif result["adx"] >= 20 and adx_trend == 'rising':  # ADX rising from low (20-25) = early trend
+            result["score"] += 1.5  # Early trend detection bonus
+            result["score_breakdown"]["adx_rising_from_low"] = 1.5
     
     # === Score additions from price vs Moving Averages / GMMA conditions ===
     # NOTE: Using only EMAs for scoring to avoid double-counting with SMAs
@@ -629,6 +704,155 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
     if result["4w_low"] is not None and close.iloc[-1] <= result["4w_low"]:
         result["score"] += 1
         result["score_breakdown"]["at_4w_low"] = 1
+    
+    # === Overextension Penalty (Price too far above EMA50) ===
+    # This catches stocks like AEM (38% above) and AG (88% above) that have already moved
+    # CATEGORY-SPECIFIC: Crypto can stay extended longer (reduce penalty)
+    if result["ema50"] is not None and current_price > result["ema50"]:
+        price_extension_pct = ((current_price / result["ema50"]) - 1) * 100
+        
+        # Determine category-specific multiplier
+        # Check which function we're in by checking which variables exist
+        try:
+            # Try second function variables first
+            crypto_flag = is_crypto_2
+            tech_flag = is_tech_stock_2
+        except NameError:
+            # Fall back to first function variables
+            crypto_flag = is_crypto
+            tech_flag = is_tech_stock
+        
+        # Crypto: Reduce overextension penalty (crypto can stay extended)
+        if crypto_flag:
+            extension_multiplier = 0.5  # 50% reduction
+        elif tech_flag:
+            extension_multiplier = 0.75  # 25% reduction
+        else:
+            extension_multiplier = 1.0  # Full penalty
+        
+        if price_extension_pct > 100:  # Price > 100% above EMA50 (doubled)
+            penalty = -3 * extension_multiplier
+            result["score"] += penalty
+            result["score_breakdown"]["price_extreme_overextension"] = round(penalty, 1)
+        elif price_extension_pct > 50:  # Price > 50% above EMA50
+            penalty = -2 * extension_multiplier
+            result["score"] += penalty
+            result["score_breakdown"]["price_major_overextension"] = round(penalty, 1)
+        elif price_extension_pct > 30:  # Price > 30% above EMA50
+            penalty = -1 * extension_multiplier
+            result["score"] += penalty
+            result["score_breakdown"]["price_moderate_overextension"] = round(penalty, 1)
+    
+    # === Multiple Overbought Penalty ===
+    # If both RSI and CCI are overbought, additional penalty
+    overbought_count = 0
+    if result.get("rsi") is not None and result["rsi"] > 70:
+        overbought_count += 1
+    if result.get("cci") is not None and result["cci"] > 100:
+        overbought_count += 1
+    if overbought_count >= 2:  # Both RSI and CCI overbought
+        result["score"] -= 1
+        result["score_breakdown"]["multiple_overbought_penalty"] = -1
+    
+    # === 52-Week High Proximity Penalty (Resistance Risk) ===
+    # If price is very close to 52-week high, resistance risk increases
+    if len(close) >= 252:  # ~1 year of trading days
+        year_high = close[-252:].max()
+        distance_from_high_pct = ((year_high - current_price) / year_high) * 100
+        if distance_from_high_pct < 2:  # Within 2% of 52-week high
+            result["score"] -= 1.5
+            result["score_breakdown"]["near_52w_high_resistance"] = -1.5
+        elif distance_from_high_pct < 5:  # Within 5% of 52-week high
+            result["score"] -= 1
+            result["score_breakdown"]["close_to_52w_high"] = -1
+    
+    # === Predictive Indicators: Divergence Detection ===
+    if PREDICTIVE_INDICATORS_AVAILABLE:
+        # RSI Divergence Detection
+        if result.get("rsi") is not None and len(close) >= 20:
+            try:
+                rsi_values = RSI(close, INDICATOR_WINDOWS["rsi"])
+                rsi_divergence = detect_rsi_divergence(close, rsi_values, lookback=20)
+                if rsi_divergence == 'bearish_divergence':
+                    result["score"] -= 1.5
+                    result["score_breakdown"]["rsi_bearish_divergence"] = -1.5
+                elif rsi_divergence == 'bullish_divergence':
+                    result["score"] += 1.5
+                    result["score_breakdown"]["rsi_bullish_divergence"] = 1.5
+            except:
+                pass
+        
+        # MACD Divergence Detection
+        if len(close) >= 26:
+            try:
+                ema12 = ema(close, 12)
+                ema26 = ema(close, 26)
+                macd_line = ema12 - ema26
+                macd_divergence = detect_macd_divergence(close, macd_line, lookback=20)
+                if macd_divergence == 'bearish_divergence':
+                    result["score"] -= 1
+                    result["score_breakdown"]["macd_bearish_divergence"] = -1
+                elif macd_divergence == 'bullish_divergence':
+                    result["score"] += 1
+                    result["score_breakdown"]["macd_bullish_divergence"] = 1
+            except:
+                pass
+        
+        # Volume Surge Detection (accumulation before breakout)
+        # CATEGORY-SPECIFIC: More important for crypto (2x weight)
+        if len(volume) >= 20:
+            try:
+                volume_surge = detect_volume_surge(volume, lookback=20, surge_threshold=1.5)
+                if volume_surge:
+                    volume_bonus = 2.0 if is_crypto_2 else 1.0  # Double weight for crypto
+                    result["score"] += volume_bonus
+                    result["score_breakdown"]["volume_surge_accumulation"] = volume_bonus
+            except:
+                pass
+        
+        # Consolidation Base Detection (setup for breakout)
+        if len(close) >= 20:
+            try:
+                base_pattern = detect_consolidation_base(close, lookback=20, tightness_threshold=0.05)
+                if base_pattern == 'tight_base':
+                    result["score"] += 1
+                    result["score_breakdown"]["tight_base_formation"] = 1
+                elif base_pattern == 'ascending_base':
+                    result["score"] += 1.5
+                    result["score_breakdown"]["ascending_base_formation"] = 1.5
+                elif base_pattern == 'flat_base':
+                    result["score"] += 0.5
+                    result["score_breakdown"]["flat_base_formation"] = 0.5
+            except:
+                pass
+        
+        # Volatility Compression Detection (Bollinger Band Squeeze)
+        if result.get("atr") is not None and len(close) >= 20:
+            try:
+                # Calculate ATR series for compression detection
+                tr1 = high - low
+                tr2 = abs(high - close.shift(1))
+                tr3 = abs(low - close.shift(1))
+                tr = pd.concat([tr1, tr2, tr3], axis=1).max(axis=1)
+                atr_values = tr.rolling(window=INDICATOR_WINDOWS["atr"]).mean()
+                if len(atr_values) >= 20:
+                    volatility_compression = detect_volatility_compression(atr_values, lookback=20)
+                    if volatility_compression:
+                        result["score"] += 1
+                        result["score_breakdown"]["volatility_compression"] = 1
+            except:
+                pass
+    
+    # Apply improved scoring with explosive bottom detection
+    try:
+        from scoring.scoring_integration import apply_improved_scoring
+        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context)
+    except ImportError:
+        try:
+            from scoring_integration import apply_improved_scoring
+            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context)
+        except ImportError:
+            pass  # Fall back to original scoring if improved scoring not available
 
     return result
 
@@ -637,7 +861,7 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
 # NOTE: Using yFinance data with ta library calculations
 # ======================================================
 
-def compute_indicators_with_score(df, category: str = None, is_gold_denominated: bool = False):
+def compute_indicators_with_score(df, category: str = None, is_gold_denominated: bool = False, timeframe: str = "1W", market_context: dict = None):
     """
     Compute indicators using ta library with scoring.
     
@@ -724,43 +948,77 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
     # === ADX (Average Directional Index) - Measure trend strength FIRST ===
     # ADX is calculated before RSI to make RSI context-aware
     adx_value = None
+    adx_series_stored = None
     if len(df) >= 14:  # ADX needs at least 14 periods
         try:
             adx_indicator = ADXIndicator(high, low, close, window=14)
-            adx_series = adx_indicator.adx()
-            if len(adx_series) > 0 and not pd.isna(adx_series.iloc[-1]):
-                adx_value = adx_series.iloc[-1]
+            adx_series_stored = adx_indicator.adx()
+            if len(adx_series_stored) > 0 and not pd.isna(adx_series_stored.iloc[-1]):
+                adx_value = adx_series_stored.iloc[-1]
                 result["adx"] = round(adx_value, 2)
                 result["adx_strong_trend"] = bool(adx_value > 25)
         except:
             pass
 
     # === RSI (Context-aware: reduce weight when strong trend detected) ===
+    # CATEGORY-SPECIFIC: Crypto and tech stocks show mean-reversion (invert RSI logic)
+    is_crypto_2 = category == "cryptocurrencies"
+    is_tech_stock_2 = category in ["tech_stocks", "faang_hot_stocks", "semiconductors"]
+    use_mean_reversion_2 = is_crypto_2 or is_tech_stock_2
+    
     if len(close) >= INDICATOR_WINDOWS["rsi"]:
         rsi = RSIIndicator(close, INDICATOR_WINDOWS["rsi"]).rsi()
         rsi_value = rsi.iloc[-1]
         result["rsi"] = round(rsi_value, 2)
         
         # If ADX shows strong trend, RSI signals are less reliable (trend-following > mean-reverting)
-        # Reduce RSI weight when ADX > 25 (strong trend)
-        rsi_multiplier = 0.5 if (adx_value is not None and adx_value > 25) else 1.0
+        # BUT: For crypto/tech, mean-reversion works better, so don't reduce weight
+        rsi_multiplier = 0.5 if (adx_value is not None and adx_value > 25 and not use_mean_reversion_2) else 1.0
         
-        if rsi_value < 30:
-            score_add = 2 * rsi_multiplier
-            result["score"] += score_add
-            result["score_breakdown"]["rsi_oversold"] = round(score_add, 1)
-        elif rsi_value < 40:
-            score_add = 1 * rsi_multiplier
-            result["score"] += score_add
-            result["score_breakdown"]["rsi_slightly_oversold"] = round(score_add, 1)
-        elif rsi_value > 70:
-            score_sub = 2 * rsi_multiplier
-            result["score"] -= score_sub
-            result["score_breakdown"]["rsi_overbought"] = round(-score_sub, 1)
-        elif rsi_value > 65:
-            score_sub = 1 * rsi_multiplier
-            result["score"] -= score_sub
-            result["score_breakdown"]["rsi_approaching_overbought"] = round(-score_sub, 1)
+        if use_mean_reversion_2:
+            # MEAN REVERSION LOGIC (Crypto/Tech): Overbought = good entry, Oversold = bad
+            if rsi_value > 75:  # Very overbought = mean reversion opportunity
+                score_add = 1.5 * rsi_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["rsi_overbought_mean_reversion"] = round(score_add, 1)
+            elif rsi_value > 70:  # Overbought = potential entry
+                score_add = 1 * rsi_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["rsi_overbought_mean_reversion"] = round(score_add, 1)
+            elif rsi_value < 30:  # Oversold = avoid (may continue down)
+                score_sub = 1.5 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_oversold_avoid"] = round(-score_sub, 1)
+            elif rsi_value < 40:  # Slightly oversold = caution
+                score_sub = 0.5 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_slightly_oversold_avoid"] = round(-score_sub, 1)
+        else:
+            # TREND-FOLLOWING LOGIC (Commodities/ETFs): Standard RSI interpretation
+            if rsi_value < 30:
+                score_add = 2 * rsi_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["rsi_oversold"] = round(score_add, 1)
+            elif rsi_value < 40:
+                score_add = 1 * rsi_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["rsi_slightly_oversold"] = round(score_add, 1)
+            elif rsi_value > 80:  # Extreme overbought
+                score_sub = 3 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_extreme_overbought"] = round(-score_sub, 1)
+            elif rsi_value > 75:  # Very overbought
+                score_sub = 2.5 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_very_overbought"] = round(-score_sub, 1)
+            elif rsi_value > 70:  # Overbought
+                score_sub = 2 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_overbought"] = round(-score_sub, 1)
+            elif rsi_value > 65:  # Approaching overbought
+                score_sub = 1 * rsi_multiplier
+                result["score"] -= score_sub
+                result["score_breakdown"]["rsi_approaching_overbought"] = round(-score_sub, 1)
     
     # === CCI (Commodity Channel Index) - Better for commodities than RSI ===
     if len(df) >= 20:  # CCI typically uses 20 periods
@@ -774,6 +1032,12 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
                 if cci_value < -100:  # Oversold recovery
                     result["score"] += 1.5
                     result["score_breakdown"]["cci_oversold_recovery"] = 1.5
+                elif cci_value > 200:  # Extreme overbought
+                    result["score"] -= 3
+                    result["score_breakdown"]["cci_extreme_overbought"] = -3
+                elif cci_value > 150:  # Very overbought
+                    result["score"] -= 2.5
+                    result["score_breakdown"]["cci_very_overbought"] = -2.5
                 elif cci_value > 100:  # Overbought
                     result["score"] -= 1.5
                     result["score_breakdown"]["cci_overbought"] = -1.5
@@ -887,18 +1151,50 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
             result["score"] -= 1
             result["score_breakdown"]["negative_momentum"] = -1
 
-    # === ADX Trend Strength Scoring ===
+    # === ADX Trend Strength Scoring (Improved: Detect Rising vs Falling) ===
+    # CATEGORY-SPECIFIC: Crypto/tech show mean-reversion, so ADX less reliable
     if result["adx"] is not None:
+        adx_trend = None
+        if PREDICTIVE_INDICATORS_AVAILABLE and adx_series_stored is not None:
+            adx_trend = detect_adx_trend(adx_series_stored, periods=5)
+        
+        # Reduce ADX weight for crypto/tech (mean-reversion works better)
+        adx_multiplier = 0.5 if use_mean_reversion_2 else 1.0
+        
         if result["adx"] > 30:  # Very strong trend
-            result["score"] += 2
-            result["score_breakdown"]["adx_very_strong_trend"] = 2
+            if adx_trend == 'rising':
+                score_add = 2.5 * adx_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["adx_very_strong_trend_rising"] = round(score_add, 1)
+            elif adx_trend == 'falling':
+                score_add = 1 * adx_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["adx_very_strong_trend_falling"] = round(score_add, 1)
+            else:
+                score_add = 2 * adx_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["adx_very_strong_trend"] = round(score_add, 1)
         elif result["adx"] > 25:  # Strong trend
-            result["score"] += 1.5
-            result["score_breakdown"]["adx_strong_trend"] = 1.5
+            if adx_trend == 'rising':
+                score_add = 2 * adx_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["adx_strong_trend_rising"] = round(score_add, 1)
+            elif adx_trend == 'falling':
+                score_add = 0.5 * adx_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["adx_strong_trend_falling"] = round(score_add, 1)
+            else:
+                score_add = 1.5 * adx_multiplier
+                result["score"] += score_add
+                result["score_breakdown"]["adx_strong_trend"] = round(score_add, 1)
         elif result["adx"] < 20:  # Weak trend / choppy market
             # In weak trends, reduce confidence in trend-following signals
             # Don't penalize, but note that trend signals are less reliable
             pass
+        elif result["adx"] >= 20 and adx_trend == 'rising':  # ADX rising from low (20-25) = early trend
+            score_add = 1.5 * adx_multiplier
+            result["score"] += score_add
+            result["score_breakdown"]["adx_rising_from_low"] = round(score_add, 1)
 
     # === Score additions from price vs Moving Averages / GMMA conditions ===
     # NOTE: Using only EMAs for scoring to avoid double-counting with SMAs
@@ -935,6 +1231,67 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
         result["score"] += 1
         result["score_breakdown"]["at_4w_low"] = 1
     
+    # === Overextension Penalty (Price too far above EMA50) ===
+    # This catches stocks like AEM (38% above) and AG (88% above) that have already moved
+    # CATEGORY-SPECIFIC: Crypto can stay extended longer (reduce penalty)
+    if result["ema50"] is not None and current_price > result["ema50"]:
+        price_extension_pct = ((current_price / result["ema50"]) - 1) * 100
+        
+        # Determine category-specific multiplier
+        # Check which function we're in by checking which variables exist
+        try:
+            # Try second function variables first
+            crypto_flag = is_crypto_2
+            tech_flag = is_tech_stock_2
+        except NameError:
+            # Fall back to first function variables
+            crypto_flag = is_crypto
+            tech_flag = is_tech_stock
+        
+        # Crypto: Reduce overextension penalty (crypto can stay extended)
+        if crypto_flag:
+            extension_multiplier = 0.5  # 50% reduction
+        elif tech_flag:
+            extension_multiplier = 0.75  # 25% reduction
+        else:
+            extension_multiplier = 1.0  # Full penalty
+        
+        if price_extension_pct > 100:  # Price > 100% above EMA50 (doubled)
+            penalty = -3 * extension_multiplier
+            result["score"] += penalty
+            result["score_breakdown"]["price_extreme_overextension"] = round(penalty, 1)
+        elif price_extension_pct > 50:  # Price > 50% above EMA50
+            penalty = -2 * extension_multiplier
+            result["score"] += penalty
+            result["score_breakdown"]["price_major_overextension"] = round(penalty, 1)
+        elif price_extension_pct > 30:  # Price > 30% above EMA50
+            penalty = -1 * extension_multiplier
+            result["score"] += penalty
+            result["score_breakdown"]["price_moderate_overextension"] = round(penalty, 1)
+    
+    # === Multiple Overbought Penalty ===
+    # If both RSI and CCI are overbought, additional penalty
+    overbought_count = 0
+    if result.get("rsi") is not None and result["rsi"] > 70:
+        overbought_count += 1
+    if result.get("cci") is not None and result["cci"] > 100:
+        overbought_count += 1
+    if overbought_count >= 2:  # Both RSI and CCI overbought
+        result["score"] -= 1
+        result["score_breakdown"]["multiple_overbought_penalty"] = -1
+    
+    # === 52-Week High Proximity Penalty (Resistance Risk) ===
+    # If price is very close to 52-week high, resistance risk increases
+    if len(close) >= 252:  # ~1 year of trading days
+        year_high = close[-252:].max()
+        distance_from_high_pct = ((year_high - current_price) / year_high) * 100
+        if distance_from_high_pct < 2:  # Within 2% of 52-week high
+            result["score"] -= 1.5
+            result["score_breakdown"]["near_52w_high_resistance"] = -1.5
+        elif distance_from_high_pct < 5:  # Within 5% of 52-week high
+            result["score"] -= 1
+            result["score_breakdown"]["close_to_52w_high"] = -1
+    
     # === Conflict Detection ===
     # Penalize conflicting signals (e.g., overbought RSI with strong momentum)
     if result.get("rsi") is not None and result.get("momentum") is not None:
@@ -944,6 +1301,88 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
         elif result["rsi"] < 30 and result["momentum"] < -15:
             result["score"] += 0.5  # Oversold + extreme negative momentum = potential reversal
             result["score_breakdown"]["oversold_reversal_potential"] = 0.5
+    
+    # === Predictive Indicators: Divergence Detection ===
+    if PREDICTIVE_INDICATORS_AVAILABLE:
+        # RSI Divergence Detection
+        if result.get("rsi") is not None and len(close) >= 20:
+            try:
+                rsi = RSIIndicator(close, INDICATOR_WINDOWS["rsi"]).rsi()
+                rsi_divergence = detect_rsi_divergence(close, rsi, lookback=20)
+                if rsi_divergence == 'bearish_divergence':
+                    result["score"] -= 1.5
+                    result["score_breakdown"]["rsi_bearish_divergence"] = -1.5
+                elif rsi_divergence == 'bullish_divergence':
+                    result["score"] += 1.5
+                    result["score_breakdown"]["rsi_bullish_divergence"] = 1.5
+            except:
+                pass
+        
+        # MACD Divergence Detection
+        if len(close) >= 26:
+            try:
+                macd = MACD(close)
+                macd_line = macd.macd()
+                macd_divergence = detect_macd_divergence(close, macd_line, lookback=20)
+                if macd_divergence == 'bearish_divergence':
+                    result["score"] -= 1
+                    result["score_breakdown"]["macd_bearish_divergence"] = -1
+                elif macd_divergence == 'bullish_divergence':
+                    result["score"] += 1
+                    result["score_breakdown"]["macd_bullish_divergence"] = 1
+            except:
+                pass
+        
+        # Volume Surge Detection (accumulation before breakout)
+        # CATEGORY-SPECIFIC: More important for crypto (2x weight)
+        if len(volume) >= 20:
+            try:
+                volume_surge = detect_volume_surge(volume, lookback=20, surge_threshold=1.5)
+                if volume_surge:
+                    volume_bonus = 2.0 if is_crypto_2 else 1.0  # Double weight for crypto
+                    result["score"] += volume_bonus
+                    result["score_breakdown"]["volume_surge_accumulation"] = volume_bonus
+            except:
+                pass
+        
+        # Consolidation Base Detection (setup for breakout)
+        if len(close) >= 20:
+            try:
+                base_pattern = detect_consolidation_base(close, lookback=20, tightness_threshold=0.05)
+                if base_pattern == 'tight_base':
+                    result["score"] += 1
+                    result["score_breakdown"]["tight_base_formation"] = 1
+                elif base_pattern == 'ascending_base':
+                    result["score"] += 1.5
+                    result["score_breakdown"]["ascending_base_formation"] = 1.5
+                elif base_pattern == 'flat_base':
+                    result["score"] += 0.5
+                    result["score_breakdown"]["flat_base_formation"] = 0.5
+            except:
+                pass
+        
+        # Volatility Compression Detection (Bollinger Band Squeeze)
+        if result.get("atr") is not None and len(close) >= 20:
+            try:
+                atr = AverageTrueRange(high, low, close, INDICATOR_WINDOWS["atr"]).average_true_range()
+                if len(atr) >= 20:
+                    volatility_compression = detect_volatility_compression(atr, lookback=20)
+                    if volatility_compression:
+                        result["score"] += 1
+                        result["score_breakdown"]["volatility_compression"] = 1
+            except:
+                pass
+    
+    # Apply improved scoring with explosive bottom detection
+    try:
+        from scoring.scoring_integration import apply_improved_scoring
+        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context)
+    except ImportError:
+        try:
+            from scoring_integration import apply_improved_scoring
+            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context)
+        except ImportError:
+            pass  # Fall back to original scoring if improved scoring not available
 
     return result
 
@@ -1166,10 +1605,23 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
                 results[symbol][label]["yfinance"] = {"error": "No data after resampling"}
                 continue
             
+            # Get market context (once per category, cached)
+            if not hasattr(process_category, '_market_context'):
+                try:
+                    from indicators.market_context import get_market_context
+                    process_category._market_context = get_market_context()
+                except:
+                    process_category._market_context = None
+            
+            market_context = process_category._market_context if hasattr(process_category, '_market_context') else None
+            
             # Calculate indicators for USD-denominated prices
             indicators_start = time.time()
-            indicators_ta_usd = compute_indicators_with_score(df_usd, category=category_name, is_gold_denominated=False)
-            indicators_tv_usd = compute_indicators_tv(df_usd, category=category_name, is_gold_denominated=False)
+            # Store timeframe and market_context for improved_scoring to access
+            compute_indicators_with_score._current_timeframe = label
+            compute_indicators_with_score._current_market_context = market_context
+            indicators_ta_usd = compute_indicators_with_score(df_usd, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context)
+            indicators_tv_usd = compute_indicators_tv(df_usd, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context)
             timings['symbols'][symbol]['timeframes'][label]['indicators_usd'] = time.time() - indicators_start
             
             # Add relative potential to indicators (same for all timeframes, calculated from full data)
@@ -1188,8 +1640,8 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
                 
                 if len(df_gold) > 0:
                     gold_indicators_start = time.time()
-                    indicators_ta_gold = compute_indicators_with_score(df_gold, category=category_name, is_gold_denominated=True)
-                    indicators_tv_gold = compute_indicators_tv(df_gold, category=category_name, is_gold_denominated=True)
+                    indicators_ta_gold = compute_indicators_with_score(df_gold, category=category_name, is_gold_denominated=True, timeframe=label, market_context=market_context)
+                    indicators_tv_gold = compute_indicators_tv(df_gold, category=category_name, is_gold_denominated=True, timeframe=label, market_context=market_context)
                     timings['symbols'][symbol]['timeframes'][label]['indicators_gold'] = time.time() - gold_indicators_start
                     # Calculate relative potential for gold terms too (if enabled)
                     if calculate_potential:

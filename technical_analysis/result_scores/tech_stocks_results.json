@@ -1,5 +1,195 @@
 {
   "TMUS": {
+    "2D": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 27.86,
+            "atr": 5.286,
+            "atr_pct": 2.84,
+            "close": 186.32,
+            "ema50": 210.0186,
+            "ema200": 219.1792,
+            "sma50": 211.1864,
+            "sma200": 232.9669,
+            "4w_low": 186.32,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -6.55,
+            "adx": 30.31,
+            "adx_strong_trend": true,
+            "cci": -222.65,
+            "obv": 111746400,
+            "obv_trending_up": false,
+            "acc_dist": 133076146.35,
+            "acc_dist_trending_up": false,
+            "score": 0.4,
+            "score_breakdown": {
+              "rsi_oversold_avoid": -1.5,
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "adx_very_strong_trend": 1.0,
+              "death_cross": -1.5,
+              "volume_surge_accumulation": 1.0,
+              "flat_base_formation": 0.5,
+              "volume_building": 2.2,
+              "volume_surge_consolidation": 1.5,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 33.316781695633004,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 27.86,
+            "atr": 4.6714,
+            "atr_pct": 2.51,
+            "close": 186.32,
+            "ema50": 210.0186,
+            "ema200": 219.1835,
+            "sma50": 211.1864,
+            "sma200": 232.9669,
+            "4w_low": 186.32,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -6.55,
+            "adx": 30.31,
+            "adx_strong_trend": true,
+            "cci": -222.65,
+            "obv": 111746400,
+            "obv_trending_up": false,
+            "acc_dist": 133076146.35,
+            "acc_dist_trending_up": false,
+            "score": 0.4,
+            "score_breakdown": {
+              "rsi_oversold_avoid": -1.5,
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "adx_very_strong_trend": 2,
+              "death_cross": -1.5,
+              "flat_base_formation": 0.5,
+              "volume_building": 2.2,
+              "volume_surge_consolidation": 1.5,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 33.316781695633004,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 25.0,
+            "atr": 0.0016,
+            "atr_pct": 3.87,
+            "close": 0.0405,
+            "ema50": 0.0511,
+            "ema200": 0.0659,
+            "sma50": 0.0507,
+            "sma200": 0.0721,
+            "4w_low": 0.0405,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -11.59,
+            "adx": 39.57,
+            "adx_strong_trend": true,
+            "cci": -173.9,
+            "obv": -267131200,
+            "obv_trending_up": false,
+            "acc_dist": 133076146.35,
+            "acc_dist_trending_up": false,
+            "score": 5.1,
+            "score_breakdown": {
+              "rsi_oversold_avoid": -1.5,
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "negative_momentum": -1,
+              "adx_very_strong_trend": 1.0,
+              "death_cross": -1.5,
+              "volume_surge_accumulation": 1.0,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_volatility": 1.0,
+              "explosive_bottom_volume": 1.5,
+              "adx_very_strong": 1.0,
+              "volume_building": 2.2,
+              "volume_surge_consolidation": 1.5,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 33.087383675444556,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 25.0,
+            "atr": 0.0014,
+            "atr_pct": 3.52,
+            "close": 0.0405,
+            "ema50": 0.0511,
+            "ema200": 0.0659,
+            "sma50": 0.0507,
+            "sma200": 0.0721,
+            "4w_low": 0.0405,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -11.59,
+            "adx": 39.57,
+            "adx_strong_trend": true,
+            "cci": -173.9,
+            "obv": -267131200,
+            "obv_trending_up": false,
+            "acc_dist": 133076146.35,
+            "acc_dist_trending_up": false,
+            "score": 5.1,
+            "score_breakdown": {
+              "rsi_oversold_avoid": -1.5,
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "negative_momentum": -1,
+              "adx_very_strong_trend": 2,
+              "death_cross": -1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_volatility": 1.0,
+              "explosive_bottom_volume": 1.5,
+              "adx_very_strong": 1.0,
+              "volume_building": 2.2,
+              "volume_surge_consolidation": 1.5,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 33.087383675444556,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
     "1W": {
       "yfinance": {
         "usd": {
@@ -26,14 +216,20 @@
             "obv_trending_up": false,
             "acc_dist": 393253347.97,
             "acc_dist_trending_up": false,
-            "score": 3.5,
+            "score": 2.6,
             "score_breakdown": {
-              "rsi_slightly_oversold": 0.5,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5,
-              "golden_cross": 1.5
+              "adx_strong_trend_rising": 1.0,
+              "golden_cross": 1.5,
+              "rsi_bullish_divergence": 1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 18.721895736216336,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -64,15 +260,21 @@
             "obv_trending_up": false,
             "acc_dist": 393253347.97,
             "acc_dist_trending_up": false,
-            "score": 4.5,
+            "score": 2.6,
             "score_breakdown": {
-              "rsi_slightly_oversold": 0.5,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5,
+              "adx_strong_trend_rising": 2,
               "price_above_ema200": 1,
-              "golden_cross": 1.5
+              "golden_cross": 1.5,
+              "rsi_bullish_divergence": 1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 18.721895736216336,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -105,15 +307,21 @@
             "obv_trending_up": false,
             "acc_dist": 393253347.97,
             "acc_dist_trending_up": false,
-            "score": 1.5,
+            "score": 4.1,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5,
+              "adx_strong_trend_rising": 1.0,
               "death_cross": -1.5,
-              "oversold_reversal_potential": 0.5
+              "oversold_reversal_potential": 0.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 31.57071287015894,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -144,14 +352,20 @@
             "obv_trending_up": false,
             "acc_dist": 393253347.97,
             "acc_dist_trending_up": false,
-            "score": 1.0,
+            "score": 4.1,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5,
-              "death_cross": -1.5
+              "adx_strong_trend_rising": 2,
+              "death_cross": -1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 31.57071287015894,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -171,7 +385,7 @@
             "atr_pct": 8.53,
             "close": 186.32,
             "ema50": 210.3035,
-            "ema200": null,
+            "ema200": 166.86,
             "sma50": 214.8952,
             "sma200": null,
             "4w_low": 186.32,
@@ -188,13 +402,19 @@
             "obv_trending_up": false,
             "acc_dist": 409744043.87,
             "acc_dist_trending_up": false,
-            "score": 2.5,
+            "score": 5.2,
             "score_breakdown": {
-              "rsi_slightly_oversold": 0.5,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2
+              "adx_very_strong_trend": 1.0,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 4.008463161859473,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -208,7 +428,7 @@
             "atr_pct": 8.35,
             "close": 186.32,
             "ema50": 210.2327,
-            "ema200": null,
+            "ema200": 166.86,
             "sma50": 214.8952,
             "sma200": null,
             "4w_low": 186.32,
@@ -225,13 +445,19 @@
             "obv_trending_up": false,
             "acc_dist": 409744043.87,
             "acc_dist_trending_up": false,
-            "score": 2.5,
+            "score": 5.2,
             "score_breakdown": {
-              "rsi_slightly_oversold": 0.5,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2
+              "adx_very_strong_trend": 2,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 4.008463161859473,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -247,7 +473,7 @@
             "atr_pct": 13.53,
             "close": 0.0405,
             "ema50": 0.0678,
-            "ema200": null,
+            "ema200": 0.07,
             "sma50": 0.0722,
             "sma200": null,
             "4w_low": 0.0405,
@@ -264,13 +490,21 @@
             "obv_trending_up": false,
             "acc_dist": 409744043.87,
             "acc_dist_trending_up": false,
-            "score": 2.5,
+            "score": 5.2,
             "score_breakdown": {
-              "rsi_oversold": 2.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "oversold_reversal_potential": 0.5
+              "adx_rising_from_low": 0.8,
+              "oversold_reversal_potential": 0.5,
+              "rsi_bearish_divergence": -1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 3.570367099260313,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -284,7 +518,7 @@
             "atr_pct": 12.6,
             "close": 0.0405,
             "ema50": 0.0678,
-            "ema200": null,
+            "ema200": 0.07,
             "sma50": 0.0722,
             "sma200": null,
             "4w_low": 0.0405,
@@ -301,12 +535,20 @@
             "obv_trending_up": false,
             "acc_dist": 409744043.87,
             "acc_dist_trending_up": false,
-            "score": 2.0,
+            "score": 5.2,
             "score_breakdown": {
-              "rsi_oversold": 2.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
-              "very_negative_momentum": -1.5
+              "very_negative_momentum": -1.5,
+              "adx_rising_from_low": 1.5,
+              "rsi_bearish_divergence": -1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 3.570367099260313,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -326,7 +568,7 @@
             "atr_pct": 11.85,
             "close": 186.32,
             "ema50": 186.1323,
-            "ema200": null,
+            "ema200": 145.18,
             "sma50": 175.107,
             "sma200": null,
             "4w_low": 186.32,
@@ -343,12 +585,19 @@
             "obv_trending_up": false,
             "acc_dist": 323542235.61,
             "acc_dist_trending_up": false,
-            "score": 1.0,
+            "score": 5.2,
             "score_breakdown": {
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2,
-              "price_above_ema50": 0.5
+              "adx_very_strong_trend_falling": 0.5,
+              "price_above_ema50": 0.5,
+              "trend_continuation_strong": 2.0,
+              "trend_continuation_very_strong": 0.8,
+              "price_above_ema200": 1.0,
+              "adx_very_strong": 1.0,
+              "pi_high": 2.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 99.99160947966234,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -362,7 +611,7 @@
             "atr_pct": 14.69,
             "close": 186.32,
             "ema50": 179.361,
-            "ema200": null,
+            "ema200": 145.18,
             "sma50": 175.107,
             "sma200": null,
             "4w_low": 186.32,
@@ -379,12 +628,19 @@
             "obv_trending_up": false,
             "acc_dist": 323542235.61,
             "acc_dist_trending_up": false,
-            "score": 1.0,
+            "score": 5.2,
             "score_breakdown": {
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2,
-              "price_above_ema50": 0.5
+              "adx_very_strong_trend_falling": 1,
+              "price_above_ema50": 0.5,
+              "trend_continuation_strong": 2.0,
+              "trend_continuation_very_strong": 0.8,
+              "price_above_ema200": 1.0,
+              "adx_very_strong": 1.0,
+              "pi_high": 2.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 99.99160947966234,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -400,7 +656,7 @@
             "atr_pct": 20.97,
             "close": 0.0405,
             "ema50": 0.0711,
-            "ema200": null,
+            "ema200": 0.07,
             "sma50": 0.0734,
             "sma200": null,
             "4w_low": 0.0405,
@@ -417,13 +673,18 @@
             "obv_trending_up": false,
             "acc_dist": 323542235.61,
             "acc_dist_trending_up": false,
-            "score": 2.5,
+            "score": 4.7,
             "score_breakdown": {
-              "rsi_oversold": 2.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "oversold_reversal_potential": 0.5
+              "oversold_reversal_potential": 0.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "adx_strong": 0.8,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.009438978564739405,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -437,7 +698,7 @@
             "atr_pct": 24.1,
             "close": 0.0405,
             "ema50": 0.0706,
-            "ema200": null,
+            "ema200": 0.07,
             "sma50": 0.0734,
             "sma200": null,
             "4w_low": 0.0405,
@@ -454,12 +715,17 @@
             "obv_trending_up": false,
             "acc_dist": 323542235.61,
             "acc_dist_trending_up": false,
-            "score": 2.0,
+            "score": 4.7,
             "score_breakdown": {
-              "rsi_oversold": 2.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
-              "very_negative_momentum": -1.5
+              "very_negative_momentum": -1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "adx_strong": 0.8,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.009438978564739405,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -496,11 +762,11 @@
             "obv_trending_up": false,
             "acc_dist": 408708537.97,
             "acc_dist_trending_up": false,
-            "score": 5.0,
+            "score": 0,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "strong_momentum": 0.5,
-              "adx_very_strong_trend": 2,
+              "adx_very_strong_trend_rising": 1.2,
               "gmma_bullish": 2
             },
             "relative_potential": {
@@ -533,11 +799,11 @@
             "obv_trending_up": false,
             "acc_dist": 408708537.97,
             "acc_dist_trending_up": false,
-            "score": 5.0,
+            "score": 0,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "strong_momentum": 0.5,
-              "adx_very_strong_trend": 2,
+              "adx_very_strong_trend_rising": 2.5,
               "gmma_bullish": 2
             },
             "relative_potential": {
@@ -572,9 +838,9 @@
             "obv_trending_up": false,
             "acc_dist": 408708537.97,
             "acc_dist_trending_up": false,
-            "score": 1.0,
+            "score": 0,
             "score_breakdown": {
-              "rsi_slightly_oversold": 1.0,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5
             },
@@ -608,9 +874,9 @@
             "obv_trending_up": false,
             "acc_dist": 408708537.97,
             "acc_dist_trending_up": false,
-            "score": 1.0,
+            "score": 0,
             "score_breakdown": {
-              "rsi_slightly_oversold": 1.0,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5
             },
@@ -650,7 +916,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": 3,
+            "score": 0,
             "score_breakdown": {
               "very_strong_momentum": 1,
               "gmma_bullish": 2
@@ -685,7 +951,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": 1,
+            "score": 0,
             "score_breakdown": {
               "very_strong_momentum": 1
             },
@@ -721,7 +987,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -755,7 +1021,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -771,6 +1037,206 @@
     }
   },
   "NOW": {
+    "2D": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 19.24,
+            "atr": 6.1703,
+            "atr_pct": 4.85,
+            "close": 127.31,
+            "ema50": 163.3713,
+            "ema200": 174.5703,
+            "sma50": 167.7714,
+            "sma200": 187.0206,
+            "4w_low": 127.31,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -18.64,
+            "adx": 40.86,
+            "adx_strong_trend": true,
+            "cci": -189.67,
+            "obv": 351793000,
+            "obv_trending_up": false,
+            "acc_dist": 206294550.23,
+            "acc_dist_trending_up": false,
+            "score": 4.1,
+            "score_breakdown": {
+              "rsi_oversold_avoid": -1.5,
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "very_negative_momentum": -1.5,
+              "adx_very_strong_trend_rising": 1.2,
+              "death_cross": -1.5,
+              "at_4w_low": 1,
+              "oversold_reversal_potential": 0.5,
+              "volume_surge_accumulation": 1.0,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_volume": 1.5,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 32.48561996290989,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 19.24,
+            "atr": 5.5794,
+            "atr_pct": 4.38,
+            "close": 127.31,
+            "ema50": 163.3713,
+            "ema200": 174.5712,
+            "sma50": 167.7714,
+            "sma200": 187.0206,
+            "4w_low": 127.31,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -18.64,
+            "adx": 40.86,
+            "adx_strong_trend": true,
+            "cci": -189.67,
+            "obv": 351793000,
+            "obv_trending_up": false,
+            "acc_dist": 206294550.23,
+            "acc_dist_trending_up": false,
+            "score": 4.1,
+            "score_breakdown": {
+              "rsi_oversold_avoid": -1.5,
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "very_negative_momentum": -1.5,
+              "adx_very_strong_trend_rising": 2.5,
+              "death_cross": -1.5,
+              "at_4w_low": 1,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_volume": 1.5,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 32.48561996290989,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 17.92,
+            "atr": 0.0016,
+            "atr_pct": 5.78,
+            "close": 0.0277,
+            "ema50": 0.0398,
+            "ema200": 0.0528,
+            "sma50": 0.0403,
+            "sma200": 0.0583,
+            "4w_low": 0.0277,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -23.03,
+            "adx": 40.04,
+            "adx_strong_trend": true,
+            "cci": -164.74,
+            "obv": -298956200,
+            "obv_trending_up": false,
+            "acc_dist": 206294550.23,
+            "acc_dist_trending_up": false,
+            "score": 5.4,
+            "score_breakdown": {
+              "rsi_oversold_avoid": -1.5,
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "very_negative_momentum": -1.5,
+              "adx_very_strong_trend_rising": 1.2,
+              "death_cross": -1.5,
+              "oversold_reversal_potential": 0.5,
+              "volume_surge_accumulation": 1.0,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_volume": 1.5,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 42.8661402971136,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 17.92,
+            "atr": 0.0015,
+            "atr_pct": 5.24,
+            "close": 0.0277,
+            "ema50": 0.0398,
+            "ema200": 0.0528,
+            "sma50": 0.0403,
+            "sma200": 0.0583,
+            "4w_low": 0.0277,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -23.03,
+            "adx": 40.04,
+            "adx_strong_trend": true,
+            "cci": -164.74,
+            "obv": -298956200,
+            "obv_trending_up": false,
+            "acc_dist": 206294550.23,
+            "acc_dist_trending_up": false,
+            "score": 5.4,
+            "score_breakdown": {
+              "rsi_oversold_avoid": -1.5,
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "very_negative_momentum": -1.5,
+              "adx_very_strong_trend_rising": 2.5,
+              "death_cross": -1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_volume": 1.5,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 42.8661402971136,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
     "1W": {
       "yfinance": {
         "usd": {
@@ -797,16 +1263,26 @@
             "obv_trending_up": false,
             "acc_dist": 568084313.34,
             "acc_dist_trending_up": false,
-            "score": 6.0,
+            "score": 7.0,
             "score_breakdown": {
-              "rsi_oversold": 2.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "volume_confirmation": 1,
               "very_negative_momentum": -1.5,
+              "adx_rising_from_low": 0.8,
               "golden_cross": 1.5,
               "at_4w_low": 1,
-              "oversold_reversal_potential": 0.5
+              "oversold_reversal_potential": 0.5,
+              "volume_surge_accumulation": 1.0,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_volume": 1.5,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 12.335640453539822,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -837,15 +1313,24 @@
             "obv_trending_up": false,
             "acc_dist": 568084313.34,
             "acc_dist_trending_up": false,
-            "score": 5.5,
+            "score": 7.0,
             "score_breakdown": {
-              "rsi_oversold": 2.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "volume_confirmation": 1,
               "very_negative_momentum": -1.5,
+              "adx_rising_from_low": 1.5,
               "golden_cross": 1.5,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_volume": 1.5,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 12.335640453539822,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -878,16 +1363,25 @@
             "obv_trending_up": false,
             "acc_dist": 568084313.34,
             "acc_dist_trending_up": false,
-            "score": 3.0,
+            "score": 7.0,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "volume_confirmation": 1,
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2,
+              "adx_very_strong_trend_rising": 1.2,
               "death_cross": -1.5,
-              "oversold_reversal_potential": 0.5
+              "oversold_reversal_potential": 0.5,
+              "volume_surge_accumulation": 1.0,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_volume": 1.5,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 18.784931865319006,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -918,15 +1412,23 @@
             "obv_trending_up": false,
             "acc_dist": 568084313.34,
             "acc_dist_trending_up": false,
-            "score": 2.5,
+            "score": 7.0,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "volume_confirmation": 1,
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2,
-              "death_cross": -1.5
+              "adx_very_strong_trend_rising": 2.5,
+              "death_cross": -1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_volume": 1.5,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 18.784931865319006,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -946,7 +1448,7 @@
             "atr_pct": 13.56,
             "close": 127.31,
             "ema50": 167.2764,
-            "ema200": null,
+            "ema200": 135.96,
             "sma50": 175.4714,
             "sma200": null,
             "4w_low": 127.31,
@@ -963,13 +1465,17 @@
             "obv_trending_up": false,
             "acc_dist": 142441255.9,
             "acc_dist_trending_up": false,
-            "score": 2.0,
+            "score": -2.0,
             "score_breakdown": {
-              "rsi_slightly_oversold": 1.0,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "rsi_oversold_avoid": -1.5,
+              "adx_rising_from_low": 1.5,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 16.158261567486445,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -983,7 +1489,7 @@
             "atr_pct": 12.44,
             "close": 127.31,
             "ema50": 167.4742,
-            "ema200": null,
+            "ema200": 135.96,
             "sma50": 175.4714,
             "sma200": null,
             "4w_low": 127.31,
@@ -1000,13 +1506,17 @@
             "obv_trending_up": false,
             "acc_dist": 142441255.9,
             "acc_dist_trending_up": false,
-            "score": 2.0,
+            "score": -2.0,
             "score_breakdown": {
-              "rsi_slightly_oversold": 1.0,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "rsi_oversold_avoid": -1.5,
+              "adx_rising_from_low": 1.5,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 16.158261567486445,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1022,7 +1532,7 @@
             "atr_pct": 20.65,
             "close": 0.0277,
             "ema50": 0.0544,
-            "ema200": null,
+            "ema200": 0.06,
             "sma50": 0.0596,
             "sma200": null,
             "4w_low": 0.0277,
@@ -1039,14 +1549,20 @@
             "obv_trending_up": false,
             "acc_dist": 142441255.9,
             "acc_dist_trending_up": false,
-            "score": 3.0,
+            "score": 5.2,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5,
-              "oversold_reversal_potential": 0.5
+              "adx_strong_trend_rising": 1.0,
+              "oversold_reversal_potential": 0.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 11.56666071210995,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1060,7 +1576,7 @@
             "atr_pct": 17.73,
             "close": 0.0277,
             "ema50": 0.0545,
-            "ema200": null,
+            "ema200": 0.06,
             "sma50": 0.0596,
             "sma200": null,
             "4w_low": 0.0277,
@@ -1077,13 +1593,20 @@
             "obv_trending_up": false,
             "acc_dist": 142441255.9,
             "acc_dist_trending_up": false,
-            "score": 2.5,
+            "score": 5.2,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5
+              "adx_strong_trend_rising": 2,
+              "volatility_compression": 1,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 11.56666071210995,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1103,7 +1626,7 @@
             "atr_pct": 20.75,
             "close": 127.31,
             "ema50": 150.9572,
-            "ema200": null,
+            "ema200": 126.6,
             "sma50": 137.53,
             "sma200": null,
             "4w_low": 127.31,
@@ -1120,13 +1643,17 @@
             "obv_trending_up": false,
             "acc_dist": -454362080.37,
             "acc_dist_trending_up": false,
-            "score": 2.0,
+            "score": -1.5,
             "score_breakdown": {
-              "rsi_slightly_oversold": 1.0,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "oversold_weak_trend": -0.5,
+              "price_above_ema200": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 40.69355268530693,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1140,7 +1667,7 @@
             "atr_pct": 24.23,
             "close": 127.31,
             "ema50": 142.1813,
-            "ema200": null,
+            "ema200": 126.6,
             "sma50": 137.53,
             "sma200": null,
             "4w_low": 127.31,
@@ -1157,13 +1684,17 @@
             "obv_trending_up": false,
             "acc_dist": -454362080.37,
             "acc_dist_trending_up": false,
-            "score": 2.0,
+            "score": -1.5,
             "score_breakdown": {
-              "rsi_slightly_oversold": 1.0,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "oversold_weak_trend": -0.5,
+              "price_above_ema200": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 40.69355268530693,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1179,7 +1710,7 @@
             "atr_pct": 33.76,
             "close": 0.0277,
             "ema50": 0.058,
-            "ema200": null,
+            "ema200": 0.06,
             "sma50": 0.057,
             "sma200": null,
             "4w_low": 0.0277,
@@ -1196,14 +1727,20 @@
             "obv_trending_up": false,
             "acc_dist": -454362080.37,
             "acc_dist_trending_up": false,
-            "score": 3.0,
+            "score": 5.9,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5,
-              "oversold_reversal_potential": 0.5
+              "adx_strong_trend_rising": 1.0,
+              "oversold_reversal_potential": 0.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 13.372355105529074,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1217,7 +1754,7 @@
             "atr_pct": 35.89,
             "close": 0.0277,
             "ema50": 0.056,
-            "ema200": null,
+            "ema200": 0.06,
             "sma50": 0.057,
             "sma200": null,
             "4w_low": 0.0277,
@@ -1234,13 +1771,19 @@
             "obv_trending_up": false,
             "acc_dist": -454362080.37,
             "acc_dist_trending_up": false,
-            "score": 2.5,
+            "score": 5.9,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5
+              "adx_strong_trend_rising": 2,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 13.372355105529074,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1277,9 +1820,9 @@
             "obv_trending_up": false,
             "acc_dist": -617008838.11,
             "acc_dist_trending_up": false,
-            "score": 4.5,
+            "score": 0,
             "score_breakdown": {
-              "adx_strong_trend": 1.5,
+              "adx_strong_trend_rising": 1.0,
               "gmma_bullish": 2,
               "at_4w_low": 1
             },
@@ -1313,9 +1856,9 @@
             "obv_trending_up": false,
             "acc_dist": -617008838.11,
             "acc_dist_trending_up": false,
-            "score": 4.5,
+            "score": 0,
             "score_breakdown": {
-              "adx_strong_trend": 1.5,
+              "adx_strong_trend_rising": 2,
               "gmma_bullish": 2,
               "at_4w_low": 1
             },
@@ -1351,9 +1894,9 @@
             "obv_trending_up": false,
             "acc_dist": -617008838.11,
             "acc_dist_trending_up": false,
-            "score": 1.0,
+            "score": 0,
             "score_breakdown": {
-              "rsi_slightly_oversold": 1.0,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5
             },
@@ -1387,9 +1930,9 @@
             "obv_trending_up": false,
             "acc_dist": -617008838.11,
             "acc_dist_trending_up": false,
-            "score": 1.0,
+            "score": 0,
             "score_breakdown": {
-              "rsi_slightly_oversold": 1.0,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_oversold_recovery": 1.5,
               "very_negative_momentum": -1.5
             },
@@ -1429,7 +1972,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": 4,
+            "score": 0,
             "score_breakdown": {
               "very_strong_momentum": 1,
               "gmma_bullish": 2,
@@ -1465,7 +2008,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": 2,
+            "score": 0,
             "score_breakdown": {
               "very_strong_momentum": 1,
               "at_4w_low": 1
@@ -1502,7 +2045,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -1536,7 +2079,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -1552,6 +2095,184 @@
     }
   },
   "PATH": {
+    "2D": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 41.95,
+            "atr": 1.2372,
+            "atr_pct": 8.63,
+            "close": 14.34,
+            "ema50": 15.2439,
+            "ema200": 14.174,
+            "sma50": 15.381,
+            "sma200": 13.2073,
+            "4w_low": 14.34,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -10.15,
+            "adx": 19.06,
+            "adx_strong_trend": false,
+            "cci": -183.19,
+            "obv": -768547000,
+            "obv_trending_up": false,
+            "acc_dist": -598368498.78,
+            "acc_dist_trending_up": false,
+            "score": 1.5,
+            "score_breakdown": {
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "negative_momentum": -1,
+              "price_above_ema200": 1.0,
+              "golden_cross": 1.5,
+              "adx_strong": 0.8,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 47.308184563181335,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 41.95,
+            "atr": 1.2134,
+            "atr_pct": 8.46,
+            "close": 14.34,
+            "ema50": 15.2439,
+            "ema200": 14.197,
+            "sma50": 15.381,
+            "sma200": 13.2073,
+            "4w_low": 14.34,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -10.15,
+            "adx": 19.06,
+            "adx_strong_trend": false,
+            "cci": -183.19,
+            "obv": -768547000,
+            "obv_trending_up": false,
+            "acc_dist": -598368498.78,
+            "acc_dist_trending_up": false,
+            "score": 1.5,
+            "score_breakdown": {
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "negative_momentum": -1,
+              "price_above_ema200": 1.0,
+              "golden_cross": 1.5,
+              "adx_strong": 0.8,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 47.308184563181335,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 37.93,
+            "atr": 0.0003,
+            "atr_pct": 9.29,
+            "close": 0.0031,
+            "ema50": 0.0036,
+            "ema200": 0.0044,
+            "sma50": 0.0037,
+            "sma200": 0.004,
+            "4w_low": 0.0031,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -15.0,
+            "adx": 14.48,
+            "adx_strong_trend": false,
+            "cci": -192.75,
+            "obv": -807346600.0,
+            "obv_trending_up": false,
+            "acc_dist": -598368498.78,
+            "acc_dist_trending_up": false,
+            "score": -0.6,
+            "score_breakdown": {
+              "rsi_slightly_oversold_avoid": -0.5,
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "negative_momentum": -1,
+              "death_cross": -1.5,
+              "rsi_oversold_avoid": -1.5,
+              "adx_rising_from_low": 1.5,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 41.918361797183394,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 37.93,
+            "atr": 0.0003,
+            "atr_pct": 8.91,
+            "close": 0.0031,
+            "ema50": 0.0036,
+            "ema200": 0.0044,
+            "sma50": 0.0037,
+            "sma200": 0.004,
+            "4w_low": 0.0031,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": true,
+            "momentum": -15.0,
+            "adx": 14.48,
+            "adx_strong_trend": false,
+            "cci": -192.75,
+            "obv": -807346600.0,
+            "obv_trending_up": false,
+            "acc_dist": -598368498.78,
+            "acc_dist_trending_up": false,
+            "score": -0.6,
+            "score_breakdown": {
+              "rsi_slightly_oversold_avoid": -0.5,
+              "cci_oversold_recovery": 1.5,
+              "volume_confirmation": 1,
+              "negative_momentum": -1,
+              "death_cross": -1.5,
+              "rsi_oversold_avoid": -1.5,
+              "adx_rising_from_low": 1.5,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 41.918361797183394,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
     "1W": {
       "yfinance": {
         "usd": {
@@ -1578,16 +2299,19 @@
             "obv_trending_up": true,
             "acc_dist": -165173996.99,
             "acc_dist_trending_up": false,
-            "score": 4.0,
+            "score": -0.9,
             "score_breakdown": {
               "obv_trending_up": 1,
               "negative_momentum": -1,
-              "adx_very_strong_trend": 2,
+              "adx_very_strong_trend_rising": 1.2,
               "price_above_ema50": 0.5,
               "death_cross": -1.5,
               "gmma_bullish": 2,
-              "gmma_early_expansion": 1
+              "gmma_early_expansion": 1,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 32.143969067348834,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1618,16 +2342,19 @@
             "obv_trending_up": true,
             "acc_dist": -165173996.99,
             "acc_dist_trending_up": false,
-            "score": 4.0,
+            "score": -0.9,
             "score_breakdown": {
               "obv_trending_up": 1,
               "negative_momentum": -1,
-              "adx_very_strong_trend": 2,
+              "adx_very_strong_trend_rising": 2.5,
               "price_above_ema50": 0.5,
               "death_cross": -1.5,
               "gmma_bullish": 2,
-              "gmma_early_expansion": 1
+              "gmma_early_expansion": 1,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 32.143969067348834,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1660,12 +2387,17 @@
             "obv_trending_up": true,
             "acc_dist": -165173996.99,
             "acc_dist_trending_up": false,
-            "score": -2.0,
+            "score": 2.6,
             "score_breakdown": {
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "death_cross": -1.5
+              "death_cross": -1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 15.427338355008288,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1696,12 +2428,17 @@
             "obv_trending_up": true,
             "acc_dist": -165173996.99,
             "acc_dist_trending_up": false,
-            "score": -2.0,
+            "score": 2.6,
             "score_breakdown": {
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "death_cross": -1.5
+              "death_cross": -1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 15.427338355008288,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1721,7 +2458,7 @@
             "atr_pct": 18.7,
             "close": 14.34,
             "ema50": 15.2285,
-            "ema200": null,
+            "ema200": 35.19,
             "sma50": 14.1536,
             "sma200": null,
             "4w_low": 14.34,
@@ -1738,15 +2475,20 @@
             "obv_trending_up": true,
             "acc_dist": -662337455.69,
             "acc_dist_trending_up": true,
-            "score": 5.0,
+            "score": 1.6,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "obv_trending_up": 1,
               "acc_dist_trending_up": 1,
-              "strong_momentum": 0.5
+              "strong_momentum": 0.5,
+              "adx_rising_from_low": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 1.4812182312623605,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1760,7 +2502,7 @@
             "atr_pct": 19.71,
             "close": 14.34,
             "ema50": 15.3929,
-            "ema200": null,
+            "ema200": 35.19,
             "sma50": 14.1536,
             "sma200": null,
             "4w_low": 14.34,
@@ -1777,15 +2519,20 @@
             "obv_trending_up": true,
             "acc_dist": -662337455.69,
             "acc_dist_trending_up": true,
-            "score": 5.0,
+            "score": 1.6,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "obv_trending_up": 1,
               "acc_dist_trending_up": 1,
-              "strong_momentum": 0.5
+              "strong_momentum": 0.5,
+              "adx_rising_from_low": 1.5,
+              "adx_rising_very_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 1.4812182312623605,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1801,7 +2548,7 @@
             "atr_pct": 24.62,
             "close": 0.0031,
             "ema50": 0.0054,
-            "ema200": null,
+            "ema200": 0.02,
             "sma50": 0.005,
             "sma200": null,
             "4w_low": 0.0031,
@@ -1818,14 +2565,22 @@
             "obv_trending_up": true,
             "acc_dist": -662337455.69,
             "acc_dist_trending_up": true,
-            "score": 2.5,
+            "score": 7.7,
             "score_breakdown": {
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "obv_trending_up": 1,
               "acc_dist_trending_up": 1,
-              "very_negative_momentum": -1.5
+              "very_negative_momentum": -1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_volatility": 1.0,
+              "explosive_bottom_volume": 1.5,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 8.544887561046579,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1839,7 +2594,7 @@
             "atr_pct": 23.33,
             "close": 0.0031,
             "ema50": 0.0055,
-            "ema200": null,
+            "ema200": 0.02,
             "sma50": 0.005,
             "sma200": null,
             "4w_low": 0.0031,
@@ -1856,14 +2611,22 @@
             "obv_trending_up": true,
             "acc_dist": -662337455.69,
             "acc_dist_trending_up": true,
-            "score": 2.5,
+            "score": 7.7,
             "score_breakdown": {
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "obv_trending_up": 1,
               "acc_dist_trending_up": 1,
-              "very_negative_momentum": -1.5
+              "very_negative_momentum": -1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_volatility": 1.0,
+              "explosive_bottom_volume": 1.5,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 8.544887561046579,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1883,7 +2646,7 @@
             "atr_pct": 28.31,
             "close": 14.34,
             "ema50": 22.6205,
-            "ema200": null,
+            "ema200": 51.28,
             "sma50": 16.5584,
             "sma200": null,
             "4w_low": 13.61,
@@ -1906,8 +2669,13 @@
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "obv_trending_up": 1,
-              "strong_momentum": 0.5
+              "strong_momentum": 0.5,
+              "volume_surge_accumulation": 1.0,
+              "adx_rising_very_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.0,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1921,7 +2689,7 @@
             "atr_pct": 23.96,
             "close": 14.34,
             "ema50": 20.988,
-            "ema200": null,
+            "ema200": 51.28,
             "sma50": 16.5584,
             "sma200": null,
             "4w_low": 13.61,
@@ -1944,8 +2712,12 @@
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "obv_trending_up": 1,
-              "strong_momentum": 0.5
+              "strong_momentum": 0.5,
+              "adx_rising_very_strong": 1.2,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.0,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1961,7 +2733,7 @@
             "atr_pct": 47.41,
             "close": 0.0031,
             "ema50": 0.0103,
-            "ema200": null,
+            "ema200": 0.03,
             "sma50": 0.0076,
             "sma200": null,
             "4w_low": 0.0031,
@@ -1978,15 +2750,25 @@
             "obv_trending_up": true,
             "acc_dist": -1921068186.27,
             "acc_dist_trending_up": false,
-            "score": 3.5,
+            "score": 10.4,
             "score_breakdown": {
-              "rsi_slightly_oversold": 0.5,
+              "rsi_slightly_oversold_avoid": -0.5,
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5
+              "adx_strong_trend_falling": 0.2,
+              "rsi_bearish_divergence": -1.5,
+              "volume_surge_accumulation": 1.0,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_volume": 1.5,
+              "adx_strong": 0.8,
+              "volume_building": 2.2,
+              "pi_high": 2.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 92.52267916384825,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2000,7 +2782,7 @@
             "atr_pct": 31.45,
             "close": 0.0031,
             "ema50": 0.0098,
-            "ema200": null,
+            "ema200": 0.03,
             "sma50": 0.0076,
             "sma200": null,
             "4w_low": 0.0031,
@@ -2017,15 +2799,25 @@
             "obv_trending_up": true,
             "acc_dist": -1921068186.27,
             "acc_dist_trending_up": false,
-            "score": 3.5,
+            "score": 10.4,
             "score_breakdown": {
-              "rsi_slightly_oversold": 0.5,
+              "rsi_slightly_oversold_avoid": -0.5,
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5
+              "adx_strong_trend_falling": 0.5,
+              "rsi_bearish_divergence": -1.5,
+              "volatility_compression": 1,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_volume": 1.5,
+              "adx_strong": 0.8,
+              "volume_building": 2.2,
+              "pi_high": 2.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 92.52267916384825,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2062,14 +2854,16 @@
             "obv_trending_up": true,
             "acc_dist": -3137553776.9,
             "acc_dist_trending_up": false,
-            "score": 3.5,
+            "score": 0,
             "score_breakdown": {
-              "rsi_slightly_oversold": 0.5,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_bullish": 0.5,
               "volume_confirmation": 1,
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2
+              "adx_very_strong_trend_rising": 1.2,
+              "rsi_bullish_divergence": 1.5,
+              "volume_surge_accumulation": 1.0
             },
             "relative_potential": {
               "upside_potential_pct": null,
@@ -2101,15 +2895,15 @@
             "obv_trending_up": true,
             "acc_dist": -3137553776.9,
             "acc_dist_trending_up": false,
-            "score": 5.0,
+            "score": 0,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "cci_bullish": 0.5,
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2
+              "adx_very_strong_trend_rising": 2.5
             },
             "relative_potential": {
               "upside_potential_pct": null,
@@ -2143,14 +2937,16 @@
             "obv_trending_up": false,
             "acc_dist": -3137553776.9,
             "acc_dist_trending_up": false,
-            "score": 4.0,
+            "score": 0,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "volume_confirmation": 1,
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2,
+              "adx_very_strong_trend_rising": 1.2,
               "at_4w_low": 1,
-              "oversold_reversal_potential": 0.5
+              "oversold_reversal_potential": 0.5,
+              "rsi_bullish_divergence": 1.5,
+              "volume_surge_accumulation": 1.0
             },
             "relative_potential": {
               "upside_potential_pct": null,
@@ -2182,14 +2978,15 @@
             "obv_trending_up": false,
             "acc_dist": -3137553776.9,
             "acc_dist_trending_up": false,
-            "score": 4.5,
+            "score": 0,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2,
-              "at_4w_low": 1
+              "adx_very_strong_trend_rising": 2.5,
+              "at_4w_low": 1,
+              "volatility_compression": 1
             },
             "relative_potential": {
               "upside_potential_pct": null,
@@ -2227,7 +3024,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -2261,7 +3058,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -2297,7 +3094,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -0.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5,
               "at_4w_low": 1
@@ -2332,7 +3129,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -0.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5,
               "at_4w_low": 1
@@ -2349,6 +3146,190 @@
     }
   },
   "DLO": {
+    "2D": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 48.93,
+            "atr": 0.6701,
+            "atr_pct": 4.77,
+            "close": 14.05,
+            "ema50": 13.8915,
+            "ema200": 12.6973,
+            "sma50": 14.155,
+            "sma200": 11.683,
+            "4w_low": 14.05,
+            "gmma_bullish": true,
+            "gmma_early_expansion": true,
+            "macd_bullish": true,
+            "macd_positive": true,
+            "volume_above_avg": false,
+            "momentum": -0.21,
+            "adx": 19.4,
+            "adx_strong_trend": false,
+            "cci": 8.96,
+            "obv": 84749500,
+            "obv_trending_up": true,
+            "acc_dist": -118332922.75,
+            "acc_dist_trending_up": false,
+            "score": 2.7,
+            "score_breakdown": {
+              "cci_bullish": 0.5,
+              "macd_bullish": 1,
+              "obv_trending_up": 1,
+              "price_above_ema50": 0.5,
+              "price_above_ema200": 1.0,
+              "golden_cross": 1.5,
+              "gmma_bullish": 2,
+              "gmma_early_expansion": 1,
+              "flat_base_formation": 0.5,
+              "trend_continuation_strong": 2.0,
+              "trend_continuation_very_strong": 0.8,
+              "trend_continuation_golden_cross": 0.5,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 2.0873477617801153,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 48.93,
+            "atr": 0.5743,
+            "atr_pct": 4.09,
+            "close": 14.05,
+            "ema50": 13.8915,
+            "ema200": 12.7274,
+            "sma50": 14.155,
+            "sma200": 11.683,
+            "4w_low": 14.05,
+            "gmma_bullish": true,
+            "gmma_early_expansion": true,
+            "macd_bullish": true,
+            "macd_positive": true,
+            "volume_above_avg": false,
+            "momentum": -0.21,
+            "adx": 19.4,
+            "adx_strong_trend": false,
+            "cci": 8.96,
+            "obv": 84749500,
+            "obv_trending_up": true,
+            "acc_dist": -118332922.75,
+            "acc_dist_trending_up": false,
+            "score": 2.7,
+            "score_breakdown": {
+              "cci_bullish": 0.5,
+              "macd_bullish": 1,
+              "obv_trending_up": 1,
+              "price_above_ema50": 0.5,
+              "price_above_ema200": 1.0,
+              "golden_cross": 1.5,
+              "gmma_bullish": 2,
+              "gmma_early_expansion": 1,
+              "flat_base_formation": 0.5,
+              "trend_continuation_strong": 2.0,
+              "trend_continuation_very_strong": 0.8,
+              "trend_continuation_golden_cross": 0.5,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 2.0873477617801153,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 40.36,
+            "atr": 0.0002,
+            "atr_pct": 5.44,
+            "close": 0.0031,
+            "ema50": 0.0034,
+            "ema200": 0.0039,
+            "sma50": 0.0034,
+            "sma200": 0.0035,
+            "4w_low": 0.0031,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -5.6,
+            "adx": 8.48,
+            "adx_strong_trend": false,
+            "cci": -143.33,
+            "obv": -41817700.0,
+            "obv_trending_up": false,
+            "acc_dist": -118332922.75,
+            "acc_dist_trending_up": false,
+            "score": -2.9,
+            "score_breakdown": {
+              "cci_oversold_recovery": 1.5,
+              "death_cross": -1.5,
+              "at_4w_low": 1,
+              "flat_base_formation": 0.5,
+              "rsi_oversold_avoid": -1.5,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 13.186658462306095,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 40.36,
+            "atr": 0.0001,
+            "atr_pct": 4.67,
+            "close": 0.0031,
+            "ema50": 0.0034,
+            "ema200": 0.0039,
+            "sma50": 0.0034,
+            "sma200": 0.0035,
+            "4w_low": 0.0031,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": false,
+            "macd_positive": false,
+            "volume_above_avg": false,
+            "momentum": -5.6,
+            "adx": 8.48,
+            "adx_strong_trend": false,
+            "cci": -143.33,
+            "obv": -41817700.0,
+            "obv_trending_up": false,
+            "acc_dist": -118332922.75,
+            "acc_dist_trending_up": false,
+            "score": -2.9,
+            "score_breakdown": {
+              "cci_oversold_recovery": 1.5,
+              "death_cross": -1.5,
+              "at_4w_low": 1,
+              "flat_base_formation": 0.5,
+              "rsi_oversold_avoid": -1.5,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 13.186658462306095,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
     "1W": {
       "yfinance": {
         "usd": {
@@ -2375,14 +3356,16 @@
             "obv_trending_up": false,
             "acc_dist": -93041096.93,
             "acc_dist_trending_up": false,
-            "score": 2.5,
+            "score": -1.6,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "price_above_ema50": 0.5,
               "death_cross": -1.5,
               "gmma_bullish": 2,
-              "gmma_early_expansion": 1
+              "gmma_early_expansion": 1,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 9.123502928080049,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2413,14 +3396,16 @@
             "obv_trending_up": false,
             "acc_dist": -93041096.93,
             "acc_dist_trending_up": false,
-            "score": 2.5,
+            "score": -1.6,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "price_above_ema50": 0.5,
               "death_cross": -1.5,
               "gmma_bullish": 2,
-              "gmma_early_expansion": 1
+              "gmma_early_expansion": 1,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 9.123502928080049,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2453,13 +3438,19 @@
             "obv_trending_up": true,
             "acc_dist": -93041096.93,
             "acc_dist_trending_up": false,
-            "score": -0.5,
+            "score": 2.4,
             "score_breakdown": {
               "obv_trending_up": 1,
               "negative_momentum": -1,
               "death_cross": -1.5,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "macd_bearish_divergence": -1,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_volatility": 1.0,
+              "adx_strong": 0.8,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 4.160399612075024,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2490,13 +3481,19 @@
             "obv_trending_up": true,
             "acc_dist": -93041096.93,
             "acc_dist_trending_up": false,
-            "score": -0.5,
+            "score": 2.4,
             "score_breakdown": {
               "obv_trending_up": 1,
               "negative_momentum": -1,
               "death_cross": -1.5,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "macd_bearish_divergence": -1,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_volatility": 1.0,
+              "adx_strong": 0.8,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 4.160399612075024,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2516,7 +3513,7 @@
             "atr_pct": 13.51,
             "close": 14.05,
             "ema50": 13.2784,
-            "ema200": null,
+            "ema200": 21.77,
             "sma50": 11.5063,
             "sma200": null,
             "4w_low": 13.99,
@@ -2533,15 +3530,18 @@
             "obv_trending_up": true,
             "acc_dist": 19880795.92,
             "acc_dist_trending_up": true,
-            "score": 5.0,
+            "score": 0.5,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "macd_bullish": 1,
               "obv_trending_up": 1,
               "acc_dist_trending_up": 1,
-              "very_strong_momentum": 1,
-              "price_above_ema50": 0.5
+              "very_strong_momentum": 1.0,
+              "price_above_ema50": 0.5,
+              "adx_rising_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 3.5404794741790453,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2555,7 +3555,7 @@
             "atr_pct": 14.88,
             "close": 14.05,
             "ema50": 13.5872,
-            "ema200": null,
+            "ema200": 21.77,
             "sma50": 11.5063,
             "sma200": null,
             "4w_low": 13.99,
@@ -2572,15 +3572,18 @@
             "obv_trending_up": true,
             "acc_dist": 19880795.92,
             "acc_dist_trending_up": true,
-            "score": 5.0,
+            "score": 0.5,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "macd_bullish": 1,
               "obv_trending_up": 1,
               "acc_dist_trending_up": 1,
-              "very_strong_momentum": 1,
-              "price_above_ema50": 0.5
+              "very_strong_momentum": 1.0,
+              "price_above_ema50": 0.5,
+              "adx_rising_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 3.5404794741790453,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2596,7 +3599,7 @@
             "atr_pct": 19.38,
             "close": 0.0031,
             "ema50": 0.0046,
-            "ema200": null,
+            "ema200": 0.01,
             "sma50": 0.0039,
             "sma200": null,
             "4w_low": 0.0031,
@@ -2613,14 +3616,17 @@
             "obv_trending_up": true,
             "acc_dist": 19880795.92,
             "acc_dist_trending_up": true,
-            "score": 3,
+            "score": -2.5,
             "score_breakdown": {
               "macd_bullish": 1,
               "obv_trending_up": 1,
               "acc_dist_trending_up": 1,
               "negative_momentum": -1,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "oversold_weak_trend": -0.5,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.06302494079481819,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2634,7 +3640,7 @@
             "atr_pct": 18.98,
             "close": 0.0031,
             "ema50": 0.0048,
-            "ema200": null,
+            "ema200": 0.01,
             "sma50": 0.0039,
             "sma200": null,
             "4w_low": 0.0031,
@@ -2651,14 +3657,17 @@
             "obv_trending_up": true,
             "acc_dist": 19880795.92,
             "acc_dist_trending_up": true,
-            "score": 3,
+            "score": -2.5,
             "score_breakdown": {
               "macd_bullish": 1,
               "obv_trending_up": 1,
               "acc_dist_trending_up": 1,
               "negative_momentum": -1,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "oversold_weak_trend": -0.5,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.06302494079481819,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2678,7 +3687,7 @@
             "atr_pct": 24.32,
             "close": 14.05,
             "ema50": 18.9149,
-            "ema200": null,
+            "ema200": 37.96,
             "sma50": 16.0081,
             "sma200": null,
             "4w_low": 13.46,
@@ -2695,12 +3704,15 @@
             "obv_trending_up": false,
             "acc_dist": -111529245.25,
             "acc_dist_trending_up": false,
-            "score": 0.5,
+            "score": -0.0,
             "score_breakdown": {
               "cci_overbought": -1.5,
               "macd_bullish": 1,
-              "very_strong_momentum": 1
+              "very_strong_momentum": 1.0,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.0,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2714,7 +3726,7 @@
             "atr_pct": 20.29,
             "close": 14.05,
             "ema50": 19.0654,
-            "ema200": null,
+            "ema200": 37.96,
             "sma50": 16.0081,
             "sma200": null,
             "4w_low": 13.46,
@@ -2731,12 +3743,15 @@
             "obv_trending_up": false,
             "acc_dist": -111529245.25,
             "acc_dist_trending_up": false,
-            "score": 0.5,
+            "score": -0.0,
             "score_breakdown": {
               "cci_overbought": -1.5,
               "macd_bullish": 1,
-              "very_strong_momentum": 1
+              "very_strong_momentum": 1.0,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.0,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2752,7 +3767,7 @@
             "atr_pct": 44.41,
             "close": 0.0031,
             "ema50": 0.0087,
-            "ema200": null,
+            "ema200": 0.02,
             "sma50": 0.0075,
             "sma200": null,
             "4w_low": 0.0031,
@@ -2769,15 +3784,21 @@
             "obv_trending_up": true,
             "acc_dist": -111529245.25,
             "acc_dist_trending_up": false,
-            "score": 3.5,
+            "score": 4.9,
             "score_breakdown": {
-              "rsi_slightly_oversold": 0.5,
+              "rsi_slightly_oversold_avoid": -0.5,
               "macd_bullish": 1,
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5,
-              "at_4w_low": 1
+              "adx_strong_trend_falling": 0.2,
+              "at_4w_low": 1,
+              "volatility_compression": 1,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 10.809818539195701,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2791,7 +3812,7 @@
             "atr_pct": 28.14,
             "close": 0.0031,
             "ema50": 0.009,
-            "ema200": null,
+            "ema200": 0.02,
             "sma50": 0.0075,
             "sma200": null,
             "4w_low": 0.0031,
@@ -2808,15 +3829,20 @@
             "obv_trending_up": true,
             "acc_dist": -111529245.25,
             "acc_dist_trending_up": false,
-            "score": 3.5,
+            "score": 4.9,
             "score_breakdown": {
-              "rsi_slightly_oversold": 0.5,
+              "rsi_slightly_oversold_avoid": -0.5,
               "macd_bullish": 1,
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5,
-              "at_4w_low": 1
+              "adx_strong_trend_falling": 0.5,
+              "at_4w_low": 1,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 10.809818539195701,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2853,11 +3879,12 @@
             "obv_trending_up": true,
             "acc_dist": -119249450.53,
             "acc_dist_trending_up": false,
-            "score": 0.0,
+            "score": 0,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "obv_trending_up": 1,
-              "very_negative_momentum": -1.5
+              "very_negative_momentum": -1.5,
+              "adx_rising_from_low": 0.8
             },
             "relative_potential": {
               "upside_potential_pct": null,
@@ -2889,13 +3916,15 @@
             "obv_trending_up": true,
             "acc_dist": -119249450.53,
             "acc_dist_trending_up": false,
-            "score": 2.0,
+            "score": 0,
             "score_breakdown": {
-              "rsi_slightly_oversold": 1.0,
+              "rsi_slightly_oversold_avoid": -0.5,
               "cci_bullish": 0.5,
               "macd_bullish": 1,
               "obv_trending_up": 1,
-              "very_negative_momentum": -1.5
+              "very_negative_momentum": -1.5,
+              "adx_rising_from_low": 1.5,
+              "volatility_compression": 1
             },
             "relative_potential": {
               "upside_potential_pct": null,
@@ -2929,12 +3958,12 @@
             "obv_trending_up": true,
             "acc_dist": -119249450.53,
             "acc_dist_trending_up": false,
-            "score": 3.5,
+            "score": 0,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5,
+              "adx_strong_trend_rising": 1.0,
               "at_4w_low": 1,
               "oversold_reversal_potential": 0.5
             },
@@ -2968,14 +3997,15 @@
             "obv_trending_up": true,
             "acc_dist": -119249450.53,
             "acc_dist_trending_up": false,
-            "score": 4.0,
+            "score": 0,
             "score_breakdown": {
-              "rsi_oversold": 1.0,
+              "rsi_oversold_avoid": -1.5,
               "macd_bullish": 1,
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "adx_strong_trend": 1.5,
-              "at_4w_low": 1
+              "adx_strong_trend_rising": 2,
+              "at_4w_low": 1,
+              "volatility_compression": 1
             },
             "relative_potential": {
               "upside_potential_pct": null,
@@ -3013,7 +4043,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -3047,7 +4077,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -3083,7 +4113,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -3117,7 +4147,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -3133,6 +4163,190 @@
     }
   },
   "PGY": {
+    "2D": {
+      "yfinance": {
+        "usd": {
+          "ta_library": {
+            "rsi": 42.92,
+            "atr": 2.042,
+            "atr_pct": 9.29,
+            "close": 21.99,
+            "ema50": 25.0336,
+            "ema200": 22.1372,
+            "sma50": 25.5491,
+            "sma200": 19.0381,
+            "4w_low": 21.99,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": true,
+            "macd_positive": true,
+            "volume_above_avg": true,
+            "momentum": -0.18,
+            "adx": 21.39,
+            "adx_strong_trend": false,
+            "cci": -47.3,
+            "obv": -63540865,
+            "obv_trending_up": false,
+            "acc_dist": -87782489.21,
+            "acc_dist_trending_up": false,
+            "score": 0.4,
+            "score_breakdown": {
+              "macd_bullish": 1,
+              "volume_confirmation": 1,
+              "golden_cross": 1.5,
+              "at_4w_low": 1,
+              "macd_bearish_divergence": -1,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 9.159021845709638,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 42.92,
+            "atr": 1.7881,
+            "atr_pct": 8.13,
+            "close": 21.99,
+            "ema50": 25.0336,
+            "ema200": 22.1253,
+            "sma50": 25.5491,
+            "sma200": 19.0381,
+            "4w_low": 21.99,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": true,
+            "macd_positive": true,
+            "volume_above_avg": true,
+            "momentum": -0.18,
+            "adx": 21.39,
+            "adx_strong_trend": false,
+            "cci": -47.3,
+            "obv": -63540865,
+            "obv_trending_up": false,
+            "acc_dist": -87782489.21,
+            "acc_dist_trending_up": false,
+            "score": 0.4,
+            "score_breakdown": {
+              "macd_bullish": 1,
+              "volume_confirmation": 1,
+              "golden_cross": 1.5,
+              "at_4w_low": 1,
+              "macd_bearish_divergence": -1,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 9.159021845709638,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        },
+        "gold": {
+          "ta_library": {
+            "rsi": 38.53,
+            "atr": 0.0005,
+            "atr_pct": 10.11,
+            "close": 0.0048,
+            "ema50": 0.0061,
+            "ema200": 0.0065,
+            "sma50": 0.0061,
+            "sma200": 0.0055,
+            "4w_low": 0.0048,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": true,
+            "macd_positive": true,
+            "volume_above_avg": true,
+            "momentum": -5.57,
+            "adx": 26.47,
+            "adx_strong_trend": true,
+            "cci": -95.43,
+            "obv": -64444981.0,
+            "obv_trending_up": false,
+            "acc_dist": -87782489.21,
+            "acc_dist_trending_up": false,
+            "score": 4.1,
+            "score_breakdown": {
+              "rsi_slightly_oversold_avoid": -0.5,
+              "macd_bullish": 1,
+              "volume_confirmation": 1,
+              "adx_strong_trend_falling": 0.2,
+              "golden_cross": 1.5,
+              "at_4w_low": 1,
+              "rsi_bullish_divergence": 1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_volatility": 1.0,
+              "explosive_bottom_volume": 1.5,
+              "adx_very_strong": 1.0,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 8.219707520594925,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          },
+          "tradingview_library": {
+            "rsi": 38.53,
+            "atr": 0.0004,
+            "atr_pct": 8.68,
+            "close": 0.0048,
+            "ema50": 0.0061,
+            "ema200": 0.0065,
+            "sma50": 0.0061,
+            "sma200": 0.0055,
+            "4w_low": 0.0048,
+            "gmma_bullish": false,
+            "gmma_early_expansion": false,
+            "macd_bullish": true,
+            "macd_positive": true,
+            "volume_above_avg": true,
+            "momentum": -5.57,
+            "adx": 26.47,
+            "adx_strong_trend": true,
+            "cci": -95.43,
+            "obv": -64444981.0,
+            "obv_trending_up": false,
+            "acc_dist": -87782489.21,
+            "acc_dist_trending_up": false,
+            "score": 4.1,
+            "score_breakdown": {
+              "rsi_slightly_oversold_avoid": -0.5,
+              "macd_bullish": 1,
+              "volume_confirmation": 1,
+              "adx_strong_trend_falling": 0.5,
+              "golden_cross": 1.5,
+              "at_4w_low": 1,
+              "rsi_bullish_divergence": 1.5,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_volatility": 1.0,
+              "explosive_bottom_volume": 1.5,
+              "adx_very_strong": 1.0,
+              "volume_building": 2.2,
+              "market_bearish_adjustment": -2.0
+            },
+            "pi": 8.219707520594925,
+            "relative_potential": {
+              "upside_potential_pct": null,
+              "downside_potential_pct": null,
+              "relative_to_category": null,
+              "price_vs_52w_range": null
+            }
+          }
+        }
+      }
+    },
     "1W": {
       "yfinance": {
         "usd": {
@@ -3159,12 +4373,15 @@
             "obv_trending_up": true,
             "acc_dist": -97265016.64,
             "acc_dist_trending_up": false,
-            "score": -2.0,
+            "score": -1.2,
             "score_breakdown": {
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "death_cross": -1.5
+              "death_cross": -1.5,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 11.383815346984209,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3195,12 +4412,16 @@
             "obv_trending_up": true,
             "acc_dist": -97265016.64,
             "acc_dist_trending_up": false,
-            "score": -2.0,
+            "score": -1.2,
             "score_breakdown": {
               "obv_trending_up": 1,
               "very_negative_momentum": -1.5,
-              "death_cross": -1.5
+              "death_cross": -1.5,
+              "volatility_compression": 1,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 11.383815346984209,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3233,13 +4454,19 @@
             "obv_trending_up": false,
             "acc_dist": -97265016.64,
             "acc_dist_trending_up": false,
-            "score": -1.0,
+            "score": 4.1,
             "score_breakdown": {
-              "rsi_slightly_oversold": 1.0,
+              "rsi_slightly_oversold_avoid": -0.5,
               "very_negative_momentum": -1.5,
               "death_cross": -1.5,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 11.47432234798996,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3270,13 +4497,20 @@
             "obv_trending_up": false,
             "acc_dist": -97265016.64,
             "acc_dist_trending_up": false,
-            "score": -1.0,
+            "score": 4.1,
             "score_breakdown": {
-              "rsi_slightly_oversold": 1.0,
+              "rsi_slightly_oversold_avoid": -0.5,
               "very_negative_momentum": -1.5,
               "death_cross": -1.5,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "volatility_compression": 1,
+              "explosive_bottom_base": 4.0,
+              "explosive_bottom_capitulation": 2.0,
+              "explosive_bottom_adx_rising": 0.8,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 11.47432234798996,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3296,7 +4530,7 @@
             "atr_pct": 26.71,
             "close": 21.99,
             "ema50": 23.2499,
-            "ema200": null,
+            "ema200": 59.49,
             "sma50": 17.0849,
             "sma200": null,
             "4w_low": 21.99,
@@ -3313,12 +4547,15 @@
             "obv_trending_up": false,
             "acc_dist": 47016956.45,
             "acc_dist_trending_up": false,
-            "score": 1.5,
+            "score": -1.1,
             "score_breakdown": {
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2,
-              "at_4w_low": 1
+              "adx_very_strong_trend_falling": 0.5,
+              "at_4w_low": 1,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.0,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3332,7 +4569,7 @@
             "atr_pct": 35.59,
             "close": 21.99,
             "ema50": 24.0405,
-            "ema200": null,
+            "ema200": 59.49,
             "sma50": 17.0849,
             "sma200": null,
             "4w_low": 21.99,
@@ -3349,12 +4586,15 @@
             "obv_trending_up": false,
             "acc_dist": 47016956.45,
             "acc_dist_trending_up": false,
-            "score": 1.5,
+            "score": -1.1,
             "score_breakdown": {
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2,
-              "at_4w_low": 1
+              "adx_very_strong_trend_falling": 1,
+              "at_4w_low": 1,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.0,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3370,7 +4610,7 @@
             "atr_pct": 35.63,
             "close": 0.0048,
             "ema50": 0.0081,
-            "ema200": null,
+            "ema200": 0.03,
             "sma50": 0.0055,
             "sma200": null,
             "4w_low": 0.0048,
@@ -3387,11 +4627,14 @@
             "obv_trending_up": false,
             "acc_dist": 47016956.45,
             "acc_dist_trending_up": false,
-            "score": -0.5,
+            "score": -1.1,
             "score_breakdown": {
               "very_negative_momentum": -1.5,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.4490323717618684,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3405,7 +4648,7 @@
             "atr_pct": 44.68,
             "close": 0.0048,
             "ema50": 0.0085,
-            "ema200": null,
+            "ema200": 0.03,
             "sma50": 0.0055,
             "sma200": null,
             "4w_low": 0.0048,
@@ -3422,11 +4665,14 @@
             "obv_trending_up": false,
             "acc_dist": 47016956.45,
             "acc_dist_trending_up": false,
-            "score": -0.5,
+            "score": -1.1,
             "score_breakdown": {
               "very_negative_momentum": -1.5,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "adx_very_strong": 1.0,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.4490323717618684,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3446,7 +4692,7 @@
             "atr_pct": 43.9,
             "close": 21.99,
             "ema50": 37.8518,
-            "ema200": null,
+            "ema200": 83.35,
             "sma50": 36.2484,
             "sma200": null,
             "4w_low": 21.99,
@@ -3463,14 +4709,17 @@
             "obv_trending_up": false,
             "acc_dist": -139170979.54,
             "acc_dist_trending_up": false,
-            "score": 5.5,
+            "score": 0.2,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "macd_bullish": 1,
-              "very_strong_momentum": 1,
-              "adx_very_strong_trend": 2,
-              "at_4w_low": 1
+              "very_strong_momentum": 1.0,
+              "adx_very_strong_trend": 1.0,
+              "at_4w_low": 1,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.024118129270052427,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3484,7 +4733,7 @@
             "atr_pct": 34.25,
             "close": 21.99,
             "ema50": 44.2296,
-            "ema200": null,
+            "ema200": 83.35,
             "sma50": 36.2484,
             "sma200": null,
             "4w_low": 21.99,
@@ -3501,14 +4750,17 @@
             "obv_trending_up": false,
             "acc_dist": -139170979.54,
             "acc_dist_trending_up": false,
-            "score": 5.5,
+            "score": 0.2,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "macd_bullish": 1,
-              "very_strong_momentum": 1,
+              "very_strong_momentum": 1.0,
               "adx_very_strong_trend": 2,
-              "at_4w_low": 1
+              "at_4w_low": 1,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.024118129270052427,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3524,7 +4776,7 @@
             "atr_pct": 82.35,
             "close": 0.0048,
             "ema50": 0.0177,
-            "ema200": null,
+            "ema200": 0.04,
             "sma50": 0.0178,
             "sma200": null,
             "4w_low": 0.0048,
@@ -3541,12 +4793,16 @@
             "obv_trending_up": false,
             "acc_dist": -139170979.54,
             "acc_dist_trending_up": false,
-            "score": 3,
+            "score": 0.2,
             "score_breakdown": {
               "macd_bullish": 1,
-              "very_strong_momentum": 1,
-              "at_4w_low": 1
+              "very_strong_momentum": 1.0,
+              "at_4w_low": 1,
+              "volatility_compression": 1,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.0,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3560,7 +4816,7 @@
             "atr_pct": 46.4,
             "close": 0.0048,
             "ema50": 0.0216,
-            "ema200": null,
+            "ema200": 0.04,
             "sma50": 0.0178,
             "sma200": null,
             "4w_low": 0.0048,
@@ -3577,12 +4833,15 @@
             "obv_trending_up": false,
             "acc_dist": -139170979.54,
             "acc_dist_trending_up": false,
-            "score": 3,
+            "score": 0.2,
             "score_breakdown": {
               "macd_bullish": 1,
-              "very_strong_momentum": 1,
-              "at_4w_low": 1
+              "very_strong_momentum": 1.0,
+              "at_4w_low": 1,
+              "adx_rising_very_strong": 1.2,
+              "market_bearish_adjustment": -2.0
             },
+            "pi": 0.0,
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -3619,13 +4878,15 @@
             "obv_trending_up": false,
             "acc_dist": -304668397.26,
             "acc_dist_trending_up": false,
-            "score": 5.5,
+            "score": 0,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "volume_confirmation": 1,
               "very_strong_momentum": 1,
-              "adx_very_strong_trend": 2,
-              "at_4w_low": 1
+              "adx_very_strong_trend_rising": 1.2,
+              "at_4w_low": 1,
+              "rsi_bullish_divergence": 1.5,
+              "volume_surge_accumulation": 1.0
             },
             "relative_potential": {
               "upside_potential_pct": null,
@@ -3657,14 +4918,15 @@
             "obv_trending_up": false,
             "acc_dist": -304668397.26,
             "acc_dist_trending_up": false,
-            "score": 6.5,
+            "score": 0,
             "score_breakdown": {
               "cci_bullish": 0.5,
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "very_strong_momentum": 1,
-              "adx_very_strong_trend": 2,
-              "at_4w_low": 1
+              "adx_very_strong_trend_rising": 2.5,
+              "at_4w_low": 1,
+              "volatility_compression": 1
             },
             "relative_potential": {
               "upside_potential_pct": null,
@@ -3698,12 +4960,13 @@
             "obv_trending_up": false,
             "acc_dist": -304668397.26,
             "acc_dist_trending_up": false,
-            "score": 2.0,
+            "score": 0,
             "score_breakdown": {
-              "rsi_slightly_oversold": 0.5,
+              "rsi_slightly_oversold_avoid": -0.5,
               "volume_confirmation": 1,
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2
+              "adx_very_strong_trend_rising": 1.2,
+              "volume_surge_accumulation": 1.0
             },
             "relative_potential": {
               "upside_potential_pct": null,
@@ -3735,13 +4998,14 @@
             "obv_trending_up": false,
             "acc_dist": -304668397.26,
             "acc_dist_trending_up": false,
-            "score": 3.0,
+            "score": 0,
             "score_breakdown": {
-              "rsi_slightly_oversold": 0.5,
+              "rsi_slightly_oversold_avoid": -0.5,
               "macd_bullish": 1,
               "volume_confirmation": 1,
               "very_negative_momentum": -1.5,
-              "adx_very_strong_trend": 2
+              "adx_very_strong_trend_rising": 2.5,
+              "volatility_compression": 1
             },
             "relative_potential": {
               "upside_potential_pct": null,
@@ -3779,7 +5043,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -3813,7 +5077,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -3849,7 +5113,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
@@ -3883,7 +5147,7 @@
             "obv_trending_up": null,
             "acc_dist": null,
             "acc_dist_trending_up": null,
-            "score": -1.5,
+            "score": 0,
             "score_breakdown": {
               "very_negative_momentum": -1.5
             },
