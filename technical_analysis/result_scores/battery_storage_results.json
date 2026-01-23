@@ -37,6 +37,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 21.259890823155786,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -79,6 +82,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 21.259890823155786,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -127,6 +133,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 38.451356265717,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -174,6 +183,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 38.451356265717,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -222,6 +234,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 23.278648582094025,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -264,6 +279,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 23.278648582094025,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -307,6 +325,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 11.855629240295002,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -348,6 +369,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 11.855629240295002,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -394,6 +418,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -434,6 +461,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -478,6 +508,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 43.56075591078897,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -520,6 +553,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 43.56075591078897,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -566,6 +602,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -606,6 +645,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -648,6 +690,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -688,6 +733,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1049,6 +1097,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 22.63350525677604,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1097,6 +1148,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 22.63350525677604,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1145,6 +1199,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 48.870980077551074,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1191,6 +1248,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 48.870980077551074,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1248,6 +1308,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 5.69843133218051,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1299,6 +1362,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 5.69843133218051,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1347,6 +1413,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 76.22280400524023,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1393,6 +1462,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 76.22280400524023,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1450,6 +1522,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 4.944854575639797,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1501,6 +1576,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 4.944854575639797,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1546,6 +1624,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 14.237297678955816,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1588,6 +1669,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 14.237297678955816,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1637,6 +1721,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1679,6 +1766,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1722,6 +1812,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 3.8684083667314635,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -1763,6 +1856,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 3.8684083667314635,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2121,6 +2217,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 56.51564785728147,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2165,6 +2264,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 56.51564785728147,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2213,6 +2315,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 100.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2259,6 +2364,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 100.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2310,6 +2418,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 10.07436637019657,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2355,6 +2466,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 10.07436637019657,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2403,6 +2517,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 7.933174842940273,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2449,6 +2566,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 7.933174842940273,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2499,6 +2619,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 6.3762643896120945,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2543,6 +2666,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 6.3762643896120945,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2586,6 +2712,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.9771650792524426,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2627,6 +2756,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.9771650792524426,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2680,6 +2812,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2727,6 +2862,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 0.0,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2770,6 +2908,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 15.286860894355527,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,
@@ -2810,6 +2951,9 @@
               "market_bearish_adjustment": -2.0
             },
             "pi": 15.286860894355527,
+            "vix": 16.09,
+            "vix_level": "low",
+            "vix_trend": "stable",
             "relative_potential": {
               "upside_potential_pct": null,
               "downside_potential_pct": null,

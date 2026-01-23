@@ -141,13 +141,28 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
     }
     timeframe_mult = timeframe_multipliers.get(timeframe, 1.0)
     
-    # Market context adjustment
+    # Market context adjustment (SPX/Gold ratio)
     market_adjustment = 0.0
+    vix_adjustment = 0.0
     if market_context:
         market_adjustment = market_context.get('market_adjustment', 0.0)
+        vix_adjustment = market_context.get('vix_adjustment', 0.0)
+        
         if market_context.get('market_bearish', False):
             # In bear markets, be even more strict
             timeframe_mult *= 0.9  # Additional 10% reduction
+        
+        # VIX-based adjustments
+        vix_level = market_context.get('vix_level', 'unknown')
+        vix_trend = market_context.get('vix_trend', 'unknown')
+        
+        # High VIX (>29) = meaningful risk increase
+        if vix_level == 'high':
+            timeframe_mult *= 0.85  # Additional 15% reduction for high VIX
+        
+        # Rising VIX = increasing risk
+        if vix_trend == 'rising' and vix_level in ['moderate', 'high']:
+            timeframe_mult *= 0.95  # Additional 5% reduction for rising VIX
     
     # Calculate PI if not provided
     if pi_value is None:
@@ -532,6 +547,17 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
     score += market_adjustment
     if market_adjustment < 0:
         breakdown['market_bearish_adjustment'] = round(market_adjustment, 1)
+    
+    # Apply VIX adjustment (volatility-based risk adjustment)
+    score += vix_adjustment
+    if vix_adjustment < 0:
+        breakdown['vix_adjustment'] = round(vix_adjustment, 1)
+    
+    # Add VIX info to indicators
+    if market_context and market_context.get('vix') is not None:
+        indicators['vix'] = round(market_context.get('vix'), 2)
+        indicators['vix_level'] = market_context.get('vix_level', 'unknown')
+        indicators['vix_trend'] = market_context.get('vix_trend', 'unknown')
     
     # ===== FINAL SCORE CAP =====
     # Cap very high scores (likely over-optimistic)
