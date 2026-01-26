@@ -17,17 +17,18 @@ except ImportError:
         IMPROVED_SCORING_AVAILABLE = False
 
 
-def apply_improved_scoring(result: Dict, df: pd.DataFrame, category: str, timeframe: str = "1W", market_context: dict = None) -> Dict:
+def apply_improved_scoring(result: Dict, df: pd.DataFrame, category: str, timeframe: str = "1W", market_context: dict = None, original_daily_df: pd.DataFrame = None) -> Dict:
     """
     Apply improved scoring logic to existing result dictionary
     This integrates explosive bottom detection into the main system
     
     Args:
         result: Existing result dictionary
-        df: Price data DataFrame
+        df: Price data DataFrame (resampled to timeframe)
         category: Asset category
         timeframe: Timeframe string (2D, 1W, 2W, 1M)
         market_context: Market context dict (SPX/Gold ratio, etc.)
+        original_daily_df: Original daily data for seasonality analysis (optional, for crypto)
     """
     if not IMPROVED_SCORING_AVAILABLE:
         return result
@@ -36,8 +37,12 @@ def apply_improved_scoring(result: Dict, df: pd.DataFrame, category: str, timefr
         # Calculate PI
         pi_value = calculate_price_intensity(df['Close'], df['Volume'])
         
+        # For crypto seasonality, use original daily data if available
+        # Otherwise use resampled data (will have less history)
+        seasonality_df = original_daily_df if (original_daily_df is not None and category == "cryptocurrencies") else df
+        
         # Get improved score with timeframe and market context
-        improved_result = improved_scoring(df, category, pi_value=pi_value, timeframe=timeframe, market_context=market_context)
+        improved_result = improved_scoring(df, category, pi_value=pi_value, timeframe=timeframe, market_context=market_context, original_daily_df=seasonality_df)
         
         # Merge improved scoring into result
         result['score'] = improved_result['score']

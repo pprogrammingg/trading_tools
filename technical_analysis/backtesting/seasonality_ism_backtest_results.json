@@ -1,0 +1,628 @@
+{
+  "ETH-USD": {
+    "symbol": "ETH-USD",
+    "category": "cryptocurrencies",
+    "data_years": 8.213552361396303,
+    "market_context": {
+      "spx_gold_trend": "near_low",
+      "market_adjustment": -2.0,
+      "vix": 16.09000015258789,
+      "vix_adjustment": 0.0,
+      "ism_pmi": 59.3,
+      "ism_phase": "expansion"
+    },
+    "seasonality": {
+      "seasonality_score": 80,
+      "monthly_returns": {
+        "1": {
+          "avg_return": 14.77847545646798,
+          "median_return": -1.6472027823624669,
+          "positive_years": 4,
+          "total_years": 9,
+          "win_rate": 44.44444444444444
+        },
+        "2": {
+          "avg_return": 6.485101070526289,
+          "median_return": 3.992602048898952,
+          "positive_years": 5,
+          "total_years": 8,
+          "win_rate": 62.5
+        },
+        "3": {
+          "avg_return": -7.3530800524849935,
+          "median_return": 4.95559935650034,
+          "positive_years": 5,
+          "total_years": 8,
+          "win_rate": 62.5
+        },
+        "4": {
+          "avg_return": 18.353993148057697,
+          "median_return": 8.90741103752336,
+          "positive_years": 5,
+          "total_years": 8,
+          "win_rate": 62.5
+        },
+        "5": {
+          "avg_return": 10.945277041114753,
+          "median_return": 5.062201570640412,
+          "positive_years": 5,
+          "total_years": 8,
+          "win_rate": 62.5
+        },
+        "6": {
+          "avg_return": -10.448873990344264,
+          "median_return": -9.172473575124513,
+          "positive_years": 2,
+          "total_years": 8,
+          "win_rate": 25.0
+        },
+        "7": {
+          "avg_return": 17.78177219595929,
+          "median_return": 8.220124948561581,
+          "positive_years": 4,
+          "total_years": 8,
+          "win_rate": 50.0
+        },
+        "8": {
+          "avg_return": -2.410693115564495,
+          "median_return": -8.533469463674809,
+          "positive_years": 3,
+          "total_years": 8,
+          "win_rate": 37.5
+        },
+        "9": {
+          "avg_return": -9.12267238597475,
+          "median_return": -10.091886617357105,
+          "positive_years": 3,
+          "total_years": 8,
+          "win_rate": 37.5
+        },
+        "10": {
+          "avg_return": 5.523106606401307,
+          "median_return": 4.251735088021402,
+          "positive_years": 6,
+          "total_years": 8,
+          "win_rate": 75.0
+        },
+        "11": {
+          "avg_return": 6.5869357207347905,
+          "median_return": 7.095457113578707,
+          "positive_years": 5,
+          "total_years": 9,
+          "win_rate": 55.55555555555556
+        },
+        "12": {
+          "avg_return": 7.232454258899231,
+          "median_return": 5.958477620877645,
+          "positive_years": 5,
+          "total_years": 9,
+          "win_rate": 55.55555555555556
+        }
+      },
+      "quarterly_returns": {
+        "1": {
+          "avg_return": 17.829939547142473,
+          "median_return": 0.49331756086772316,
+          "positive_years": 5,
+          "total_years": 9,
+          "win_rate": 55.55555555555556
+        },
+        "2": {
+          "avg_return": 21.58868943288755,
+          "median_return": 17.471286053016613,
+          "positive_years": 6,
+          "total_years": 8,
+          "win_rate": 75.0
+        },
+        "3": {
+          "avg_return": 8.805980881718781,
+          "median_return": 6.0708461639150055,
+          "positive_years": 4,
+          "total_years": 8,
+          "win_rate": 50.0
+        },
+        "4": {
+          "avg_return": 23.781864901891833,
+          "median_return": 11.341341549704875,
+          "positive_years": 5,
+          "total_years": 9,
+          "win_rate": 55.55555555555556
+        }
+      },
+      "seasonal_adjustment": 2.0,
+      "current_month": 1,
+      "current_quarter": 1,
+      "data_years": 8.213552361396303,
+      "current_month_stats": {
+        "avg_return": 14.77847545646798,
+        "median_return": -1.6472027823624669,
+        "positive_years": 4,
+        "total_years": 9,
+        "win_rate": 44.44444444444444
+      },
+      "current_quarter_stats": {
+        "avg_return": 17.829939547142473,
+        "median_return": 0.49331756086772316,
+        "positive_years": 5,
+        "total_years": 9,
+        "win_rate": 55.55555555555556
+      }
+    },
+    "results": {
+      "1D": {
+        "avg_score_full": 2.42,
+        "avg_score_no_seasonality": 1.81,
+        "avg_score_no_ism": 2.31,
+        "avg_seasonality_adjustment": 0.6,
+        "avg_ism_adjustment": 0.1,
+        "seasonality_impact": 0.6,
+        "ism_impact": 0.1,
+        "test_points": 20
+      },
+      "2D": {
+        "avg_score_full": 3.3,
+        "avg_score_no_seasonality": 2.5,
+        "avg_score_no_ism": 3.2,
+        "avg_seasonality_adjustment": 0.8,
+        "avg_ism_adjustment": 0.1,
+        "seasonality_impact": 0.8,
+        "ism_impact": 0.1,
+        "test_points": 20
+      },
+      "1W": {
+        "avg_score_full": 4.97,
+        "avg_score_no_seasonality": 3.97,
+        "avg_score_no_ism": 4.87,
+        "avg_seasonality_adjustment": 1.0,
+        "avg_ism_adjustment": 0.1,
+        "seasonality_impact": 1.0,
+        "ism_impact": 0.1,
+        "test_points": 19
+      },
+      "2W": {
+        "avg_score_full": 5.92,
+        "avg_score_no_seasonality": 4.72,
+        "avg_score_no_ism": 5.72,
+        "avg_seasonality_adjustment": 1.2,
+        "avg_ism_adjustment": 0.2,
+        "seasonality_impact": 1.2,
+        "ism_impact": 0.2,
+        "test_points": 17
+      },
+      "1M": {
+        "avg_score_full": 7.99,
+        "avg_score_no_seasonality": 6.39,
+        "avg_score_no_ism": 7.79,
+        "avg_seasonality_adjustment": 1.6,
+        "avg_ism_adjustment": 0.2,
+        "seasonality_impact": 1.6,
+        "ism_impact": 0.2,
+        "test_points": 13
+      },
+      "2M": {
+        "avg_score_full": 6.5,
+        "avg_score_no_seasonality": 4.5,
+        "avg_score_no_ism": 6.3,
+        "avg_seasonality_adjustment": 2.0,
+        "avg_ism_adjustment": 0.2,
+        "seasonality_impact": 2.0,
+        "ism_impact": 0.2,
+        "test_points": 1
+      }
+    }
+  },
+  "BTC-USD": {
+    "symbol": "BTC-USD",
+    "category": "cryptocurrencies",
+    "data_years": 11.359342915811089,
+    "market_context": {
+      "spx_gold_trend": "near_low",
+      "market_adjustment": -2.0,
+      "vix": 16.09000015258789,
+      "vix_adjustment": 0.0,
+      "ism_pmi": 59.3,
+      "ism_phase": "expansion"
+    },
+    "seasonality": {
+      "seasonality_score": 40,
+      "monthly_returns": {
+        "1": {
+          "avg_return": -1.500806608345244,
+          "median_return": -3.1924452715280385,
+          "positive_years": 4,
+          "total_years": 12,
+          "win_rate": 33.33333333333333
+        },
+        "2": {
+          "avg_return": 12.150329045356242,
+          "median_return": 12.02395024563967,
+          "positive_years": 8,
+          "total_years": 11,
+          "win_rate": 72.72727272727273
+        },
+        "3": {
+          "avg_return": -2.312788934035341,
+          "median_return": -4.0484976278334255,
+          "positive_years": 5,
+          "total_years": 11,
+          "win_rate": 45.45454545454545
+        },
+        "4": {
+          "avg_return": 9.281450920927087,
+          "median_return": 7.263375042978781,
+          "positive_years": 7,
+          "total_years": 11,
+          "win_rate": 63.63636363636363
+        },
+        "5": {
+          "avg_return": 8.511719424144278,
+          "median_return": 6.726539106877305,
+          "positive_years": 6,
+          "total_years": 11,
+          "win_rate": 54.54545454545454
+        },
+        "6": {
+          "avg_return": 1.5522420639044832,
+          "median_return": 1.4038853492398973,
+          "positive_years": 6,
+          "total_years": 11,
+          "win_rate": 54.54545454545454
+        },
+        "7": {
+          "avg_return": 10.305696143759413,
+          "median_return": 10.064531294084489,
+          "positive_years": 8,
+          "total_years": 11,
+          "win_rate": 72.72727272727273
+        },
+        "8": {
+          "avg_return": 0.9991111302715147,
+          "median_return": -7.394513102834088,
+          "positive_years": 2,
+          "total_years": 11,
+          "win_rate": 18.181818181818183
+        },
+        "9": {
+          "avg_return": -3.6578652269905763,
+          "median_return": -5.673388410529901,
+          "positive_years": 5,
+          "total_years": 12,
+          "win_rate": 41.66666666666667
+        },
+        "10": {
+          "avg_return": 15.217389057181144,
+          "median_return": 14.791619705260095,
+          "positive_years": 9,
+          "total_years": 12,
+          "win_rate": 75.0
+        },
+        "11": {
+          "avg_return": 6.467122931210791,
+          "median_return": 4.299802728441482,
+          "positive_years": 7,
+          "total_years": 12,
+          "win_rate": 58.333333333333336
+        },
+        "12": {
+          "avg_return": 7.047921392851728,
+          "median_return": -0.5489217241671951,
+          "positive_years": 6,
+          "total_years": 12,
+          "win_rate": 50.0
+        }
+      },
+      "quarterly_returns": {
+        "1": {
+          "avg_return": 11.929768594021683,
+          "median_return": -2.7630579886433635,
+          "positive_years": 5,
+          "total_years": 12,
+          "win_rate": 41.66666666666667
+        },
+        "2": {
+          "avg_return": 28.558517199175455,
+          "median_return": 7.272585407436183,
+          "positive_years": 7,
+          "total_years": 11,
+          "win_rate": 63.63636363636363
+        },
+        "3": {
+          "avg_return": 5.945850095825282,
+          "median_return": 0.801327263864926,
+          "positive_years": 7,
+          "total_years": 12,
+          "win_rate": 58.333333333333336
+        },
+        "4": {
+          "avg_return": 43.29594765981623,
+          "median_return": 23.636026218717028,
+          "positive_years": 6,
+          "total_years": 12,
+          "win_rate": 50.0
+        }
+      },
+      "seasonal_adjustment": -0.25,
+      "current_month": 1,
+      "current_quarter": 1,
+      "data_years": 11.359342915811089,
+      "current_month_stats": {
+        "avg_return": -1.500806608345244,
+        "median_return": -3.1924452715280385,
+        "positive_years": 4,
+        "total_years": 12,
+        "win_rate": 33.33333333333333
+      },
+      "current_quarter_stats": {
+        "avg_return": 11.929768594021683,
+        "median_return": -2.7630579886433635,
+        "positive_years": 5,
+        "total_years": 12,
+        "win_rate": 41.66666666666667
+      }
+    },
+    "results": {
+      "1D": {
+        "avg_score_full": 1.84,
+        "avg_score_no_seasonality": 1.94,
+        "avg_score_no_ism": 1.74,
+        "avg_seasonality_adjustment": -0.1,
+        "avg_ism_adjustment": 0.1,
+        "seasonality_impact": -0.1,
+        "ism_impact": 0.1,
+        "test_points": 20
+      },
+      "2D": {
+        "avg_score_full": 2.95,
+        "avg_score_no_seasonality": 3.05,
+        "avg_score_no_ism": 2.85,
+        "avg_seasonality_adjustment": -0.1,
+        "avg_ism_adjustment": 0.1,
+        "seasonality_impact": -0.1,
+        "ism_impact": 0.1,
+        "test_points": 20
+      },
+      "1W": {
+        "avg_score_full": 4.95,
+        "avg_score_no_seasonality": 5.05,
+        "avg_score_no_ism": 4.85,
+        "avg_seasonality_adjustment": -0.1,
+        "avg_ism_adjustment": 0.1,
+        "seasonality_impact": -0.1,
+        "ism_impact": 0.1,
+        "test_points": 19
+      },
+      "2W": {
+        "avg_score_full": 6.23,
+        "avg_score_no_seasonality": 6.33,
+        "avg_score_no_ism": 6.03,
+        "avg_seasonality_adjustment": -0.1,
+        "avg_ism_adjustment": 0.2,
+        "seasonality_impact": -0.1,
+        "ism_impact": 0.2,
+        "test_points": 18
+      },
+      "1M": {
+        "avg_score_full": 7.79,
+        "avg_score_no_seasonality": 7.99,
+        "avg_score_no_ism": 7.59,
+        "avg_seasonality_adjustment": -0.2,
+        "avg_ism_adjustment": 0.2,
+        "seasonality_impact": -0.2,
+        "ism_impact": 0.2,
+        "test_points": 15
+      },
+      "2M": {
+        "avg_score_full": 6.23,
+        "avg_score_no_seasonality": 6.43,
+        "avg_score_no_ism": 6.03,
+        "avg_seasonality_adjustment": -0.2,
+        "avg_ism_adjustment": 0.2,
+        "seasonality_impact": -0.2,
+        "ism_impact": 0.2,
+        "test_points": 7
+      }
+    }
+  },
+  "SOL-USD": {
+    "symbol": "SOL-USD",
+    "category": "cryptocurrencies",
+    "data_years": 5.796030116358659,
+    "market_context": {
+      "spx_gold_trend": "near_low",
+      "market_adjustment": -2.0,
+      "vix": 16.09000015258789,
+      "vix_adjustment": 0.0,
+      "ism_pmi": 59.3,
+      "ism_phase": "expansion"
+    },
+    "seasonality": {
+      "seasonality_score": 80,
+      "monthly_returns": {
+        "1": {
+          "avg_return": 38.57021123003627,
+          "median_return": 7.754557151003693,
+          "positive_years": 3,
+          "total_years": 6,
+          "win_rate": 50.0
+        },
+        "2": {
+          "avg_return": 31.946532300224884,
+          "median_return": -9.509665688876956,
+          "positive_years": 2,
+          "total_years": 5,
+          "win_rate": 40.0
+        },
+        "3": {
+          "avg_return": 18.28209334569903,
+          "median_return": 24.3355686563137,
+          "positive_years": 3,
+          "total_years": 5,
+          "win_rate": 60.0
+        },
+        "4": {
+          "avg_return": 8.727965505468271,
+          "median_return": -9.244449951852229,
+          "positive_years": 3,
+          "total_years": 6,
+          "win_rate": 50.0
+        },
+        "5": {
+          "avg_return": -13.812250436620424,
+          "median_return": -13.535600823616118,
+          "positive_years": 2,
+          "total_years": 6,
+          "win_rate": 33.33333333333333
+        },
+        "6": {
+          "avg_return": 4.261404247791711,
+          "median_return": -4.880225336604404,
+          "positive_years": 2,
+          "total_years": 6,
+          "win_rate": 33.33333333333333
+        },
+        "7": {
+          "avg_return": 30.960718768630723,
+          "median_return": 22.156683874689442,
+          "positive_years": 6,
+          "total_years": 6,
+          "win_rate": 100.0
+        },
+        "8": {
+          "avg_return": 65.25977738841424,
+          "median_return": 2.777990730455386,
+          "positive_years": 3,
+          "total_years": 6,
+          "win_rate": 50.0
+        },
+        "9": {
+          "avg_return": 5.682634323324817,
+          "median_return": 8.299357808005738,
+          "positive_years": 5,
+          "total_years": 6,
+          "win_rate": 83.33333333333334
+        },
+        "10": {
+          "avg_return": 6.910322734272817,
+          "median_return": 8.181544864819134,
+          "positive_years": 4,
+          "total_years": 6,
+          "win_rate": 66.66666666666666
+        },
+        "11": {
+          "avg_return": 4.4619154692868905,
+          "median_return": 12.730646707053806,
+          "positive_years": 4,
+          "total_years": 6,
+          "win_rate": 66.66666666666666
+        },
+        "12": {
+          "avg_return": -4.623667568875152,
+          "median_return": -21.857296444166845,
+          "positive_years": 1,
+          "total_years": 6,
+          "win_rate": 16.666666666666664
+        }
+      },
+      "quarterly_returns": {
+        "1": {
+          "avg_return": 180.51601851510884,
+          "median_return": 40.64442788485955,
+          "positive_years": 3,
+          "total_years": 6,
+          "win_rate": 50.0
+        },
+        "2": {
+          "avg_return": -1.6604663122033088,
+          "median_return": -9.736187557330318,
+          "positive_years": 2,
+          "total_years": 6,
+          "win_rate": 33.33333333333333
+        },
+        "3": {
+          "avg_return": 105.38104287783558,
+          "median_return": 28.29207607376255,
+          "positive_years": 6,
+          "total_years": 6,
+          "win_rate": 100.0
+        },
+        "4": {
+          "avg_return": 33.51372241166176,
+          "median_return": -19.257263501456237,
+          "positive_years": 3,
+          "total_years": 6,
+          "win_rate": 50.0
+        }
+      },
+      "seasonal_adjustment": 2.0,
+      "current_month": 1,
+      "current_quarter": 1,
+      "data_years": 5.796030116358659,
+      "current_month_stats": {
+        "avg_return": 38.57021123003627,
+        "median_return": 7.754557151003693,
+        "positive_years": 3,
+        "total_years": 6,
+        "win_rate": 50.0
+      },
+      "current_quarter_stats": {
+        "avg_return": 180.51601851510884,
+        "median_return": 40.64442788485955,
+        "positive_years": 3,
+        "total_years": 6,
+        "win_rate": 50.0
+      }
+    },
+    "results": {
+      "1D": {
+        "avg_score_full": 2.31,
+        "avg_score_no_seasonality": 1.71,
+        "avg_score_no_ism": 2.21,
+        "avg_seasonality_adjustment": 0.6,
+        "avg_ism_adjustment": 0.1,
+        "seasonality_impact": 0.6,
+        "ism_impact": 0.1,
+        "test_points": 20
+      },
+      "2D": {
+        "avg_score_full": 3.42,
+        "avg_score_no_seasonality": 2.62,
+        "avg_score_no_ism": 3.32,
+        "avg_seasonality_adjustment": 0.8,
+        "avg_ism_adjustment": 0.1,
+        "seasonality_impact": 0.8,
+        "ism_impact": 0.1,
+        "test_points": 20
+      },
+      "1W": {
+        "avg_score_full": 5.55,
+        "avg_score_no_seasonality": 4.55,
+        "avg_score_no_ism": 5.45,
+        "avg_seasonality_adjustment": 1.0,
+        "avg_ism_adjustment": 0.1,
+        "seasonality_impact": 1.0,
+        "ism_impact": 0.1,
+        "test_points": 17
+      },
+      "2W": {
+        "avg_score_full": 6.19,
+        "avg_score_no_seasonality": 4.99,
+        "avg_score_no_ism": 5.99,
+        "avg_seasonality_adjustment": 1.2,
+        "avg_ism_adjustment": 0.2,
+        "seasonality_impact": 1.2,
+        "ism_impact": 0.2,
+        "test_points": 15
+      },
+      "1M": {
+        "avg_score_full": 8.6,
+        "avg_score_no_seasonality": 7.0,
+        "avg_score_no_ism": 8.4,
+        "avg_seasonality_adjustment": 1.6,
+        "avg_ism_adjustment": 0.2,
+        "seasonality_impact": 1.6,
+        "ism_impact": 0.2,
+        "test_points": 7
+      }
+    }
+  }
+}

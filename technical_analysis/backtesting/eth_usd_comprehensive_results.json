@@ -1,0 +1,2734 @@
+{
+  "results": {
+    "4H_basic": {
+      "timeframe": "4H",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": false
+      },
+      "total_invested": 30.0,
+      "final_value": 29.104017001428936,
+      "total_return_pct": -2.9866099952368774,
+      "max_drawdown_pct": -6.012441660399143,
+      "total_trades": 14,
+      "buy_trades": 7,
+      "sell_trades": 7,
+      "winning_trades": 2,
+      "losing_trades": 5,
+      "win_rate": 28.57142857142857,
+      "avg_win_pct": 2.336058055105905,
+      "avg_loss_pct": -4.518355216326604,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3085.380126953125,
+          "shares": 0.001620545862832662,
+          "score": 6.9,
+          "date": "2025-12-14 08:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3085.00146484375,
+          "shares": 0.0016207447733750887,
+          "score": 7.5,
+          "date": "2025-12-14 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3091.444091796875,
+          "shares": 0.0016173671111398924,
+          "score": 7.5,
+          "date": "2025-12-14 16:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2943.849365234375,
+          "shares": 0.0016984564696305119,
+          "score": 5.8,
+          "date": "2025-12-15 16:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2903.1240234375,
+          "shares": 0.0017222826030283244,
+          "score": 5.6,
+          "date": "2025-12-17 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2817.488525390625,
+          "shares": 0.0017746301200310247,
+          "score": 5.6,
+          "date": "2025-12-17 16:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3085.380126953125,
+          "exit_price": 2926.46875,
+          "return_pct": -5.150463489568569,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3085.00146484375,
+          "exit_price": 2926.46875,
+          "return_pct": -5.1388213798394204,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3091.444091796875,
+          "exit_price": 2926.46875,
+          "return_pct": -5.33651383942656,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2943.849365234375,
+          "exit_price": 2926.46875,
+          "return_pct": -0.5904043678196524,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2903.1240234375,
+          "exit_price": 2926.46875,
+          "return_pct": 0.8041243286209365,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2817.488525390625,
+          "exit_price": 2926.46875,
+          "return_pct": 3.8679917815908738,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3120.594970703125,
+          "shares": 0.001602258558685497,
+          "score": 5.6,
+          "date": "2026-01-11 16:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3120.594970703125,
+          "exit_price": 2921.63916015625,
+          "return_pct": -6.375573004978818,
+          "reason": "sell_signal",
+          "date": "2026-01-25 12:00:00+00:00"
+        }
+      ]
+    },
+    "1D_basic": {
+      "timeframe": "1D",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": false
+      },
+      "total_invested": 25.0,
+      "final_value": 34.36049848759514,
+      "total_return_pct": 37.44199395038055,
+      "max_drawdown_pct": -27.51742073445581,
+      "total_trades": 26,
+      "buy_trades": 13,
+      "sell_trades": 13,
+      "winning_trades": 7,
+      "losing_trades": 6,
+      "win_rate": 53.84615384615385,
+      "avg_win_pct": 40.78335892761108,
+      "avg_loss_pct": -16.378923790229184,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1795.313232421875,
+          "shares": 0.002785029325080508,
+          "score": 6.3,
+          "date": "2025-04-02 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1795.313232421875,
+          "exit_price": 1805.9732666015625,
+          "return_pct": 0.5937701559358022,
+          "reason": "sell_signal",
+          "date": "2025-04-05 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1576.72802734375,
+          "shares": 0.0031711239435651423,
+          "score": 9.3,
+          "date": "2025-04-06 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1555.240966796875,
+          "shares": 0.003214935888872476,
+          "score": 8.5,
+          "date": "2025-04-07 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1472.5531005859375,
+          "shares": 0.0033954632929776665,
+          "score": 8.5,
+          "date": "2025-04-08 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1668.0400390625,
+          "shares": 0.002997529965054187,
+          "score": 5.6,
+          "date": "2025-04-09 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1522.518798828125,
+          "shares": 0.0032840317005270966,
+          "score": 6.8,
+          "date": "2025-04-10 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1576.72802734375,
+          "exit_price": 2407.30419921875,
+          "return_pct": 52.67719971174978,
+          "reason": "sell_signal",
+          "date": "2025-06-20 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1555.240966796875,
+          "exit_price": 2407.30419921875,
+          "return_pct": 54.786573310035514,
+          "reason": "sell_signal",
+          "date": "2025-06-20 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1472.5531005859375,
+          "exit_price": 2407.30419921875,
+          "return_pct": 63.478260869565226,
+          "reason": "sell_signal",
+          "date": "2025-06-20 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1668.0400390625,
+          "exit_price": 2407.30419921875,
+          "return_pct": 44.319329443179534,
+          "reason": "sell_signal",
+          "date": "2025-06-20 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1522.518798828125,
+          "exit_price": 2407.30419921875,
+          "return_pct": 58.11326606092744,
+          "reason": "sell_signal",
+          "date": "2025-06-20 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4439.98876953125,
+          "shares": 0.0011261289745396975,
+          "score": 5.5,
+          "date": "2025-08-15 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4312.5048828125,
+          "shares": 0.0011594189771071365,
+          "score": 5.9,
+          "date": "2025-08-18 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4831.3486328125,
+          "shares": 0.0010349077203913812,
+          "score": 5.6,
+          "date": "2025-08-22 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4035.887939453125,
+          "shares": 0.0012388847448221061,
+          "score": 5.6,
+          "date": "2025-09-26 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4831.3486328125,
+          "exit_price": 3843.0087890625,
+          "return_pct": -20.45681069334573,
+          "reason": "stop_loss",
+          "date": "2025-10-10 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4439.98876953125,
+          "exit_price": 3292.574462890625,
+          "return_pct": -25.8427299301877,
+          "reason": "stop_loss",
+          "date": "2025-11-04 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4312.5048828125,
+          "exit_price": 3292.574462890625,
+          "return_pct": -23.65053368372545,
+          "reason": "stop_loss",
+          "date": "2025-11-04 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 3232.757080078125,
+          "shares": 0.0015466674037503513,
+          "score": 5.6,
+          "date": "2025-11-13 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4035.887939453125,
+          "exit_price": 3103.78564453125,
+          "return_pct": -23.095346275847728,
+          "reason": "stop_loss",
+          "date": "2025-11-14 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 3103.78564453125,
+          "shares": 0.0016109359899933186,
+          "score": 5.6,
+          "date": "2025-11-14 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 2765.69921875,
+          "shares": 0.0018078610884736143,
+          "score": 6.2,
+          "date": "2025-11-21 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 3232.757080078125,
+          "exit_price": 3084.172607421875,
+          "return_pct": -4.596215211217148,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 3103.78564453125,
+          "exit_price": 3084.172607421875,
+          "return_pct": -0.6319069470513305,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 2765.69921875,
+          "exit_price": 3084.172607421875,
+          "return_pct": 11.51511294188432,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        }
+      ]
+    },
+    "2D_basic": {
+      "timeframe": "2D",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": false
+      },
+      "total_invested": 25.0,
+      "final_value": 23.805823603107456,
+      "total_return_pct": -4.776705587570174,
+      "max_drawdown_pct": -13.498124226439806,
+      "total_trades": 10,
+      "buy_trades": 5,
+      "sell_trades": 5,
+      "winning_trades": 2,
+      "losing_trades": 3,
+      "win_rate": 40.0,
+      "avg_win_pct": 6.459422780668778,
+      "avg_loss_pct": -12.267457833062785,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3843.0087890625,
+          "shares": 0.0013010638992630946,
+          "score": 7.6,
+          "date": "2025-10-09 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3425.171142578125,
+          "shares": 0.0014597810713296217,
+          "score": 6.2,
+          "date": "2025-11-04 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3843.0087890625,
+          "exit_price": 3024.538818359375,
+          "return_pct": -21.297634630255168,
+          "reason": "stop_loss",
+          "date": "2025-11-16 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3024.538818359375,
+          "shares": 0.0016531445950203377,
+          "score": 5.6,
+          "date": "2025-11-16 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 2765.69921875,
+          "shares": 0.0018078610884736143,
+          "score": 6.2,
+          "date": "2025-11-20 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 2801.676025390625,
+          "shares": 0.0017846460314064588,
+          "score": 6.2,
+          "date": "2025-11-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3425.171142578125,
+          "exit_price": 2963.3740234375,
+          "return_pct": -13.482453866320688,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3024.538818359375,
+          "exit_price": 2963.3740234375,
+          "return_pct": -2.0222850026125005,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 2765.69921875,
+          "exit_price": 2963.3740234375,
+          "return_pct": 7.147371751323051,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 2801.676025390625,
+          "exit_price": 2963.3740234375,
+          "return_pct": 5.771473810014505,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        }
+      ]
+    },
+    "1W_basic": {
+      "timeframe": "1W",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": false
+      },
+      "total_invested": 15.0,
+      "final_value": 14.357139905773643,
+      "total_return_pct": -4.285733961509052,
+      "max_drawdown_pct": 0,
+      "total_trades": 6,
+      "buy_trades": 3,
+      "sell_trades": 3,
+      "winning_trades": 0,
+      "losing_trades": 3,
+      "win_rate": 0.0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": -4.285733961509052,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 3118.88525390625,
+          "shares": 0.0016031368880075811,
+          "score": 5.7,
+          "date": "2026-01-11 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 2948.74072265625,
+          "shares": 0.0016956390779233918,
+          "score": 5.7,
+          "date": "2026-01-25 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 2836.549072265625,
+          "shares": 0.0017627052706006496,
+          "score": 6.4,
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 3118.88525390625,
+          "exit_price": 2836.549072265625,
+          "return_pct": -9.052470952145896,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 2948.74072265625,
+          "exit_price": 2836.549072265625,
+          "return_pct": -3.8047309323812617,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 2836.549072265625,
+          "exit_price": 2836.549072265625,
+          "return_pct": 0.0,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        }
+      ]
+    },
+    "4H_trailing": {
+      "timeframe": "4H",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": false
+      },
+      "total_invested": 30.0,
+      "final_value": 29.104017001428936,
+      "total_return_pct": -2.9866099952368774,
+      "max_drawdown_pct": -6.012441660399143,
+      "total_trades": 14,
+      "buy_trades": 7,
+      "sell_trades": 7,
+      "winning_trades": 2,
+      "losing_trades": 5,
+      "win_rate": 28.57142857142857,
+      "avg_win_pct": 2.336058055105905,
+      "avg_loss_pct": -4.518355216326604,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3085.380126953125,
+          "shares": 0.001620545862832662,
+          "score": 6.9,
+          "date": "2025-12-14 08:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3085.00146484375,
+          "shares": 0.0016207447733750887,
+          "score": 7.5,
+          "date": "2025-12-14 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3091.444091796875,
+          "shares": 0.0016173671111398924,
+          "score": 7.5,
+          "date": "2025-12-14 16:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2943.849365234375,
+          "shares": 0.0016984564696305119,
+          "score": 5.8,
+          "date": "2025-12-15 16:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2903.1240234375,
+          "shares": 0.0017222826030283244,
+          "score": 5.6,
+          "date": "2025-12-17 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2817.488525390625,
+          "shares": 0.0017746301200310247,
+          "score": 5.6,
+          "date": "2025-12-17 16:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3085.380126953125,
+          "exit_price": 2926.46875,
+          "return_pct": -5.150463489568569,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3085.00146484375,
+          "exit_price": 2926.46875,
+          "return_pct": -5.1388213798394204,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3091.444091796875,
+          "exit_price": 2926.46875,
+          "return_pct": -5.33651383942656,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2943.849365234375,
+          "exit_price": 2926.46875,
+          "return_pct": -0.5904043678196524,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2903.1240234375,
+          "exit_price": 2926.46875,
+          "return_pct": 0.8041243286209365,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2817.488525390625,
+          "exit_price": 2926.46875,
+          "return_pct": 3.8679917815908738,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3120.594970703125,
+          "shares": 0.001602258558685497,
+          "score": 5.6,
+          "date": "2026-01-11 16:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3120.594970703125,
+          "exit_price": 2921.63916015625,
+          "return_pct": -6.375573004978818,
+          "reason": "sell_signal",
+          "date": "2026-01-25 12:00:00+00:00"
+        }
+      ]
+    },
+    "1D_trailing": {
+      "timeframe": "1D",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": false
+      },
+      "total_invested": 25.0,
+      "final_value": 36.61844599949343,
+      "total_return_pct": 46.473783997973726,
+      "max_drawdown_pct": -22.52455306005821,
+      "total_trades": 26,
+      "buy_trades": 13,
+      "sell_trades": 13,
+      "winning_trades": 7,
+      "losing_trades": 6,
+      "win_rate": 53.84615384615385,
+      "avg_win_pct": 40.78335892761108,
+      "avg_loss_pct": -8.852432083901538,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1795.313232421875,
+          "shares": 0.002785029325080508,
+          "score": 6.3,
+          "date": "2025-04-02 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1795.313232421875,
+          "exit_price": 1805.9732666015625,
+          "return_pct": 0.5937701559358022,
+          "reason": "sell_signal",
+          "date": "2025-04-05 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1576.72802734375,
+          "shares": 0.0031711239435651423,
+          "score": 9.3,
+          "date": "2025-04-06 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1555.240966796875,
+          "shares": 0.003214935888872476,
+          "score": 8.5,
+          "date": "2025-04-07 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1472.5531005859375,
+          "shares": 0.0033954632929776665,
+          "score": 8.5,
+          "date": "2025-04-08 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1668.0400390625,
+          "shares": 0.002997529965054187,
+          "score": 5.6,
+          "date": "2025-04-09 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1522.518798828125,
+          "shares": 0.0032840317005270966,
+          "score": 6.8,
+          "date": "2025-04-10 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1576.72802734375,
+          "exit_price": 2407.30419921875,
+          "return_pct": 52.67719971174978,
+          "reason": "sell_signal",
+          "date": "2025-06-20 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1555.240966796875,
+          "exit_price": 2407.30419921875,
+          "return_pct": 54.786573310035514,
+          "reason": "sell_signal",
+          "date": "2025-06-20 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1472.5531005859375,
+          "exit_price": 2407.30419921875,
+          "return_pct": 63.478260869565226,
+          "reason": "sell_signal",
+          "date": "2025-06-20 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1668.0400390625,
+          "exit_price": 2407.30419921875,
+          "return_pct": 44.319329443179534,
+          "reason": "sell_signal",
+          "date": "2025-06-20 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1522.518798828125,
+          "exit_price": 2407.30419921875,
+          "return_pct": 58.11326606092744,
+          "reason": "sell_signal",
+          "date": "2025-06-20 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4439.98876953125,
+          "shares": 0.0011261289745396975,
+          "score": 5.5,
+          "date": "2025-08-15 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4312.5048828125,
+          "shares": 0.0011594189771071365,
+          "score": 5.9,
+          "date": "2025-08-18 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4831.3486328125,
+          "shares": 0.0010349077203913812,
+          "score": 5.6,
+          "date": "2025-08-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4439.98876953125,
+          "exit_price": 3868.333984375,
+          "return_pct": -12.875140339974378,
+          "reason": "trailing_stop",
+          "date": "2025-09-25 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4312.5048828125,
+          "exit_price": 3868.333984375,
+          "return_pct": -10.299603374543276,
+          "reason": "trailing_stop",
+          "date": "2025-09-25 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4831.3486328125,
+          "exit_price": 3868.333984375,
+          "return_pct": -19.932625890359212,
+          "reason": "trailing_stop",
+          "date": "2025-09-25 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4035.887939453125,
+          "shares": 0.0012388847448221061,
+          "score": 5.6,
+          "date": "2025-09-26 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4035.887939453125,
+          "exit_price": 3843.0087890625,
+          "return_pct": -4.779100740263886,
+          "reason": "trailing_stop",
+          "date": "2025-10-10 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 3232.757080078125,
+          "shares": 0.0015466674037503513,
+          "score": 5.6,
+          "date": "2025-11-13 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 3103.78564453125,
+          "shares": 0.0016109359899933186,
+          "score": 5.6,
+          "date": "2025-11-14 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 2765.69921875,
+          "shares": 0.0018078610884736143,
+          "score": 6.2,
+          "date": "2025-11-21 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 3232.757080078125,
+          "exit_price": 3084.172607421875,
+          "return_pct": -4.596215211217148,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 3103.78564453125,
+          "exit_price": 3084.172607421875,
+          "return_pct": -0.6319069470513305,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 2765.69921875,
+          "exit_price": 3084.172607421875,
+          "return_pct": 11.51511294188432,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        }
+      ]
+    },
+    "2D_trailing": {
+      "timeframe": "2D",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": false
+      },
+      "total_invested": 20.0,
+      "final_value": 19.416359066885057,
+      "total_return_pct": -2.9182046655747085,
+      "max_drawdown_pct": -13.498124226439806,
+      "total_trades": 10,
+      "buy_trades": 5,
+      "sell_trades": 5,
+      "winning_trades": 2,
+      "losing_trades": 3,
+      "win_rate": 40.0,
+      "avg_win_pct": 6.459422780668778,
+      "avg_loss_pct": -8.197221407878827,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3843.0087890625,
+          "shares": 0.0013010638992630946,
+          "score": 7.6,
+          "date": "2025-10-09 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3843.0087890625,
+          "exit_price": 3425.171142578125,
+          "return_pct": -10.872669551877511,
+          "reason": "trailing_stop",
+          "date": "2025-11-04 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3425.171142578125,
+          "shares": 0.0014597810713296217,
+          "score": 6.2,
+          "date": "2025-11-04 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3425.171142578125,
+          "exit_price": 3024.538818359375,
+          "return_pct": -11.696709669146465,
+          "reason": "trailing_stop",
+          "date": "2025-11-16 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3024.538818359375,
+          "shares": 0.0016531445950203377,
+          "score": 5.6,
+          "date": "2025-11-16 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 2765.69921875,
+          "shares": 0.0018078610884736143,
+          "score": 6.2,
+          "date": "2025-11-20 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 2801.676025390625,
+          "shares": 0.0017846460314064588,
+          "score": 6.2,
+          "date": "2025-11-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3024.538818359375,
+          "exit_price": 2963.3740234375,
+          "return_pct": -2.0222850026125005,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 2765.69921875,
+          "exit_price": 2963.3740234375,
+          "return_pct": 7.147371751323051,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 2801.676025390625,
+          "exit_price": 2963.3740234375,
+          "return_pct": 5.771473810014505,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        }
+      ]
+    },
+    "1W_trailing": {
+      "timeframe": "1W",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": false
+      },
+      "total_invested": 15.0,
+      "final_value": 14.357139905773643,
+      "total_return_pct": -4.285733961509052,
+      "max_drawdown_pct": 0,
+      "total_trades": 6,
+      "buy_trades": 3,
+      "sell_trades": 3,
+      "winning_trades": 0,
+      "losing_trades": 3,
+      "win_rate": 0.0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": -4.285733961509052,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 3118.88525390625,
+          "shares": 0.0016031368880075811,
+          "score": 5.7,
+          "date": "2026-01-11 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 2948.74072265625,
+          "shares": 0.0016956390779233918,
+          "score": 5.7,
+          "date": "2026-01-25 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 2836.549072265625,
+          "shares": 0.0017627052706006496,
+          "score": 6.4,
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 3118.88525390625,
+          "exit_price": 2836.549072265625,
+          "return_pct": -9.052470952145896,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 2948.74072265625,
+          "exit_price": 2836.549072265625,
+          "return_pct": -3.8047309323812617,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 2836.549072265625,
+          "exit_price": 2836.549072265625,
+          "return_pct": 0.0,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        }
+      ]
+    },
+    "4H_partial": {
+      "timeframe": "4H",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": true
+      },
+      "total_invested": 30.0,
+      "final_value": 29.104017001428936,
+      "total_return_pct": -2.9866099952368774,
+      "max_drawdown_pct": -6.012441660399143,
+      "total_trades": 14,
+      "buy_trades": 7,
+      "sell_trades": 7,
+      "winning_trades": 2,
+      "losing_trades": 5,
+      "win_rate": 28.57142857142857,
+      "avg_win_pct": 2.336058055105905,
+      "avg_loss_pct": -4.518355216326604,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3085.380126953125,
+          "shares": 0.001620545862832662,
+          "score": 6.9,
+          "date": "2025-12-14 08:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3085.00146484375,
+          "shares": 0.0016207447733750887,
+          "score": 7.5,
+          "date": "2025-12-14 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3091.444091796875,
+          "shares": 0.0016173671111398924,
+          "score": 7.5,
+          "date": "2025-12-14 16:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2943.849365234375,
+          "shares": 0.0016984564696305119,
+          "score": 5.8,
+          "date": "2025-12-15 16:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2903.1240234375,
+          "shares": 0.0017222826030283244,
+          "score": 5.6,
+          "date": "2025-12-17 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2817.488525390625,
+          "shares": 0.0017746301200310247,
+          "score": 5.6,
+          "date": "2025-12-17 16:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3085.380126953125,
+          "exit_price": 2926.46875,
+          "return_pct": -5.150463489568569,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3085.00146484375,
+          "exit_price": 2926.46875,
+          "return_pct": -5.1388213798394204,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3091.444091796875,
+          "exit_price": 2926.46875,
+          "return_pct": -5.33651383942656,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2943.849365234375,
+          "exit_price": 2926.46875,
+          "return_pct": -0.5904043678196524,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2903.1240234375,
+          "exit_price": 2926.46875,
+          "return_pct": 0.8041243286209365,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2817.488525390625,
+          "exit_price": 2926.46875,
+          "return_pct": 3.8679917815908738,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3120.594970703125,
+          "shares": 0.001602258558685497,
+          "score": 5.6,
+          "date": "2026-01-11 16:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3120.594970703125,
+          "exit_price": 2921.63916015625,
+          "return_pct": -6.375573004978818,
+          "reason": "sell_signal",
+          "date": "2026-01-25 12:00:00+00:00"
+        }
+      ]
+    },
+    "1D_partial": {
+      "timeframe": "1D",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": true
+      },
+      "total_invested": 25.0,
+      "final_value": 29.65204597117495,
+      "total_return_pct": 18.608183884699802,
+      "max_drawdown_pct": -18.408273391608162,
+      "total_trades": 33,
+      "buy_trades": 13,
+      "sell_trades": 20,
+      "winning_trades": 14,
+      "losing_trades": 6,
+      "win_rate": 70.0,
+      "avg_win_pct": 25.638557706997464,
+      "avg_loss_pct": -16.378923790229184,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1795.313232421875,
+          "shares": 0.002785029325080508,
+          "score": 6.3,
+          "date": "2025-04-02 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1795.313232421875,
+          "exit_price": 1805.9732666015625,
+          "return_pct": 0.5937701559358022,
+          "reason": "sell_signal",
+          "date": "2025-04-05 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1576.72802734375,
+          "shares": 0.0031711239435651423,
+          "score": 9.3,
+          "date": "2025-04-06 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1555.240966796875,
+          "shares": 0.003214935888872476,
+          "score": 8.5,
+          "date": "2025-04-07 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1472.5531005859375,
+          "shares": 0.0033954632929776665,
+          "score": 8.5,
+          "date": "2025-04-08 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1668.0400390625,
+          "shares": 0.002997529965054187,
+          "score": 5.6,
+          "date": "2025-04-09 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1522.518798828125,
+          "shares": 0.0032840317005270966,
+          "score": 6.8,
+          "date": "2025-04-10 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 1472.5531005859375,
+          "exit_price": 1757.3316650390625,
+          "return_pct": 19.339103244549214,
+          "shares": 0.0016977316464888332,
+          "reason": "partial_profit_15%",
+          "date": "2025-04-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 1522.518798828125,
+          "exit_price": 1757.3316650390625,
+          "return_pct": 15.422657926566941,
+          "shares": 0.0016420158502635483,
+          "reason": "partial_profit_15%",
+          "date": "2025-04-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 1555.240966796875,
+          "exit_price": 1796.104248046875,
+          "return_pct": 15.487200144044188,
+          "shares": 0.001607467944436238,
+          "reason": "partial_profit_15%",
+          "date": "2025-04-23 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 1576.72802734375,
+          "exit_price": 1821.881103515625,
+          "return_pct": 15.548215793745634,
+          "shares": 0.0015855619717825712,
+          "reason": "partial_profit_15%",
+          "date": "2025-04-26 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1576.72802734375,
+          "exit_price": 2206.5146484375,
+          "return_pct": 39.94262866974756,
+          "reason": "profit_target_30%",
+          "date": "2025-05-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1555.240966796875,
+          "exit_price": 2206.5146484375,
+          "return_pct": 41.87606265169106,
+          "reason": "profit_target_30%",
+          "date": "2025-05-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1472.5531005859375,
+          "exit_price": 2206.5146484375,
+          "return_pct": 49.84278988374102,
+          "reason": "profit_target_30%",
+          "date": "2025-05-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 1668.0400390625,
+          "exit_price": 2206.5146484375,
+          "return_pct": 32.28187554044821,
+          "shares": 0.0014987649825270934,
+          "reason": "partial_profit_15%",
+          "date": "2025-05-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1522.518798828125,
+          "exit_price": 2206.5146484375,
+          "return_pct": 44.92528106292304,
+          "reason": "profit_target_30%",
+          "date": "2025-05-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1668.0400390625,
+          "exit_price": 2345.50732421875,
+          "return_pct": 40.614569751995376,
+          "reason": "profit_target_30%",
+          "date": "2025-05-09 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4439.98876953125,
+          "shares": 0.0011261289745396975,
+          "score": 5.5,
+          "date": "2025-08-15 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4312.5048828125,
+          "shares": 0.0011594189771071365,
+          "score": 5.9,
+          "date": "2025-08-18 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4831.3486328125,
+          "shares": 0.0010349077203913812,
+          "score": 5.6,
+          "date": "2025-08-22 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4035.887939453125,
+          "shares": 0.0012388847448221061,
+          "score": 5.6,
+          "date": "2025-09-26 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 4035.887939453125,
+          "exit_price": 4687.771484375,
+          "return_pct": 16.15217158408535,
+          "shares": 0.0006194423724110531,
+          "reason": "partial_profit_15%",
+          "date": "2025-10-06 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4831.3486328125,
+          "exit_price": 3843.0087890625,
+          "return_pct": -20.45681069334573,
+          "reason": "stop_loss",
+          "date": "2025-10-10 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4439.98876953125,
+          "exit_price": 3292.574462890625,
+          "return_pct": -25.8427299301877,
+          "reason": "stop_loss",
+          "date": "2025-11-04 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4312.5048828125,
+          "exit_price": 3292.574462890625,
+          "return_pct": -23.65053368372545,
+          "reason": "stop_loss",
+          "date": "2025-11-04 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 3232.757080078125,
+          "shares": 0.0015466674037503513,
+          "score": 5.6,
+          "date": "2025-11-13 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4035.887939453125,
+          "exit_price": 3103.78564453125,
+          "return_pct": -23.095346275847728,
+          "reason": "stop_loss",
+          "date": "2025-11-14 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 3103.78564453125,
+          "shares": 0.0016109359899933186,
+          "score": 5.6,
+          "date": "2025-11-14 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 2765.69921875,
+          "shares": 0.0018078610884736143,
+          "score": 6.2,
+          "date": "2025-11-21 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 2765.69921875,
+          "exit_price": 3191.57177734375,
+          "return_pct": 15.398368546606811,
+          "shares": 0.0009039305442368072,
+          "reason": "partial_profit_15%",
+          "date": "2025-12-03 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 3232.757080078125,
+          "exit_price": 3084.172607421875,
+          "return_pct": -4.596215211217148,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 3103.78564453125,
+          "exit_price": 3084.172607421875,
+          "return_pct": -0.6319069470513305,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 2765.69921875,
+          "exit_price": 3084.172607421875,
+          "return_pct": 11.51511294188432,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        }
+      ]
+    },
+    "2D_partial": {
+      "timeframe": "2D",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": true
+      },
+      "total_invested": 25.0,
+      "final_value": 24.331319021322326,
+      "total_return_pct": -2.674723914710697,
+      "max_drawdown_pct": -13.498124226439806,
+      "total_trades": 12,
+      "buy_trades": 5,
+      "sell_trades": 7,
+      "winning_trades": 4,
+      "losing_trades": 3,
+      "win_rate": 57.14285714285714,
+      "avg_win_pct": 11.71437696281748,
+      "avg_loss_pct": -12.267457833062785,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3843.0087890625,
+          "shares": 0.0013010638992630946,
+          "score": 7.6,
+          "date": "2025-10-09 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3425.171142578125,
+          "shares": 0.0014597810713296217,
+          "score": 6.2,
+          "date": "2025-11-04 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3843.0087890625,
+          "exit_price": 3024.538818359375,
+          "return_pct": -21.297634630255168,
+          "reason": "stop_loss",
+          "date": "2025-11-16 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3024.538818359375,
+          "shares": 0.0016531445950203377,
+          "score": 5.6,
+          "date": "2025-11-16 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 2765.69921875,
+          "shares": 0.0018078610884736143,
+          "score": 6.2,
+          "date": "2025-11-20 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 2801.676025390625,
+          "shares": 0.0017846460314064588,
+          "score": 6.2,
+          "date": "2025-11-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "2D",
+          "entry_price": 2765.69921875,
+          "exit_price": 3191.57177734375,
+          "return_pct": 15.398368546606811,
+          "shares": 0.0009039305442368072,
+          "reason": "partial_profit_15%",
+          "date": "2025-12-02 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "2D",
+          "entry_price": 2801.676025390625,
+          "exit_price": 3321.114990234375,
+          "return_pct": 18.540293743325552,
+          "shares": 0.0008923230157032294,
+          "reason": "partial_profit_15%",
+          "date": "2025-12-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3425.171142578125,
+          "exit_price": 2963.3740234375,
+          "return_pct": -13.482453866320688,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3024.538818359375,
+          "exit_price": 2963.3740234375,
+          "return_pct": -2.0222850026125005,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 2765.69921875,
+          "exit_price": 2963.3740234375,
+          "return_pct": 7.147371751323051,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 2801.676025390625,
+          "exit_price": 2963.3740234375,
+          "return_pct": 5.771473810014505,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        }
+      ]
+    },
+    "1W_partial": {
+      "timeframe": "1W",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": true
+      },
+      "total_invested": 15.0,
+      "final_value": 14.357139905773643,
+      "total_return_pct": -4.285733961509052,
+      "max_drawdown_pct": 0,
+      "total_trades": 6,
+      "buy_trades": 3,
+      "sell_trades": 3,
+      "winning_trades": 0,
+      "losing_trades": 3,
+      "win_rate": 0.0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": -4.285733961509052,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 3118.88525390625,
+          "shares": 0.0016031368880075811,
+          "score": 5.7,
+          "date": "2026-01-11 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 2948.74072265625,
+          "shares": 0.0016956390779233918,
+          "score": 5.7,
+          "date": "2026-01-25 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 2836.549072265625,
+          "shares": 0.0017627052706006496,
+          "score": 6.4,
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 3118.88525390625,
+          "exit_price": 2836.549072265625,
+          "return_pct": -9.052470952145896,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 2948.74072265625,
+          "exit_price": 2836.549072265625,
+          "return_pct": -3.8047309323812617,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 2836.549072265625,
+          "exit_price": 2836.549072265625,
+          "return_pct": 0.0,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        }
+      ]
+    },
+    "4H_combined": {
+      "timeframe": "4H",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": true
+      },
+      "total_invested": 30.0,
+      "final_value": 29.104017001428936,
+      "total_return_pct": -2.9866099952368774,
+      "max_drawdown_pct": -6.012441660399143,
+      "total_trades": 16,
+      "buy_trades": 8,
+      "sell_trades": 8,
+      "winning_trades": 2,
+      "losing_trades": 6,
+      "win_rate": 25.0,
+      "avg_win_pct": 2.336058055105905,
+      "avg_loss_pct": -3.7652960136055036,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3085.380126953125,
+          "shares": 0.001620545862832662,
+          "score": 6.9,
+          "date": "2025-12-14 08:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3085.00146484375,
+          "shares": 0.0016207447733750887,
+          "score": 7.5,
+          "date": "2025-12-14 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3091.444091796875,
+          "shares": 0.0016173671111398924,
+          "score": 7.5,
+          "date": "2025-12-14 16:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2943.849365234375,
+          "shares": 0.0016984564696305119,
+          "score": 5.8,
+          "date": "2025-12-15 16:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2903.1240234375,
+          "shares": 0.0017222826030283244,
+          "score": 5.6,
+          "date": "2025-12-17 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2817.488525390625,
+          "shares": 0.0017746301200310247,
+          "score": 5.6,
+          "date": "2025-12-17 16:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3085.380126953125,
+          "exit_price": 2926.46875,
+          "return_pct": -5.150463489568569,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3085.00146484375,
+          "exit_price": 2926.46875,
+          "return_pct": -5.1388213798394204,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3091.444091796875,
+          "exit_price": 2926.46875,
+          "return_pct": -5.33651383942656,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2943.849365234375,
+          "exit_price": 2926.46875,
+          "return_pct": -0.5904043678196524,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2903.1240234375,
+          "exit_price": 2926.46875,
+          "return_pct": 0.8041243286209365,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2817.488525390625,
+          "exit_price": 2926.46875,
+          "return_pct": 3.8679917815908738,
+          "reason": "sell_signal",
+          "date": "2025-12-23 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 3120.594970703125,
+          "shares": 0.001602258558685497,
+          "score": 5.6,
+          "date": "2026-01-11 16:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 3120.594970703125,
+          "exit_price": 2921.63916015625,
+          "return_pct": -6.375573004978818,
+          "reason": "sell_signal",
+          "date": "2026-01-25 12:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "4H",
+          "price": 2837.65185546875,
+          "shares": 0.0017620202387984812,
+          "score": 5.7,
+          "date": "2026-01-26 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "4H",
+          "entry_price": 2837.65185546875,
+          "exit_price": 2837.65185546875,
+          "return_pct": 0.0,
+          "reason": "end_of_simulation",
+          "date": "2026-01-26 00:00:00+00:00"
+        }
+      ]
+    },
+    "1D_combined": {
+      "timeframe": "1D",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": true
+      },
+      "total_invested": 25.0,
+      "final_value": 31.452087344683648,
+      "total_return_pct": 25.808349378734597,
+      "max_drawdown_pct": -12.311781413860142,
+      "total_trades": 33,
+      "buy_trades": 13,
+      "sell_trades": 20,
+      "winning_trades": 14,
+      "losing_trades": 6,
+      "win_rate": 70.0,
+      "avg_win_pct": 25.638557706997464,
+      "avg_loss_pct": -8.852432083901538,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1795.313232421875,
+          "shares": 0.002785029325080508,
+          "score": 6.3,
+          "date": "2025-04-02 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1795.313232421875,
+          "exit_price": 1805.9732666015625,
+          "return_pct": 0.5937701559358022,
+          "reason": "sell_signal",
+          "date": "2025-04-05 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1576.72802734375,
+          "shares": 0.0031711239435651423,
+          "score": 9.3,
+          "date": "2025-04-06 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1555.240966796875,
+          "shares": 0.003214935888872476,
+          "score": 8.5,
+          "date": "2025-04-07 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1472.5531005859375,
+          "shares": 0.0033954632929776665,
+          "score": 8.5,
+          "date": "2025-04-08 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1668.0400390625,
+          "shares": 0.002997529965054187,
+          "score": 5.6,
+          "date": "2025-04-09 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 1522.518798828125,
+          "shares": 0.0032840317005270966,
+          "score": 6.8,
+          "date": "2025-04-10 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 1472.5531005859375,
+          "exit_price": 1757.3316650390625,
+          "return_pct": 19.339103244549214,
+          "shares": 0.0016977316464888332,
+          "reason": "partial_profit_15%",
+          "date": "2025-04-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 1522.518798828125,
+          "exit_price": 1757.3316650390625,
+          "return_pct": 15.422657926566941,
+          "shares": 0.0016420158502635483,
+          "reason": "partial_profit_15%",
+          "date": "2025-04-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 1555.240966796875,
+          "exit_price": 1796.104248046875,
+          "return_pct": 15.487200144044188,
+          "shares": 0.001607467944436238,
+          "reason": "partial_profit_15%",
+          "date": "2025-04-23 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 1576.72802734375,
+          "exit_price": 1821.881103515625,
+          "return_pct": 15.548215793745634,
+          "shares": 0.0015855619717825712,
+          "reason": "partial_profit_15%",
+          "date": "2025-04-26 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1576.72802734375,
+          "exit_price": 2206.5146484375,
+          "return_pct": 39.94262866974756,
+          "reason": "profit_target_30%",
+          "date": "2025-05-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1555.240966796875,
+          "exit_price": 2206.5146484375,
+          "return_pct": 41.87606265169106,
+          "reason": "profit_target_30%",
+          "date": "2025-05-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1472.5531005859375,
+          "exit_price": 2206.5146484375,
+          "return_pct": 49.84278988374102,
+          "reason": "profit_target_30%",
+          "date": "2025-05-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 1668.0400390625,
+          "exit_price": 2206.5146484375,
+          "return_pct": 32.28187554044821,
+          "shares": 0.0014987649825270934,
+          "reason": "partial_profit_15%",
+          "date": "2025-05-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1522.518798828125,
+          "exit_price": 2206.5146484375,
+          "return_pct": 44.92528106292304,
+          "reason": "profit_target_30%",
+          "date": "2025-05-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 1668.0400390625,
+          "exit_price": 2345.50732421875,
+          "return_pct": 40.614569751995376,
+          "reason": "profit_target_30%",
+          "date": "2025-05-09 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4439.98876953125,
+          "shares": 0.0011261289745396975,
+          "score": 5.5,
+          "date": "2025-08-15 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4312.5048828125,
+          "shares": 0.0011594189771071365,
+          "score": 5.9,
+          "date": "2025-08-18 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4831.3486328125,
+          "shares": 0.0010349077203913812,
+          "score": 5.6,
+          "date": "2025-08-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4439.98876953125,
+          "exit_price": 3868.333984375,
+          "return_pct": -12.875140339974378,
+          "reason": "trailing_stop",
+          "date": "2025-09-25 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4312.5048828125,
+          "exit_price": 3868.333984375,
+          "return_pct": -10.299603374543276,
+          "reason": "trailing_stop",
+          "date": "2025-09-25 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4831.3486328125,
+          "exit_price": 3868.333984375,
+          "return_pct": -19.932625890359212,
+          "reason": "trailing_stop",
+          "date": "2025-09-25 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 4035.887939453125,
+          "shares": 0.0012388847448221061,
+          "score": 5.6,
+          "date": "2025-09-26 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 4035.887939453125,
+          "exit_price": 4687.771484375,
+          "return_pct": 16.15217158408535,
+          "shares": 0.0006194423724110531,
+          "reason": "partial_profit_15%",
+          "date": "2025-10-06 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 4035.887939453125,
+          "exit_price": 3843.0087890625,
+          "return_pct": -4.779100740263886,
+          "reason": "trailing_stop",
+          "date": "2025-10-10 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 3232.757080078125,
+          "shares": 0.0015466674037503513,
+          "score": 5.6,
+          "date": "2025-11-13 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 3103.78564453125,
+          "shares": 0.0016109359899933186,
+          "score": 5.6,
+          "date": "2025-11-14 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1D",
+          "price": 2765.69921875,
+          "shares": 0.0018078610884736143,
+          "score": 6.2,
+          "date": "2025-11-21 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "1D",
+          "entry_price": 2765.69921875,
+          "exit_price": 3191.57177734375,
+          "return_pct": 15.398368546606811,
+          "shares": 0.0009039305442368072,
+          "reason": "partial_profit_15%",
+          "date": "2025-12-03 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 3232.757080078125,
+          "exit_price": 3084.172607421875,
+          "return_pct": -4.596215211217148,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 3103.78564453125,
+          "exit_price": 3084.172607421875,
+          "return_pct": -0.6319069470513305,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1D",
+          "entry_price": 2765.69921875,
+          "exit_price": 3084.172607421875,
+          "return_pct": 11.51511294188432,
+          "reason": "sell_signal",
+          "date": "2025-12-12 00:00:00+00:00"
+        }
+      ]
+    },
+    "2D_combined": {
+      "timeframe": "2D",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": true
+      },
+      "total_invested": 20.0,
+      "final_value": 19.941854485099924,
+      "total_return_pct": -0.29072757450038234,
+      "max_drawdown_pct": -13.498124226439806,
+      "total_trades": 12,
+      "buy_trades": 5,
+      "sell_trades": 7,
+      "winning_trades": 4,
+      "losing_trades": 3,
+      "win_rate": 57.14285714285714,
+      "avg_win_pct": 11.71437696281748,
+      "avg_loss_pct": -8.197221407878827,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3843.0087890625,
+          "shares": 0.0013010638992630946,
+          "score": 7.6,
+          "date": "2025-10-09 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3843.0087890625,
+          "exit_price": 3425.171142578125,
+          "return_pct": -10.872669551877511,
+          "reason": "trailing_stop",
+          "date": "2025-11-04 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3425.171142578125,
+          "shares": 0.0014597810713296217,
+          "score": 6.2,
+          "date": "2025-11-04 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3425.171142578125,
+          "exit_price": 3024.538818359375,
+          "return_pct": -11.696709669146465,
+          "reason": "trailing_stop",
+          "date": "2025-11-16 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 3024.538818359375,
+          "shares": 0.0016531445950203377,
+          "score": 5.6,
+          "date": "2025-11-16 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 2765.69921875,
+          "shares": 0.0018078610884736143,
+          "score": 6.2,
+          "date": "2025-11-20 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "2D",
+          "price": 2801.676025390625,
+          "shares": 0.0017846460314064588,
+          "score": 6.2,
+          "date": "2025-11-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "2D",
+          "entry_price": 2765.69921875,
+          "exit_price": 3191.57177734375,
+          "return_pct": 15.398368546606811,
+          "shares": 0.0009039305442368072,
+          "reason": "partial_profit_15%",
+          "date": "2025-12-02 00:00:00+00:00"
+        },
+        {
+          "type": "SELL_PARTIAL",
+          "timeframe": "2D",
+          "entry_price": 2801.676025390625,
+          "exit_price": 3321.114990234375,
+          "return_pct": 18.540293743325552,
+          "shares": 0.0008923230157032294,
+          "reason": "partial_profit_15%",
+          "date": "2025-12-08 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 3024.538818359375,
+          "exit_price": 2963.3740234375,
+          "return_pct": -2.0222850026125005,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 2765.69921875,
+          "exit_price": 2963.3740234375,
+          "return_pct": 7.147371751323051,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "2D",
+          "entry_price": 2801.676025390625,
+          "exit_price": 2963.3740234375,
+          "return_pct": 5.771473810014505,
+          "reason": "sell_signal",
+          "date": "2025-12-22 00:00:00+00:00"
+        }
+      ]
+    },
+    "1W_combined": {
+      "timeframe": "1W",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": true
+      },
+      "total_invested": 15.0,
+      "final_value": 14.360777740499744,
+      "total_return_pct": -4.261481730001703,
+      "max_drawdown_pct": 0,
+      "total_trades": 6,
+      "buy_trades": 3,
+      "sell_trades": 3,
+      "winning_trades": 0,
+      "losing_trades": 3,
+      "win_rate": 0.0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": -4.261481730001711,
+      "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 3118.88525390625,
+          "shares": 0.0016031368880075811,
+          "score": 5.7,
+          "date": "2026-01-11 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 2948.74072265625,
+          "shares": 0.0016956390779233918,
+          "score": 5.7,
+          "date": "2026-01-25 00:00:00+00:00"
+        },
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 2837.65185546875,
+          "shares": 0.0017620202387984812,
+          "score": 6.4,
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 3118.88525390625,
+          "exit_price": 2837.65185546875,
+          "return_pct": -9.017112703497798,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 2948.74072265625,
+          "exit_price": 2837.65185546875,
+          "return_pct": -3.7673324865073354,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
+          "entry_price": 2837.65185546875,
+          "exit_price": 2837.65185546875,
+          "return_pct": 0.0,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        }
+      ]
+    }
+  },
+  "best_overall": {
+    "timeframe": "1D",
+    "strategy": {
+      "buy_threshold": 5.5,
+      "sell_threshold": -2.0,
+      "stop_loss_pct": 0.2,
+      "trailing_stop": true,
+      "partial_profit": false
+    },
+    "total_invested": 25.0,
+    "final_value": 36.61844599949343,
+    "total_return_pct": 46.473783997973726,
+    "max_drawdown_pct": -22.52455306005821,
+    "total_trades": 26,
+    "buy_trades": 13,
+    "sell_trades": 13,
+    "winning_trades": 7,
+    "losing_trades": 6,
+    "win_rate": 53.84615384615385,
+    "avg_win_pct": 40.78335892761108,
+    "avg_loss_pct": -8.852432083901538,
+    "trades": [
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 1795.313232421875,
+        "shares": 0.002785029325080508,
+        "score": 6.3,
+        "date": "2025-04-02 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 1795.313232421875,
+        "exit_price": 1805.9732666015625,
+        "return_pct": 0.5937701559358022,
+        "reason": "sell_signal",
+        "date": "2025-04-05 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 1576.72802734375,
+        "shares": 0.0031711239435651423,
+        "score": 9.3,
+        "date": "2025-04-06 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 1555.240966796875,
+        "shares": 0.003214935888872476,
+        "score": 8.5,
+        "date": "2025-04-07 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 1472.5531005859375,
+        "shares": 0.0033954632929776665,
+        "score": 8.5,
+        "date": "2025-04-08 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 1668.0400390625,
+        "shares": 0.002997529965054187,
+        "score": 5.6,
+        "date": "2025-04-09 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 1522.518798828125,
+        "shares": 0.0032840317005270966,
+        "score": 6.8,
+        "date": "2025-04-10 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 1576.72802734375,
+        "exit_price": 2407.30419921875,
+        "return_pct": 52.67719971174978,
+        "reason": "sell_signal",
+        "date": "2025-06-20 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 1555.240966796875,
+        "exit_price": 2407.30419921875,
+        "return_pct": 54.786573310035514,
+        "reason": "sell_signal",
+        "date": "2025-06-20 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 1472.5531005859375,
+        "exit_price": 2407.30419921875,
+        "return_pct": 63.478260869565226,
+        "reason": "sell_signal",
+        "date": "2025-06-20 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 1668.0400390625,
+        "exit_price": 2407.30419921875,
+        "return_pct": 44.319329443179534,
+        "reason": "sell_signal",
+        "date": "2025-06-20 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 1522.518798828125,
+        "exit_price": 2407.30419921875,
+        "return_pct": 58.11326606092744,
+        "reason": "sell_signal",
+        "date": "2025-06-20 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 4439.98876953125,
+        "shares": 0.0011261289745396975,
+        "score": 5.5,
+        "date": "2025-08-15 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 4312.5048828125,
+        "shares": 0.0011594189771071365,
+        "score": 5.9,
+        "date": "2025-08-18 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 4831.3486328125,
+        "shares": 0.0010349077203913812,
+        "score": 5.6,
+        "date": "2025-08-22 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 4439.98876953125,
+        "exit_price": 3868.333984375,
+        "return_pct": -12.875140339974378,
+        "reason": "trailing_stop",
+        "date": "2025-09-25 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 4312.5048828125,
+        "exit_price": 3868.333984375,
+        "return_pct": -10.299603374543276,
+        "reason": "trailing_stop",
+        "date": "2025-09-25 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 4831.3486328125,
+        "exit_price": 3868.333984375,
+        "return_pct": -19.932625890359212,
+        "reason": "trailing_stop",
+        "date": "2025-09-25 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 4035.887939453125,
+        "shares": 0.0012388847448221061,
+        "score": 5.6,
+        "date": "2025-09-26 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 4035.887939453125,
+        "exit_price": 3843.0087890625,
+        "return_pct": -4.779100740263886,
+        "reason": "trailing_stop",
+        "date": "2025-10-10 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 3232.757080078125,
+        "shares": 0.0015466674037503513,
+        "score": 5.6,
+        "date": "2025-11-13 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 3103.78564453125,
+        "shares": 0.0016109359899933186,
+        "score": 5.6,
+        "date": "2025-11-14 00:00:00+00:00"
+      },
+      {
+        "type": "BUY",
+        "timeframe": "1D",
+        "price": 2765.69921875,
+        "shares": 0.0018078610884736143,
+        "score": 6.2,
+        "date": "2025-11-21 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 3232.757080078125,
+        "exit_price": 3084.172607421875,
+        "return_pct": -4.596215211217148,
+        "reason": "sell_signal",
+        "date": "2025-12-12 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 3103.78564453125,
+        "exit_price": 3084.172607421875,
+        "return_pct": -0.6319069470513305,
+        "reason": "sell_signal",
+        "date": "2025-12-12 00:00:00+00:00"
+      },
+      {
+        "type": "SELL",
+        "timeframe": "1D",
+        "entry_price": 2765.69921875,
+        "exit_price": 3084.172607421875,
+        "return_pct": 11.51511294188432,
+        "reason": "sell_signal",
+        "date": "2025-12-12 00:00:00+00:00"
+      }
+    ]
+  }
+}

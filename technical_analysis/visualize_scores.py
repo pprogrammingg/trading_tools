@@ -170,16 +170,20 @@ def get_score_color(score: Optional[float]) -> Tuple[str, str]:
 
 def sort_timeframes(timeframe: str) -> Tuple[int, int]:
     """
-    Sort timeframes by period length: 2D, 1W, 2W, 1M, 2M, 6M
+    Sort timeframes by period length: 4H, 1D, 2D, 1W, 2W, 1M, 2M, 6M
     
     Args:
-        timeframe: Timeframe string (e.g., "2D", "1W", "2M", "1Y")
+        timeframe: Timeframe string (e.g., "4H", "1D", "2D", "1W", "2M", "1Y")
         
     Returns:
         Tuple for sorting: (unit_priority, numeric_value)
     """
-    if timeframe == "2D":
-        return (0, 2)  # Days first
+    if timeframe == "4H":
+        return (-1, 4)  # Hours first (before days)
+    elif timeframe == "1D":
+        return (0, 1)  # 1 day
+    elif timeframe == "2D":
+        return (0, 2)  # 2 days
     elif timeframe.endswith('D'):
         return (0, int(timeframe[:-1]))  # Other days
     elif timeframe.endswith('W'):
@@ -188,6 +192,8 @@ def sort_timeframes(timeframe: str) -> Tuple[int, int]:
         return (2, int(timeframe[:-1]))  # Months third
     elif timeframe.endswith('Y'):
         return (3, int(timeframe[:-1]))  # Years fourth
+    elif timeframe.endswith('H'):
+        return (-1, int(timeframe[:-1]))  # Hours (before days)
     else:
         return (4, 0)  # Unknown format last
 

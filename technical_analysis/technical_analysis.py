@@ -77,6 +77,8 @@ PRECIOUS_METALS = [
 SYMBOLS = TECH_STOCKS + CRYPTOCURRENCIES + PRECIOUS_METALS
 
 TIMEFRAMES = {
+    "4H": "4H",      # 4 hours (intraday)
+    "1D": "1D",      # 1 calendar day
     "2D": "2D",      # 2 calendar days
     "1W": "7D",      # 7 calendar days (not trading days)
     "2W": "14D",     # 14 calendar days
@@ -216,7 +218,13 @@ def download_data(symbol, period="5y", interval="1d", category: str = None, use_
         category: Category name for caching (optional)
         use_cache: Whether to use cache (default: True)
         force_refresh: Force refresh even if cache exists (default: False)
+    
+    Note: For cryptocurrencies, uses maximum available period (5y) for seasonality analysis
     """
+    # For crypto, use maximum available data for seasonality
+    if category == "cryptocurrencies" and period == "5y":
+        # Try to get maximum available data
+        period = "max"  # yfinance supports "max" for maximum available data
     # Try to load from cache if category provided and caching enabled
     if use_cache and category and not force_refresh:
         cached_df, is_cached = load_cached_data(category, symbol, force_refresh=force_refresh)
@@ -240,6 +248,82 @@ def download_data(symbol, period="5y", interval="1d", category: str = None, use_
         return pd.DataFrame()
 
 def resample_ohlcv(df, rule):
+    """
+    Resample OHLCV data to specified timeframe rule.
+    Handles 4H (4-hour) and 1D (daily) timeframes.
+    """
+    # Handle 4H timeframe - resample hourly data to 4-hour bars
+    if rule == "4H":
+        # If data is already hourly or higher frequency, resample to 4H
+        if len(df) > 0:
+            # Check if we have intraday data (more than 1 bar per day on average)
+            avg_bars_per_day = len(df) / ((df.index[-1] - df.index[0]).days + 1) if len(df) > 0 and (df.index[-1] - df.index[0]).days > 0 else 1
+            if avg_bars_per_day > 1:
+                # Resample to 4H
+                return (
+                    df.resample("4h")
+                    .agg({
+                        "Open": "first",
+                        "High": "max",
+                        "Low": "min",
+                        "Close": "last",
+                        "Volume": "sum",
+                    })
+                    .dropna()
+                )
+            else:
+                # Daily data - can't create 4H bars, return empty
+                return pd.DataFrame()
+    
+    # Handle 1D timeframe - use daily data as-is or resample if needed
+    if rule == "1D":
+        # If data is already daily, return as-is
+        if len(df) > 0:
+            avg_bars_per_day = len(df) / ((df.index[-1] - df.index[0]).days + 1) if (df.index[-1] - df.index[0]).days > 0 else 1
+            if avg_bars_per_day <= 1.5:  # Daily or near-daily data
+                return df
+            else:
+                # Intraday data - resample to daily
+                return (
+                    df.resample("D")
+                    .agg({
+                        "Open": "first",
+                        "High": "max",
+                        "Low": "min",
+                        "Close": "last",
+                        "Volume": "sum",
+                    })
+                    .dropna()
+                )
+    
+    # Handle 2M and 3M timeframes for seasonality
+    if rule == "2M":
+        return (
+            df.resample("2ME")
+            .agg({
+                "Open": "first",
+                "High": "max",
+                "Low": "min",
+                "Close": "last",
+                "Volume": "sum",
+            })
+            .dropna()
+        )
+    
+    if rule == "3M":
+        return (
+            df.resample("3ME")
+            .agg({
+                "Open": "first",
+                "High": "max",
+                "Low": "min",
+                "Close": "last",
+                "Volume": "sum",
+            })
+            .dropna()
+        )
+    
+    # Standard resampling for other timeframes
     return (
         df.resample(rule)
         .agg({
@@ -846,11 +930,11 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
     # Apply improved scoring with explosive bottom detection
     try:
         from scoring.scoring_integration import apply_improved_scoring
-        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context)
+        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_df)
     except ImportError:
         try:
             from scoring_integration import apply_improved_scoring
-            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context)
+            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_df)
         except ImportError:
             pass  # Fall back to original scoring if improved scoring not available
 
@@ -861,7 +945,7 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
 # NOTE: Using yFinance data with ta library calculations
 # ======================================================
 
-def compute_indicators_with_score(df, category: str = None, is_gold_denominated: bool = False, timeframe: str = "1W", market_context: dict = None):
+def compute_indicators_with_score(df, category: str = None, is_gold_denominated: bool = False, timeframe: str = "1W", market_context: dict = None, original_daily_df: pd.DataFrame = None):
     """
     Compute indicators using ta library with scoring.
     
@@ -1376,11 +1460,11 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
     # Apply improved scoring with explosive bottom detection
     try:
         from scoring.scoring_integration import apply_improved_scoring
-        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context)
+        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_df)
     except ImportError:
         try:
             from scoring_integration import apply_improved_scoring
-            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context)
+            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_df)
         except ImportError:
             pass  # Fall back to original scoring if improved scoring not available
 
@@ -1556,9 +1640,11 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
             }
         
         # Fetch data from yFinance (with caching)
+        # For crypto, use maximum available data for seasonality analysis
+        data_period = "max" if category_name == "cryptocurrencies" else "5y"
         print(f"  Fetching data...", end=" ")
         download_start = time.time()
-        base_df = download_data(symbol, category=category_name, use_cache=True, force_refresh=force_refresh)
+        base_df = download_data(symbol, period=data_period, category=category_name, use_cache=True, force_refresh=force_refresh)
         timings['symbols'][symbol]['download'] = time.time() - download_start
         if len(base_df) == 0:
             print("✗ (no data)")
@@ -1596,9 +1682,28 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
                     'gold_conversion': 0,
                 }
             
+            # For 4H timeframe, download intraday data if needed
+            if label == "4H":
+                # Check if we need intraday data
+                if len(base_df) > 0:
+                    avg_bars_per_day = len(base_df) / ((base_df.index[-1] - base_df.index[0]).days + 1) if (base_df.index[-1] - base_df.index[0]).days > 0 else 1
+                    if avg_bars_per_day <= 1.5:  # Daily data, need intraday
+                        # Download 1h data for 4H resampling (60 days max for intraday)
+                        intraday_df = download_data(symbol, period="60d", interval="1h", category=category_name, use_cache=False, force_refresh=force_refresh)
+                        if len(intraday_df) > 0:
+                            base_df_for_resample = intraday_df
+                        else:
+                            base_df_for_resample = base_df  # Fallback to daily
+                    else:
+                        base_df_for_resample = base_df
+                else:
+                    base_df_for_resample = base_df
+            else:
+                base_df_for_resample = base_df
+            
             # Resample
             resample_start = time.time()
-            df_usd = resample_ohlcv(base_df, rule)
+            df_usd = resample_ohlcv(base_df_for_resample, rule)
             timings['symbols'][symbol]['timeframes'][label]['resample'] = time.time() - resample_start
             
             if len(df_usd) == 0:
@@ -1620,7 +1725,9 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
             # Store timeframe and market_context for improved_scoring to access
             compute_indicators_with_score._current_timeframe = label
             compute_indicators_with_score._current_market_context = market_context
-            indicators_ta_usd = compute_indicators_with_score(df_usd, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context)
+            # For crypto, pass original daily data for seasonality analysis
+            original_daily_for_seasonality = base_df if category_name == "cryptocurrencies" else None
+            indicators_ta_usd = compute_indicators_with_score(df_usd, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context, original_daily_df=original_daily_for_seasonality)
             indicators_tv_usd = compute_indicators_tv(df_usd, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context)
             timings['symbols'][symbol]['timeframes'][label]['indicators_usd'] = time.time() - indicators_start
             
@@ -1640,7 +1747,9 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
                 
                 if len(df_gold) > 0:
                     gold_indicators_start = time.time()
-                    indicators_ta_gold = compute_indicators_with_score(df_gold, category=category_name, is_gold_denominated=True, timeframe=label, market_context=market_context)
+                    # For crypto, pass original daily data for seasonality analysis
+                    original_daily_for_seasonality = base_df if category_name == "cryptocurrencies" else None
+                    indicators_ta_gold = compute_indicators_with_score(df_gold, category=category_name, is_gold_denominated=True, timeframe=label, market_context=market_context, original_daily_df=original_daily_for_seasonality)
                     indicators_tv_gold = compute_indicators_tv(df_gold, category=category_name, is_gold_denominated=True, timeframe=label, market_context=market_context)
                     timings['symbols'][symbol]['timeframes'][label]['indicators_gold'] = time.time() - gold_indicators_start
                     # Calculate relative potential for gold terms too (if enabled)

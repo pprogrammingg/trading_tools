@@ -24,6 +24,16 @@ except ImportError:
                 "capitulation_threshold": -20,
             }
 
+# Import seasonality for crypto
+try:
+    from indicators.seasonality import get_seasonal_adjustment_for_timeframe
+except ImportError:
+    try:
+        from seasonality import get_seasonal_adjustment_for_timeframe
+    except ImportError:
+        def get_seasonal_adjustment_for_timeframe(df, timeframe, min_years=2):
+            return 0.0, {}
+
 
 def calculate_price_intensity(close: pd.Series, volume: pd.Series, period: int = 14) -> Optional[float]:
     """Price Intensity Indicator - Fixed normalization"""
@@ -97,7 +107,7 @@ def calculate_adx(high: pd.Series, low: pd.Series, close: pd.Series, window: int
         return None, None
 
 
-def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] = None, timeframe: str = "1W", market_context: Optional[Dict] = None) -> Dict:
+def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] = None, timeframe: str = "1W", market_context: Optional[Dict] = None, original_daily_df: Optional[pd.DataFrame] = None) -> Dict:
     """
     Improved scoring system with explosive bottom detection
     Category-aware, timeframe-specific, and market-context aware
@@ -134,10 +144,14 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
     
     # Get timeframe-specific multipliers (shorter timeframes = stricter scoring)
     timeframe_multipliers = {
+        "4H": 0.6,   # Very strict for 4H (reduce scores by 40%) - intraday noise
+        "1D": 0.65,  # Strict for 1D (reduce scores by 35%) - daily volatility
         "2D": 0.7,   # Stricter for 2D (reduce scores by 30%)
         "1W": 0.85,  # Slightly stricter for 1W (reduce by 15%)
         "2W": 1.0,   # Standard for 2W
         "1M": 1.1,   # Slightly more lenient for 1M (increase by 10%)
+        "2M": 1.15,  # More lenient for 2M (increase by 15%)
+        "3M": 1.2,   # Most lenient for 3M (increase by 20%)
     }
     timeframe_mult = timeframe_multipliers.get(timeframe, 1.0)
     
@@ -538,6 +552,38 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
     except ImportError:
         pass
     
+    # ===== SEASONALITY ADJUSTMENT (CRYPTO ONLY) =====
+    seasonal_adjustment = 0.0
+    seasonality_data = {}
+    if is_crypto:
+        # Apply seasonality to appropriate timeframes
+        appropriate_timeframes = ['1D', '2D', '1W', '2W', '1M', '2M', '3M']
+        if timeframe in appropriate_timeframes:
+            try:
+                # Use original daily data for seasonality (has full history)
+                # If not provided, use resampled data (less history but still works)
+                seasonality_data_df = original_daily_df if original_daily_df is not None and len(original_daily_df) > 0 else df
+                
+                seasonal_adj, seasonality_info = get_seasonal_adjustment_for_timeframe(
+                    seasonality_data_df, timeframe, min_years=2
+                )
+                seasonal_adjustment = seasonal_adj
+                seasonality_data = seasonality_info
+                
+                if seasonal_adjustment != 0:
+                    score += seasonal_adjustment
+                    breakdown['seasonality_adjustment'] = round(seasonal_adjustment, 1)
+                    if seasonality_info:
+                        indicators['seasonality_score'] = round(seasonality_info.get('seasonality_score', 0), 1)
+                        indicators['current_month'] = seasonality_info.get('current_month')
+                        indicators['current_quarter'] = seasonality_info.get('current_quarter')
+                        if seasonality_info.get('current_month_stats'):
+                            indicators['month_avg_return'] = round(seasonality_info['current_month_stats'].get('avg_return', 0), 2)
+                            indicators['month_win_rate'] = round(seasonality_info['current_month_stats'].get('win_rate', 0), 1)
+            except Exception as e:
+                # Seasonality calculation failed, continue without it
+                pass
+    
     # ===== APPLY TIMEFRAME MULTIPLIER =====
     # Shorter timeframes get stricter scoring
     score = score * timeframe_mult
@@ -552,6 +598,40 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
     score += vix_adjustment
     if vix_adjustment < 0:
         breakdown['vix_adjustment'] = round(vix_adjustment, 1)
+    
+    # ===== ISM BUSINESS CYCLE ADJUSTMENT (ALL CATEGORIES, ALL TIMEFRAMES) =====
+    ism_adjustment = 0.0
+    if market_context:
+        try:
+            from indicators.ism_business_cycle import get_ism_adjustment_for_timeframe
+            ism_data = market_context.get('ism_data')
+            ism_adjustment = get_ism_adjustment_for_timeframe(timeframe, ism_data)
+            
+            if ism_adjustment != 0:
+                score += ism_adjustment
+                breakdown['ism_adjustment'] = round(ism_adjustment, 1)
+                
+                # Add ISM info to indicators
+                if ism_data:
+                    indicators['ism_pmi'] = round(ism_data.get('ism_pmi', 0), 1)
+                    indicators['ism_phase'] = ism_data.get('phase', 'unknown')
+                    indicators['ism_trend'] = ism_data.get('trend', 'unknown')
+        except ImportError:
+            try:
+                from ism_business_cycle import get_ism_adjustment_for_timeframe
+                ism_data = market_context.get('ism_data')
+                ism_adjustment = get_ism_adjustment_for_timeframe(timeframe, ism_data)
+                
+                if ism_adjustment != 0:
+                    score += ism_adjustment
+                    breakdown['ism_adjustment'] = round(ism_adjustment, 1)
+                    
+                    if ism_data:
+                        indicators['ism_pmi'] = round(ism_data.get('ism_pmi', 0), 1)
+                        indicators['ism_phase'] = ism_data.get('phase', 'unknown')
+                        indicators['ism_trend'] = ism_data.get('trend', 'unknown')
+            except ImportError:
+                pass  # ISM not available
     
     # Add VIX info to indicators
     if market_context and market_context.get('vix') is not None:

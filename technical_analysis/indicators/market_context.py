@@ -1,6 +1,6 @@
 """
 Market Context Analysis
-Analyzes SPX/Gold ratio, VIX, and overall market conditions to adjust scoring
+Analyzes SPX/Gold ratio, VIX, ISM business cycle, and overall market conditions to adjust scoring
 """
 
 import yfinance as yf
@@ -9,9 +9,20 @@ import numpy as np
 from typing import Dict, Optional
 from datetime import datetime, timedelta
 
+try:
+    from .ism_business_cycle import get_ism_data, get_ism_adjustment_for_timeframe
+except ImportError:
+    try:
+        from ism_business_cycle import get_ism_data, get_ism_adjustment_for_timeframe
+    except ImportError:
+        def get_ism_data():
+            return None
+        def get_ism_adjustment_for_timeframe(timeframe, ism_data=None):
+            return 0.0
+
 def get_market_context() -> Dict:
     """
-    Get overall market context including SPX/Gold ratio and VIX
+    Get overall market context including SPX/Gold ratio, VIX, and ISM
     
     Returns:
         Dictionary with market context indicators including:
@@ -23,6 +34,9 @@ def get_market_context() -> Dict:
         - vix_level: VIX level category (low, moderate, high, very_high)
         - vix_trend: VIX trend (rising, falling, stable)
         - vix_adjustment: Score adjustment based on VIX
+        - ism_data: ISM business cycle data
+        - ism_pmi: ISM PMI value
+        - ism_phase: Business cycle phase (strong_expansion, expansion, contraction, strong_contraction)
     """
     try:
         # Get SPX data
@@ -147,6 +161,11 @@ def get_market_context() -> Dict:
                 market_adjustment -= 1.0  # Additional penalty
                 trend = 'near_low'
         
+        # Get ISM data
+        ism_data = get_ism_data()
+        ism_pmi = ism_data.get('ism_pmi') if ism_data else None
+        ism_phase = ism_data.get('phase') if ism_data else None
+        
         return {
             'spx_gold_ratio': float(current_ratio),
             'spx_gold_trend': trend,
@@ -157,6 +176,9 @@ def get_market_context() -> Dict:
             'vix_level': vix_level,
             'vix_trend': vix_trend,
             'vix_adjustment': vix_adjustment,
+            'ism_data': ism_data,
+            'ism_pmi': ism_pmi,
+            'ism_phase': ism_phase,
         }
     except Exception as e:
         return {
@@ -168,5 +190,8 @@ def get_market_context() -> Dict:
             'vix_level': 'unknown',
             'vix_trend': 'unknown',
             'vix_adjustment': 0.0,
+            'ism_data': None,
+            'ism_pmi': None,
+            'ism_phase': None,
             'error': str(e),
         }

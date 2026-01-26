@@ -1,0 +1,4929 @@
+{
+  "strategy": "Optimized DCA + Stop Loss Hybrid",
+  "dca_amount": 5.0,
+  "buy_threshold": 5.5,
+  "stop_loss_pct": 0.2,
+  "selective_symbols": true,
+  "total_invested": 110.0,
+  "final_value": 108.52331202485601,
+  "total_return_pct": -1.3424436137672635,
+  "interval_returns": {
+    "90_days": {
+      "date": "2025-04-24 00:00:00-04:00",
+      "value": 55.29143951613582,
+      "invested": 50.0,
+      "return_pct": 10.582879032271642
+    },
+    "6_months": {
+      "date": "2025-07-23 00:00:00-04:00",
+      "value": 56.039467185194745,
+      "invested": 50.0,
+      "return_pct": 12.078934370389494
+    },
+    "1_year": {
+      "date": "2026-01-24 04:00:00+00:00",
+      "value": 108.52149835620571,
+      "invested": 240.0,
+      "return_pct": -54.78270901824762
+    },
+    "final": {
+      "date": "2026-01-26 00:00:00+00:00",
+      "value": 108.52331202485601,
+      "invested": 110.0,
+      "return_pct": -1.3424436137672635
+    }
+  },
+  "total_trades": 96,
+  "buy_trades": 48,
+  "sell_trades": 48,
+  "winning_trades": 32,
+  "losing_trades": 16,
+  "stop_loss_trades": 10,
+  "win_rate": 66.66666666666666,
+  "avg_win_pct": 7.030722780245278,
+  "avg_loss_pct": -15.907305529420576,
+  "trades": [
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.002785029325080508,
+      "price": 1795.313232421875,
+      "date": "2025-04-02 00:00:00+00:00",
+      "score": 5.8,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.002785029325080508,
+      "price": 1795.313232421875,
+      "date": "2025-04-02 00:00:00-04:00",
+      "score": 5.8,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0031711239435651423,
+      "price": 1576.72802734375,
+      "date": "2025-04-06 00:00:00+00:00",
+      "score": 7.6,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.003214935888872476,
+      "price": 1555.240966796875,
+      "date": "2025-04-07 00:00:00+00:00",
+      "score": 7.2,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.003214935888872476,
+      "price": 1555.240966796875,
+      "date": "2025-04-07 00:00:00-04:00",
+      "score": 7.2,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0033954632929776665,
+      "price": 1472.5531005859375,
+      "date": "2025-04-08 00:00:00+00:00",
+      "score": 7.2,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0033954632929776665,
+      "price": 1472.5531005859375,
+      "date": "2025-04-08 00:00:00-04:00",
+      "score": 7.2,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.002997529965054187,
+      "price": 1668.0400390625,
+      "date": "2025-04-09 00:00:00+00:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.002997529965054187,
+      "price": 1668.0400390625,
+      "date": "2025-04-09 00:00:00-04:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0032840317005270966,
+      "price": 1522.518798828125,
+      "date": "2025-04-10 00:00:00+00:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.002785029325080508,
+      "entry_price": 1795.313232421875,
+      "exit_price": 1793.775390625,
+      "entry_date": "2025-04-02 00:00:00+00:00",
+      "exit_date": "2025-04-30 00:00:00+00:00",
+      "entry_score": 5.8,
+      "timeframe": "1D",
+      "return_pct": -0.0856586900326306,
+      "proceeds": 4.9957170654983685,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.002785029325080508,
+      "entry_price": 1795.313232421875,
+      "exit_price": 1793.775390625,
+      "entry_date": "2025-04-02 00:00:00-04:00",
+      "exit_date": "2025-04-30 00:00:00+00:00",
+      "entry_score": 5.8,
+      "timeframe": "1D",
+      "return_pct": -0.0856586900326306,
+      "proceeds": 4.9957170654983685,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0031711239435651423,
+      "entry_price": 1576.72802734375,
+      "exit_price": 1793.775390625,
+      "entry_date": "2025-04-06 00:00:00+00:00",
+      "exit_date": "2025-04-30 00:00:00+00:00",
+      "entry_score": 7.6,
+      "timeframe": "1D",
+      "return_pct": 13.765681811777064,
+      "proceeds": 5.688284090588854,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.003214935888872476,
+      "entry_price": 1555.240966796875,
+      "exit_price": 1793.775390625,
+      "entry_date": "2025-04-07 00:00:00+00:00",
+      "exit_date": "2025-04-30 00:00:00+00:00",
+      "entry_score": 7.2,
+      "timeframe": "1D",
+      "return_pct": 15.337457597931149,
+      "proceeds": 5.766872879896558,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.003214935888872476,
+      "entry_price": 1555.240966796875,
+      "exit_price": 1793.775390625,
+      "entry_date": "2025-04-07 00:00:00-04:00",
+      "exit_date": "2025-04-30 00:00:00+00:00",
+      "entry_score": 7.2,
+      "timeframe": "1D",
+      "return_pct": 15.337457597931149,
+      "proceeds": 5.766872879896558,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0033954632929776665,
+      "entry_price": 1472.5531005859375,
+      "exit_price": 1793.775390625,
+      "entry_date": "2025-04-08 00:00:00+00:00",
+      "exit_date": "2025-04-30 00:00:00+00:00",
+      "entry_score": 7.2,
+      "timeframe": "1D",
+      "return_pct": 21.813969894277243,
+      "proceeds": 6.0906984947138625,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0033954632929776665,
+      "entry_price": 1472.5531005859375,
+      "exit_price": 1793.775390625,
+      "entry_date": "2025-04-08 00:00:00-04:00",
+      "exit_date": "2025-04-30 00:00:00+00:00",
+      "entry_score": 7.2,
+      "timeframe": "1D",
+      "return_pct": 21.813969894277243,
+      "proceeds": 6.0906984947138625,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.002997529965054187,
+      "entry_price": 1668.0400390625,
+      "exit_price": 1793.775390625,
+      "entry_date": "2025-04-09 00:00:00+00:00",
+      "exit_date": "2025-04-30 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 7.53790967950434,
+      "proceeds": 5.3768954839752165,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.002997529965054187,
+      "entry_price": 1668.0400390625,
+      "exit_price": 1793.775390625,
+      "entry_date": "2025-04-09 00:00:00-04:00",
+      "exit_date": "2025-04-30 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 7.53790967950434,
+      "proceeds": 5.3768954839752165,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0032840317005270966,
+      "entry_price": 1522.518798828125,
+      "exit_price": 1793.775390625,
+      "entry_date": "2025-04-10 00:00:00+00:00",
+      "exit_date": "2025-04-30 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 17.81630492875752,
+      "proceeds": 5.890815246437875,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0011594189771071365,
+      "price": 4312.5048828125,
+      "date": "2025-08-18 00:00:00+00:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0011594189771071365,
+      "price": 4312.5048828125,
+      "date": "2025-08-18 00:00:00-04:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0010886762993255947,
+      "price": 4592.7333984375,
+      "date": "2025-09-17 00:00:00+00:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 4.999999999999999,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0010886762993255947,
+      "price": 4592.7333984375,
+      "date": "2025-09-17 00:00:00-04:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 4.999999999999999,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0012388847448221061,
+      "price": 4035.887939453125,
+      "date": "2025-09-26 00:00:00+00:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0012388847448221061,
+      "price": 4035.887939453125,
+      "date": "2025-09-26 00:00:00-04:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.001149131451884946,
+      "price": 4351.1123046875,
+      "date": "2025-10-01 00:00:00+00:00",
+      "score": 5.8,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.001149131451884946,
+      "price": 4351.1123046875,
+      "date": "2025-10-01 00:00:00-04:00",
+      "score": 5.8,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0011233047450081774,
+      "price": 4451.15185546875,
+      "date": "2025-10-07 00:00:00+00:00",
+      "score": 5.8,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0011233047450081774,
+      "price": 4451.15185546875,
+      "date": "2025-10-07 00:00:00-04:00",
+      "score": 5.8,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0010886762993255947,
+      "entry_price": 4592.7333984375,
+      "exit_price": 3602.30810546875,
+      "entry_date": "2025-09-17 00:00:00+00:00",
+      "exit_date": "2025-11-03 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": -21.565050854153732,
+      "proceeds": 3.9217474572923128,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0010886762993255947,
+      "entry_price": 4592.7333984375,
+      "exit_price": 3602.30810546875,
+      "entry_date": "2025-09-17 00:00:00-04:00",
+      "exit_date": "2025-11-03 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": -21.565050854153732,
+      "proceeds": 3.9217474572923128,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0011594189771071365,
+      "entry_price": 4312.5048828125,
+      "exit_price": 3292.574462890625,
+      "entry_date": "2025-08-18 00:00:00+00:00",
+      "exit_date": "2025-11-04 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": -23.65053368372545,
+      "proceeds": 3.8174733158137277,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0011594189771071365,
+      "entry_price": 4312.5048828125,
+      "exit_price": 3292.574462890625,
+      "entry_date": "2025-08-18 00:00:00-04:00",
+      "exit_date": "2025-11-04 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": -23.65053368372545,
+      "proceeds": 3.8174733158137277,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.001149131451884946,
+      "entry_price": 4351.1123046875,
+      "exit_price": 3292.574462890625,
+      "entry_date": "2025-10-01 00:00:00+00:00",
+      "exit_date": "2025-11-04 00:00:00+00:00",
+      "entry_score": 5.8,
+      "timeframe": "1D",
+      "return_pct": -24.327982540384006,
+      "proceeds": 3.7836008729808,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.001149131451884946,
+      "entry_price": 4351.1123046875,
+      "exit_price": 3292.574462890625,
+      "entry_date": "2025-10-01 00:00:00-04:00",
+      "exit_date": "2025-11-04 00:00:00+00:00",
+      "entry_score": 5.8,
+      "timeframe": "1D",
+      "return_pct": -24.327982540384006,
+      "proceeds": 3.7836008729808,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0011233047450081774,
+      "entry_price": 4451.15185546875,
+      "exit_price": 3292.574462890625,
+      "entry_date": "2025-10-07 00:00:00+00:00",
+      "exit_date": "2025-11-04 00:00:00+00:00",
+      "entry_score": 5.8,
+      "timeframe": "1D",
+      "return_pct": -26.028709650844196,
+      "proceeds": 3.69856451745779,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0011233047450081774,
+      "entry_price": 4451.15185546875,
+      "exit_price": 3292.574462890625,
+      "entry_date": "2025-10-07 00:00:00-04:00",
+      "exit_date": "2025-11-04 00:00:00+00:00",
+      "entry_score": 5.8,
+      "timeframe": "1D",
+      "return_pct": -26.028709650844196,
+      "proceeds": 3.69856451745779,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0015466674037503513,
+      "price": 3232.757080078125,
+      "date": "2025-11-13 00:00:00+00:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0015466674037503513,
+      "price": 3232.757080078125,
+      "date": "2025-11-13 00:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0015466674037503513,
+      "price": 3232.757080078125,
+      "date": "2025-11-13 07:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0015466674037503513,
+      "price": 3232.757080078125,
+      "date": "2025-11-13 11:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0015466674037503513,
+      "price": 3232.757080078125,
+      "date": "2025-11-13 15:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0012388847448221061,
+      "entry_price": 4035.887939453125,
+      "exit_price": 3103.78564453125,
+      "entry_date": "2025-09-26 00:00:00+00:00",
+      "exit_date": "2025-11-14 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": -23.095346275847728,
+      "proceeds": 3.8452326862076136,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0012388847448221061,
+      "entry_price": 4035.887939453125,
+      "exit_price": 3103.78564453125,
+      "entry_date": "2025-09-26 00:00:00-04:00",
+      "exit_date": "2025-11-14 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": -23.095346275847728,
+      "proceeds": 3.8452326862076136,
+      "reason": "stop_loss"
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0016109359899933186,
+      "price": 3103.78564453125,
+      "date": "2025-11-14 00:00:00+00:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0016109359899933186,
+      "price": 3103.78564453125,
+      "date": "2025-11-14 00:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0016109359899933186,
+      "price": 3103.78564453125,
+      "date": "2025-11-14 07:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0016109359899933186,
+      "price": 3103.78564453125,
+      "date": "2025-11-14 11:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0016109359899933186,
+      "price": 3103.78564453125,
+      "date": "2025-11-14 15:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.05002026043416176,
+      "price": 99.9594955444336,
+      "date": "2025-11-20 00:00:00-05:00",
+      "score": 6.6,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.05002026043416176,
+      "price": 99.9594955444336,
+      "date": "2025-11-20 07:00:00-05:00",
+      "score": 6.6,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.05002026043416176,
+      "price": 99.9594955444336,
+      "date": "2025-11-20 11:00:00-05:00",
+      "score": 6.6,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.04981816476284642,
+      "price": 100.36499786376953,
+      "date": "2025-11-20 15:00:00-05:00",
+      "score": 6.6,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.04981816476284642,
+      "price": 100.36499786376953,
+      "date": "2025-11-21 00:00:00+00:00",
+      "score": 6.6,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.04981816476284642,
+      "price": 100.36499786376953,
+      "date": "2025-11-21 00:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.05016806255024098,
+      "price": 99.66500091552734,
+      "date": "2025-11-21 07:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.04920654299258013,
+      "price": 101.61250305175781,
+      "date": "2025-11-21 11:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.04933399186263145,
+      "price": 101.3499984741211,
+      "date": "2025-11-21 15:00:00-05:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.04933399186263145,
+      "price": 101.3499984741211,
+      "date": "2025-11-22 00:00:00+00:00",
+      "score": 5.5,
+      "timeframe": "1D",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.05002026043416176,
+      "entry_price": 99.9594955444336,
+      "exit_price": 105.34500122070312,
+      "entry_date": "2025-11-20 00:00:00-05:00",
+      "exit_date": "2025-11-25 15:00:00-05:00",
+      "entry_score": 6.6,
+      "timeframe": "1D",
+      "return_pct": 5.38768792993316,
+      "proceeds": 5.269384396496659,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.05002026043416176,
+      "entry_price": 99.9594955444336,
+      "exit_price": 105.34500122070312,
+      "entry_date": "2025-11-20 07:00:00-05:00",
+      "exit_date": "2025-11-25 15:00:00-05:00",
+      "entry_score": 6.6,
+      "timeframe": "1D",
+      "return_pct": 5.38768792993316,
+      "proceeds": 5.269384396496659,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.05002026043416176,
+      "entry_price": 99.9594955444336,
+      "exit_price": 105.34500122070312,
+      "entry_date": "2025-11-20 11:00:00-05:00",
+      "exit_date": "2025-11-25 15:00:00-05:00",
+      "entry_score": 6.6,
+      "timeframe": "1D",
+      "return_pct": 5.38768792993316,
+      "proceeds": 5.269384396496659,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.04981816476284642,
+      "entry_price": 100.36499786376953,
+      "exit_price": 105.34500122070312,
+      "entry_date": "2025-11-20 15:00:00-05:00",
+      "exit_date": "2025-11-25 15:00:00-05:00",
+      "entry_score": 6.6,
+      "timeframe": "1D",
+      "return_pct": 4.96189255510493,
+      "proceeds": 5.248094627755246,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.04981816476284642,
+      "entry_price": 100.36499786376953,
+      "exit_price": 105.34500122070312,
+      "entry_date": "2025-11-21 00:00:00+00:00",
+      "exit_date": "2025-11-25 15:00:00-05:00",
+      "entry_score": 6.6,
+      "timeframe": "1D",
+      "return_pct": 4.96189255510493,
+      "proceeds": 5.248094627755246,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.04981816476284642,
+      "entry_price": 100.36499786376953,
+      "exit_price": 105.34500122070312,
+      "entry_date": "2025-11-21 00:00:00-05:00",
+      "exit_date": "2025-11-25 15:00:00-05:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 4.96189255510493,
+      "proceeds": 5.248094627755246,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.05016806255024098,
+      "entry_price": 99.66500091552734,
+      "exit_price": 105.34500122070312,
+      "entry_date": "2025-11-21 07:00:00-05:00",
+      "exit_date": "2025-11-25 15:00:00-05:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 5.699092211908918,
+      "proceeds": 5.284954610595446,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.04920654299258013,
+      "entry_price": 101.61250305175781,
+      "exit_price": 105.34500122070312,
+      "entry_date": "2025-11-21 11:00:00-05:00",
+      "exit_date": "2025-11-25 15:00:00-05:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 3.6732666323986862,
+      "proceeds": 5.183663331619934,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.04933399186263145,
+      "entry_price": 101.3499984741211,
+      "exit_price": 105.34500122070312,
+      "entry_date": "2025-11-21 15:00:00-05:00",
+      "exit_date": "2025-11-25 15:00:00-05:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 3.9417886598213547,
+      "proceeds": 5.197089432991069,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.04933399186263145,
+      "entry_price": 101.3499984741211,
+      "exit_price": 105.34500122070312,
+      "entry_date": "2025-11-22 00:00:00+00:00",
+      "exit_date": "2025-11-25 15:00:00-05:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 3.9417886598213547,
+      "proceeds": 5.197089432991069,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0015466674037503513,
+      "entry_price": 3232.757080078125,
+      "exit_price": 3247.02294921875,
+      "entry_date": "2025-11-13 00:00:00+00:00",
+      "exit_date": "2025-12-12 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 0.4412910957194649,
+      "proceeds": 5.022064554785973,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0015466674037503513,
+      "entry_price": 3232.757080078125,
+      "exit_price": 3247.02294921875,
+      "entry_date": "2025-11-13 00:00:00-05:00",
+      "exit_date": "2025-12-12 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 0.4412910957194649,
+      "proceeds": 5.022064554785973,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0015466674037503513,
+      "entry_price": 3232.757080078125,
+      "exit_price": 3247.02294921875,
+      "entry_date": "2025-11-13 07:00:00-05:00",
+      "exit_date": "2025-12-12 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 0.4412910957194649,
+      "proceeds": 5.022064554785973,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0015466674037503513,
+      "entry_price": 3232.757080078125,
+      "exit_price": 3247.02294921875,
+      "entry_date": "2025-11-13 11:00:00-05:00",
+      "exit_date": "2025-12-12 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 0.4412910957194649,
+      "proceeds": 5.022064554785973,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0015466674037503513,
+      "entry_price": 3232.757080078125,
+      "exit_price": 3247.02294921875,
+      "entry_date": "2025-11-13 15:00:00-05:00",
+      "exit_date": "2025-12-12 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 0.4412910957194649,
+      "proceeds": 5.022064554785973,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0016109359899933186,
+      "entry_price": 3103.78564453125,
+      "exit_price": 3247.02294921875,
+      "entry_date": "2025-11-14 00:00:00+00:00",
+      "exit_date": "2025-12-12 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 4.614922584614645,
+      "proceeds": 5.230746129230732,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0016109359899933186,
+      "entry_price": 3103.78564453125,
+      "exit_price": 3247.02294921875,
+      "entry_date": "2025-11-14 00:00:00-05:00",
+      "exit_date": "2025-12-12 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 4.614922584614645,
+      "proceeds": 5.230746129230732,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0016109359899933186,
+      "entry_price": 3103.78564453125,
+      "exit_price": 3247.02294921875,
+      "entry_date": "2025-11-14 07:00:00-05:00",
+      "exit_date": "2025-12-12 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 4.614922584614645,
+      "proceeds": 5.230746129230732,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0016109359899933186,
+      "entry_price": 3103.78564453125,
+      "exit_price": 3247.02294921875,
+      "entry_date": "2025-11-14 11:00:00-05:00",
+      "exit_date": "2025-12-12 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 4.614922584614645,
+      "proceeds": 5.230746129230732,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0016109359899933186,
+      "entry_price": 3103.78564453125,
+      "exit_price": 3247.02294921875,
+      "entry_date": "2025-11-14 15:00:00-05:00",
+      "exit_date": "2025-12-12 00:00:00+00:00",
+      "entry_score": 5.5,
+      "timeframe": "1D",
+      "return_pct": 4.614922584614645,
+      "proceeds": 5.230746129230732,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.001620545862832662,
+      "price": 3085.380126953125,
+      "date": "2025-12-14 08:00:00+00:00",
+      "score": 6.8,
+      "timeframe": "4H",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0016207447733750887,
+      "price": 3085.00146484375,
+      "date": "2025-12-14 12:00:00+00:00",
+      "score": 7.3,
+      "timeframe": "4H",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0016173671111398924,
+      "price": 3091.444091796875,
+      "date": "2025-12-14 16:00:00+00:00",
+      "score": 7.3,
+      "timeframe": "4H",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.04488733304064148,
+      "price": 111.38999938964844,
+      "date": "2025-12-15 07:00:00-05:00",
+      "score": 6.5,
+      "timeframe": "4H",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "ETH-USD",
+      "shares": 0.0016636194054705136,
+      "price": 3005.4951171875,
+      "date": "2025-12-15 07:00:00-05:00",
+      "score": 6.0,
+      "timeframe": "4H",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.001620545862832662,
+      "entry_price": 3085.380126953125,
+      "exit_price": 2936.011962890625,
+      "entry_date": "2025-12-14 08:00:00+00:00",
+      "exit_date": "2025-12-16 00:00:00+00:00",
+      "entry_score": 6.8,
+      "timeframe": "4H",
+      "return_pct": -4.84115920620789,
+      "proceeds": 4.757942039689605,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0016207447733750887,
+      "entry_price": 3085.00146484375,
+      "exit_price": 2936.011962890625,
+      "entry_date": "2025-12-14 12:00:00+00:00",
+      "exit_date": "2025-12-16 00:00:00+00:00",
+      "entry_score": 7.3,
+      "timeframe": "4H",
+      "return_pct": -4.829479131565694,
+      "proceeds": 4.758526043421716,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0016173671111398924,
+      "entry_price": 3091.444091796875,
+      "exit_price": 2936.011962890625,
+      "entry_date": "2025-12-14 16:00:00+00:00",
+      "exit_date": "2025-12-16 00:00:00+00:00",
+      "entry_score": 7.3,
+      "timeframe": "4H",
+      "return_pct": -5.027816266148499,
+      "proceeds": 4.748609186692575,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "SELL",
+      "symbol": "ETH-USD",
+      "shares": 0.0016636194054705136,
+      "entry_price": 3005.4951171875,
+      "exit_price": 2936.011962890625,
+      "entry_date": "2025-12-15 07:00:00-05:00",
+      "exit_date": "2025-12-16 00:00:00+00:00",
+      "entry_score": 6.0,
+      "timeframe": "4H",
+      "return_pct": -2.311870476831668,
+      "proceeds": 4.884406476158417,
+      "reason": "sell_signal"
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.045749839492311935,
+      "price": 109.29000091552734,
+      "date": "2025-12-18 11:00:00-05:00",
+      "score": 6.0,
+      "timeframe": "4H",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.045112103950028105,
+      "price": 110.83499908447266,
+      "date": "2025-12-30 11:00:00-05:00",
+      "score": 5.7,
+      "timeframe": "4H",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "BUY",
+      "symbol": "QTUM",
+      "shares": 0.04557885268090811,
+      "price": 109.69999694824219,
+      "date": "2025-12-31 11:00:00-05:00",
+      "score": 6.5,
+      "timeframe": "4H",
+      "cost": 5.0,
+      "dca_amount": 5.0
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.04488733304064148,
+      "entry_price": 111.38999938964844,
+      "exit_price": 118.69000244140625,
+      "entry_date": "2025-12-15 07:00:00-05:00",
+      "exit_date": "2026-01-26 00:00:00+00:00",
+      "entry_score": 6.5,
+      "timeframe": "4H",
+      "return_pct": 6.553553363639031,
+      "proceeds": 5.327677668181952,
+      "reason": "end_of_simulation"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.045749839492311935,
+      "entry_price": 109.29000091552734,
+      "exit_price": 118.69000244140625,
+      "entry_date": "2025-12-18 11:00:00-05:00",
+      "exit_date": "2026-01-26 00:00:00+00:00",
+      "entry_score": 6.0,
+      "timeframe": "4H",
+      "return_pct": 8.600971220728937,
+      "proceeds": 5.430048561036448,
+      "reason": "end_of_simulation"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.045112103950028105,
+      "entry_price": 110.83499908447266,
+      "exit_price": 118.69000244140625,
+      "entry_date": "2025-12-30 11:00:00-05:00",
+      "exit_date": "2026-01-26 00:00:00+00:00",
+      "entry_score": 5.7,
+      "timeframe": "4H",
+      "return_pct": 7.0871145593161655,
+      "proceeds": 5.3543557279658085,
+      "reason": "end_of_simulation"
+    },
+    {
+      "type": "SELL",
+      "symbol": "QTUM",
+      "shares": 0.04557885268090811,
+      "entry_price": 109.69999694824219,
+      "exit_price": 118.69000244140625,
+      "entry_date": "2025-12-31 11:00:00-05:00",
+      "exit_date": "2026-01-26 00:00:00+00:00",
+      "entry_score": 6.5,
+      "timeframe": "4H",
+      "return_pct": 8.195082719469582,
+      "proceeds": 5.409754135973479,
+      "reason": "end_of_simulation"
+    }
+  ],
+  "portfolio_history": [
+    [
+      "2025-02-24 00:00",
+      0.0
+    ],
+    [
+      "2025-02-25 00:00",
+      0.0
+    ],
+    [
+      "2025-02-25 00:00",
+      0.0
+    ],
+    [
+      "2025-02-26 00:00",
+      0.0
+    ],
+    [
+      "2025-02-26 00:00",
+      0.0
+    ],
+    [
+      "2025-02-27 00:00",
+      0.0
+    ],
+    [
+      "2025-02-27 00:00",
+      0.0
+    ],
+    [
+      "2025-02-28 00:00",
+      0.0
+    ],
+    [
+      "2025-02-28 00:00",
+      0.0
+    ],
+    [
+      "2025-03-01 00:00",
+      0.0
+    ],
+    [
+      "2025-03-02 00:00",
+      0.0
+    ],
+    [
+      "2025-03-03 00:00",
+      0.0
+    ],
+    [
+      "2025-03-03 00:00",
+      0.0
+    ],
+    [
+      "2025-03-04 00:00",
+      0.0
+    ],
+    [
+      "2025-03-04 00:00",
+      0.0
+    ],
+    [
+      "2025-03-05 00:00",
+      0.0
+    ],
+    [
+      "2025-03-05 00:00",
+      0.0
+    ],
+    [
+      "2025-03-06 00:00",
+      0.0
+    ],
+    [
+      "2025-03-06 00:00",
+      0.0
+    ],
+    [
+      "2025-03-07 00:00",
+      0.0
+    ],
+    [
+      "2025-03-07 00:00",
+      0.0
+    ],
+    [
+      "2025-03-08 00:00",
+      0.0
+    ],
+    [
+      "2025-03-09 00:00",
+      0.0
+    ],
+    [
+      "2025-03-10 00:00",
+      0.0
+    ],
+    [
+      "2025-03-10 00:00",
+      0.0
+    ],
+    [
+      "2025-03-11 00:00",
+      0.0
+    ],
+    [
+      "2025-03-11 00:00",
+      0.0
+    ],
+    [
+      "2025-03-12 00:00",
+      0.0
+    ],
+    [
+      "2025-03-12 00:00",
+      0.0
+    ],
+    [
+      "2025-03-13 00:00",
+      0.0
+    ],
+    [
+      "2025-03-13 00:00",
+      0.0
+    ],
+    [
+      "2025-03-14 00:00",
+      0.0
+    ],
+    [
+      "2025-03-14 00:00",
+      0.0
+    ],
+    [
+      "2025-03-15 00:00",
+      0.0
+    ],
+    [
+      "2025-03-16 00:00",
+      0.0
+    ],
+    [
+      "2025-03-17 00:00",
+      0.0
+    ],
+    [
+      "2025-03-17 00:00",
+      0.0
+    ],
+    [
+      "2025-03-18 00:00",
+      0.0
+    ],
+    [
+      "2025-03-18 00:00",
+      0.0
+    ],
+    [
+      "2025-03-19 00:00",
+      0.0
+    ],
+    [
+      "2025-03-19 00:00",
+      0.0
+    ],
+    [
+      "2025-03-20 00:00",
+      0.0
+    ],
+    [
+      "2025-03-20 00:00",
+      0.0
+    ],
+    [
+      "2025-03-21 00:00",
+      0.0
+    ],
+    [
+      "2025-03-21 00:00",
+      0.0
+    ],
+    [
+      "2025-03-22 00:00",
+      0.0
+    ],
+    [
+      "2025-03-23 00:00",
+      0.0
+    ],
+    [
+      "2025-03-24 00:00",
+      0.0
+    ],
+    [
+      "2025-03-24 00:00",
+      0.0
+    ],
+    [
+      "2025-03-25 00:00",
+      0.0
+    ],
+    [
+      "2025-03-25 00:00",
+      0.0
+    ],
+    [
+      "2025-03-26 00:00",
+      0.0
+    ],
+    [
+      "2025-03-26 00:00",
+      0.0
+    ],
+    [
+      "2025-03-27 00:00",
+      0.0
+    ],
+    [
+      "2025-03-27 00:00",
+      0.0
+    ],
+    [
+      "2025-03-28 00:00",
+      0.0
+    ],
+    [
+      "2025-03-28 00:00",
+      0.0
+    ],
+    [
+      "2025-03-29 00:00",
+      0.0
+    ],
+    [
+      "2025-03-30 00:00",
+      0.0
+    ],
+    [
+      "2025-03-31 00:00",
+      0.0
+    ],
+    [
+      "2025-03-31 00:00",
+      0.0
+    ],
+    [
+      "2025-04-01 00:00",
+      0.0
+    ],
+    [
+      "2025-04-01 00:00",
+      0.0
+    ],
+    [
+      "2025-04-02 00:00",
+      5.0
+    ],
+    [
+      "2025-04-02 00:00",
+      10.0
+    ],
+    [
+      "2025-04-03 00:00",
+      10.113205730578603
+    ],
+    [
+      "2025-04-03 00:00",
+      10.113205730578603
+    ],
+    [
+      "2025-04-04 00:00",
+      10.111523561987232
+    ],
+    [
+      "2025-04-04 00:00",
+      10.111523561987232
+    ],
+    [
+      "2025-04-05 00:00",
+      10.059377015593581
+    ],
+    [
+      "2025-04-06 00:00",
+      13.78246758765737
+    ],
+    [
+      "2025-04-07 00:00",
+      18.594645268014688
+    ],
+    [
+      "2025-04-07 00:00",
+      23.594645268014688
+    ],
+    [
+      "2025-04-08 00:00",
+      27.340183153867624
+    ],
+    [
+      "2025-04-08 00:00",
+      32.34018315386763
+    ],
+    [
+      "2025-04-09 00:00",
+      41.63346357411548
+    ],
+    [
+      "2025-04-09 00:00",
+      46.63346357411548
+    ],
+    [
+      "2025-04-10 00:00",
+      47.5651203108783
+    ],
+    [
+      "2025-04-10 00:00",
+      47.5651203108783
+    ],
+    [
+      "2025-04-11 00:00",
+      48.95944004188774
+    ],
+    [
+      "2025-04-11 00:00",
+      48.95944004188774
+    ],
+    [
+      "2025-04-12 00:00",
+      51.345595182633275
+    ],
+    [
+      "2025-04-13 00:00",
+      49.88217669744619
+    ],
+    [
+      "2025-04-14 00:00",
+      50.697072160298944
+    ],
+    [
+      "2025-04-14 00:00",
+      50.697072160298944
+    ],
+    [
+      "2025-04-15 00:00",
+      49.630581570266976
+    ],
+    [
+      "2025-04-15 00:00",
+      49.630581570266976
+    ],
+    [
+      "2025-04-16 00:00",
+      49.30170368722874
+    ],
+    [
+      "2025-04-16 00:00",
+      49.30170368722874
+    ],
+    [
+      "2025-04-17 00:00",
+      49.44050755917547
+    ],
+    [
+      "2025-04-17 00:00",
+      49.44050755917547
+    ],
+    [
+      "2025-04-18 00:00",
+      49.63971134660679
+    ],
+    [
+      "2025-04-19 00:00",
+      50.38943988460787
+    ],
+    [
+      "2025-04-20 00:00",
+      49.59564892562504
+    ],
+    [
+      "2025-04-21 00:00",
+      49.35260009283912
+    ],
+    [
+      "2025-04-21 00:00",
+      49.35260009283912
+    ],
+    [
+      "2025-04-22 00:00",
+      54.900926108785065
+    ],
+    [
+      "2025-04-22 00:00",
+      54.900926108785065
+    ],
+    [
+      "2025-04-23 00:00",
+      56.11222318895879
+    ],
+    [
+      "2025-04-23 00:00",
+      56.11222318895879
+    ],
+    [
+      "2025-04-24 00:00",
+      55.29143951613582
+    ],
+    [
+      "2025-04-24 00:00",
+      55.29143951613582
+    ],
+    [
+      "2025-04-25 00:00",
+      55.81637877403062
+    ],
+    [
+      "2025-04-25 00:00",
+      55.81637877403062
+    ],
+    [
+      "2025-04-26 00:00",
+      56.91751980174999
+    ],
+    [
+      "2025-04-27 00:00",
+      56.01102530050703
+    ],
+    [
+      "2025-04-28 00:00",
+      56.19805986642608
+    ],
+    [
+      "2025-04-28 00:00",
+      56.19805986642608
+    ],
+    [
+      "2025-04-29 00:00",
+      56.20817736710676
+    ],
+    [
+      "2025-04-29 00:00",
+      56.20817736710676
+    ],
+    [
+      "2025-04-30 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-04-30 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-01 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-01 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-02 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-02 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-03 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-04 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-05 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-05 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-06 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-06 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-07 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-07 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-08 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-08 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-09 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-09 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-10 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-11 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-12 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-12 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-13 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-13 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-14 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-14 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-15 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-15 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-16 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-16 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-17 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-18 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-19 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-19 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-20 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-20 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-21 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-21 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-22 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-22 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-23 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-23 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-24 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-25 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-26 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-27 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-27 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-28 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-28 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-29 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-29 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-30 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-30 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-05-31 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-01 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-02 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-02 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-03 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-03 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-04 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-04 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-05 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-05 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-06 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-06 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-07 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-08 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-09 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-09 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-10 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-10 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-11 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-11 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-12 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-12 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-13 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-13 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-14 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-15 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-16 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-16 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-17 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-17 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-18 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-18 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-19 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-20 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-20 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-21 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-22 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-23 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-23 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-24 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-24 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-25 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-25 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-26 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-26 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-27 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-27 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-28 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-29 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-30 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-06-30 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-01 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-01 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-02 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-02 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-03 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-03 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-04 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-05 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-06 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-07 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-07 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-08 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-08 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-09 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-09 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-10 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-10 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-11 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-11 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-12 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-13 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-14 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-14 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-15 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-15 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-16 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-16 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-17 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-17 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-18 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-18 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-19 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-20 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-21 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-21 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-22 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-22 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-23 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-23 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-24 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-24 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-25 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-25 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-26 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-27 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-28 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-28 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-29 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-29 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-30 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-30 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-31 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-07-31 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-01 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-01 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-02 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-03 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-04 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-04 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-05 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-05 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-06 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-06 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-07 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-07 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-08 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-08 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-09 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-10 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-11 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-11 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-12 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-12 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-13 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-13 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-14 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-14 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-15 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-15 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-16 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-17 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-18 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-18 00:00",
+      56.039467185194745
+    ],
+    [
+      "2025-08-19 00:00",
+      55.48517037167212
+    ],
+    [
+      "2025-08-19 00:00",
+      55.48517037167212
+    ],
+    [
+      "2025-08-20 00:00",
+      56.09047142998161
+    ],
+    [
+      "2025-08-20 00:00",
+      56.09047142998161
+    ],
+    [
+      "2025-08-21 00:00",
+      55.8324067312324
+    ],
+    [
+      "2025-08-21 00:00",
+      55.8324067312324
+    ],
+    [
+      "2025-08-22 00:00",
+      57.24258176500161
+    ],
+    [
+      "2025-08-22 00:00",
+      57.24258176500161
+    ],
+    [
+      "2025-08-23 00:00",
+      57.11444671986465
+    ],
+    [
+      "2025-08-24 00:00",
+      57.122695125380496
+    ],
+    [
+      "2025-08-25 00:00",
+      56.179717252846395
+    ],
+    [
+      "2025-08-25 00:00",
+      56.179717252846395
+    ],
+    [
+      "2025-08-26 00:00",
+      56.707111356793284
+    ],
+    [
+      "2025-08-26 00:00",
+      56.707111356793284
+    ],
+    [
+      "2025-08-27 00:00",
+      56.48210595032295
+    ],
+    [
+      "2025-08-27 00:00",
+      56.48210595032295
+    ],
+    [
+      "2025-08-28 00:00",
+      56.49088198205299
+    ],
+    [
+      "2025-08-28 00:00",
+      56.49088198205299
+    ],
+    [
+      "2025-08-29 00:00",
+      56.14995505828366
+    ],
+    [
+      "2025-08-29 00:00",
+      56.14995505828366
+    ],
+    [
+      "2025-08-30 00:00",
+      56.18241992188775
+    ],
+    [
+      "2025-08-31 00:00",
+      56.219209961754096
+    ],
+    [
+      "2025-09-01 00:00",
+      56.04402447170144
+    ],
+    [
+      "2025-09-02 00:00",
+      56.0692893887475
+    ],
+    [
+      "2025-09-02 00:00",
+      56.0692893887475
+    ],
+    [
+      "2025-09-03 00:00",
+      56.35919848078884
+    ],
+    [
+      "2025-09-03 00:00",
+      56.35919848078884
+    ],
+    [
+      "2025-09-04 00:00",
+      56.00755825393221
+    ],
+    [
+      "2025-09-04 00:00",
+      56.00755825393221
+    ],
+    [
+      "2025-09-05 00:00",
+      56.02667621235843
+    ],
+    [
+      "2025-09-05 00:00",
+      56.02667621235843
+    ],
+    [
+      "2025-09-06 00:00",
+      55.95074219507358
+    ],
+    [
+      "2025-09-07 00:00",
+      56.022870736594705
+    ],
+    [
+      "2025-09-08 00:00",
+      56.029188664223874
+    ],
+    [
+      "2025-09-08 00:00",
+      56.029188664223874
+    ],
+    [
+      "2025-09-09 00:00",
+      56.0314361707371
+    ],
+    [
+      "2025-09-09 00:00",
+      56.0314361707371
+    ],
+    [
+      "2025-09-10 00:00",
+      56.124431989355976
+    ],
+    [
+      "2025-09-10 00:00",
+      56.124431989355976
+    ],
+    [
+      "2025-09-11 00:00",
+      56.38434451209995
+    ],
+    [
+      "2025-09-11 00:00",
+      56.38434451209995
+    ],
+    [
+      "2025-09-12 00:00",
+      56.97335879084284
+    ],
+    [
+      "2025-09-12 00:00",
+      56.97335879084284
+    ],
+    [
+      "2025-09-13 00:00",
+      56.864219421661865
+    ],
+    [
+      "2025-09-14 00:00",
+      56.72837718416441
+    ],
+    [
+      "2025-09-15 00:00",
+      56.53642993772787
+    ],
+    [
+      "2025-09-15 00:00",
+      56.53642993772787
+    ],
+    [
+      "2025-09-16 00:00",
+      56.48250336835124
+    ],
+    [
+      "2025-09-16 00:00",
+      56.48250336835124
+    ],
+    [
+      "2025-09-17 00:00",
+      56.68927170307912
+    ],
+    [
+      "2025-09-17 00:00",
+      56.68927170307912
+    ],
+    [
+      "2025-09-18 00:00",
+      56.67661738552702
+    ],
+    [
+      "2025-09-18 00:00",
+      56.67661738552702
+    ],
+    [
+      "2025-09-19 00:00",
+      56.14156192811385
+    ],
+    [
+      "2025-09-19 00:00",
+      56.14156192811385
+    ],
+    [
+      "2025-09-20 00:00",
+      56.19258754375335
+    ],
+    [
+      "2025-09-21 00:00",
+      56.053491039335164
+    ],
+    [
+      "2025-09-22 00:00",
+      54.93640503209689
+    ],
+    [
+      "2025-09-22 00:00",
+      54.93640503209689
+    ],
+    [
+      "2025-09-23 00:00",
+      54.76836649640018
+    ],
+    [
+      "2025-09-23 00:00",
+      54.76836649640018
+    ],
+    [
+      "2025-09-24 00:00",
+      54.714256335972216
+    ],
+    [
+      "2025-09-24 00:00",
+      54.714256335972216
+    ],
+    [
+      "2025-09-25 00:00",
+      53.432233901070035
+    ],
+    [
+      "2025-09-25 00:00",
+      53.432233901070035
+    ],
+    [
+      "2025-09-26 00:00",
+      54.18558841098754
+    ],
+    [
+      "2025-09-26 00:00",
+      54.18558841098754
+    ],
+    [
+      "2025-09-27 00:00",
+      54.06542891829222
+    ],
+    [
+      "2025-09-28 00:00",
+      54.921959249060066
+    ],
+    [
+      "2025-09-29 00:00",
+      55.45104036220695
+    ],
+    [
+      "2025-09-29 00:00",
+      55.45104036220695
+    ],
+    [
+      "2025-09-30 00:00",
+      54.95320926434821
+    ],
+    [
+      "2025-09-30 00:00",
+      54.95320926434821
+    ],
+    [
+      "2025-10-01 00:00",
+      56.383950538557556
+    ],
+    [
+      "2025-10-01 00:00",
+      56.38395053855755
+    ],
+    [
+      "2025-10-02 00:00",
+      57.65249748549021
+    ],
+    [
+      "2025-10-02 00:00",
+      57.65249748549021
+    ],
+    [
+      "2025-10-03 00:00",
+      57.90235401270522
+    ],
+    [
+      "2025-10-03 00:00",
+      57.90235401270522
+    ],
+    [
+      "2025-10-04 00:00",
+      57.664305081898355
+    ],
+    [
+      "2025-10-05 00:00",
+      57.90747456160768
+    ],
+    [
+      "2025-10-06 00:00",
+      59.50552950953164
+    ],
+    [
+      "2025-10-06 00:00",
+      59.50552950953164
+    ],
+    [
+      "2025-10-07 00:00",
+      57.31153955684696
+    ],
+    [
+      "2025-10-07 00:00",
+      57.31153955684696
+    ],
+    [
+      "2025-10-08 00:00",
+      58.19268524278439
+    ],
+    [
+      "2025-10-08 00:00",
+      58.19268524278439
+    ],
+    [
+      "2025-10-09 00:00",
+      56.36689968176238
+    ],
+    [
+      "2025-10-09 00:00",
+      56.36689968176238
+    ],
+    [
+      "2025-10-10 00:00",
+      50.30644147761818
+    ],
+    [
+      "2025-10-10 00:00",
+      50.30644147761818
+    ],
+    [
+      "2025-10-11 00:00",
+      49.242133419754865
+    ],
+    [
+      "2025-10-12 00:00",
+      54.008812450523834
+    ],
+    [
+      "2025-10-13 00:00",
+      54.94229908111564
+    ],
+    [
+      "2025-10-13 00:00",
+      54.94229908111564
+    ],
+    [
+      "2025-10-14 00:00",
+      53.559398003751475
+    ],
+    [
+      "2025-10-14 00:00",
+      53.559398003751475
+    ],
+    [
+      "2025-10-15 00:00",
+      51.97034469724299
+    ],
+    [
+      "2025-10-15 00:00",
+      51.97034469724299
+    ],
+    [
+      "2025-10-16 00:00",
+      50.9024904363274
+    ],
+    [
+      "2025-10-16 00:00",
+      50.9024904363274
+    ],
+    [
+      "2025-10-17 00:00",
+      50.18607024110187
+    ],
+    [
+      "2025-10-17 00:00",
+      50.18607024110187
+    ],
+    [
+      "2025-10-18 00:00",
+      50.85171308318536
+    ],
+    [
+      "2025-10-19 00:00",
+      51.93797891538037
+    ],
+    [
+      "2025-10-20 00:00",
+      51.89317751900765
+    ],
+    [
+      "2025-10-20 00:00",
+      51.89317751900765
+    ],
+    [
+      "2025-10-21 00:00",
+      50.69526394107207
+    ],
+    [
+      "2025-10-21 00:00",
+      50.69526394107207
+    ],
+    [
+      "2025-10-22 00:00",
+      49.90459002229969
+    ],
+    [
+      "2025-10-22 00:00",
+      49.90459002229969
+    ],
+    [
+      "2025-10-23 00:00",
+      50.45638877876645
+    ],
+    [
+      "2025-10-23 00:00",
+      50.45638877876645
+    ],
+    [
+      "2025-10-24 00:00",
+      51.36108957712732
+    ],
+    [
+      "2025-10-24 00:00",
+      51.36108957712732
+    ],
+    [
+      "2025-10-25 00:00",
+      51.57883656851159
+    ],
+    [
+      "2025-10-26 00:00",
+      53.93464871785536
+    ],
+    [
+      "2025-10-27 00:00",
+      53.49846293020907
+    ],
+    [
+      "2025-10-27 00:00",
+      53.49846293020907
+    ],
+    [
+      "2025-10-28 00:00",
+      51.91048107759664
+    ],
+    [
+      "2025-10-28 00:00",
+      51.91048107759664
+    ],
+    [
+      "2025-10-28 08:00",
+      51.91048107759664
+    ],
+    [
+      "2025-10-28 12:00",
+      51.91048107759664
+    ],
+    [
+      "2025-10-29 00:00",
+      51.001536646875806
+    ],
+    [
+      "2025-10-29 00:00",
+      51.001536646875806
+    ],
+    [
+      "2025-10-29 08:00",
+      51.001536646875806
+    ],
+    [
+      "2025-10-29 12:00",
+      51.001536646875806
+    ],
+    [
+      "2025-10-30 00:00",
+      49.86142814724299
+    ],
+    [
+      "2025-10-30 00:00",
+      49.86142814724299
+    ],
+    [
+      "2025-10-30 08:00",
+      49.86142814724299
+    ],
+    [
+      "2025-10-30 12:00",
+      49.86142814724299
+    ],
+    [
+      "2025-10-31 00:00",
+      50.353340786343786
+    ],
+    [
+      "2025-10-31 00:00",
+      50.353340786343786
+    ],
+    [
+      "2025-10-31 08:00",
+      50.353340786343786
+    ],
+    [
+      "2025-10-31 12:00",
+      50.353340786343786
+    ],
+    [
+      "2025-11-01 00:00",
+      50.66558944891685
+    ],
+    [
+      "2025-11-02 00:00",
+      51.0903492072202
+    ],
+    [
+      "2025-11-03 00:00",
+      47.53385063599988
+    ],
+    [
+      "2025-11-03 00:00",
+      47.53385063599988
+    ],
+    [
+      "2025-11-03 07:00",
+      47.53385063599988
+    ],
+    [
+      "2025-11-03 11:00",
+      47.53385063599988
+    ],
+    [
+      "2025-11-03 15:00",
+      47.53385063599988
+    ],
+    [
+      "2025-11-04 00:00",
+      44.640480058816074
+    ],
+    [
+      "2025-11-04 00:00",
+      44.640480058816074
+    ],
+    [
+      "2025-11-04 07:00",
+      44.640480058816074
+    ],
+    [
+      "2025-11-04 11:00",
+      44.640480058816074
+    ],
+    [
+      "2025-11-04 15:00",
+      44.640480058816074
+    ],
+    [
+      "2025-11-05 00:00",
+      44.96902406617389
+    ],
+    [
+      "2025-11-05 00:00",
+      44.96902406617389
+    ],
+    [
+      "2025-11-05 07:00",
+      44.96902406617389
+    ],
+    [
+      "2025-11-05 11:00",
+      44.96902406617389
+    ],
+    [
+      "2025-11-05 15:00",
+      44.96902406617389
+    ],
+    [
+      "2025-11-06 00:00",
+      44.68925086193219
+    ],
+    [
+      "2025-11-06 00:00",
+      44.68925086193219
+    ],
+    [
+      "2025-11-06 07:00",
+      44.68925086193219
+    ],
+    [
+      "2025-11-06 11:00",
+      44.68925086193219
+    ],
+    [
+      "2025-11-06 15:00",
+      44.68925086193219
+    ],
+    [
+      "2025-11-07 00:00",
+      44.99412358074037
+    ],
+    [
+      "2025-11-07 00:00",
+      44.99412358074037
+    ],
+    [
+      "2025-11-07 07:00",
+      44.99412358074037
+    ],
+    [
+      "2025-11-07 11:00",
+      44.99412358074037
+    ],
+    [
+      "2025-11-07 15:00",
+      44.99412358074037
+    ],
+    [
+      "2025-11-08 00:00",
+      44.90758736032971
+    ],
+    [
+      "2025-11-09 00:00",
+      45.359149356257724
+    ],
+    [
+      "2025-11-10 00:00",
+      45.32406072851192
+    ],
+    [
+      "2025-11-10 00:00",
+      45.32406072851192
+    ],
+    [
+      "2025-11-10 07:00",
+      45.32406072851192
+    ],
+    [
+      "2025-11-10 11:00",
+      45.32406072851192
+    ],
+    [
+      "2025-11-10 15:00",
+      45.32406072851192
+    ],
+    [
+      "2025-11-11 00:00",
+      44.944521611784715
+    ],
+    [
+      "2025-11-11 00:00",
+      44.944521611784715
+    ],
+    [
+      "2025-11-11 07:00",
+      44.944521611784715
+    ],
+    [
+      "2025-11-11 11:00",
+      44.944521611784715
+    ],
+    [
+      "2025-11-11 15:00",
+      44.944521611784715
+    ],
+    [
+      "2025-11-12 00:00",
+      44.93910028117774
+    ],
+    [
+      "2025-11-12 00:00",
+      44.93910028117774
+    ],
+    [
+      "2025-11-12 07:00",
+      44.93910028117774
+    ],
+    [
+      "2025-11-12 11:00",
+      44.93910028117774
+    ],
+    [
+      "2025-11-12 15:00",
+      44.93910028117774
+    ],
+    [
+      "2025-11-13 00:00",
+      44.49226637273289
+    ],
+    [
+      "2025-11-13 00:00",
+      44.49226637273289
+    ],
+    [
+      "2025-11-13 07:00",
+      44.49226637273289
+    ],
+    [
+      "2025-11-13 11:00",
+      44.49226637273289
+    ],
+    [
+      "2025-11-13 15:00",
+      44.49226637273289
+    ],
+    [
+      "2025-11-14 00:00",
+      43.17532530782302
+    ],
+    [
+      "2025-11-14 00:00",
+      43.17532530782302
+    ],
+    [
+      "2025-11-14 07:00",
+      43.175325307823016
+    ],
+    [
+      "2025-11-14 11:00",
+      48.175325307823016
+    ],
+    [
+      "2025-11-14 15:00",
+      53.175325307823016
+    ],
+    [
+      "2025-11-15 00:00",
+      54.16753433517157
+    ],
+    [
+      "2025-11-16 00:00",
+      53.00263230873868
+    ],
+    [
+      "2025-11-17 00:00",
+      51.92417507150437
+    ],
+    [
+      "2025-11-17 00:00",
+      51.92417507150437
+    ],
+    [
+      "2025-11-17 07:00",
+      51.92417507150437
+    ],
+    [
+      "2025-11-17 11:00",
+      51.92417507150437
+    ],
+    [
+      "2025-11-17 15:00",
+      51.92417507150437
+    ],
+    [
+      "2025-11-18 00:00",
+      53.47835039132223
+    ],
+    [
+      "2025-11-18 00:00",
+      53.47835039132223
+    ],
+    [
+      "2025-11-18 07:00",
+      53.47835039132223
+    ],
+    [
+      "2025-11-18 11:00",
+      53.47835039132223
+    ],
+    [
+      "2025-11-18 15:00",
+      53.47835039132223
+    ],
+    [
+      "2025-11-19 00:00",
+      51.90099798507058
+    ],
+    [
+      "2025-11-19 00:00",
+      51.90099798507058
+    ],
+    [
+      "2025-11-19 07:00",
+      51.90099798507058
+    ],
+    [
+      "2025-11-19 11:00",
+      51.90099798507058
+    ],
+    [
+      "2025-11-19 15:00",
+      51.90099798507058
+    ],
+    [
+      "2025-11-20 00:00",
+      48.880857493952725
+    ],
+    [
+      "2025-11-20 00:00",
+      53.880857493952725
+    ],
+    [
+      "2025-11-20 07:00",
+      58.880857493952725
+    ],
+    [
+      "2025-11-20 11:00",
+      63.880857493952725
+    ],
+    [
+      "2025-11-20 15:00",
+      68.94170748881226
+    ],
+    [
+      "2025-11-21 00:00",
+      72.89846107555485
+    ],
+    [
+      "2025-11-21 00:00",
+      77.89846107555485
+    ],
+    [
+      "2025-11-21 07:00",
+      82.68880129668918
+    ],
+    [
+      "2025-11-21 11:00",
+      88.36981034472352
+    ],
+    [
+      "2025-11-21 15:00",
+      93.2650999249529
+    ],
+    [
+      "2025-11-22 00:00",
+      98.29522666827017
+    ],
+    [
+      "2025-11-23 00:00",
+      98.8331023586754
+    ],
+    [
+      "2025-11-24 00:00",
+      101.21768265889038
+    ],
+    [
+      "2025-11-24 00:00",
+      101.21768265889038
+    ],
+    [
+      "2025-11-24 07:00",
+      102.66279155584591
+    ],
+    [
+      "2025-11-24 11:00",
+      102.85962513135154
+    ],
+    [
+      "2025-11-24 15:00",
+      102.93425957029349
+    ],
+    [
+      "2025-11-25 00:00",
+      103.01671881028662
+    ],
+    [
+      "2025-11-25 00:00",
+      103.01671881028662
+    ],
+    [
+      "2025-11-25 07:00",
+      102.69370402576669
+    ],
+    [
+      "2025-11-25 11:00",
+      103.21573891937804
+    ],
+    [
+      "2025-11-25 15:00",
+      103.28788693557917
+    ],
+    [
+      "2025-11-26 00:00",
+      104.39108618475734
+    ],
+    [
+      "2025-11-26 00:00",
+      104.39108618475734
+    ],
+    [
+      "2025-11-26 07:00",
+      104.39108618475734
+    ],
+    [
+      "2025-11-26 11:00",
+      104.39108618475734
+    ],
+    [
+      "2025-11-26 15:00",
+      104.39108618475734
+    ],
+    [
+      "2025-11-27 00:00",
+      104.18158274571906
+    ],
+    [
+      "2025-11-28 00:00",
+      104.4620127717303
+    ],
+    [
+      "2025-11-28 04:00",
+      104.4620127717303
+    ],
+    [
+      "2025-11-28 00:00",
+      104.4620127717303
+    ],
+    [
+      "2025-11-28 08:00",
+      104.4620127717303
+    ],
+    [
+      "2025-11-28 07:00",
+      104.4620127717303
+    ],
+    [
+      "2025-11-28 11:00",
+      104.4620127717303
+    ],
+    [
+      "2025-11-28 20:00",
+      104.4620127717303
+    ],
+    [
+      "2025-11-29 00:00",
+      103.82071709028811
+    ],
+    [
+      "2025-11-29 16:00",
+      103.82071709028811
+    ],
+    [
+      "2025-11-29 20:00",
+      103.82071709028811
+    ],
+    [
+      "2025-11-30 00:00",
+      103.827462458866
+    ],
+    [
+      "2025-11-30 04:00",
+      103.827462458866
+    ],
+    [
+      "2025-11-30 08:00",
+      103.827462458866
+    ],
+    [
+      "2025-11-30 12:00",
+      103.827462458866
+    ],
+    [
+      "2025-11-30 16:00",
+      103.827462458866
+    ],
+    [
+      "2025-11-30 20:00",
+      103.827462458866
+    ],
+    [
+      "2025-12-01 00:00",
+      100.79736965822349
+    ],
+    [
+      "2025-12-01 04:00",
+      100.79736965822349
+    ],
+    [
+      "2025-12-01 00:00",
+      100.79736965822349
+    ],
+    [
+      "2025-12-01 08:00",
+      100.79736965822349
+    ],
+    [
+      "2025-12-01 07:00",
+      100.79736965822349
+    ],
+    [
+      "2025-12-01 11:00",
+      100.79736965822349
+    ],
+    [
+      "2025-12-01 15:00",
+      100.79736965822349
+    ],
+    [
+      "2025-12-02 00:00",
+      103.91946157727651
+    ],
+    [
+      "2025-12-02 04:00",
+      103.91946157727651
+    ],
+    [
+      "2025-12-02 00:00",
+      103.91946157727651
+    ],
+    [
+      "2025-12-02 08:00",
+      103.91946157727651
+    ],
+    [
+      "2025-12-02 07:00",
+      103.91946157727651
+    ],
+    [
+      "2025-12-02 11:00",
+      103.91946157727651
+    ],
+    [
+      "2025-12-02 15:00",
+      103.91946157727651
+    ],
+    [
+      "2025-12-03 00:00",
+      106.97652814323816
+    ],
+    [
+      "2025-12-03 04:00",
+      106.97652814323816
+    ],
+    [
+      "2025-12-03 00:00",
+      106.97652814323816
+    ],
+    [
+      "2025-12-03 08:00",
+      106.97652814323816
+    ],
+    [
+      "2025-12-03 07:00",
+      106.97652814323816
+    ],
+    [
+      "2025-12-03 11:00",
+      106.97652814323816
+    ],
+    [
+      "2025-12-03 15:00",
+      106.97652814323816
+    ],
+    [
+      "2025-12-04 00:00",
+      106.07257937285978
+    ],
+    [
+      "2025-12-04 04:00",
+      106.07257937285978
+    ],
+    [
+      "2025-12-04 00:00",
+      106.07257937285978
+    ],
+    [
+      "2025-12-04 08:00",
+      106.07257937285978
+    ],
+    [
+      "2025-12-04 07:00",
+      106.07257937285978
+    ],
+    [
+      "2025-12-04 11:00",
+      106.07257937285978
+    ],
+    [
+      "2025-12-04 15:00",
+      106.07257937285978
+    ],
+    [
+      "2025-12-05 00:00",
+      104.33773610105027
+    ],
+    [
+      "2025-12-05 04:00",
+      104.33773610105027
+    ],
+    [
+      "2025-12-05 00:00",
+      104.33773610105027
+    ],
+    [
+      "2025-12-05 08:00",
+      104.33773610105027
+    ],
+    [
+      "2025-12-05 07:00",
+      104.33773610105027
+    ],
+    [
+      "2025-12-05 11:00",
+      104.33773610105027
+    ],
+    [
+      "2025-12-05 15:00",
+      104.33773610105027
+    ],
+    [
+      "2025-12-06 00:00",
+      104.58679052693327
+    ],
+    [
+      "2025-12-06 04:00",
+      104.58679052693327
+    ],
+    [
+      "2025-12-06 08:00",
+      104.58679052693327
+    ],
+    [
+      "2025-12-06 12:00",
+      104.58679052693327
+    ],
+    [
+      "2025-12-06 16:00",
+      104.58679052693327
+    ],
+    [
+      "2025-12-06 20:00",
+      104.58189146209753
+    ],
+    [
+      "2025-12-07 00:00",
+      104.81626411145865
+    ],
+    [
+      "2025-12-07 04:00",
+      104.54184324522619
+    ],
+    [
+      "2025-12-07 08:00",
+      104.54848068790687
+    ],
+    [
+      "2025-12-07 12:00",
+      104.27742094247452
+    ],
+    [
+      "2025-12-07 16:00",
+      106.11157531223297
+    ],
+    [
+      "2025-12-07 20:00",
+      104.87022320558579
+    ],
+    [
+      "2025-12-08 00:00",
+      105.7009018552224
+    ],
+    [
+      "2025-12-08 04:00",
+      106.05216596029479
+    ],
+    [
+      "2025-12-08 00:00",
+      106.05216596029479
+    ],
+    [
+      "2025-12-08 08:00",
+      106.20550553330489
+    ],
+    [
+      "2025-12-08 07:00",
+      105.62119858010546
+    ],
+    [
+      "2025-12-08 11:00",
+      105.81333365867954
+    ],
+    [
+      "2025-12-08 15:00",
+      105.91242119584143
+    ],
+    [
+      "2025-12-09 00:00",
+      105.96185511127692
+    ],
+    [
+      "2025-12-09 04:00",
+      105.88804150655257
+    ],
+    [
+      "2025-12-09 00:00",
+      105.88804150655257
+    ],
+    [
+      "2025-12-09 08:00",
+      105.8331342063281
+    ],
+    [
+      "2025-12-09 07:00",
+      107.91551043076225
+    ],
+    [
+      "2025-12-09 11:00",
+      109.629932581014
+    ],
+    [
+      "2025-12-09 15:00",
+      109.04190218435956
+    ],
+    [
+      "2025-12-10 00:00",
+      108.84533443500564
+    ],
+    [
+      "2025-12-10 04:00",
+      109.07808434141165
+    ],
+    [
+      "2025-12-10 00:00",
+      109.07808434141165
+    ],
+    [
+      "2025-12-10 08:00",
+      108.97155762633246
+    ],
+    [
+      "2025-12-10 07:00",
+      109.08020816888963
+    ],
+    [
+      "2025-12-10 11:00",
+      110.14134715411208
+    ],
+    [
+      "2025-12-10 15:00",
+      109.13245972114258
+    ],
+    [
+      "2025-12-11 00:00",
+      106.97534095836848
+    ],
+    [
+      "2025-12-11 04:00",
+      107.13292818633455
+    ],
+    [
+      "2025-12-11 00:00",
+      107.13292818633455
+    ],
+    [
+      "2025-12-11 08:00",
+      107.05708711654046
+    ],
+    [
+      "2025-12-11 07:00",
+      106.79621865940524
+    ],
+    [
+      "2025-12-11 11:00",
+      107.02511021498471
+    ],
+    [
+      "2025-12-11 15:00",
+      107.69109009092588
+    ],
+    [
+      "2025-12-12 00:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-12 04:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-12 00:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-12 08:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-12 07:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-12 11:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-12 15:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-13 00:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-13 04:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-13 08:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-13 12:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-13 16:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-13 20:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-14 00:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-14 04:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-14 08:00",
+      107.85199218573601
+    ],
+    [
+      "2025-12-14 12:00",
+      107.85137854642124
+    ],
+    [
+      "2025-12-14 16:00",
+      107.872260972837
+    ],
+    [
+      "2025-12-14 20:00",
+      107.71873403071694
+    ],
+    [
+      "2025-12-15 00:00",
+      107.97271633139403
+    ],
+    [
+      "2025-12-15 04:00",
+      108.05777012447462
+    ],
+    [
+      "2025-12-15 00:00",
+      108.05777012447462
+    ],
+    [
+      "2025-12-15 08:00",
+      108.18921128812839
+    ],
+    [
+      "2025-12-15 07:00",
+      107.45466432147457
+    ],
+    [
+      "2025-12-15 11:00",
+      107.01244634168235
+    ],
+    [
+      "2025-12-15 15:00",
+      107.1374380903951
+    ],
+    [
+      "2025-12-16 00:00",
+      106.95344649904337
+    ],
+    [
+      "2025-12-16 04:00",
+      106.95344649904337
+    ],
+    [
+      "2025-12-16 00:00",
+      106.95344649904337
+    ],
+    [
+      "2025-12-16 08:00",
+      106.95344649904337
+    ],
+    [
+      "2025-12-16 07:00",
+      106.90922354455877
+    ],
+    [
+      "2025-12-16 11:00",
+      106.92786073290873
+    ],
+    [
+      "2025-12-16 15:00",
+      106.93773600097177
+    ],
+    [
+      "2025-12-17 00:00",
+      106.93773600097177
+    ],
+    [
+      "2025-12-17 04:00",
+      106.93773600097177
+    ],
+    [
+      "2025-12-17 00:00",
+      106.93773600097177
+    ],
+    [
+      "2025-12-17 08:00",
+      106.93773600097177
+    ],
+    [
+      "2025-12-17 07:00",
+      106.87848473505666
+    ],
+    [
+      "2025-12-17 11:00",
+      106.80935820107848
+    ],
+    [
+      "2025-12-17 15:00",
+      106.8089092318584
+    ],
+    [
+      "2025-12-18 00:00",
+      106.8089092318584
+    ],
+    [
+      "2025-12-18 04:00",
+      106.8089092318584
+    ],
+    [
+      "2025-12-18 00:00",
+      106.8089092318584
+    ],
+    [
+      "2025-12-18 08:00",
+      106.8089092318584
+    ],
+    [
+      "2025-12-18 07:00",
+      106.91596561705
+    ],
+    [
+      "2025-12-18 11:00",
+      106.90721260080561
+    ],
+    [
+      "2025-12-18 15:00",
+      106.873676598026
+    ],
+    [
+      "2025-12-19 00:00",
+      106.873676598026
+    ],
+    [
+      "2025-12-19 04:00",
+      106.873676598026
+    ],
+    [
+      "2025-12-19 00:00",
+      106.873676598026
+    ],
+    [
+      "2025-12-19 08:00",
+      106.873676598026
+    ],
+    [
+      "2025-12-19 07:00",
+      107.07553502447304
+    ],
+    [
+      "2025-12-19 11:00",
+      107.1202098179567
+    ],
+    [
+      "2025-12-19 15:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-20 00:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-20 04:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-20 08:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-20 12:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-20 16:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-20 20:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-21 00:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-21 04:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-21 08:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-21 12:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-21 16:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-21 20:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-22 00:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-22 04:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-22 00:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-22 08:00",
+      107.07035909646088
+    ],
+    [
+      "2025-12-22 07:00",
+      107.2335062836229
+    ],
+    [
+      "2025-12-22 11:00",
+      107.20716748308115
+    ],
+    [
+      "2025-12-22 15:00",
+      107.20903455130197
+    ],
+    [
+      "2025-12-23 00:00",
+      107.20903455130197
+    ],
+    [
+      "2025-12-23 04:00",
+      107.20903455130197
+    ],
+    [
+      "2025-12-23 00:00",
+      107.20903455130197
+    ],
+    [
+      "2025-12-23 08:00",
+      107.20903455130197
+    ],
+    [
+      "2025-12-23 07:00",
+      107.16462183887596
+    ],
+    [
+      "2025-12-23 11:00",
+      107.15184210265784
+    ],
+    [
+      "2025-12-23 15:00",
+      107.14649468097207
+    ],
+    [
+      "2025-12-24 00:00",
+      107.14649468097207
+    ],
+    [
+      "2025-12-24 04:00",
+      107.14649468097207
+    ],
+    [
+      "2025-12-24 00:00",
+      107.14649468097207
+    ],
+    [
+      "2025-12-24 08:00",
+      107.14649468097207
+    ],
+    [
+      "2025-12-24 07:00",
+      107.1202098179567
+    ],
+    [
+      "2025-12-24 11:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-24 20:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-25 00:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-25 04:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-25 08:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-25 12:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-25 16:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-25 20:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-26 00:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-26 04:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-26 00:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-26 08:00",
+      107.13472108707295
+    ],
+    [
+      "2025-12-26 07:00",
+      107.11839737876902
+    ],
+    [
+      "2025-12-26 11:00",
+      107.10616116685517
+    ],
+    [
+      "2025-12-26 15:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-27 00:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-27 04:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-27 08:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-27 12:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-27 16:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-27 20:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-28 00:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-28 04:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-28 08:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-28 12:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-28 16:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-28 20:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-29 00:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-29 04:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-29 00:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-29 08:00",
+      107.10162903162582
+    ],
+    [
+      "2025-12-29 07:00",
+      106.98606718985171
+    ],
+    [
+      "2025-12-29 11:00",
+      107.02232150565949
+    ],
+    [
+      "2025-12-29 15:00",
+      107.01235136136033
+    ],
+    [
+      "2025-12-30 00:00",
+      107.01235136136033
+    ],
+    [
+      "2025-12-30 04:00",
+      107.01235136136033
+    ],
+    [
+      "2025-12-30 00:00",
+      107.01235136136033
+    ],
+    [
+      "2025-12-30 08:00",
+      107.01235136136033
+    ],
+    [
+      "2025-12-30 07:00",
+      107.10253559697306
+    ],
+    [
+      "2025-12-30 11:00",
+      107.0472468664074
+    ],
+    [
+      "2025-12-30 15:00",
+      107.03027820684703
+    ],
+    [
+      "2025-12-31 00:00",
+      107.03027820684703
+    ],
+    [
+      "2025-12-31 04:00",
+      107.03027820684703
+    ],
+    [
+      "2025-12-31 00:00",
+      107.03027820684703
+    ],
+    [
+      "2025-12-31 08:00",
+      107.03027820684703
+    ],
+    [
+      "2025-12-31 07:00",
+      106.97869385463002
+    ],
+    [
+      "2025-12-31 11:00",
+      106.89317114760748
+    ],
+    [
+      "2025-12-31 15:00",
+      106.88591923985389
+    ],
+    [
+      "2026-01-01 00:00",
+      106.88591923985389
+    ],
+    [
+      "2026-01-01 04:00",
+      106.88591923985389
+    ],
+    [
+      "2026-01-01 08:00",
+      106.88591923985389
+    ],
+    [
+      "2026-01-01 12:00",
+      106.88591923985389
+    ],
+    [
+      "2026-01-01 16:00",
+      106.88591923985389
+    ],
+    [
+      "2026-01-01 20:00",
+      106.88591923985389
+    ],
+    [
+      "2026-01-02 00:00",
+      106.88591923985389
+    ],
+    [
+      "2026-01-02 04:00",
+      106.88591923985389
+    ],
+    [
+      "2026-01-02 00:00",
+      106.88591923985389
+    ],
+    [
+      "2026-01-02 08:00",
+      106.88591923985389
+    ],
+    [
+      "2026-01-02 07:00",
+      107.27396132559072
+    ],
+    [
+      "2026-01-02 11:00",
+      107.43171591257205
+    ],
+    [
+      "2026-01-02 15:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-03 00:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-03 04:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-03 08:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-03 12:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-03 16:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-03 20:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-04 00:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-04 04:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-04 08:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-04 12:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-04 16:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-04 20:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-05 00:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-05 04:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-05 00:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-05 08:00",
+      107.370971155313
+    ],
+    [
+      "2026-01-05 07:00",
+      107.8995428178366
+    ],
+    [
+      "2026-01-05 11:00",
+      107.81159856451822
+    ],
+    [
+      "2026-01-05 15:00",
+      107.77805330331853
+    ],
+    [
+      "2026-01-06 00:00",
+      107.77805330331853
+    ],
+    [
+      "2026-01-06 04:00",
+      107.77805330331853
+    ],
+    [
+      "2026-01-06 00:00",
+      107.77805330331853
+    ],
+    [
+      "2026-01-06 08:00",
+      107.77805330331853
+    ],
+    [
+      "2026-01-06 07:00",
+      108.08993790682821
+    ],
+    [
+      "2026-01-06 11:00",
+      108.21168058790848
+    ],
+    [
+      "2026-01-06 15:00",
+      108.22955995757793
+    ],
+    [
+      "2026-01-07 00:00",
+      108.22955995757793
+    ],
+    [
+      "2026-01-07 04:00",
+      108.22955995757793
+    ],
+    [
+      "2026-01-07 00:00",
+      108.22955995757793
+    ],
+    [
+      "2026-01-07 08:00",
+      108.22955995757793
+    ],
+    [
+      "2026-01-07 07:00",
+      108.17516096545921
+    ],
+    [
+      "2026-01-07 11:00",
+      108.07271151320982
+    ],
+    [
+      "2026-01-07 15:00",
+      108.08322830121874
+    ],
+    [
+      "2026-01-08 00:00",
+      108.08322830121874
+    ],
+    [
+      "2026-01-08 04:00",
+      108.08322830121874
+    ],
+    [
+      "2026-01-08 00:00",
+      108.08322830121874
+    ],
+    [
+      "2026-01-08 08:00",
+      108.08322830121874
+    ],
+    [
+      "2026-01-08 07:00",
+      107.75085380725916
+    ],
+    [
+      "2026-01-08 11:00",
+      107.77261368079142
+    ],
+    [
+      "2026-01-08 15:00",
+      107.79981179342693
+    ],
+    [
+      "2026-01-09 00:00",
+      107.79981179342693
+    ],
+    [
+      "2026-01-09 04:00",
+      107.79981179342693
+    ],
+    [
+      "2026-01-09 00:00",
+      107.79981179342693
+    ],
+    [
+      "2026-01-09 08:00",
+      107.79981179342693
+    ],
+    [
+      "2026-01-09 07:00",
+      108.09447000331824
+    ],
+    [
+      "2026-01-09 11:00",
+      108.15521614400112
+    ],
+    [
+      "2026-01-09 15:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-10 00:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-10 04:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-10 08:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-10 12:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-10 16:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-10 20:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-11 00:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-11 04:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-11 08:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-11 12:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-11 16:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-11 20:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-12 00:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-12 04:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-12 00:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-12 08:00",
+      108.12620297929148
+    ],
+    [
+      "2026-01-12 07:00",
+      108.25494578498696
+    ],
+    [
+      "2026-01-12 11:00",
+      108.3437961809186
+    ],
+    [
+      "2026-01-12 15:00",
+      108.35286314074632
+    ],
+    [
+      "2026-01-13 00:00",
+      108.35286314074632
+    ],
+    [
+      "2026-01-13 04:00",
+      108.35286314074632
+    ],
+    [
+      "2026-01-13 00:00",
+      108.35286314074632
+    ],
+    [
+      "2026-01-13 08:00",
+      108.35286314074632
+    ],
+    [
+      "2026-01-13 07:00",
+      108.3029976285415
+    ],
+    [
+      "2026-01-13 11:00",
+      108.25131983111017
+    ],
+    [
+      "2026-01-13 15:00",
+      108.27126603599211
+    ],
+    [
+      "2026-01-14 00:00",
+      108.27126603599211
+    ],
+    [
+      "2026-01-14 04:00",
+      108.27126603599211
+    ],
+    [
+      "2026-01-14 00:00",
+      108.27126603599211
+    ],
+    [
+      "2026-01-14 08:00",
+      108.27126603599211
+    ],
+    [
+      "2026-01-14 07:00",
+      108.23122836672535
+    ],
+    [
+      "2026-01-14 11:00",
+      108.17425482284598
+    ],
+    [
+      "2026-01-14 15:00",
+      108.27489198986889
+    ],
+    [
+      "2026-01-15 00:00",
+      108.27489198986889
+    ],
+    [
+      "2026-01-15 04:00",
+      108.27489198986889
+    ],
+    [
+      "2026-01-15 00:00",
+      108.27489198986889
+    ],
+    [
+      "2026-01-15 08:00",
+      108.27489198986889
+    ],
+    [
+      "2026-01-15 07:00",
+      108.65749445307863
+    ],
+    [
+      "2026-01-15 11:00",
+      108.49792619744696
+    ],
+    [
+      "2026-01-15 15:00",
+      108.41814137791924
+    ],
+    [
+      "2026-01-16 00:00",
+      108.41814137791924
+    ],
+    [
+      "2026-01-16 04:00",
+      108.41814137791924
+    ],
+    [
+      "2026-01-16 00:00",
+      108.41814137791924
+    ],
+    [
+      "2026-01-16 08:00",
+      108.41814137791924
+    ],
+    [
+      "2026-01-16 07:00",
+      108.54325822973794
+    ],
+    [
+      "2026-01-16 11:00",
+      108.51789038683879
+    ],
+    [
+      "2026-01-16 15:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-17 00:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-17 04:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-17 08:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-17 12:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-17 16:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-17 20:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-18 00:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-18 04:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-18 08:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-18 12:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-18 16:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-18 20:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-19 00:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-19 04:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-19 08:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-19 12:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-19 16:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-19 20:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-20 00:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-20 04:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-20 00:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-20 08:00",
+      108.48885923761925
+    ],
+    [
+      "2026-01-20 07:00",
+      108.3500700080194
+    ],
+    [
+      "2026-01-20 11:00",
+      108.05185778229082
+    ],
+    [
+      "2026-01-20 15:00",
+      108.05004549706436
+    ],
+    [
+      "2026-01-21 00:00",
+      108.05004549706436
+    ],
+    [
+      "2026-01-21 04:00",
+      108.05004549706436
+    ],
+    [
+      "2026-01-21 00:00",
+      108.05004549706436
+    ],
+    [
+      "2026-01-21 08:00",
+      108.05004549706436
+    ],
+    [
+      "2026-01-21 07:00",
+      108.39638150438698
+    ],
+    [
+      "2026-01-21 11:00",
+      108.3873159279831
+    ],
+    [
+      "2026-01-21 15:00",
+      108.38006263680568
+    ],
+    [
+      "2026-01-22 00:00",
+      108.38006263680568
+    ],
+    [
+      "2026-01-22 04:00",
+      108.38006263680568
+    ],
+    [
+      "2026-01-22 00:00",
+      108.38006263680568
+    ],
+    [
+      "2026-01-22 08:00",
+      108.38006263680568
+    ],
+    [
+      "2026-01-22 07:00",
+      108.63754824819668
+    ],
+    [
+      "2026-01-22 11:00",
+      108.639361916847
+    ],
+    [
+      "2026-01-22 15:00",
+      108.64298787072379
+    ],
+    [
+      "2026-01-23 00:00",
+      108.64298787072379
+    ],
+    [
+      "2026-01-23 04:00",
+      108.64298787072379
+    ],
+    [
+      "2026-01-23 00:00",
+      108.64298787072379
+    ],
+    [
+      "2026-01-23 08:00",
+      108.64298787072379
+    ],
+    [
+      "2026-01-23 07:00",
+      108.55776342866892
+    ],
+    [
+      "2026-01-23 11:00",
+      108.46165974155988
+    ],
+    [
+      "2026-01-23 15:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-24 00:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-24 04:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-24 08:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-24 12:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-24 16:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-24 20:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-25 00:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-25 04:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-25 08:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-25 12:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-25 16:00",
+      108.52149835620571
+    ],
+    [
+      "2026-01-26 00:00",
+      108.52149835620571
+    ]
+  ]
+}
