@@ -928,13 +928,16 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
                 pass
     
     # Apply improved scoring with explosive bottom detection
+    # Note: original_daily_df defaults to None if not provided
+    original_daily_for_seasonality = original_daily_df if 'original_daily_df' in locals() and original_daily_df is not None else None
     try:
         from scoring.scoring_integration import apply_improved_scoring
-        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_df)
+        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality)
     except ImportError:
         try:
             from scoring_integration import apply_improved_scoring
-            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_df)
+            original_daily_for_seasonality = original_daily_df if 'original_daily_df' in locals() and original_daily_df is not None else None
+            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality)
         except ImportError:
             pass  # Fall back to original scoring if improved scoring not available
 
@@ -945,7 +948,7 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
 # NOTE: Using yFinance data with ta library calculations
 # ======================================================
 
-def compute_indicators_with_score(df, category: str = None, is_gold_denominated: bool = False, timeframe: str = "1W", market_context: dict = None, original_daily_df: pd.DataFrame = None):
+def compute_indicators_with_score(df, category: str = None, is_gold_denominated: bool = False, timeframe: str = "1W", market_context: dict = None, original_daily_df=None):
     """
     Compute indicators using ta library with scoring.
     
@@ -1458,13 +1461,16 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
                 pass
     
     # Apply improved scoring with explosive bottom detection
+    # Note: original_daily_df defaults to None if not provided
+    original_daily_for_seasonality = original_daily_df if 'original_daily_df' in locals() and original_daily_df is not None else None
     try:
         from scoring.scoring_integration import apply_improved_scoring
-        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_df)
+        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality)
     except ImportError:
         try:
             from scoring_integration import apply_improved_scoring
-            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_df)
+            original_daily_for_seasonality = original_daily_df if 'original_daily_df' in locals() and original_daily_df is not None else None
+            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality)
         except ImportError:
             pass  # Fall back to original scoring if improved scoring not available
 

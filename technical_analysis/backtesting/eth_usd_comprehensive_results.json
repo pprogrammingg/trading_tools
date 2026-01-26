@@ -506,19 +506,27 @@
         "trailing_stop": false,
         "partial_profit": false
       },
-      "total_invested": 15.0,
-      "final_value": 14.357139905773643,
-      "total_return_pct": -4.285733961509052,
+      "total_invested": 20.0,
+      "final_value": 19.14503095201649,
+      "total_return_pct": -4.274845239917546,
       "max_drawdown_pct": 0,
-      "total_trades": 6,
-      "buy_trades": 3,
-      "sell_trades": 3,
+      "total_trades": 8,
+      "buy_trades": 4,
+      "sell_trades": 4,
       "winning_trades": 0,
-      "losing_trades": 3,
+      "losing_trades": 4,
       "win_rate": 0.0,
       "avg_win_pct": 0,
-      "avg_loss_pct": -4.285733961509052,
+      "avg_loss_pct": -4.274845239917549,
       "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 3140.71044921875,
+          "shares": 0.0015919964864140046,
+          "score": 5.7,
+          "date": "2026-01-04 00:00:00+00:00"
+        },
         {
           "type": "BUY",
           "timeframe": "1W",
@@ -538,17 +546,26 @@
         {
           "type": "BUY",
           "timeframe": "1W",
-          "price": 2836.549072265625,
-          "shares": 0.0017627052706006496,
+          "price": 2892.1875,
+          "shares": 0.001728795245813074,
           "score": 6.4,
           "date": "2026-02-01 00:00:00+00:00"
         },
         {
           "type": "SELL",
           "timeframe": "1W",
+          "entry_price": 3140.71044921875,
+          "exit_price": 2892.1875,
+          "return_pct": -7.9129532389899175,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
           "entry_price": 3118.88525390625,
-          "exit_price": 2836.549072265625,
-          "return_pct": -9.052470952145896,
+          "exit_price": 2892.1875,
+          "return_pct": -7.268550634311477,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         },
@@ -556,21 +573,67 @@
           "type": "SELL",
           "timeframe": "1W",
           "entry_price": 2948.74072265625,
-          "exit_price": 2836.549072265625,
-          "return_pct": -3.8047309323812617,
+          "exit_price": 2892.1875,
+          "return_pct": -1.9178770863688022,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         },
         {
           "type": "SELL",
           "timeframe": "1W",
-          "entry_price": 2836.549072265625,
-          "exit_price": 2836.549072265625,
+          "entry_price": 2892.1875,
+          "exit_price": 2892.1875,
           "return_pct": 0.0,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         }
       ]
+    },
+    "2W_basic": {
+      "timeframe": "2W",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": false
+      },
+      "total_invested": 0.0,
+      "final_value": 0.0,
+      "total_return_pct": 0,
+      "max_drawdown_pct": 0,
+      "total_trades": 0,
+      "buy_trades": 0,
+      "sell_trades": 0,
+      "winning_trades": 0,
+      "losing_trades": 0,
+      "win_rate": 0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": 0,
+      "trades": []
+    },
+    "1M_basic": {
+      "timeframe": "1M",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": false
+      },
+      "total_invested": 0.0,
+      "final_value": 0.0,
+      "total_return_pct": 0,
+      "max_drawdown_pct": 0,
+      "total_trades": 0,
+      "buy_trades": 0,
+      "sell_trades": 0,
+      "winning_trades": 0,
+      "losing_trades": 0,
+      "win_rate": 0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": 0,
+      "trades": []
     },
     "4H_trailing": {
       "timeframe": "4H",
@@ -1078,19 +1141,27 @@
         "trailing_stop": true,
         "partial_profit": false
       },
-      "total_invested": 15.0,
-      "final_value": 14.357139905773643,
-      "total_return_pct": -4.285733961509052,
+      "total_invested": 20.0,
+      "final_value": 19.14503095201649,
+      "total_return_pct": -4.274845239917546,
       "max_drawdown_pct": 0,
-      "total_trades": 6,
-      "buy_trades": 3,
-      "sell_trades": 3,
+      "total_trades": 8,
+      "buy_trades": 4,
+      "sell_trades": 4,
       "winning_trades": 0,
-      "losing_trades": 3,
+      "losing_trades": 4,
       "win_rate": 0.0,
       "avg_win_pct": 0,
-      "avg_loss_pct": -4.285733961509052,
+      "avg_loss_pct": -4.274845239917549,
       "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 3140.71044921875,
+          "shares": 0.0015919964864140046,
+          "score": 5.7,
+          "date": "2026-01-04 00:00:00+00:00"
+        },
         {
           "type": "BUY",
           "timeframe": "1W",
@@ -1110,17 +1181,26 @@
         {
           "type": "BUY",
           "timeframe": "1W",
-          "price": 2836.549072265625,
-          "shares": 0.0017627052706006496,
+          "price": 2892.1875,
+          "shares": 0.001728795245813074,
           "score": 6.4,
           "date": "2026-02-01 00:00:00+00:00"
         },
         {
           "type": "SELL",
           "timeframe": "1W",
+          "entry_price": 3140.71044921875,
+          "exit_price": 2892.1875,
+          "return_pct": -7.9129532389899175,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
           "entry_price": 3118.88525390625,
-          "exit_price": 2836.549072265625,
-          "return_pct": -9.052470952145896,
+          "exit_price": 2892.1875,
+          "return_pct": -7.268550634311477,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         },
@@ -1128,21 +1208,67 @@
           "type": "SELL",
           "timeframe": "1W",
           "entry_price": 2948.74072265625,
-          "exit_price": 2836.549072265625,
-          "return_pct": -3.8047309323812617,
+          "exit_price": 2892.1875,
+          "return_pct": -1.9178770863688022,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         },
         {
           "type": "SELL",
           "timeframe": "1W",
-          "entry_price": 2836.549072265625,
-          "exit_price": 2836.549072265625,
+          "entry_price": 2892.1875,
+          "exit_price": 2892.1875,
           "return_pct": 0.0,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         }
       ]
+    },
+    "2W_trailing": {
+      "timeframe": "2W",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": false
+      },
+      "total_invested": 0.0,
+      "final_value": 0.0,
+      "total_return_pct": 0,
+      "max_drawdown_pct": 0,
+      "total_trades": 0,
+      "buy_trades": 0,
+      "sell_trades": 0,
+      "winning_trades": 0,
+      "losing_trades": 0,
+      "win_rate": 0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": 0,
+      "trades": []
+    },
+    "1M_trailing": {
+      "timeframe": "1M",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": false
+      },
+      "total_invested": 0.0,
+      "final_value": 0.0,
+      "total_return_pct": 0,
+      "max_drawdown_pct": 0,
+      "total_trades": 0,
+      "buy_trades": 0,
+      "sell_trades": 0,
+      "winning_trades": 0,
+      "losing_trades": 0,
+      "win_rate": 0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": 0,
+      "trades": []
     },
     "4H_partial": {
       "timeframe": "4H",
@@ -1740,19 +1866,27 @@
         "trailing_stop": false,
         "partial_profit": true
       },
-      "total_invested": 15.0,
-      "final_value": 14.357139905773643,
-      "total_return_pct": -4.285733961509052,
+      "total_invested": 20.0,
+      "final_value": 19.14503095201649,
+      "total_return_pct": -4.274845239917546,
       "max_drawdown_pct": 0,
-      "total_trades": 6,
-      "buy_trades": 3,
-      "sell_trades": 3,
+      "total_trades": 8,
+      "buy_trades": 4,
+      "sell_trades": 4,
       "winning_trades": 0,
-      "losing_trades": 3,
+      "losing_trades": 4,
       "win_rate": 0.0,
       "avg_win_pct": 0,
-      "avg_loss_pct": -4.285733961509052,
+      "avg_loss_pct": -4.274845239917549,
       "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 3140.71044921875,
+          "shares": 0.0015919964864140046,
+          "score": 5.7,
+          "date": "2026-01-04 00:00:00+00:00"
+        },
         {
           "type": "BUY",
           "timeframe": "1W",
@@ -1772,17 +1906,26 @@
         {
           "type": "BUY",
           "timeframe": "1W",
-          "price": 2836.549072265625,
-          "shares": 0.0017627052706006496,
+          "price": 2892.1875,
+          "shares": 0.001728795245813074,
           "score": 6.4,
           "date": "2026-02-01 00:00:00+00:00"
         },
         {
           "type": "SELL",
           "timeframe": "1W",
+          "entry_price": 3140.71044921875,
+          "exit_price": 2892.1875,
+          "return_pct": -7.9129532389899175,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
           "entry_price": 3118.88525390625,
-          "exit_price": 2836.549072265625,
-          "return_pct": -9.052470952145896,
+          "exit_price": 2892.1875,
+          "return_pct": -7.268550634311477,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         },
@@ -1790,21 +1933,67 @@
           "type": "SELL",
           "timeframe": "1W",
           "entry_price": 2948.74072265625,
-          "exit_price": 2836.549072265625,
-          "return_pct": -3.8047309323812617,
+          "exit_price": 2892.1875,
+          "return_pct": -1.9178770863688022,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         },
         {
           "type": "SELL",
           "timeframe": "1W",
-          "entry_price": 2836.549072265625,
-          "exit_price": 2836.549072265625,
+          "entry_price": 2892.1875,
+          "exit_price": 2892.1875,
           "return_pct": 0.0,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         }
       ]
+    },
+    "2W_partial": {
+      "timeframe": "2W",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": true
+      },
+      "total_invested": 0.0,
+      "final_value": 0.0,
+      "total_return_pct": 0,
+      "max_drawdown_pct": 0,
+      "total_trades": 0,
+      "buy_trades": 0,
+      "sell_trades": 0,
+      "winning_trades": 0,
+      "losing_trades": 0,
+      "win_rate": 0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": 0,
+      "trades": []
+    },
+    "1M_partial": {
+      "timeframe": "1M",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": false,
+        "partial_profit": true
+      },
+      "total_invested": 0.0,
+      "final_value": 0.0,
+      "total_return_pct": 0,
+      "max_drawdown_pct": 0,
+      "total_trades": 0,
+      "buy_trades": 0,
+      "sell_trades": 0,
+      "winning_trades": 0,
+      "losing_trades": 0,
+      "win_rate": 0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": 0,
+      "trades": []
     },
     "4H_combined": {
       "timeframe": "4H",
@@ -1819,14 +2008,14 @@
       "final_value": 29.104017001428936,
       "total_return_pct": -2.9866099952368774,
       "max_drawdown_pct": -6.012441660399143,
-      "total_trades": 16,
-      "buy_trades": 8,
-      "sell_trades": 8,
+      "total_trades": 14,
+      "buy_trades": 7,
+      "sell_trades": 7,
       "winning_trades": 2,
-      "losing_trades": 6,
-      "win_rate": 25.0,
+      "losing_trades": 5,
+      "win_rate": 28.57142857142857,
       "avg_win_pct": 2.336058055105905,
-      "avg_loss_pct": -3.7652960136055036,
+      "avg_loss_pct": -4.518355216326604,
       "trades": [
         {
           "type": "BUY",
@@ -1946,23 +2135,6 @@
           "return_pct": -6.375573004978818,
           "reason": "sell_signal",
           "date": "2026-01-25 12:00:00+00:00"
-        },
-        {
-          "type": "BUY",
-          "timeframe": "4H",
-          "price": 2837.65185546875,
-          "shares": 0.0017620202387984812,
-          "score": 5.7,
-          "date": "2026-01-26 00:00:00+00:00"
-        },
-        {
-          "type": "SELL",
-          "timeframe": "4H",
-          "entry_price": 2837.65185546875,
-          "exit_price": 2837.65185546875,
-          "return_pct": 0.0,
-          "reason": "end_of_simulation",
-          "date": "2026-01-26 00:00:00+00:00"
         }
       ]
     },
@@ -2419,19 +2591,27 @@
         "trailing_stop": true,
         "partial_profit": true
       },
-      "total_invested": 15.0,
-      "final_value": 14.360777740499744,
-      "total_return_pct": -4.261481730001703,
+      "total_invested": 20.0,
+      "final_value": 19.14503095201649,
+      "total_return_pct": -4.274845239917546,
       "max_drawdown_pct": 0,
-      "total_trades": 6,
-      "buy_trades": 3,
-      "sell_trades": 3,
+      "total_trades": 8,
+      "buy_trades": 4,
+      "sell_trades": 4,
       "winning_trades": 0,
-      "losing_trades": 3,
+      "losing_trades": 4,
       "win_rate": 0.0,
       "avg_win_pct": 0,
-      "avg_loss_pct": -4.261481730001711,
+      "avg_loss_pct": -4.274845239917549,
       "trades": [
+        {
+          "type": "BUY",
+          "timeframe": "1W",
+          "price": 3140.71044921875,
+          "shares": 0.0015919964864140046,
+          "score": 5.7,
+          "date": "2026-01-04 00:00:00+00:00"
+        },
         {
           "type": "BUY",
           "timeframe": "1W",
@@ -2451,17 +2631,26 @@
         {
           "type": "BUY",
           "timeframe": "1W",
-          "price": 2837.65185546875,
-          "shares": 0.0017620202387984812,
+          "price": 2892.1875,
+          "shares": 0.001728795245813074,
           "score": 6.4,
           "date": "2026-02-01 00:00:00+00:00"
         },
         {
           "type": "SELL",
           "timeframe": "1W",
+          "entry_price": 3140.71044921875,
+          "exit_price": 2892.1875,
+          "return_pct": -7.9129532389899175,
+          "reason": "end_of_simulation",
+          "date": "2026-02-01 00:00:00+00:00"
+        },
+        {
+          "type": "SELL",
+          "timeframe": "1W",
           "entry_price": 3118.88525390625,
-          "exit_price": 2837.65185546875,
-          "return_pct": -9.017112703497798,
+          "exit_price": 2892.1875,
+          "return_pct": -7.268550634311477,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         },
@@ -2469,21 +2658,67 @@
           "type": "SELL",
           "timeframe": "1W",
           "entry_price": 2948.74072265625,
-          "exit_price": 2837.65185546875,
-          "return_pct": -3.7673324865073354,
+          "exit_price": 2892.1875,
+          "return_pct": -1.9178770863688022,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         },
         {
           "type": "SELL",
           "timeframe": "1W",
-          "entry_price": 2837.65185546875,
-          "exit_price": 2837.65185546875,
+          "entry_price": 2892.1875,
+          "exit_price": 2892.1875,
           "return_pct": 0.0,
           "reason": "end_of_simulation",
           "date": "2026-02-01 00:00:00+00:00"
         }
       ]
+    },
+    "2W_combined": {
+      "timeframe": "2W",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": true
+      },
+      "total_invested": 0.0,
+      "final_value": 0.0,
+      "total_return_pct": 0,
+      "max_drawdown_pct": 0,
+      "total_trades": 0,
+      "buy_trades": 0,
+      "sell_trades": 0,
+      "winning_trades": 0,
+      "losing_trades": 0,
+      "win_rate": 0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": 0,
+      "trades": []
+    },
+    "1M_combined": {
+      "timeframe": "1M",
+      "strategy": {
+        "buy_threshold": 5.5,
+        "sell_threshold": -2.0,
+        "stop_loss_pct": 0.2,
+        "trailing_stop": true,
+        "partial_profit": true
+      },
+      "total_invested": 0.0,
+      "final_value": 0.0,
+      "total_return_pct": 0,
+      "max_drawdown_pct": 0,
+      "total_trades": 0,
+      "buy_trades": 0,
+      "sell_trades": 0,
+      "winning_trades": 0,
+      "losing_trades": 0,
+      "win_rate": 0,
+      "avg_win_pct": 0,
+      "avg_loss_pct": 0,
+      "trades": []
     }
   },
   "best_overall": {
