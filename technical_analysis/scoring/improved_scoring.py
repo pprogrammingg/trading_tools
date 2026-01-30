@@ -107,7 +107,7 @@ def calculate_adx(high: pd.Series, low: pd.Series, close: pd.Series, window: int
         return None, None
 
 
-def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] = None, timeframe: str = "1W", market_context: Optional[Dict] = None, original_daily_df: Optional[pd.DataFrame] = None) -> Dict:
+def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] = None, timeframe: str = "1W", market_context: Optional[Dict] = None, original_daily_df: Optional[pd.DataFrame] = None, usd_score: Optional[float] = None, is_gold_denominated: bool = False) -> Dict:
     """
     Improved scoring system with explosive bottom detection
     Category-aware, timeframe-specific, and market-context aware
@@ -118,6 +118,8 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
         pi_value: Pre-calculated PI value (optional)
         timeframe: Timeframe string (2D, 1W, 2W, 1M) - affects scoring strictness
         market_context: Market context dict (SPX/Gold ratio, etc.)
+        usd_score: USD-denominated score for cross-validation (optional)
+        is_gold_denominated: Whether this is gold/silver-denominated analysis
     """
     if len(df) < 50:
         return {'score': 0, 'indicators': {}, 'breakdown': {}}
@@ -249,16 +251,29 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
     explosive_bottom = False
     
     # Condition 1: Oversold RSI (category-specific threshold)
+    # CRITICAL: Must be oversold (RSI < threshold), NOT overbought
     oversold_threshold = params.get("rsi_oversold_threshold", 40)
-    oversold = rsi_value < oversold_threshold
+    overbought_threshold = params.get("rsi_overbought_threshold", 70)
+    
+    # Validate RSI value is valid and actually oversold
+    if rsi_value is None or pd.isna(rsi_value):
+        oversold = False
+    else:
+        # CRITICAL FIX: Only consider oversold if RSI is STRICTLY below threshold
+        # Also ensure it's not overbought (defensive check)
+        oversold = (rsi_value < oversold_threshold) and (rsi_value < overbought_threshold)
+        
+        # Additional safety: if RSI is >= overbought threshold, definitely not oversold
+        if rsi_value >= overbought_threshold:
+            oversold = False
     
     # Condition 2: Strong ADX (category-specific threshold) - trend starting
     adx_threshold = params.get("adx_threshold", 25)  # Default 25, but 20 for crypto
-    strong_adx = adx_value and adx_value > adx_threshold
+    strong_adx = adx_value is not None and not pd.isna(adx_value) and adx_value > adx_threshold
     
     # Condition 3: Very negative momentum (category-specific threshold) - capitulation
     capitulation_threshold = params.get("capitulation_threshold", -20)
-    capitulation = momentum and momentum < capitulation_threshold
+    capitulation = momentum is not None and not pd.isna(momentum) and momentum < capitulation_threshold
     
     # Condition 4: Price near support (4-week low)
     near_support = False
@@ -282,49 +297,80 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
         if len(volume) > 0 and len(volume_ma) > 0 and not pd.isna(volume.iloc[-1]) and not pd.isna(volume_ma.iloc[-1]):
             volume_building = volume.iloc[-1] > volume_ma.iloc[-1] * 1.2
     
-    if oversold and strong_adx:
+    # EXPLOSIVE BOTTOM: Only trigger if RSI is oversold AND ADX is strong
+    # Add explicit check to prevent triggering when overbought
+    if oversold and strong_adx and rsi_value is not None and rsi_value < overbought_threshold:
+        # CROSS-VALIDATION: For gold/silver-denominated analysis, check USD score
+        # If USD score is low/negative, the "oversold" in gold terms might be
+        # just underperformance, not a buying opportunity
+        explosive_bottom_multiplier = 1.0
+        
+        if is_gold_denominated and usd_score is not None:
+            # If USD score is very low (< 2), reduce explosive bottom bonuses
+            # This prevents false positives when asset is underperforming both USD and gold
+            if usd_score < 2.0:
+                explosive_bottom_multiplier = 0.3  # Reduce by 70%
+                breakdown['explosive_bottom_usd_validation'] = -0.7  # Track the reduction
+            elif usd_score < 4.0:
+                explosive_bottom_multiplier = 0.6  # Reduce by 40%
+                breakdown['explosive_bottom_usd_validation'] = -0.4
+        
         # Base explosive bottom setup
         explosive_bottom = True
-        base_bonus = 4.0 * params.get("explosive_bottom_bonus", 1.0)
+        base_bonus = 4.0 * params.get("explosive_bottom_bonus", 1.0) * explosive_bottom_multiplier
         score += base_bonus
         breakdown['explosive_bottom_base'] = round(base_bonus, 1)
         
-        # Additional bonuses
+        # Additional bonuses (also reduced by multiplier)
         if capitulation:
-            capitulation_bonus = 2.0 * params.get("explosive_bottom_bonus", 1.0)
+            capitulation_bonus = 2.0 * params.get("explosive_bottom_bonus", 1.0) * explosive_bottom_multiplier
             score += capitulation_bonus
             breakdown['explosive_bottom_capitulation'] = round(capitulation_bonus, 1)
         
         if near_support:
-            score += 1.5
-            breakdown['explosive_bottom_support'] = 1.5
+            support_bonus = 1.5 * explosive_bottom_multiplier
+            score += support_bonus
+            breakdown['explosive_bottom_support'] = round(support_bonus, 1)
         
         if volatility_compressed:
-            score += 1.0
-            breakdown['explosive_bottom_volatility'] = 1.0
+            volatility_bonus = 1.0 * explosive_bottom_multiplier
+            score += volatility_bonus
+            breakdown['explosive_bottom_volatility'] = round(volatility_bonus, 1)
         
         if volume_building:
-            volume_bonus = 1.0 * params.get("volume_multiplier", 1.0)
+            volume_bonus = 1.0 * params.get("volume_multiplier", 1.0) * explosive_bottom_multiplier
             score += volume_bonus
             breakdown['explosive_bottom_volume'] = round(volume_bonus, 1)
         
         if adx_rising:
-            adx_bonus = 1.5 * params.get("adx_multiplier", 1.0)
+            adx_bonus = 1.5 * params.get("adx_multiplier", 1.0) * explosive_bottom_multiplier
             score += adx_bonus
             breakdown['explosive_bottom_adx_rising'] = round(adx_bonus, 1)
     
     # ===== EXTREME OVERSOLD EMA BONUS (for crypto) =====
     # When price is >20% below EMA50, it's extreme oversold (like Nov 2022 BTC)
+    # BUT: For gold-denominated, validate against USD score to avoid false positives
     if indicators['ema50'] and current_price < indicators['ema50']:
         price_below_ema_pct = ((current_price / indicators['ema50']) - 1) * 100
         
         if params.get("extreme_oversold_ema_bonus", False):
+            ema_bonus_multiplier = 1.0
+            
+            # Cross-validation: If gold-denominated and USD score is low, reduce bonus
+            if is_gold_denominated and usd_score is not None:
+                if usd_score < 2.0:
+                    ema_bonus_multiplier = 0.3  # Reduce by 70%
+                elif usd_score < 4.0:
+                    ema_bonus_multiplier = 0.6  # Reduce by 40%
+            
             if price_below_ema_pct < -30:  # Price >30% below EMA50
-                score += 3.0
-                breakdown['extreme_oversold_ema_30pct'] = 3.0
+                ema_bonus = 3.0 * ema_bonus_multiplier
+                score += ema_bonus
+                breakdown['extreme_oversold_ema_30pct'] = round(ema_bonus, 1)
             elif price_below_ema_pct < -20:  # Price >20% below EMA50
-                score += 2.0
-                breakdown['extreme_oversold_ema_20pct'] = 2.0
+                ema_bonus = 2.0 * ema_bonus_multiplier
+                score += ema_bonus
+                breakdown['extreme_oversold_ema_20pct'] = round(ema_bonus, 1)
     
     # ===== TREND CONTINUATION SIGNALS (for established trends) =====
     # When price is above EMAs and ADX is strong, it's a continuation setup
@@ -552,6 +598,42 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
     except ImportError:
         pass
     
+    # ===== SUPER GUPPY (CRYPTO ONLY) =====
+    # Grey = ribbons compressed → bad times / caution. Orange at bottom = double-bottom signal.
+    # Backtest shows orange_reversal works best on 4H/2D; less effective on 1D; rarely triggers on 1W+.
+    if is_crypto:
+        try:
+            from indicators.super_guppy import get_super_guppy_state
+            super_guppy = get_super_guppy_state(close, timeframe=timeframe)
+            indicators['super_guppy_state'] = super_guppy.get('state', 'unknown')
+            indicators['super_guppy_spread_pct'] = super_guppy.get('spread_pct')
+            state = super_guppy.get('state', '')
+            if state == 'grey':
+                super_guppy_adj = -1.0
+                score += super_guppy_adj
+                breakdown['super_guppy_grey'] = round(super_guppy_adj, 1)
+            elif state == 'orange_reversal':
+                # Timeframe-specific bonus: stronger on 4H/2D where backtest shows it works best
+                orange_bonus = {"4H": 1.5, "2D": 1.5, "1D": 0.5, "1W": 1.0, "2W": 1.0, "1M": 1.0}.get(timeframe, 1.5)
+                super_guppy_adj = orange_bonus
+                score += super_guppy_adj
+                breakdown['super_guppy_orange_reversal'] = round(super_guppy_adj, 1)
+        except ImportError:
+            try:
+                from technical_analysis.indicators.super_guppy import get_super_guppy_state
+                super_guppy = get_super_guppy_state(close, timeframe=timeframe)
+                indicators['super_guppy_state'] = super_guppy.get('state', 'unknown')
+                state = super_guppy.get('state', '')
+                if state == 'grey':
+                    score -= 1.0
+                    breakdown['super_guppy_grey'] = -1.0
+                elif state == 'orange_reversal':
+                    orange_bonus = {"4H": 1.5, "2D": 1.5, "1D": 0.5, "1W": 1.0, "2W": 1.0, "1M": 1.0}.get(timeframe, 1.5)
+                    score += orange_bonus
+                    breakdown['super_guppy_orange_reversal'] = orange_bonus
+            except ImportError:
+                pass
+
     # ===== SEASONALITY ADJUSTMENT (CRYPTO ONLY) =====
     seasonal_adjustment = 0.0
     seasonality_data = {}
@@ -639,12 +721,21 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
         indicators['vix_level'] = market_context.get('vix_level', 'unknown')
         indicators['vix_trend'] = market_context.get('vix_trend', 'unknown')
     
+    # ===== GOLD/SILVER vs USD CROSS-VALIDATION CAP =====
+    # High score vs gold with low score vs USD is not justifiable (asset weak, gold strong).
+    # Cap gold/silver score so it cannot exceed USD score by more than 2 points.
+    if is_gold_denominated and usd_score is not None:
+        max_vs_usd = usd_score + 2.0
+        if score > max_vs_usd:
+            breakdown['gold_score_capped_by_usd'] = round(score - max_vs_usd, 1)
+            score = max_vs_usd
+
     # ===== FINAL SCORE CAP =====
     # Cap very high scores (likely over-optimistic)
     if score > 20:
         score = 20
         breakdown['score_capped'] = True
-    
+
     return {
         'score': round(score, 1),
         'indicators': indicators,

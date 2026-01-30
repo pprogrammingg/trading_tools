@@ -24,15 +24,10 @@
     "NFLX",
     "GOOGL",
     "MSFT",
-    "NVDA",
-    "TSLA",
     "APLD",
     "ARM",
     "ABNB",
-    "AMD",
-    "AVGO",
     "CRWD",
-    "QCOM",
     "MU",
     "WDC"
   ],
@@ -46,7 +41,20 @@
   "cryptocurrencies": [
     "BTC-USD",
     "ETH-USD",
-    "SOL-USD"
+    "SOL-USD",
+    "ADA-USD",
+    "DOT-USD",
+    "AVAX-USD",
+    "MATIC-USD",
+    "LINK-USD",
+    "UNI-USD",
+    "ATOM-USD",
+    "XRP-USD",
+    "BNB-USD",
+    "QANX-USD",
+    "QRL-USD",
+    "CKB-USD",
+    "ABEL-USD"
   ],
   "precious_metals": [
     "GC=F",
@@ -57,7 +65,9 @@
   "index_etfs": [
     "SPY",
     "IWM",
-    "VTWO"
+    "VTWO",
+    "QQQ",
+    "DIA"
   ],
   "clean_energy_materials": [
     "ALB",
@@ -76,7 +86,6 @@
     "ENPH",
     "SEDG",
     "RUN",
-    "NEE",
     "PLUG"
   ],
   "battery_storage": [
@@ -94,5 +103,75 @@
     "F",
     "GM",
     "TM"
+  ],
+  "ai_semiconductors": [
+    "NVDA",
+    "AMD",
+    "AVGO",
+    "QCOM",
+    "INTC",
+    "TSM",
+    "ASML",
+    "MRVL",
+    "ON",
+    "MPWR"
+  ],
+  "energy_commodities": [
+    "CL=F",
+    "NG=F",
+    "HO=F",
+    "RB=F"
+  ],
+  "agricultural_commodities": [
+    "ZC=F",
+    "ZS=F",
+    "ZW=F",
+    "KC=F",
+    "CT=F",
+    "SB=F"
+  ],
+  "industrial_metals": [
+    "HG=F",
+    "ZN=F",
+    "ALI=F"
+  ],
+  "real_estate": [
+    "VNQ",
+    "SCHH",
+    "IYR",
+    "XLRE"
+  ],
+  "healthcare": [
+    "JNJ",
+    "UNH",
+    "PFE",
+    "ABBV",
+    "TMO",
+    "DHR"
+  ],
+  "financials": [
+    "JPM",
+    "BAC",
+    "WFC",
+    "GS",
+    "MS",
+    "C"
+  ],
+  "consumer_discretionary": [
+    "HD",
+    "NKE",
+    "SBUX",
+    "MCD"
+  ],
+  "utilities": [
+    "DUK",
+    "SO",
+    "D",
+    "AEP"
+  ],
+  "macro_trend": [
+    "^GSPC",
+    "EEM",
+    "DX-Y.NYB"
   ]
 }

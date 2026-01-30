@@ -30,7 +30,7 @@ MISSING_DATA_COLOR = "#CCCCCC"
 MISSING_DATA_LABEL = "N/A"
 
 CALC_METHODS = ['ta_library', 'tradingview_library']
-DENOMINATIONS = ['usd', 'gold']
+DENOMINATIONS = ['usd', 'gold', 'silver']
 
 HTML_TEMPLATE = """<!DOCTYPE html>
 <html>
@@ -452,8 +452,30 @@ def generate_legend() -> str:
             Potential percentages show how far price could move to reach recent highs/lows based on 52-week range (252 trading days).
         </p>
     </div>"""
-    
+    legend_html += _get_cme_legend_html()
     return legend_html
+
+
+def _get_cme_legend_html() -> str:
+    """CME Sunday 6pm ET box for all category pages (icon only, same context everywhere)."""
+    cme = _get_cme_context()
+    if not cme:
+        return ""
+    cme_items = []
+    for sym, info in cme.items():
+        icon = info.get("icon", "→")
+        move = info.get("move_pct", info.get("gap_pct"))
+        move_str = f" {move:+.2f}%" if move is not None else ""
+        label = sym.replace("=F", " (fut)").replace("-USD", "")
+        cme_items.append(f'<span class="cme-item" title="CME Sunday 6pm ET">{label}: <strong>{icon}</strong>{move_str}</span>')
+    return (
+        '    <div class="legend" style="margin-top: 15px; background: #f0f4f8; padding: 10px; border-left: 4px solid #2c3e50;">\n'
+        '        <h3 style="margin-top: 0;">CME Sunday 6pm ET Open (market hand)</h3>\n'
+        '        <p style="margin: 5px 0; color: #333;">Direction from CME open (first 24h or weekly gap). Icon only, not part of score.</p>\n'
+        '        <p style="margin: 8px 0;">' + " &nbsp;|&nbsp; ".join(cme_items) + '</p>\n'
+        '        <p style="margin: 5px 0; font-size: 0.85em; color: #666;">↑↑ strong up &nbsp; ↑ up &nbsp; → flat &nbsp; ↓ down &nbsp; ↓↓ strong down</p>\n'
+        '    </div>\n'
+    )
 
 
 def generate_headers(viz_data: VisualizationData) -> str:
@@ -462,7 +484,12 @@ def generate_headers(viz_data: VisualizationData) -> str:
     for timeframe in viz_data.timeframes:
         for source in viz_data.sources:
             for denomination in viz_data.denominations:
-                denom_label = "Gold" if denomination == "gold" else "USD"
+                if denomination == "gold":
+                    denom_label = "Gold"
+                elif denomination == "silver":
+                    denom_label = "Silver"
+                else:
+                    denom_label = "USD"
                 headers.append(
                     f'\n                <th>{timeframe} ({source})<br><small>{denom_label}</small></th>'
                 )
@@ -678,13 +705,109 @@ def create_visualization(output_path: Optional[str] = None, category: Optional[s
     print(f"\n✓ Created {len(created_files)} visualization(s):")
     for path in created_files:
         print(f"  - {path}")
-    
+
+    # Write index page with CME Sunday open section (icon only, not score)
+    if not output_path and result_files:
+        categories_for_index = [cat for cat, _ in result_files]
+        write_index_with_cme(categories_for_index, output_dir)
+
     # Legacy mode: if single file requested, return first file path
     if output_path:
         created_files[0].rename(output_path)
         return [Path(output_path)]
     
     return created_files
+
+
+def _get_cme_context() -> Dict[str, Any]:
+    """Load CME Sunday 6pm ET direction for display (icon only). Returns symbol -> {icon, move_pct, ...}."""
+    try:
+        from indicators.cme_sunday_open import get_cme_direction_all
+        return get_cme_direction_all(use_1h_first=True)
+    except Exception:
+        try:
+            from technical_analysis.indicators.cme_sunday_open import get_cme_direction_all
+            return get_cme_direction_all(use_1h_first=True)
+        except Exception:
+            return {}
+
+
+def write_index_with_cme(categories: List[str], output_dir: Path) -> None:
+    """Generate index.html with category grid and CME Sunday 6pm ET direction section."""
+    cme = _get_cme_context()
+    category_cards = []
+    for cat in categories:
+        name = cat.replace("_", " ").title()
+        fname = f"{cat}_scores.html"
+        category_cards.append(
+            f'        <div class="category-card">\n'
+            f'            <div class="category-name">{name}</div>\n'
+            f'            <a href="{fname}" target="_blank">View Analysis →</a>\n'
+            f'        </div>'
+        )
+    grid_html = "\n".join(category_cards)
+
+    cme_html = ""
+    if cme:
+        cme_items = []
+        for sym, info in cme.items():
+            icon = info.get("icon", "→")
+            move = info.get("move_pct", info.get("gap_pct"))
+            move_str = f"{move:+.2f}%" if move is not None else ""
+            label = sym.replace("=F", " (fut)").replace("-USD", "")
+            cme_items.append(
+                f'<span class="cme-item" title="CME Sunday 6pm ET direction">{label}: <strong>{icon}</strong> {move_str}</span>'
+            )
+        cme_html = (
+            '    <div class="legend cme-box" style="margin: 25px 0; background: #f0f4f8; border-left: 4px solid #2c3e50;">\n'
+            '        <h3 style="margin-top: 0;">CME Sunday 6pm ET Open (market hand)</h3>\n'
+            '        <p style="margin: 5px 0; color: #333;">Direction and strength of the move from CME open (first 24h or weekly gap). '
+            'Icon only – not part of score.</p>\n'
+            '        <p style="margin: 10px 0;">' + " &nbsp;|&nbsp; ".join(cme_items) + '</p>\n'
+            '        <p style="margin: 5px 0; font-size: 0.85em; color: #666;">↑↑ strong up &nbsp; ↑ up &nbsp; → flat &nbsp; ↓ down &nbsp; ↓↓ strong down</p>\n'
+            '    </div>\n'
+        )
+
+    index_content = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Analysis Visualizations - Index</title>
+    <style>
+        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f5f5f5; }}
+        h1 {{ color: #333; text-align: center; margin-bottom: 30px; }}
+        .category-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }}
+        .category-card {{ background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }}
+        .category-card:hover {{ transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }}
+        .category-card a {{ text-decoration: none; color: #0066cc; font-weight: 500; font-size: 16px; display: block; }}
+        .category-card a:hover {{ color: #0052a3; text-decoration: underline; }}
+        .category-name {{ text-transform: capitalize; margin-bottom: 10px; color: #333; }}
+        .cme-item {{ margin-right: 12px; }}
+    </style>
+</head>
+<body>
+    <h1>📊 Technical Analysis Visualizations</h1>
+    <p style="text-align: center; color: #666;">Click on any category to view its analysis</p>
+
+    <div style="text-align: center; margin: 30px 0;">
+        <a href="gold_high_scores_presentation.html" style="display: inline-block; padding: 15px 30px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0,0,0,0.2);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+            🏆 View High-Scoring Tickers vs Gold (6-7 & 7+)
+        </a>
+    </div>
+{cme_html}
+    <div class="category-grid">
+{grid_html}
+    </div>
+
+    <div style="text-align: center; margin-top: 40px; color: #666;">
+        <p>Total categories: {len(categories)}</p>
+    </div>
+</body>
+</html>"""
+    index_path = output_dir / "index.html"
+    index_path.write_text(index_content, encoding="utf-8")
+    print(f"  ✓ Updated {index_path.name} (with CME Sunday open section)")
 
 
 if __name__ == "__main__":

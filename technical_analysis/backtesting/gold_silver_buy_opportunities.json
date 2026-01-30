@@ -1,0 +1,3438 @@
+{
+  "timestamp": "2026-01-28T00:47:00.283972",
+  "threshold": 4.0,
+  "timeframes": [
+    "1M",
+    "2M",
+    "1W",
+    "2W",
+    "2D"
+  ],
+  "good_buys_vs_gold": [
+    {
+      "symbol": "CT=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1M",
+      "score": 13.5,
+      "usd_score": 11.6
+    },
+    {
+      "symbol": "FCX",
+      "category": "clean_energy_materials",
+      "timeframe": "1M",
+      "score": 12.3,
+      "usd_score": 1.5
+    },
+    {
+      "symbol": "SOL-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 12.2,
+      "usd_score": 3.7
+    },
+    {
+      "symbol": "VTWO",
+      "category": "index_etfs",
+      "timeframe": "1M",
+      "score": 12.1,
+      "usd_score": 3.1
+    },
+    {
+      "symbol": "DIA",
+      "category": "index_etfs",
+      "timeframe": "1M",
+      "score": 12.1,
+      "usd_score": 6.6
+    },
+    {
+      "symbol": "ALI=F",
+      "category": "industrial_metals",
+      "timeframe": "1M",
+      "score": 12.1,
+      "usd_score": 6.1
+    },
+    {
+      "symbol": "NEE",
+      "category": "renewable_energy",
+      "timeframe": "1M",
+      "score": 11.6,
+      "usd_score": 0.2
+    },
+    {
+      "symbol": "XLRE",
+      "category": "real_estate",
+      "timeframe": "1M",
+      "score": 11.1,
+      "usd_score": 7.1
+    },
+    {
+      "symbol": "ENPH",
+      "category": "renewable_energy",
+      "timeframe": "1M",
+      "score": 10.6,
+      "usd_score": 10.6
+    },
+    {
+      "symbol": "BTC-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 10.4,
+      "usd_score": 7.5
+    },
+    {
+      "symbol": "UNH",
+      "category": "healthcare",
+      "timeframe": "1W",
+      "score": 10.4,
+      "usd_score": 8.5
+    },
+    {
+      "symbol": "ADA-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2M",
+      "score": 10.3,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "AVAX-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 10.2,
+      "usd_score": 0.8
+    },
+    {
+      "symbol": "ADA-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 9.9,
+      "usd_score": 12.2
+    },
+    {
+      "symbol": "MNRS",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 9.7,
+      "usd_score": 2.4
+    },
+    {
+      "symbol": "ZN=F",
+      "category": "industrial_metals",
+      "timeframe": "1M",
+      "score": 9.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "TM",
+      "category": "next_gen_automotive",
+      "timeframe": "1M",
+      "score": 9.6,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "NEE",
+      "category": "utilities",
+      "timeframe": "1M",
+      "score": 9.6,
+      "usd_score": 0.2
+    },
+    {
+      "symbol": "ETH-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 9.4,
+      "usd_score": 1.6
+    },
+    {
+      "symbol": "BNB-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 9.4,
+      "usd_score": 7.2
+    },
+    {
+      "symbol": "ALI=F",
+      "category": "industrial_metals",
+      "timeframe": "2W",
+      "score": 9.3,
+      "usd_score": 5.7
+    },
+    {
+      "symbol": "NOW",
+      "category": "tech_stocks",
+      "timeframe": "1M",
+      "score": 9.3,
+      "usd_score": 1.4
+    },
+    {
+      "symbol": "XPEV",
+      "category": "next_gen_automotive",
+      "timeframe": "1M",
+      "score": 9.1,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "F",
+      "category": "next_gen_automotive",
+      "timeframe": "1M",
+      "score": 9.1,
+      "usd_score": 1.7
+    },
+    {
+      "symbol": "XRP-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 9.0,
+      "usd_score": 3.8
+    },
+    {
+      "symbol": "XRP-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2M",
+      "score": 9.0,
+      "usd_score": 2.5
+    },
+    {
+      "symbol": "ETH-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.9,
+      "usd_score": 5.8
+    },
+    {
+      "symbol": "SOL-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.9,
+      "usd_score": 8.1
+    },
+    {
+      "symbol": "ADA-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 8.8,
+      "usd_score": 11.2
+    },
+    {
+      "symbol": "AVAX-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.8,
+      "usd_score": 8.8
+    },
+    {
+      "symbol": "WULF",
+      "category": "miner_hpc",
+      "timeframe": "2D",
+      "score": 8.8,
+      "usd_score": 3.0
+    },
+    {
+      "symbol": "SVM",
+      "category": "silver_miners_esg",
+      "timeframe": "1W",
+      "score": 8.7,
+      "usd_score": 5.6
+    },
+    {
+      "symbol": "ZW=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1M",
+      "score": 8.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "SB=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1M",
+      "score": 8.6,
+      "usd_score": 7.6
+    },
+    {
+      "symbol": "NKE",
+      "category": "consumer_discretionary",
+      "timeframe": "1M",
+      "score": 8.6,
+      "usd_score": 2.7
+    },
+    {
+      "symbol": "BTC-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 8.6,
+      "usd_score": 1.7
+    },
+    {
+      "symbol": "XRP-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 8.6,
+      "usd_score": 6.6
+    },
+    {
+      "symbol": "TMO",
+      "category": "healthcare",
+      "timeframe": "1M",
+      "score": 8.6,
+      "usd_score": 1.7
+    },
+    {
+      "symbol": "IWM",
+      "category": "index_etfs",
+      "timeframe": "1M",
+      "score": 8.6,
+      "usd_score": 1.7
+    },
+    {
+      "symbol": "D",
+      "category": "utilities",
+      "timeframe": "1M",
+      "score": 8.6,
+      "usd_score": -1.3
+    },
+    {
+      "symbol": "ATOM-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 8.5,
+      "usd_score": 12.1
+    },
+    {
+      "symbol": "LI",
+      "category": "next_gen_automotive",
+      "timeframe": "2W",
+      "score": 8.4,
+      "usd_score": 1.4
+    },
+    {
+      "symbol": "DOT-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 8.2,
+      "usd_score": 10.2
+    },
+    {
+      "symbol": "BNB-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2M",
+      "score": 8.2,
+      "usd_score": 8.4
+    },
+    {
+      "symbol": "BNB-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.2,
+      "usd_score": 4.2
+    },
+    {
+      "symbol": "AMSC",
+      "category": "battery_storage",
+      "timeframe": "1M",
+      "score": 8.1,
+      "usd_score": 5.3
+    },
+    {
+      "symbol": "BTC-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.1,
+      "usd_score": 3.5
+    },
+    {
+      "symbol": "ARM",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 8.1,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "BITF",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 8.1,
+      "usd_score": 8.9
+    },
+    {
+      "symbol": "CIFR",
+      "category": "miner_hpc",
+      "timeframe": "2D",
+      "score": 7.8,
+      "usd_score": 4.2
+    },
+    {
+      "symbol": "WGMI",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 7.7,
+      "usd_score": 3.2
+    },
+    {
+      "symbol": "QCOM",
+      "category": "ai_semiconductors",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 0.2
+    },
+    {
+      "symbol": "ON",
+      "category": "ai_semiconductors",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 4.1
+    },
+    {
+      "symbol": "SLDP",
+      "category": "battery_storage",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 1.0
+    },
+    {
+      "symbol": "AMZN",
+      "category": "consumer_discretionary",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "HD",
+      "category": "consumer_discretionary",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 2.2
+    },
+    {
+      "symbol": "SBUX",
+      "category": "consumer_discretionary",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": -1.8
+    },
+    {
+      "symbol": "MCD",
+      "category": "consumer_discretionary",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 0.7
+    },
+    {
+      "symbol": "BAC",
+      "category": "financials",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "JNJ",
+      "category": "healthcare",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 1.7
+    },
+    {
+      "symbol": "UNH",
+      "category": "healthcare",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 7.6
+    },
+    {
+      "symbol": "ABBV",
+      "category": "healthcare",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 2.7
+    },
+    {
+      "symbol": "DHR",
+      "category": "healthcare",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 4.6
+    },
+    {
+      "symbol": "SPY",
+      "category": "index_etfs",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 1.7
+    },
+    {
+      "symbol": "QQQ",
+      "category": "index_etfs",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 0.7
+    },
+    {
+      "symbol": "IONQ",
+      "category": "quantum",
+      "timeframe": "2W",
+      "score": 7.6,
+      "usd_score": 5.3
+    },
+    {
+      "symbol": "VNQ",
+      "category": "real_estate",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 5.6
+    },
+    {
+      "symbol": "SCHH",
+      "category": "real_estate",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 4.6
+    },
+    {
+      "symbol": "IYR",
+      "category": "real_estate",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 3.6
+    },
+    {
+      "symbol": "DUK",
+      "category": "utilities",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 7.1
+    },
+    {
+      "symbol": "SO",
+      "category": "utilities",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 5.6
+    },
+    {
+      "symbol": "CT=F",
+      "category": "agricultural_commodities",
+      "timeframe": "2W",
+      "score": 7.5,
+      "usd_score": 2.1
+    },
+    {
+      "symbol": "SB=F",
+      "category": "agricultural_commodities",
+      "timeframe": "2W",
+      "score": 7.5,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "NKE",
+      "category": "consumer_discretionary",
+      "timeframe": "2W",
+      "score": 7.5,
+      "usd_score": -0.6
+    },
+    {
+      "symbol": "BITF",
+      "category": "miner_hpc",
+      "timeframe": "2W",
+      "score": 7.5,
+      "usd_score": 7.0
+    },
+    {
+      "symbol": "IREN",
+      "category": "miner_hpc",
+      "timeframe": "1M",
+      "score": 7.1,
+      "usd_score": 4.6
+    },
+    {
+      "symbol": "QS",
+      "category": "battery_storage",
+      "timeframe": "2W",
+      "score": 7.0,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "AMSC",
+      "category": "battery_storage",
+      "timeframe": "2W",
+      "score": 7.0,
+      "usd_score": 4.0
+    },
+    {
+      "symbol": "WGMI",
+      "category": "miner_hpc",
+      "timeframe": "2W",
+      "score": 7.0,
+      "usd_score": 5.7
+    },
+    {
+      "symbol": "RUN",
+      "category": "renewable_energy",
+      "timeframe": "1W",
+      "score": 7.0,
+      "usd_score": -1.7
+    },
+    {
+      "symbol": "PAAS",
+      "category": "silver_miners_esg",
+      "timeframe": "2D",
+      "score": 6.9,
+      "usd_score": 4.1
+    },
+    {
+      "symbol": "MATIC-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 6.8,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "ZC=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1M",
+      "score": 6.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "ZS=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1M",
+      "score": 6.6,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "ZW=F",
+      "category": "agricultural_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -2.4
+    },
+    {
+      "symbol": "AMSC",
+      "category": "battery_storage",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 5.5
+    },
+    {
+      "symbol": "SBUX",
+      "category": "consumer_discretionary",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "ADA-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 8.9
+    },
+    {
+      "symbol": "LINK-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 8.1
+    },
+    {
+      "symbol": "ATOM-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 8.9
+    },
+    {
+      "symbol": "CL=F",
+      "category": "energy_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -2.4
+    },
+    {
+      "symbol": "HO=F",
+      "category": "energy_commodities",
+      "timeframe": "1M",
+      "score": 6.6,
+      "usd_score": 0.7
+    },
+    {
+      "symbol": "RB=F",
+      "category": "energy_commodities",
+      "timeframe": "1M",
+      "score": 6.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "RB=F",
+      "category": "energy_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -0.6
+    },
+    {
+      "symbol": "BAC",
+      "category": "financials",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 5.2
+    },
+    {
+      "symbol": "PFE",
+      "category": "healthcare",
+      "timeframe": "1M",
+      "score": 6.6,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "IREN",
+      "category": "miner_hpc",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 5.7
+    },
+    {
+      "symbol": "HUT",
+      "category": "miner_hpc",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "CORZ",
+      "category": "miner_hpc",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 5.7
+    },
+    {
+      "symbol": "LI",
+      "category": "next_gen_automotive",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 6.6
+    },
+    {
+      "symbol": "LCID",
+      "category": "next_gen_automotive",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 6.6
+    },
+    {
+      "symbol": "IONQ",
+      "category": "quantum",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "PLUG",
+      "category": "renewable_energy",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 0.1
+    },
+    {
+      "symbol": "SVM",
+      "category": "silver_miners_esg",
+      "timeframe": "2D",
+      "score": 6.6,
+      "usd_score": 4.1
+    },
+    {
+      "symbol": "SO",
+      "category": "utilities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -1.1
+    },
+    {
+      "symbol": "DOT-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 6.5,
+      "usd_score": 8.8
+    },
+    {
+      "symbol": "XRP-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 6.5,
+      "usd_score": 0.8
+    },
+    {
+      "symbol": "ARM",
+      "category": "faang_hot_stocks",
+      "timeframe": "1W",
+      "score": 6.4,
+      "usd_score": 0.7
+    },
+    {
+      "symbol": "SI=F",
+      "category": "precious_metals",
+      "timeframe": "2D",
+      "score": 6.4,
+      "usd_score": 4.5
+    },
+    {
+      "symbol": "NOW",
+      "category": "tech_stocks",
+      "timeframe": "1W",
+      "score": 6.4,
+      "usd_score": 6.4
+    },
+    {
+      "symbol": "VTWO",
+      "category": "index_etfs",
+      "timeframe": "1W",
+      "score": 6.2,
+      "usd_score": 2.0
+    },
+    {
+      "symbol": "PL=F",
+      "category": "precious_metals",
+      "timeframe": "2W",
+      "score": 6.1,
+      "usd_score": 4.8
+    },
+    {
+      "symbol": "UNI-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 6.0,
+      "usd_score": 6.0
+    },
+    {
+      "symbol": "IREN",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 6.0,
+      "usd_score": 5.3
+    },
+    {
+      "symbol": "NKE",
+      "category": "consumer_discretionary",
+      "timeframe": "1W",
+      "score": 5.8,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "CORZ",
+      "category": "miner_hpc",
+      "timeframe": "2D",
+      "score": 5.8,
+      "usd_score": 2.6
+    },
+    {
+      "symbol": "PAAS",
+      "category": "silver_miners_esg",
+      "timeframe": "1W",
+      "score": 5.8,
+      "usd_score": 5.6
+    },
+    {
+      "symbol": "ZS=F",
+      "category": "agricultural_commodities",
+      "timeframe": "2W",
+      "score": 5.7,
+      "usd_score": -2.0
+    },
+    {
+      "symbol": "UNH",
+      "category": "healthcare",
+      "timeframe": "2W",
+      "score": 5.7,
+      "usd_score": -1.5
+    },
+    {
+      "symbol": "PFE",
+      "category": "healthcare",
+      "timeframe": "2W",
+      "score": 5.7,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "DHR",
+      "category": "healthcare",
+      "timeframe": "2W",
+      "score": 5.7,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "HG=F",
+      "category": "industrial_metals",
+      "timeframe": "2W",
+      "score": 5.7,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "CL=F",
+      "category": "energy_commodities",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "AAPL",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": -0.8
+    },
+    {
+      "symbol": "AMZN",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": -0.1
+    },
+    {
+      "symbol": "MSFT",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "ABNB",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "QCOM",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": 0.2
+    },
+    {
+      "symbol": "MU",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": 6.9
+    },
+    {
+      "symbol": "PATH",
+      "category": "tech_stocks",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": -1.1
+    },
+    {
+      "symbol": "CT=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": -1.4
+    },
+    {
+      "symbol": "QS",
+      "category": "battery_storage",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 5.5
+    },
+    {
+      "symbol": "SLDP",
+      "category": "battery_storage",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 3.7
+    },
+    {
+      "symbol": "SBUX",
+      "category": "consumer_discretionary",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "NIO",
+      "category": "next_gen_automotive",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 5.5
+    },
+    {
+      "symbol": "RGTI",
+      "category": "quantum",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 5.5
+    },
+    {
+      "symbol": "PLUG",
+      "category": "renewable_energy",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "MATIC-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 5.4,
+      "usd_score": 7.7
+    },
+    {
+      "symbol": "CCJ",
+      "category": "clean_energy_materials",
+      "timeframe": "2D",
+      "score": 5.3,
+      "usd_score": 3.5
+    },
+    {
+      "symbol": "QCOM",
+      "category": "ai_semiconductors",
+      "timeframe": "2W",
+      "score": 5.2,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "IWM",
+      "category": "index_etfs",
+      "timeframe": "2W",
+      "score": 5.2,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "VTWO",
+      "category": "index_etfs",
+      "timeframe": "2W",
+      "score": 5.2,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "QBTS",
+      "category": "quantum",
+      "timeframe": "1W",
+      "score": 5.2,
+      "usd_score": 5.1
+    },
+    {
+      "symbol": "ENPH",
+      "category": "renewable_energy",
+      "timeframe": "2W",
+      "score": 5.2,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "SEDG",
+      "category": "renewable_energy",
+      "timeframe": "2W",
+      "score": 5.2,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "PAAS",
+      "category": "silver_miners_esg",
+      "timeframe": "2W",
+      "score": 5.2,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "HD",
+      "category": "consumer_discretionary",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 5.5
+    },
+    {
+      "symbol": "ABBV",
+      "category": "healthcare",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "SI=F",
+      "category": "precious_metals",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 4.7
+    },
+    {
+      "symbol": "D",
+      "category": "utilities",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "AEP",
+      "category": "utilities",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "MU",
+      "category": "faang_hot_stocks",
+      "timeframe": "1W",
+      "score": 4.9,
+      "usd_score": 4.7
+    },
+    {
+      "symbol": "ZC=F",
+      "category": "agricultural_commodities",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -0.6
+    },
+    {
+      "symbol": "AVGO",
+      "category": "ai_semiconductors",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 5.7
+    },
+    {
+      "symbol": "SLDP",
+      "category": "battery_storage",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -0.5
+    },
+    {
+      "symbol": "HD",
+      "category": "consumer_discretionary",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -1.1
+    },
+    {
+      "symbol": "MCD",
+      "category": "consumer_discretionary",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -1.1
+    },
+    {
+      "symbol": "AAPL",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 5.0
+    },
+    {
+      "symbol": "NFLX",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 4.8
+    },
+    {
+      "symbol": "ABNB",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -2.0
+    },
+    {
+      "symbol": "CRWD",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "MU",
+      "category": "faang_hot_stocks",
+      "timeframe": "2D",
+      "score": 4.8,
+      "usd_score": 4.8
+    },
+    {
+      "symbol": "WFC",
+      "category": "financials",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 5.2
+    },
+    {
+      "symbol": "SPY",
+      "category": "index_etfs",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "DIA",
+      "category": "index_etfs",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "ZN=F",
+      "category": "industrial_metals",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "TSLA",
+      "category": "next_gen_automotive",
+      "timeframe": "2D",
+      "score": 4.8,
+      "usd_score": 3.6
+    },
+    {
+      "symbol": "SI=F",
+      "category": "precious_metals",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 4.8
+    },
+    {
+      "symbol": "VNQ",
+      "category": "real_estate",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "SCHH",
+      "category": "real_estate",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 3.0
+    },
+    {
+      "symbol": "IYR",
+      "category": "real_estate",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 3.0
+    },
+    {
+      "symbol": "XLRE",
+      "category": "real_estate",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "TMUS",
+      "category": "tech_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 4.8
+    },
+    {
+      "symbol": "NOW",
+      "category": "tech_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -1.5
+    },
+    {
+      "symbol": "DUK",
+      "category": "utilities",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 3.0
+    },
+    {
+      "symbol": "D",
+      "category": "utilities",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -2.0
+    },
+    {
+      "symbol": "WDC",
+      "category": "faang_hot_stocks",
+      "timeframe": "1W",
+      "score": 4.7,
+      "usd_score": 4.7
+    },
+    {
+      "symbol": "NOW",
+      "category": "tech_stocks",
+      "timeframe": "2D",
+      "score": 4.7,
+      "usd_score": 3.4
+    },
+    {
+      "symbol": "WDC",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 4.6,
+      "usd_score": 4.6
+    },
+    {
+      "symbol": "DLO",
+      "category": "tech_stocks",
+      "timeframe": "1M",
+      "score": 4.6,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "QCOM",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.5,
+      "usd_score": -0.9
+    },
+    {
+      "symbol": "MU",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.5,
+      "usd_score": 4.5
+    },
+    {
+      "symbol": "WDC",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.5,
+      "usd_score": 4.5
+    },
+    {
+      "symbol": "GM",
+      "category": "next_gen_automotive",
+      "timeframe": "2D",
+      "score": 4.4,
+      "usd_score": 5.4
+    },
+    {
+      "symbol": "NEE",
+      "category": "renewable_energy",
+      "timeframe": "2D",
+      "score": 4.4,
+      "usd_score": 3.5
+    },
+    {
+      "symbol": "SB=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1W",
+      "score": 4.3,
+      "usd_score": -0.7
+    },
+    {
+      "symbol": "NVDA",
+      "category": "ai_semiconductors",
+      "timeframe": "1W",
+      "score": 4.3,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "UNI-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 4.3,
+      "usd_score": 2.8
+    },
+    {
+      "symbol": "CL=F",
+      "category": "energy_commodities",
+      "timeframe": "1W",
+      "score": 4.3,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "PFE",
+      "category": "healthcare",
+      "timeframe": "1W",
+      "score": 4.3,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "IWM",
+      "category": "index_etfs",
+      "timeframe": "1W",
+      "score": 4.3,
+      "usd_score": 0.9
+    },
+    {
+      "symbol": "DLO",
+      "category": "tech_stocks",
+      "timeframe": "1W",
+      "score": 4.3,
+      "usd_score": -2.2
+    },
+    {
+      "symbol": "CCJ",
+      "category": "clean_energy_materials",
+      "timeframe": "2W",
+      "score": 4.2,
+      "usd_score": 4.4
+    },
+    {
+      "symbol": "HUT",
+      "category": "miner_hpc",
+      "timeframe": "2D",
+      "score": 4.2,
+      "usd_score": 4.2
+    },
+    {
+      "symbol": "AEM",
+      "category": "clean_energy_materials",
+      "timeframe": "1M",
+      "score": 4.1,
+      "usd_score": 3.2
+    }
+  ],
+  "good_buys_vs_silver": [
+    {
+      "symbol": "HUT",
+      "category": "miner_hpc",
+      "timeframe": "1M",
+      "score": 13.5,
+      "usd_score": 6.1
+    },
+    {
+      "symbol": "FCX",
+      "category": "clean_energy_materials",
+      "timeframe": "1M",
+      "score": 13.3,
+      "usd_score": 1.5
+    },
+    {
+      "symbol": "CT=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1M",
+      "score": 12.6,
+      "usd_score": 11.6
+    },
+    {
+      "symbol": "WULF",
+      "category": "miner_hpc",
+      "timeframe": "1M",
+      "score": 12.6,
+      "usd_score": 6.1
+    },
+    {
+      "symbol": "SOL-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 12.2,
+      "usd_score": 3.7
+    },
+    {
+      "symbol": "ATOM-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 12.1,
+      "usd_score": 12.1
+    },
+    {
+      "symbol": "DOT-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 12.0,
+      "usd_score": 10.2
+    },
+    {
+      "symbol": "AVAX-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 12.0,
+      "usd_score": 0.6
+    },
+    {
+      "symbol": "ADA-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 11.9,
+      "usd_score": 12.2
+    },
+    {
+      "symbol": "SOL-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 11.5,
+      "usd_score": -0.5
+    },
+    {
+      "symbol": "LINK-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 11.5,
+      "usd_score": 2.7
+    },
+    {
+      "symbol": "BNB-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 11.4,
+      "usd_score": 7.2
+    },
+    {
+      "symbol": "ADA-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 11.2,
+      "usd_score": 11.2
+    },
+    {
+      "symbol": "ALB",
+      "category": "clean_energy_materials",
+      "timeframe": "1M",
+      "score": 11.1,
+      "usd_score": 3.7
+    },
+    {
+      "symbol": "XRP-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 11.1,
+      "usd_score": 6.6
+    },
+    {
+      "symbol": "ALI=F",
+      "category": "industrial_metals",
+      "timeframe": "1M",
+      "score": 11.1,
+      "usd_score": 6.1
+    },
+    {
+      "symbol": "IREN",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 11.0,
+      "usd_score": 5.3
+    },
+    {
+      "symbol": "AVAX-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 10.9,
+      "usd_score": 0.8
+    },
+    {
+      "symbol": "BTC-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 10.6,
+      "usd_score": 1.7
+    },
+    {
+      "symbol": "ENPH",
+      "category": "renewable_energy",
+      "timeframe": "1M",
+      "score": 10.6,
+      "usd_score": 10.6
+    },
+    {
+      "symbol": "BTC-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 10.2,
+      "usd_score": 7.5
+    },
+    {
+      "symbol": "CORZ",
+      "category": "miner_hpc",
+      "timeframe": "2W",
+      "score": 10.2,
+      "usd_score": 5.7
+    },
+    {
+      "symbol": "VTWO",
+      "category": "index_etfs",
+      "timeframe": "1M",
+      "score": 10.1,
+      "usd_score": 3.1
+    },
+    {
+      "symbol": "DIA",
+      "category": "index_etfs",
+      "timeframe": "1M",
+      "score": 10.1,
+      "usd_score": 6.6
+    },
+    {
+      "symbol": "XLRE",
+      "category": "real_estate",
+      "timeframe": "1M",
+      "score": 10.1,
+      "usd_score": 7.1
+    },
+    {
+      "symbol": "CLSK",
+      "category": "miner_hpc",
+      "timeframe": "2D",
+      "score": 10.0,
+      "usd_score": 2.8
+    },
+    {
+      "symbol": "MNRS",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 9.7,
+      "usd_score": 2.4
+    },
+    {
+      "symbol": "CORZ",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 9.7,
+      "usd_score": -1.2
+    },
+    {
+      "symbol": "CLSK",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 9.7,
+      "usd_score": 2.2
+    },
+    {
+      "symbol": "WPM",
+      "category": "silver_miners_esg",
+      "timeframe": "1W",
+      "score": 9.7,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "WPM",
+      "category": "silver_miners_esg",
+      "timeframe": "2W",
+      "score": 9.7,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "IONQ",
+      "category": "quantum",
+      "timeframe": "1M",
+      "score": 9.6,
+      "usd_score": 4.2
+    },
+    {
+      "symbol": "NEE",
+      "category": "renewable_energy",
+      "timeframe": "1M",
+      "score": 9.6,
+      "usd_score": 0.2
+    },
+    {
+      "symbol": "ETH-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 9.4,
+      "usd_score": 1.6
+    },
+    {
+      "symbol": "IONQ",
+      "category": "quantum",
+      "timeframe": "2D",
+      "score": 9.4,
+      "usd_score": 3.7
+    },
+    {
+      "symbol": "NOW",
+      "category": "tech_stocks",
+      "timeframe": "1M",
+      "score": 9.3,
+      "usd_score": 1.4
+    },
+    {
+      "symbol": "XPEV",
+      "category": "next_gen_automotive",
+      "timeframe": "1M",
+      "score": 9.1,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "BNB-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 9.0,
+      "usd_score": 4.2
+    },
+    {
+      "symbol": "ETH-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.9,
+      "usd_score": 5.8
+    },
+    {
+      "symbol": "SOL-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.9,
+      "usd_score": 8.1
+    },
+    {
+      "symbol": "ADA-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.9,
+      "usd_score": 8.9
+    },
+    {
+      "symbol": "LINK-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.9,
+      "usd_score": 8.1
+    },
+    {
+      "symbol": "ATOM-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.9,
+      "usd_score": 8.9
+    },
+    {
+      "symbol": "DOT-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.8,
+      "usd_score": 8.8
+    },
+    {
+      "symbol": "AVAX-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.8,
+      "usd_score": 8.8
+    },
+    {
+      "symbol": "XRP-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.8,
+      "usd_score": 0.8
+    },
+    {
+      "symbol": "ALI=F",
+      "category": "industrial_metals",
+      "timeframe": "2W",
+      "score": 8.8,
+      "usd_score": 5.7
+    },
+    {
+      "symbol": "WGMI",
+      "category": "miner_hpc",
+      "timeframe": "2D",
+      "score": 8.8,
+      "usd_score": 5.2
+    },
+    {
+      "symbol": "ZW=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1M",
+      "score": 8.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "ASML",
+      "category": "ai_semiconductors",
+      "timeframe": "1M",
+      "score": 8.6,
+      "usd_score": 2.7
+    },
+    {
+      "symbol": "CIFR",
+      "category": "miner_hpc",
+      "timeframe": "2D",
+      "score": 8.5,
+      "usd_score": 4.2
+    },
+    {
+      "symbol": "FCX",
+      "category": "clean_energy_materials",
+      "timeframe": "2W",
+      "score": 8.4,
+      "usd_score": -1.0
+    },
+    {
+      "symbol": "LI",
+      "category": "next_gen_automotive",
+      "timeframe": "2W",
+      "score": 8.4,
+      "usd_score": 1.4
+    },
+    {
+      "symbol": "XPEV",
+      "category": "next_gen_automotive",
+      "timeframe": "2W",
+      "score": 8.4,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "LCID",
+      "category": "next_gen_automotive",
+      "timeframe": "2W",
+      "score": 8.4,
+      "usd_score": -0.6
+    },
+    {
+      "symbol": "TM",
+      "category": "next_gen_automotive",
+      "timeframe": "2W",
+      "score": 8.4,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "QTUM",
+      "category": "quantum",
+      "timeframe": "2W",
+      "score": 8.4,
+      "usd_score": 4.4
+    },
+    {
+      "symbol": "NEE",
+      "category": "renewable_energy",
+      "timeframe": "2W",
+      "score": 8.4,
+      "usd_score": 5.2
+    },
+    {
+      "symbol": "AMSC",
+      "category": "battery_storage",
+      "timeframe": "1M",
+      "score": 8.1,
+      "usd_score": 5.3
+    },
+    {
+      "symbol": "BTC-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 8.1,
+      "usd_score": 3.5
+    },
+    {
+      "symbol": "ARM",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 8.1,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "IREN",
+      "category": "miner_hpc",
+      "timeframe": "1M",
+      "score": 8.1,
+      "usd_score": 4.6
+    },
+    {
+      "symbol": "CIFR",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 8.1,
+      "usd_score": 4.7
+    },
+    {
+      "symbol": "WULF",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 8.1,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "BITF",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 8.1,
+      "usd_score": 8.9
+    },
+    {
+      "symbol": "WGMI",
+      "category": "miner_hpc",
+      "timeframe": "1W",
+      "score": 8.1,
+      "usd_score": 3.2
+    },
+    {
+      "symbol": "ENPH",
+      "category": "renewable_energy",
+      "timeframe": "2W",
+      "score": 7.9,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "SEDG",
+      "category": "renewable_energy",
+      "timeframe": "2W",
+      "score": 7.9,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "PLUG",
+      "category": "renewable_energy",
+      "timeframe": "2W",
+      "score": 7.9,
+      "usd_score": 0.1
+    },
+    {
+      "symbol": "WULF",
+      "category": "miner_hpc",
+      "timeframe": "2D",
+      "score": 7.8,
+      "usd_score": 3.0
+    },
+    {
+      "symbol": "PAAS",
+      "category": "silver_miners_esg",
+      "timeframe": "2D",
+      "score": 7.8,
+      "usd_score": 4.1
+    },
+    {
+      "symbol": "AEM",
+      "category": "clean_energy_materials",
+      "timeframe": "1M",
+      "score": 7.7,
+      "usd_score": 3.2
+    },
+    {
+      "symbol": "MATIC-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 7.7,
+      "usd_score": 7.7
+    },
+    {
+      "symbol": "SB=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 7.6
+    },
+    {
+      "symbol": "QCOM",
+      "category": "ai_semiconductors",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 0.2
+    },
+    {
+      "symbol": "MPWR",
+      "category": "ai_semiconductors",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": -2.8
+    },
+    {
+      "symbol": "AMZN",
+      "category": "consumer_discretionary",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "HD",
+      "category": "consumer_discretionary",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 2.2
+    },
+    {
+      "symbol": "SBUX",
+      "category": "consumer_discretionary",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": -1.8
+    },
+    {
+      "symbol": "CL=F",
+      "category": "energy_commodities",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "BAC",
+      "category": "financials",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "JNJ",
+      "category": "healthcare",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 1.7
+    },
+    {
+      "symbol": "UNH",
+      "category": "healthcare",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 7.6
+    },
+    {
+      "symbol": "TMO",
+      "category": "healthcare",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 1.7
+    },
+    {
+      "symbol": "DHR",
+      "category": "healthcare",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 4.6
+    },
+    {
+      "symbol": "SPY",
+      "category": "index_etfs",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 1.7
+    },
+    {
+      "symbol": "IWM",
+      "category": "index_etfs",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 1.7
+    },
+    {
+      "symbol": "QQQ",
+      "category": "index_etfs",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 0.7
+    },
+    {
+      "symbol": "ZN=F",
+      "category": "industrial_metals",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "VNQ",
+      "category": "real_estate",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 5.6
+    },
+    {
+      "symbol": "SCHH",
+      "category": "real_estate",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 4.6
+    },
+    {
+      "symbol": "IYR",
+      "category": "real_estate",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 3.6
+    },
+    {
+      "symbol": "AG",
+      "category": "silver_miners_esg",
+      "timeframe": "1W",
+      "score": 7.6,
+      "usd_score": 5.6
+    },
+    {
+      "symbol": "HL",
+      "category": "silver_miners_esg",
+      "timeframe": "1W",
+      "score": 7.6,
+      "usd_score": 5.6
+    },
+    {
+      "symbol": "SVM",
+      "category": "silver_miners_esg",
+      "timeframe": "1W",
+      "score": 7.6,
+      "usd_score": 5.6
+    },
+    {
+      "symbol": "NEE",
+      "category": "utilities",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": 0.2
+    },
+    {
+      "symbol": "D",
+      "category": "utilities",
+      "timeframe": "1M",
+      "score": 7.6,
+      "usd_score": -1.3
+    },
+    {
+      "symbol": "ENPH",
+      "category": "renewable_energy",
+      "timeframe": "1W",
+      "score": 7.4,
+      "usd_score": -1.8
+    },
+    {
+      "symbol": "GM",
+      "category": "next_gen_automotive",
+      "timeframe": "2D",
+      "score": 7.2,
+      "usd_score": 5.4
+    },
+    {
+      "symbol": "HL",
+      "category": "silver_miners_esg",
+      "timeframe": "1M",
+      "score": 7.1,
+      "usd_score": 6.9
+    },
+    {
+      "symbol": "QS",
+      "category": "battery_storage",
+      "timeframe": "2W",
+      "score": 7.0,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "AMSC",
+      "category": "battery_storage",
+      "timeframe": "2W",
+      "score": 7.0,
+      "usd_score": 4.0
+    },
+    {
+      "symbol": "UNH",
+      "category": "healthcare",
+      "timeframe": "1W",
+      "score": 7.0,
+      "usd_score": 8.5
+    },
+    {
+      "symbol": "VTWO",
+      "category": "index_etfs",
+      "timeframe": "1W",
+      "score": 7.0,
+      "usd_score": 2.0
+    },
+    {
+      "symbol": "HG=F",
+      "category": "industrial_metals",
+      "timeframe": "1W",
+      "score": 7.0,
+      "usd_score": 6.2
+    },
+    {
+      "symbol": "IREN",
+      "category": "miner_hpc",
+      "timeframe": "2W",
+      "score": 7.0,
+      "usd_score": 5.7
+    },
+    {
+      "symbol": "IONQ",
+      "category": "quantum",
+      "timeframe": "2W",
+      "score": 7.0,
+      "usd_score": 5.3
+    },
+    {
+      "symbol": "QBTS",
+      "category": "quantum",
+      "timeframe": "2W",
+      "score": 7.0,
+      "usd_score": 5.0
+    },
+    {
+      "symbol": "NEE",
+      "category": "renewable_energy",
+      "timeframe": "2D",
+      "score": 6.9,
+      "usd_score": 3.5
+    },
+    {
+      "symbol": "PLUG",
+      "category": "renewable_energy",
+      "timeframe": "2D",
+      "score": 6.9,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "BNB-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2D",
+      "score": 6.7,
+      "usd_score": -0.6
+    },
+    {
+      "symbol": "BITF",
+      "category": "miner_hpc",
+      "timeframe": "2D",
+      "score": 6.7,
+      "usd_score": 0.7
+    },
+    {
+      "symbol": "TSLA",
+      "category": "next_gen_automotive",
+      "timeframe": "2W",
+      "score": 6.7,
+      "usd_score": 5.2
+    },
+    {
+      "symbol": "ZC=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1M",
+      "score": 6.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "ZC=F",
+      "category": "agricultural_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -0.6
+    },
+    {
+      "symbol": "ZS=F",
+      "category": "agricultural_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -2.0
+    },
+    {
+      "symbol": "ZW=F",
+      "category": "agricultural_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -2.4
+    },
+    {
+      "symbol": "KC=F",
+      "category": "agricultural_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.0
+    },
+    {
+      "symbol": "CT=F",
+      "category": "agricultural_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 2.1
+    },
+    {
+      "symbol": "SB=F",
+      "category": "agricultural_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "ASML",
+      "category": "ai_semiconductors",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.4
+    },
+    {
+      "symbol": "ON",
+      "category": "ai_semiconductors",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "QS",
+      "category": "battery_storage",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 5.5
+    },
+    {
+      "symbol": "AMSC",
+      "category": "battery_storage",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 5.5
+    },
+    {
+      "symbol": "AEM",
+      "category": "clean_energy_materials",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 4.5
+    },
+    {
+      "symbol": "FCX",
+      "category": "clean_energy_materials",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 2.4
+    },
+    {
+      "symbol": "AMZN",
+      "category": "consumer_discretionary",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 5.2
+    },
+    {
+      "symbol": "HD",
+      "category": "consumer_discretionary",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -1.1
+    },
+    {
+      "symbol": "NKE",
+      "category": "consumer_discretionary",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -0.6
+    },
+    {
+      "symbol": "SBUX",
+      "category": "consumer_discretionary",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "MCD",
+      "category": "consumer_discretionary",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -1.1
+    },
+    {
+      "symbol": "ETH-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2D",
+      "score": 6.6,
+      "usd_score": -1.3
+    },
+    {
+      "symbol": "ADA-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2D",
+      "score": 6.6,
+      "usd_score": -1.0
+    },
+    {
+      "symbol": "LINK-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2D",
+      "score": 6.6,
+      "usd_score": -2.2
+    },
+    {
+      "symbol": "CL=F",
+      "category": "energy_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -2.4
+    },
+    {
+      "symbol": "NG=F",
+      "category": "energy_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "HO=F",
+      "category": "energy_commodities",
+      "timeframe": "1M",
+      "score": 6.6,
+      "usd_score": 0.7
+    },
+    {
+      "symbol": "HO=F",
+      "category": "energy_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "RB=F",
+      "category": "energy_commodities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -0.6
+    },
+    {
+      "symbol": "JPM",
+      "category": "financials",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "BAC",
+      "category": "financials",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 5.2
+    },
+    {
+      "symbol": "WFC",
+      "category": "financials",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 5.2
+    },
+    {
+      "symbol": "MS",
+      "category": "financials",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.4
+    },
+    {
+      "symbol": "PFE",
+      "category": "healthcare",
+      "timeframe": "1M",
+      "score": 6.6,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "PFE",
+      "category": "healthcare",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "ABBV",
+      "category": "healthcare",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "SPY",
+      "category": "index_etfs",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "IWM",
+      "category": "index_etfs",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "VTWO",
+      "category": "index_etfs",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "QQQ",
+      "category": "index_etfs",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "DIA",
+      "category": "index_etfs",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "HG=F",
+      "category": "industrial_metals",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "ZN=F",
+      "category": "industrial_metals",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "TSLA",
+      "category": "next_gen_automotive",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 4.4
+    },
+    {
+      "symbol": "NIO",
+      "category": "next_gen_automotive",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 5.5
+    },
+    {
+      "symbol": "LI",
+      "category": "next_gen_automotive",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 6.6
+    },
+    {
+      "symbol": "XPEV",
+      "category": "next_gen_automotive",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "LCID",
+      "category": "next_gen_automotive",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 6.6
+    },
+    {
+      "symbol": "TM",
+      "category": "next_gen_automotive",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "IONQ",
+      "category": "quantum",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "QTUM",
+      "category": "quantum",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 2.5
+    },
+    {
+      "symbol": "VNQ",
+      "category": "real_estate",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "SCHH",
+      "category": "real_estate",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.0
+    },
+    {
+      "symbol": "IYR",
+      "category": "real_estate",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.0
+    },
+    {
+      "symbol": "XLRE",
+      "category": "real_estate",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "SEDG",
+      "category": "renewable_energy",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": -2.2
+    },
+    {
+      "symbol": "RUN",
+      "category": "renewable_energy",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": -1.7
+    },
+    {
+      "symbol": "NEE",
+      "category": "renewable_energy",
+      "timeframe": "1W",
+      "score": 6.6,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "WPM",
+      "category": "silver_miners_esg",
+      "timeframe": "2D",
+      "score": 6.6,
+      "usd_score": 4.7
+    },
+    {
+      "symbol": "HL",
+      "category": "silver_miners_esg",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "PATH",
+      "category": "tech_stocks",
+      "timeframe": "1M",
+      "score": 6.6,
+      "usd_score": -1.1
+    },
+    {
+      "symbol": "NEE",
+      "category": "utilities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 4.8
+    },
+    {
+      "symbol": "DUK",
+      "category": "utilities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.0
+    },
+    {
+      "symbol": "SO",
+      "category": "utilities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -1.1
+    },
+    {
+      "symbol": "D",
+      "category": "utilities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": -2.0
+    },
+    {
+      "symbol": "AEP",
+      "category": "utilities",
+      "timeframe": "2W",
+      "score": 6.6,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "SOL-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2D",
+      "score": 6.4,
+      "usd_score": -1.7
+    },
+    {
+      "symbol": "DOT-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2D",
+      "score": 6.4,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "AVAX-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2D",
+      "score": 6.4,
+      "usd_score": -1.0
+    },
+    {
+      "symbol": "ARM",
+      "category": "faang_hot_stocks",
+      "timeframe": "1W",
+      "score": 6.4,
+      "usd_score": 0.7
+    },
+    {
+      "symbol": "UNH",
+      "category": "healthcare",
+      "timeframe": "2D",
+      "score": 6.4,
+      "usd_score": 0.1
+    },
+    {
+      "symbol": "PA=F",
+      "category": "precious_metals",
+      "timeframe": "2D",
+      "score": 6.4,
+      "usd_score": 4.5
+    },
+    {
+      "symbol": "NOW",
+      "category": "tech_stocks",
+      "timeframe": "1W",
+      "score": 6.4,
+      "usd_score": 6.4
+    },
+    {
+      "symbol": "F",
+      "category": "next_gen_automotive",
+      "timeframe": "2D",
+      "score": 6.3,
+      "usd_score": 4.4
+    },
+    {
+      "symbol": "RUN",
+      "category": "renewable_energy",
+      "timeframe": "2D",
+      "score": 6.3,
+      "usd_score": 0.6
+    },
+    {
+      "symbol": "BTC-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2D",
+      "score": 6.1,
+      "usd_score": -2.7
+    },
+    {
+      "symbol": "UNI-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1M",
+      "score": 6.0,
+      "usd_score": 6.0
+    },
+    {
+      "symbol": "ATOM-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2D",
+      "score": 6.0,
+      "usd_score": -1.7
+    },
+    {
+      "symbol": "MATIC-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2D",
+      "score": 5.8,
+      "usd_score": 5.8
+    },
+    {
+      "symbol": "XRP-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2D",
+      "score": 5.8,
+      "usd_score": -1.8
+    },
+    {
+      "symbol": "UNH",
+      "category": "healthcare",
+      "timeframe": "2W",
+      "score": 5.7,
+      "usd_score": -1.5
+    },
+    {
+      "symbol": "ZS=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "ON",
+      "category": "ai_semiconductors",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": 4.1
+    },
+    {
+      "symbol": "AEM",
+      "category": "clean_energy_materials",
+      "timeframe": "2D",
+      "score": 5.6,
+      "usd_score": 3.3
+    },
+    {
+      "symbol": "NKE",
+      "category": "consumer_discretionary",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": 2.7
+    },
+    {
+      "symbol": "BNB-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2M",
+      "score": 5.6,
+      "usd_score": 8.4
+    },
+    {
+      "symbol": "RB=F",
+      "category": "energy_commodities",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "AMZN",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": -0.1
+    },
+    {
+      "symbol": "ABNB",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": -2.3
+    },
+    {
+      "symbol": "QCOM",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 5.6,
+      "usd_score": 0.2
+    },
+    {
+      "symbol": "CT=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": -1.4
+    },
+    {
+      "symbol": "INTC",
+      "category": "ai_semiconductors",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 4.7
+    },
+    {
+      "symbol": "SBUX",
+      "category": "consumer_discretionary",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 1.2
+    },
+    {
+      "symbol": "ALI=F",
+      "category": "industrial_metals",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 5.5
+    },
+    {
+      "symbol": "BMNR",
+      "category": "miner_hpc",
+      "timeframe": "2D",
+      "score": 5.5,
+      "usd_score": -2.1
+    },
+    {
+      "symbol": "QBTS",
+      "category": "quantum",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 5.1
+    },
+    {
+      "symbol": "RGTI",
+      "category": "quantum",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 5.5
+    },
+    {
+      "symbol": "RGTI",
+      "category": "quantum",
+      "timeframe": "2D",
+      "score": 5.5,
+      "usd_score": 1.4
+    },
+    {
+      "symbol": "PLUG",
+      "category": "renewable_energy",
+      "timeframe": "1W",
+      "score": 5.5,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "MU",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 5.4,
+      "usd_score": 6.9
+    },
+    {
+      "symbol": "MU",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 5.4,
+      "usd_score": 4.5
+    },
+    {
+      "symbol": "WDC",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 5.4,
+      "usd_score": 4.6
+    },
+    {
+      "symbol": "FCX",
+      "category": "clean_energy_materials",
+      "timeframe": "2D",
+      "score": 5.3,
+      "usd_score": 3.8
+    },
+    {
+      "symbol": "MRVL",
+      "category": "ai_semiconductors",
+      "timeframe": "2W",
+      "score": 5.2,
+      "usd_score": 4.8
+    },
+    {
+      "symbol": "GS",
+      "category": "financials",
+      "timeframe": "2D",
+      "score": 5.2,
+      "usd_score": 4.5
+    },
+    {
+      "symbol": "HG=F",
+      "category": "industrial_metals",
+      "timeframe": "2D",
+      "score": 5.2,
+      "usd_score": 5.2
+    },
+    {
+      "symbol": "ALI=F",
+      "category": "industrial_metals",
+      "timeframe": "2D",
+      "score": 5.2,
+      "usd_score": 4.2
+    },
+    {
+      "symbol": "ZC=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -0.7
+    },
+    {
+      "symbol": "KC=F",
+      "category": "agricultural_commodities",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "NVDA",
+      "category": "ai_semiconductors",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "AVGO",
+      "category": "ai_semiconductors",
+      "timeframe": "1M",
+      "score": 5.1,
+      "usd_score": 5.6
+    },
+    {
+      "symbol": "AVGO",
+      "category": "ai_semiconductors",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 3.5
+    },
+    {
+      "symbol": "TSM",
+      "category": "ai_semiconductors",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 3.5
+    },
+    {
+      "symbol": "MRVL",
+      "category": "ai_semiconductors",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "MPWR",
+      "category": "ai_semiconductors",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 0.9
+    },
+    {
+      "symbol": "TSLA",
+      "category": "consumer_discretionary",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "HD",
+      "category": "consumer_discretionary",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 5.5
+    },
+    {
+      "symbol": "NKE",
+      "category": "consumer_discretionary",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "MCD",
+      "category": "consumer_discretionary",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "UNI-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 2.8
+    },
+    {
+      "symbol": "RB=F",
+      "category": "energy_commodities",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "JPM",
+      "category": "financials",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "BAC",
+      "category": "financials",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "WFC",
+      "category": "financials",
+      "timeframe": "1M",
+      "score": 5.1,
+      "usd_score": 6.6
+    },
+    {
+      "symbol": "WFC",
+      "category": "financials",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "GS",
+      "category": "financials",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 4.7
+    },
+    {
+      "symbol": "MS",
+      "category": "financials",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 5.8
+    },
+    {
+      "symbol": "C",
+      "category": "financials",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 5.1
+    },
+    {
+      "symbol": "JNJ",
+      "category": "healthcare",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "PFE",
+      "category": "healthcare",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "ABBV",
+      "category": "healthcare",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 3.9
+    },
+    {
+      "symbol": "TMO",
+      "category": "healthcare",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "SPY",
+      "category": "index_etfs",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 0.9
+    },
+    {
+      "symbol": "IWM",
+      "category": "index_etfs",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 0.9
+    },
+    {
+      "symbol": "QQQ",
+      "category": "index_etfs",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "DIA",
+      "category": "index_etfs",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 3.5
+    },
+    {
+      "symbol": "ZN=F",
+      "category": "industrial_metals",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -1.1
+    },
+    {
+      "symbol": "VNQ",
+      "category": "real_estate",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "SCHH",
+      "category": "real_estate",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "IYR",
+      "category": "real_estate",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "XLRE",
+      "category": "real_estate",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -0.7
+    },
+    {
+      "symbol": "NEE",
+      "category": "utilities",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 4.7
+    },
+    {
+      "symbol": "DUK",
+      "category": "utilities",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 3.2
+    },
+    {
+      "symbol": "D",
+      "category": "utilities",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "AEP",
+      "category": "utilities",
+      "timeframe": "1W",
+      "score": 5.1,
+      "usd_score": 0.5
+    },
+    {
+      "symbol": "QCOM",
+      "category": "ai_semiconductors",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "META",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 1.6
+    },
+    {
+      "symbol": "AMZN",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 4.1
+    },
+    {
+      "symbol": "NFLX",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 4.8
+    },
+    {
+      "symbol": "ABNB",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -2.0
+    },
+    {
+      "symbol": "CRWD",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "WDC",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 4.5
+    },
+    {
+      "symbol": "JNJ",
+      "category": "healthcare",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "TMO",
+      "category": "healthcare",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "DHR",
+      "category": "healthcare",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "TSLA",
+      "category": "next_gen_automotive",
+      "timeframe": "2D",
+      "score": 4.8,
+      "usd_score": 3.6
+    },
+    {
+      "symbol": "RIVN",
+      "category": "next_gen_automotive",
+      "timeframe": "2D",
+      "score": 4.8,
+      "usd_score": 0.1
+    },
+    {
+      "symbol": "TM",
+      "category": "next_gen_automotive",
+      "timeframe": "2D",
+      "score": 4.8,
+      "usd_score": 2.3
+    },
+    {
+      "symbol": "TMUS",
+      "category": "tech_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": 4.8
+    },
+    {
+      "symbol": "NOW",
+      "category": "tech_stocks",
+      "timeframe": "2W",
+      "score": 4.8,
+      "usd_score": -1.5
+    },
+    {
+      "symbol": "META",
+      "category": "faang_hot_stocks",
+      "timeframe": "2D",
+      "score": 4.7,
+      "usd_score": 3.4
+    },
+    {
+      "symbol": "ETH-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2M",
+      "score": 4.6,
+      "usd_score": 7.4
+    },
+    {
+      "symbol": "DLO",
+      "category": "tech_stocks",
+      "timeframe": "1M",
+      "score": 4.6,
+      "usd_score": -0.3
+    },
+    {
+      "symbol": "QS",
+      "category": "battery_storage",
+      "timeframe": "2D",
+      "score": 4.5,
+      "usd_score": 3.0
+    },
+    {
+      "symbol": "SLDP",
+      "category": "battery_storage",
+      "timeframe": "2D",
+      "score": 4.5,
+      "usd_score": 3.3
+    },
+    {
+      "symbol": "AMSC",
+      "category": "battery_storage",
+      "timeframe": "2D",
+      "score": 4.5,
+      "usd_score": -1.8
+    },
+    {
+      "symbol": "SBUX",
+      "category": "consumer_discretionary",
+      "timeframe": "2D",
+      "score": 4.5,
+      "usd_score": -0.8
+    },
+    {
+      "symbol": "NIO",
+      "category": "next_gen_automotive",
+      "timeframe": "2D",
+      "score": 4.5,
+      "usd_score": -1.8
+    },
+    {
+      "symbol": "LI",
+      "category": "next_gen_automotive",
+      "timeframe": "2D",
+      "score": 4.5,
+      "usd_score": -2.7
+    },
+    {
+      "symbol": "LCID",
+      "category": "next_gen_automotive",
+      "timeframe": "2D",
+      "score": 4.5,
+      "usd_score": -2.7
+    },
+    {
+      "symbol": "SEDG",
+      "category": "renewable_energy",
+      "timeframe": "2D",
+      "score": 4.5,
+      "usd_score": -0.2
+    },
+    {
+      "symbol": "NEE",
+      "category": "utilities",
+      "timeframe": "2D",
+      "score": 4.5,
+      "usd_score": 3.6
+    },
+    {
+      "symbol": "NFLX",
+      "category": "faang_hot_stocks",
+      "timeframe": "1M",
+      "score": 4.4,
+      "usd_score": 4.9
+    },
+    {
+      "symbol": "TSLA",
+      "category": "consumer_discretionary",
+      "timeframe": "2W",
+      "score": 4.3,
+      "usd_score": 4.8
+    },
+    {
+      "symbol": "ADA-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2M",
+      "score": 4.3,
+      "usd_score": 4.3
+    },
+    {
+      "symbol": "APLD",
+      "category": "faang_hot_stocks",
+      "timeframe": "2W",
+      "score": 4.3,
+      "usd_score": 4.5
+    },
+    {
+      "symbol": "UNI-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2W",
+      "score": 4.1,
+      "usd_score": 4.6
+    },
+    {
+      "symbol": "AAPL",
+      "category": "faang_hot_stocks",
+      "timeframe": "2D",
+      "score": 4.1,
+      "usd_score": 1.1
+    },
+    {
+      "symbol": "MSFT",
+      "category": "faang_hot_stocks",
+      "timeframe": "2D",
+      "score": 4.1,
+      "usd_score": 0.3
+    },
+    {
+      "symbol": "CRWD",
+      "category": "faang_hot_stocks",
+      "timeframe": "2D",
+      "score": 4.1,
+      "usd_score": 0.9
+    },
+    {
+      "symbol": "PAAS",
+      "category": "silver_miners_esg",
+      "timeframe": "1W",
+      "score": 4.1,
+      "usd_score": 5.6
+    },
+    {
+      "symbol": "TMUS",
+      "category": "tech_stocks",
+      "timeframe": "2D",
+      "score": 4.1,
+      "usd_score": -0.8
+    },
+    {
+      "symbol": "NOW",
+      "category": "tech_stocks",
+      "timeframe": "2D",
+      "score": 4.1,
+      "usd_score": 3.4
+    },
+    {
+      "symbol": "XRP-USD",
+      "category": "cryptocurrencies",
+      "timeframe": "2M",
+      "score": 4.0,
+      "usd_score": 2.5
+    }
+  ]
+}

@@ -17,7 +17,7 @@ except ImportError:
         IMPROVED_SCORING_AVAILABLE = False
 
 
-def apply_improved_scoring(result: Dict, df: pd.DataFrame, category: str, timeframe: str = "1W", market_context: dict = None, original_daily_df: pd.DataFrame = None) -> Dict:
+def apply_improved_scoring(result: Dict, df: pd.DataFrame, category: str, timeframe: str = "1W", market_context: dict = None, original_daily_df: pd.DataFrame = None, usd_score: Optional[float] = None, is_gold_denominated: bool = False) -> Dict:
     """
     Apply improved scoring logic to existing result dictionary
     This integrates explosive bottom detection into the main system
@@ -29,6 +29,8 @@ def apply_improved_scoring(result: Dict, df: pd.DataFrame, category: str, timefr
         timeframe: Timeframe string (2D, 1W, 2W, 1M)
         market_context: Market context dict (SPX/Gold ratio, etc.)
         original_daily_df: Original daily data for seasonality analysis (optional, for crypto)
+        usd_score: USD-denominated score for cross-validation (optional)
+        is_gold_denominated: Whether this is gold/silver-denominated analysis
     """
     if not IMPROVED_SCORING_AVAILABLE:
         return result
@@ -42,7 +44,7 @@ def apply_improved_scoring(result: Dict, df: pd.DataFrame, category: str, timefr
         seasonality_df = original_daily_df if (original_daily_df is not None and category == "cryptocurrencies") else df
         
         # Get improved score with timeframe and market context
-        improved_result = improved_scoring(df, category, pi_value=pi_value, timeframe=timeframe, market_context=market_context, original_daily_df=seasonality_df)
+        improved_result = improved_scoring(df, category, pi_value=pi_value, timeframe=timeframe, market_context=market_context, original_daily_df=seasonality_df, usd_score=usd_score, is_gold_denominated=is_gold_denominated)
         
         # Merge improved scoring into result
         result['score'] = improved_result['score']

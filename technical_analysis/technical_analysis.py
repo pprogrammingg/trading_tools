@@ -76,15 +76,20 @@ PRECIOUS_METALS = [
 # Combine all symbols
 SYMBOLS = TECH_STOCKS + CRYPTOCURRENCIES + PRECIOUS_METALS
 
+# Default timeframes (4H and 1D excluded as they are noisy)
 TIMEFRAMES = {
-    "4H": "4H",      # 4 hours (intraday)
-    "1D": "1D",      # 1 calendar day
     "2D": "2D",      # 2 calendar days
     "1W": "7D",      # 7 calendar days (not trading days)
     "2W": "14D",     # 14 calendar days
     "1M": "30D",     # 30 calendar days
     "2M": "60D",     # 60 calendar days
     "6M": "180D",    # 180 calendar days
+}
+
+# Optional noisy timeframes (can be enabled via --include-intraday flag)
+OPTIONAL_TIMEFRAMES = {
+    "4H": "4H",      # 4 hours (intraday) - NOISY
+    "1D": "1D",      # 1 calendar day - NOISY
 }
 
 INDICATOR_WINDOWS = {
@@ -372,6 +377,80 @@ def convert_to_gold_terms(df, gold_df):
     }, index=aligned_dates)
     
     return gold_terms.dropna()
+
+def convert_to_silver_terms(df, silver_df):
+    """Convert price data to silver terms (price / silver_price)"""
+    if len(silver_df) == 0 or len(df) == 0:
+        return pd.DataFrame()
+    
+    # Create a combined index with all dates from both dataframes
+    all_dates = df.index.union(silver_df.index).sort_values()
+    
+    # Reindex both dataframes to the combined index and forward fill
+    df_reindexed = df.reindex(all_dates).ffill()
+    silver_reindexed = silver_df[["Close"]].reindex(all_dates).ffill()
+    
+    # Now align to symbol dates only
+    aligned_dates = df.index
+    df_aligned = df_reindexed.loc[aligned_dates]
+    silver_aligned = silver_reindexed.loc[aligned_dates]
+    
+    # Check if we have silver prices for all dates
+    if silver_aligned["Close"].isna().any():
+        # Try backward fill for any remaining NaN
+        silver_aligned = silver_aligned.bfill()
+        if silver_aligned["Close"].isna().any():
+            return pd.DataFrame()  # Can't convert if we don't have silver prices
+    
+    silver_prices = silver_aligned["Close"]
+    
+    # Convert OHLC to silver terms
+    silver_terms = pd.DataFrame({
+        "Open": df_aligned["Open"] / silver_prices,
+        "High": df_aligned["High"] / silver_prices,
+        "Low": df_aligned["Low"] / silver_prices,
+        "Close": df_aligned["Close"] / silver_prices,
+        "Volume": df_aligned["Volume"],  # Volume stays the same
+    }, index=aligned_dates)
+    
+    return silver_terms.dropna()
+
+def convert_to_crypto_terms(df, crypto_df):
+    """Convert price data to crypto terms (price / crypto_price) - for cross-pair analysis"""
+    if len(crypto_df) == 0 or len(df) == 0:
+        return pd.DataFrame()
+    
+    # Create a combined index with all dates from both dataframes
+    all_dates = df.index.union(crypto_df.index).sort_values()
+    
+    # Reindex both dataframes to the combined index and forward fill
+    df_reindexed = df.reindex(all_dates).ffill()
+    crypto_reindexed = crypto_df[["Close"]].reindex(all_dates).ffill()
+    
+    # Now align to symbol dates only
+    aligned_dates = df.index
+    df_aligned = df_reindexed.loc[aligned_dates]
+    crypto_aligned = crypto_reindexed.loc[aligned_dates]
+    
+    # Check if we have crypto prices for all dates
+    if crypto_aligned["Close"].isna().any():
+        # Try backward fill for any remaining NaN
+        crypto_aligned = crypto_aligned.bfill()
+        if crypto_aligned["Close"].isna().any():
+            return pd.DataFrame()  # Can't convert if we don't have crypto prices
+    
+    crypto_prices = crypto_aligned["Close"]
+    
+    # Convert OHLC to crypto terms
+    crypto_terms = pd.DataFrame({
+        "Open": df_aligned["Open"] / crypto_prices,
+        "High": df_aligned["High"] / crypto_prices,
+        "Low": df_aligned["Low"] / crypto_prices,
+        "Close": df_aligned["Close"] / crypto_prices,
+        "Volume": df_aligned["Volume"],  # Volume stays the same
+    }, index=aligned_dates)
+    
+    return crypto_terms.dropna()
 
 # ======================================================
 # GMMA
@@ -928,16 +1007,16 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
                 pass
     
     # Apply improved scoring with explosive bottom detection
-    # Note: original_daily_df defaults to None if not provided
+    # Note: original_daily_df defaults to None if not provided. USD path: no prior usd_score (we're computing it).
     original_daily_for_seasonality = original_daily_df if 'original_daily_df' in locals() and original_daily_df is not None else None
     try:
         from scoring.scoring_integration import apply_improved_scoring
-        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality)
+        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality, usd_score=None, is_gold_denominated=is_gold_denominated)
     except ImportError:
         try:
             from scoring_integration import apply_improved_scoring
             original_daily_for_seasonality = original_daily_df if 'original_daily_df' in locals() and original_daily_df is not None else None
-            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality)
+            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality, usd_score=None, is_gold_denominated=is_gold_denominated)
         except ImportError:
             pass  # Fall back to original scoring if improved scoring not available
 
@@ -948,7 +1027,7 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
 # NOTE: Using yFinance data with ta library calculations
 # ======================================================
 
-def compute_indicators_with_score(df, category: str = None, is_gold_denominated: bool = False, timeframe: str = "1W", market_context: dict = None, original_daily_df=None):
+def compute_indicators_with_score(df, category: str = None, is_gold_denominated: bool = False, timeframe: str = "1W", market_context: dict = None, original_daily_df=None, usd_score: float = None):
     """
     Compute indicators using ta library with scoring.
     
@@ -1465,12 +1544,12 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
     original_daily_for_seasonality = original_daily_df if 'original_daily_df' in locals() and original_daily_df is not None else None
     try:
         from scoring.scoring_integration import apply_improved_scoring
-        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality)
+        result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality, usd_score=usd_score, is_gold_denominated=is_gold_denominated)
     except ImportError:
         try:
             from scoring_integration import apply_improved_scoring
             original_daily_for_seasonality = original_daily_df if 'original_daily_df' in locals() and original_daily_df is not None else None
-            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality)
+            result = apply_improved_scoring(result, df, category, timeframe=timeframe, market_context=market_context, original_daily_df=original_daily_for_seasonality, usd_score=usd_score, is_gold_denominated=is_gold_denominated)
         except ImportError:
             pass  # Fall back to original scoring if improved scoring not available
 
@@ -1587,7 +1666,7 @@ def json_safe(obj):
 # MAIN
 # ======================================================
 
-def process_category(category_name: str, symbols: list, gold_df=None, calculate_potential: bool = False, force_refresh: bool = False):
+def process_category(category_name: str, symbols: list, gold_df=None, silver_df=None, timeframes=None, calculate_potential: bool = False, force_refresh: bool = False):
     """
     Process a single category of symbols.
     
@@ -1595,6 +1674,8 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
         category_name: Name of the category
         symbols: List of symbols to process
         gold_df: Pre-downloaded gold data (optional)
+        silver_df: Pre-downloaded silver data (optional)
+        timeframes: Dictionary of timeframes to process (defaults to TIMEFRAMES)
         calculate_potential: Whether to calculate relative potential (slower, requires API calls)
         
     Returns:
@@ -1604,6 +1685,7 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
     start_time = time.time()
     timings = {
         'gold_download': 0,
+        'silver_download': 0,
         'symbols': {},
         'json_write': 0,
     }
@@ -1628,6 +1710,20 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
             cache_file = get_cache_path("gold", "GC=F")
             cache_status = " (cached)" if cache_file.exists() and not should_refresh_cache(cache_file, force_refresh=False) else ""
             print(f"  ✓ Gold prices downloaded ({len(gold_df)} rows){cache_status} [{timings['gold_download']:.2f}s]")
+    
+    # Download silver prices if not provided
+    if silver_df is None:
+        print("\nDownloading silver prices (SI=F) for silver-denominated analysis...")
+        silver_start = time.time()
+        silver_df = download_data("SI=F", category="precious_metals", use_cache=True, force_refresh=force_refresh)
+        timings['silver_download'] = time.time() - silver_start
+        if len(silver_df) == 0:
+            print("  Warning: Could not fetch silver prices. Silver-denominated analysis will be skipped.")
+            silver_df = None
+        else:
+            cache_file = get_cache_path("precious_metals", "SI=F")
+            cache_status = " (cached)" if cache_file.exists() and not should_refresh_cache(cache_file, force_refresh=False) else ""
+            print(f"  ✓ Silver prices downloaded ({len(silver_df)} rows){cache_status} [{timings['silver_download']:.2f}s]")
     
     # All symbols in this category share the same category list for relative comparisons
     category_symbols = symbols
@@ -1676,7 +1772,10 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
             }
             timings['symbols'][symbol]['relative_potential'] = 0
 
-        for label, rule in TIMEFRAMES.items():
+        # Use provided timeframes or default
+        timeframes_to_process = timeframes if timeframes else TIMEFRAMES
+        
+        for label, rule in timeframes_to_process.items():
             results[symbol][label] = {}
             
             # Initialize timing for this timeframe
@@ -1733,8 +1832,14 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
             compute_indicators_with_score._current_market_context = market_context
             # For crypto, pass original daily data for seasonality analysis
             original_daily_for_seasonality = base_df if category_name == "cryptocurrencies" else None
-            indicators_ta_usd = compute_indicators_with_score(df_usd, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context, original_daily_df=original_daily_for_seasonality)
-            indicators_tv_usd = compute_indicators_tv(df_usd, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context)
+            try:
+                indicators_ta_usd = compute_indicators_with_score(df_usd, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context, original_daily_df=original_daily_for_seasonality)
+                indicators_tv_usd = compute_indicators_tv(df_usd, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context)
+            except (IndexError, ValueError, KeyError) as e:
+                # Insufficient data for indicators - skip this timeframe
+                print(f"    ⚠️  Skipping {label} timeframe for {symbol}: insufficient data ({type(e).__name__})")
+                results[symbol][label]["yfinance"] = {"error": f"Insufficient data for indicators: {type(e).__name__}"}
+                continue
             timings['symbols'][symbol]['timeframes'][label]['indicators_usd'] = time.time() - indicators_start
             
             # Add relative potential to indicators (same for all timeframes, calculated from full data)
@@ -1755,8 +1860,15 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
                     gold_indicators_start = time.time()
                     # For crypto, pass original daily data for seasonality analysis
                     original_daily_for_seasonality = base_df if category_name == "cryptocurrencies" else None
-                    indicators_ta_gold = compute_indicators_with_score(df_gold, category=category_name, is_gold_denominated=True, timeframe=label, market_context=market_context, original_daily_df=original_daily_for_seasonality)
-                    indicators_tv_gold = compute_indicators_tv(df_gold, category=category_name, is_gold_denominated=True, timeframe=label, market_context=market_context)
+                    try:
+                        # Get USD score for cross-validation
+                        usd_score_for_validation = indicators_ta_usd.get('score') if indicators_ta_usd else None
+                        indicators_ta_gold = compute_indicators_with_score(df_gold, category=category_name, is_gold_denominated=True, timeframe=label, market_context=market_context, original_daily_df=original_daily_for_seasonality, usd_score=usd_score_for_validation)
+                        indicators_tv_gold = compute_indicators_tv(df_gold, category=category_name, is_gold_denominated=True, timeframe=label, market_context=market_context)
+                    except (IndexError, ValueError, KeyError) as e:
+                        # Insufficient data - skip gold analysis for this timeframe
+                        indicators_ta_gold = None
+                        indicators_tv_gold = None
                     timings['symbols'][symbol]['timeframes'][label]['indicators_gold'] = time.time() - gold_indicators_start
                     # Calculate relative potential for gold terms too (if enabled)
                     if calculate_potential:
@@ -1784,6 +1896,129 @@ def process_category(category_name: str, symbols: list, gold_df=None, calculate_
                     "ta_library": indicators_ta_gold,
                     "tradingview_library": indicators_tv_gold
                 }
+            
+            # Calculate indicators for Silver-denominated prices (if silver data available)
+            indicators_ta_silver = None
+            indicators_tv_silver = None
+            
+            if silver_df is not None and symbol not in ["GC=F", "SI=F"]:  # Skip gold and silver for themselves
+                silver_conv_start = time.time()
+                silver_resampled = resample_ohlcv(silver_df, rule)
+                df_silver = convert_to_silver_terms(df_usd, silver_resampled)
+                timings['symbols'][symbol]['timeframes'][label]['silver_conversion'] = time.time() - silver_conv_start
+                
+                if len(df_silver) > 0:
+                    silver_indicators_start = time.time()
+                    # For crypto, pass original daily data for seasonality analysis
+                    original_daily_for_seasonality = base_df if category_name == "cryptocurrencies" else None
+                    try:
+                        # Get USD score for cross-validation
+                        usd_score_for_validation = indicators_ta_usd.get('score') if indicators_ta_usd else None
+                        indicators_ta_silver = compute_indicators_with_score(df_silver, category=category_name, is_gold_denominated=True, timeframe=label, market_context=market_context, original_daily_df=original_daily_for_seasonality, usd_score=usd_score_for_validation)
+                        indicators_tv_silver = compute_indicators_tv(df_silver, category=category_name, is_gold_denominated=True, timeframe=label, market_context=market_context)
+                    except (IndexError, ValueError, KeyError) as e:
+                        # Insufficient data - skip silver analysis for this timeframe
+                        indicators_ta_silver = None
+                        indicators_tv_silver = None
+                    timings['symbols'][symbol]['timeframes'][label]['indicators_silver'] = time.time() - silver_indicators_start
+                    # Calculate relative potential for silver terms too (if enabled)
+                    if calculate_potential:
+                        silver_potential = calculate_relative_potential(symbol, df_silver, category_symbols)
+                    else:
+                        silver_potential = {
+                            "upside_potential_pct": None,
+                            "downside_potential_pct": None,
+                            "relative_to_category": None,
+                            "price_vs_52w_range": None
+                        }
+                    indicators_ta_silver["relative_potential"] = silver_potential
+                    indicators_tv_silver["relative_potential"] = silver_potential
+            
+            # Add silver-denominated results if available
+            if indicators_ta_silver is not None:
+                results[symbol][label]["yfinance"]["silver"] = {
+                    "ta_library": indicators_ta_silver,
+                    "tradingview_library": indicators_tv_silver
+                }
+            
+            # For cryptocurrencies: add cross-pair analysis (SOL vs ETH, others vs BTC/ETH)
+            if category_name == "cryptocurrencies":
+                # Download ETH and BTC for cross-pair analysis
+                eth_df = None
+                btc_df = None
+                
+                if symbol == "SOL-USD":
+                    # SOL vs ETH
+                    try:
+                        eth_ticker = yf.Ticker("ETH-USD")
+                        eth_df = eth_ticker.history(period="max", interval="1d")
+                        if len(eth_df) > 0:
+                            eth_resampled = resample_ohlcv(eth_df, rule)
+                            df_sol_eth = convert_to_crypto_terms(df_usd, eth_resampled)
+                            if len(df_sol_eth) > 0:
+                                indicators_ta_sol_eth = compute_indicators_with_score(df_sol_eth, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context, original_daily_df=base_df)
+                                indicators_tv_sol_eth = compute_indicators_tv(df_sol_eth, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context)
+                                results[symbol][label]["yfinance"]["eth_denominated"] = {
+                                    "ta_library": indicators_ta_sol_eth,
+                                    "tradingview_library": indicators_tv_sol_eth
+                                }
+                    except:
+                        pass
+                
+                elif symbol not in ["BTC-USD", "ETH-USD"]:
+                    # Other cryptos vs BTC and ETH
+                    try:
+                        # Get BTC
+                        btc_ticker = yf.Ticker("BTC-USD")
+                        btc_df = btc_ticker.history(period="max", interval="1d")
+                        
+                        # Get ETH
+                        eth_ticker = yf.Ticker("ETH-USD")
+                        eth_df = eth_ticker.history(period="max", interval="1d")
+                        
+                        # BTC-denominated
+                        if len(btc_df) > 0:
+                            btc_resampled = resample_ohlcv(btc_df, rule)
+                            df_crypto_btc = convert_to_crypto_terms(df_usd, btc_resampled)
+                            if len(df_crypto_btc) > 0:
+                                indicators_ta_crypto_btc = compute_indicators_with_score(df_crypto_btc, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context, original_daily_df=base_df)
+                                indicators_tv_crypto_btc = compute_indicators_tv(df_crypto_btc, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context)
+                                results[symbol][label]["yfinance"]["btc_denominated"] = {
+                                    "ta_library": indicators_ta_crypto_btc,
+                                    "tradingview_library": indicators_tv_crypto_btc
+                                }
+                        
+                        # ETH-denominated
+                        if len(eth_df) > 0:
+                            eth_resampled = resample_ohlcv(eth_df, rule)
+                            df_crypto_eth = convert_to_crypto_terms(df_usd, eth_resampled)
+                            if len(df_crypto_eth) > 0:
+                                indicators_ta_crypto_eth = compute_indicators_with_score(df_crypto_eth, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context, original_daily_df=base_df)
+                                indicators_tv_crypto_eth = compute_indicators_tv(df_crypto_eth, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context)
+                                results[symbol][label]["yfinance"]["eth_denominated"] = {
+                                    "ta_library": indicators_ta_crypto_eth,
+                                    "tradingview_library": indicators_tv_crypto_eth
+                                }
+                    except:
+                        pass
+                
+                elif symbol == "ETH-USD":
+                    # ETH vs BTC
+                    try:
+                        btc_ticker = yf.Ticker("BTC-USD")
+                        btc_df = btc_ticker.history(period="max", interval="1d")
+                        if len(btc_df) > 0:
+                            btc_resampled = resample_ohlcv(btc_df, rule)
+                            df_eth_btc = convert_to_crypto_terms(df_usd, btc_resampled)
+                            if len(df_eth_btc) > 0:
+                                indicators_ta_eth_btc = compute_indicators_with_score(df_eth_btc, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context, original_daily_df=base_df)
+                                indicators_tv_eth_btc = compute_indicators_tv(df_eth_btc, category=category_name, is_gold_denominated=False, timeframe=label, market_context=market_context)
+                                results[symbol][label]["yfinance"]["btc_denominated"] = {
+                                    "ta_library": indicators_ta_eth_btc,
+                                    "tradingview_library": indicators_tv_eth_btc
+                                }
+                    except:
+                        pass
 
     # Write JSON
     output_file = RESULTS_DIR / f"{category_name}_results.json"
@@ -1857,6 +2092,12 @@ def main():
                             'Saves ~30-45%% time when disabled.')
     parser.add_argument('--refresh', action='store_true',
                        help='Force refresh all data (ignore cache, re-download everything)')
+    parser.add_argument('--include-intraday', action='store_true',
+                       help='Include noisy intraday timeframes (4H, 1D) in analysis')
+    parser.add_argument('--batch-size', type=int, default=0,
+                       help='Process categories in batches of N (0 = all at once)')
+    parser.add_argument('--batch-index', type=int, default=0,
+                       help='Process batch number N (0-indexed, use with --batch-size)')
     args = parser.parse_args()
     
     # Load symbols configuration
@@ -1867,7 +2108,19 @@ def main():
         print("Please create symbols_config.json with category structure.")
         sys.exit(1)
     
-    # Download gold once (shared across all categories)
+    # Determine timeframes to use
+    timeframes_to_use = TIMEFRAMES.copy()
+    if args.include_intraday:
+        timeframes_to_use.update(OPTIONAL_TIMEFRAMES)
+        print("=" * 60)
+        print("⚠️  INTRADAY TIMEFRAMES ENABLED (4H, 1D) - These are noisy!")
+        print("=" * 60)
+    else:
+        print("=" * 60)
+        print("ℹ️  Intraday timeframes (4H, 1D) excluded by default (use --include-intraday to enable)")
+        print("=" * 60)
+    
+    # Download gold and silver once (shared across all categories)
     print("=" * 60)
     print("BENCHMARKING MODE ENABLED")
     if not args.calculate_potential:
@@ -1886,14 +2139,45 @@ def main():
         cache_status = " (cached)" if cache_file.exists() and not should_refresh_cache(cache_file, force_refresh=args.refresh) else ""
         print(f"  ✓ Gold prices downloaded ({len(gold_df)} rows){cache_status} [{gold_download_time:.2f}s]")
     
+    print("\nDownloading silver prices (SI=F) for silver-denominated analysis...")
+    silver_start = time.time()
+    silver_df = download_data("SI=F", category="precious_metals", use_cache=True, force_refresh=args.refresh)
+    silver_download_time = time.time() - silver_start
+    if len(silver_df) == 0:
+        print("  Warning: Could not fetch silver prices. Silver-denominated analysis will be skipped.")
+        silver_df = None
+    else:
+        cache_file = get_cache_path("precious_metals", "SI=F")
+        cache_status = " (cached)" if cache_file.exists() and not should_refresh_cache(cache_file, force_refresh=args.refresh) else ""
+        print(f"  ✓ Silver prices downloaded ({len(silver_df)} rows){cache_status} [{silver_download_time:.2f}s]")
+    
     # Process categories
-    categories_to_process = [args.category] if args.category else list(symbols_config.keys())
+    all_categories = list(symbols_config.keys())
+    categories_to_process = [args.category] if args.category else all_categories
+    
+    # Batch processing
+    if args.batch_size > 0:
+        batch_start = args.batch_index * args.batch_size
+        batch_end = batch_start + args.batch_size
+        categories_to_process = categories_to_process[batch_start:batch_end]
+        print(f"\n{'='*60}")
+        print(f"BATCH PROCESSING: Batch {args.batch_index + 1}")
+        print(f"Processing categories {batch_start + 1}-{min(batch_end, len(all_categories))} of {len(all_categories)}")
+        print(f"Categories: {', '.join(categories_to_process)}")
+        print(f"{'='*60}\n")
     
     overall_start = time.time()
     all_results = {}
     all_timings = {}
     
-    for category_name in categories_to_process:
+    # Progress tracking
+    total_categories = len(categories_to_process)
+    completed = 0
+    
+    for idx, category_name in enumerate(categories_to_process, 1):
+        print(f"\n{'='*60}")
+        print(f"PROGRESS: [{idx}/{total_categories}] Processing {category_name.upper()}")
+        print(f"{'='*60}")
         if category_name not in symbols_config:
             print(f"Warning: Category '{category_name}' not found in config. Skipping.")
             continue
@@ -1903,9 +2187,20 @@ def main():
             print(f"Warning: Category '{category_name}' has no symbols. Skipping.")
             continue
         
-        results, timings = process_category(category_name, symbols, gold_df, args.calculate_potential, args.refresh)
+        results, timings = process_category(category_name, symbols, gold_df, silver_df, timeframes_to_use, args.calculate_potential, args.refresh)
         all_results[category_name] = results
         all_timings[category_name] = timings
+        
+        completed += 1
+        progress_pct = (completed / total_categories) * 100
+        elapsed = time.time() - overall_start
+        avg_time_per_cat = elapsed / completed if completed > 0 else 0
+        remaining_cats = total_categories - completed
+        eta_seconds = avg_time_per_cat * remaining_cats
+        
+        print(f"\n✅ [{completed}/{total_categories}] {category_name} complete ({progress_pct:.1f}%)")
+        if remaining_cats > 0:
+            print(f"   ETA: {eta_seconds/60:.1f} minutes ({remaining_cats} categories remaining)")
     
     overall_time = time.time() - overall_start
     

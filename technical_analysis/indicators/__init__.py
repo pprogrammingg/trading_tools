@@ -15,6 +15,15 @@ from .advanced_indicators import (
 )
 
 from .market_context import get_market_context
+try:
+    from .cme_sunday_open import get_cme_direction_for_symbol, get_cme_direction_all
+except ImportError:
+    get_cme_direction_for_symbol = None
+    get_cme_direction_all = None
+try:
+    from .super_guppy import get_super_guppy_state
+except ImportError:
+    get_super_guppy_state = None
 from .bottoming_structures import (
     detect_double_bottom, detect_inverse_head_shoulders,
     detect_ascending_triangle, detect_falling_wedge,
@@ -26,6 +35,9 @@ from .elliott_wave import (
 )
 
 __all__ = [
+    'get_cme_direction_for_symbol',
+    'get_cme_direction_all',
+    'get_super_guppy_state',
     'compute_gmma',
     'compute_gmma_tv',
     'calculate_moving_averages_tv',
