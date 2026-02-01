@@ -1,0 +1,2689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top scores grouped by industry/category of investment, sorted in each group by market cap</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1400px; margin: 0 auto; padding: 24px; background: #f5f5f5; }
+        h1 { color: #333; margin-bottom: 8px; }
+        a.back { display: inline-block; margin-bottom: 16px; color: #0066cc; text-decoration: none; }
+        a.back:hover { text-decoration: underline; }
+        .top-scorers-table td, .top-scorers-table th { padding: 8px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back">← Back to Index</a>
+    <h1>📊 Top scores grouped by industry/category of investment, sorted in each group by market cap</h1>
+    <p style="color: #666;">Scores: 1M, 2W, 1W vs Gold, Silver, USD. Then 1M/2W performance % vs BTC and ETH.</p>
+    <div style="overflow-x: auto;">
+
+        <table class="top-scorers-table" style="width:100%; border-collapse: collapse; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <thead>
+                <tr style="background: #4CAF50; color: white;">
+            <th>Category</th>
+            <th>Symbol</th>
+            <th>MktCap</th>
+            <th>1M Gold</th>
+            <th>1M Silver</th>
+            <th>1M USD</th>
+            <th>2W Gold</th>
+            <th>2W Silver</th>
+            <th>2W USD</th>
+            <th>1W Gold</th>
+            <th>1W Silver</th>
+            <th>1W USD</th>
+            <th>1M BTC</th>
+            <th>2W BTC</th>
+            <th>1M ETH</th>
+            <th>2W ETH</th>
+            <th>ESG</th>
+                </tr>
+            </thead>
+            <tbody>
+        <tr>
+            <td>Agricultural Commodities</td>
+            <td><strong>CT=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">13.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">12.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">11.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.4</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Agricultural Commodities</td>
+            <td><strong>KC=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Agricultural Commodities</td>
+            <td><strong>SB=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Agricultural Commodities</td>
+            <td><strong>ZC=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Agricultural Commodities</td>
+            <td><strong>ZS=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-2.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Agricultural Commodities</td>
+            <td><strong>ZW=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.4</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Ai Semiconductors</td>
+            <td><strong>AMD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Ai Semiconductors</td>
+            <td><strong>ASML</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Ai Semiconductors</td>
+            <td><strong>AVGO</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Ai Semiconductors</td>
+            <td><strong>INTC</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Ai Semiconductors</td>
+            <td><strong>MPWR</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.4</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Ai Semiconductors</td>
+            <td><strong>MRVL</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.8</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Ai Semiconductors</td>
+            <td><strong>NVDA</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Ai Semiconductors</td>
+            <td><strong>ON</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.1</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Ai Semiconductors</td>
+            <td><strong>QCOM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Ai Semiconductors</td>
+            <td><strong>TSM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Battery Storage</td>
+            <td><strong>AMSC</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.3</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.0</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Battery Storage</td>
+            <td><strong>QS</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Battery Storage</td>
+            <td><strong>SLDP</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.5</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Clean Energy Materials</td>
+            <td><strong>AEM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Clean Energy Materials</td>
+            <td><strong>ALB</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-2.0</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.6</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.2</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Clean Energy Materials</td>
+            <td><strong>CCJ</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.4</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Clean Energy Materials</td>
+            <td><strong>FCX</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.8</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.0</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-2.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Consumer Discretionary</td>
+            <td><strong>HD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Consumer Discretionary</td>
+            <td><strong>MCD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Consumer Discretionary</td>
+            <td><strong>NKE</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Consumer Discretionary</td>
+            <td><strong>SBUX</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>CKB-USD</strong></td>
+            <td>95.6M</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">10.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">10.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">12.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>QANX-USD</strong></td>
+            <td>30.0M</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">11.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.5</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.8</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>ABEL-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.0</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>ADA-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">10.9</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">12.9</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">13.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">12.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">12.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>ATOM-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">13.0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">13.0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>AVAX-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.5</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>BNB-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.5</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">10.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>BTC-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">10.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">10.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.3</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>DOT-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">14.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">12.9</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">11.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.3</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>ETH-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.5</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.5</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>LINK-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>MATIC-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-4.8</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.9</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.4</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>QRL-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>SOL-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.5</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.5</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>UNI-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.0</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.3</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Cryptocurrencies</td>
+            <td><strong>XRP-USD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.5</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.5</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Energy Commodities</td>
+            <td><strong>CL=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Energy Commodities</td>
+            <td><strong>HO=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.5</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Energy Commodities</td>
+            <td><strong>NG=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Energy Commodities</td>
+            <td><strong>RB=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>AAPL</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.9</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.0</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-3.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.5</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>ABNB</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-2.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>AMZN</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.4</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-3.8</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.8</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.1</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>APLD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.0</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.0</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>ARM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>CRWD</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>GOOGL</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-3.0</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>META</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.8</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.1</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.1</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>MSFT</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.3</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>MU</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>NFLX</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.8</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.9</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.8</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.8</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Faang Hot Stocks</td>
+            <td><strong>WDC</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Financials</td>
+            <td><strong>BAC</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Financials</td>
+            <td><strong>C</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Financials</td>
+            <td><strong>GS</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Financials</td>
+            <td><strong>JPM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Financials</td>
+            <td><strong>MS</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.4</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.8</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Financials</td>
+            <td><strong>WFC</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Healthcare</td>
+            <td><strong>ABBV</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Healthcare</td>
+            <td><strong>DHR</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Healthcare</td>
+            <td><strong>JNJ</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Healthcare</td>
+            <td><strong>PFE</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Healthcare</td>
+            <td><strong>TMO</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Healthcare</td>
+            <td><strong>UNH</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.5</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.9</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>ACWI</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>DIA</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>EEMV</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>EFA</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.0</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>HLAL</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>IEMG</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.0</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>IWM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>QQQ</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>SCHE</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>SPUS</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>SPY</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>VTWO</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Index Etfs</td>
+            <td><strong>VWO</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Industrial Metals</td>
+            <td><strong>ALI=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Industrial Metals</td>
+            <td><strong>HG=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Industrial Metals</td>
+            <td><strong>ZN=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Macro Trend</td>
+            <td><strong>DX-Y.NYB</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Macro Trend</td>
+            <td><strong>EEM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.0</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Macro Trend</td>
+            <td><strong>^GSPC</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Miner Hpc</td>
+            <td><strong>BITF</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.5</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Miner Hpc</td>
+            <td><strong>BMNR</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Miner Hpc</td>
+            <td><strong>CIFR</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Miner Hpc</td>
+            <td><strong>CLSK</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Miner Hpc</td>
+            <td><strong>CORZ</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Miner Hpc</td>
+            <td><strong>HUT</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.9</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Miner Hpc</td>
+            <td><strong>IREN</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Miner Hpc</td>
+            <td><strong>MNRS</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.4</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.4</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Miner Hpc</td>
+            <td><strong>WGMI</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.5</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Miner Hpc</td>
+            <td><strong>WULF</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Next Gen Automotive</td>
+            <td><strong>F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Next Gen Automotive</td>
+            <td><strong>GM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-2.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Next Gen Automotive</td>
+            <td><strong>LCID</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Next Gen Automotive</td>
+            <td><strong>LI</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Next Gen Automotive</td>
+            <td><strong>NIO</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Next Gen Automotive</td>
+            <td><strong>RIVN</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Next Gen Automotive</td>
+            <td><strong>TM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.9</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Next Gen Automotive</td>
+            <td><strong>TSLA</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.4</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.4</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Next Gen Automotive</td>
+            <td><strong>XPEV</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Precious Metals</td>
+            <td><strong>GC=F</strong></td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Precious Metals</td>
+            <td><strong>PA=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Precious Metals</td>
+            <td><strong>PL=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.5</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">8.1</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Precious Metals</td>
+            <td><strong>SI=F</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.4</td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.8</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.8</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Quantum</td>
+            <td><strong>IONQ</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Quantum</td>
+            <td><strong>QBTS</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.0</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Quantum</td>
+            <td><strong>QTUM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.4</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.4</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.5</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Quantum</td>
+            <td><strong>RGTI</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Real Estate</td>
+            <td><strong>IYR</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Real Estate</td>
+            <td><strong>SCHH</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Real Estate</td>
+            <td><strong>VNQ</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Real Estate</td>
+            <td><strong>XLRE</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">9.1</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Renewable Energy</td>
+            <td><strong>ENPH</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">10.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">10.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">10.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.8</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.8</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Renewable Energy</td>
+            <td><strong>PLUG</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Renewable Energy</td>
+            <td><strong>RUN</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.7</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Renewable Energy</td>
+            <td><strong>SEDG</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Silver Miners Esg</td>
+            <td><strong>AG</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.4</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.9</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Silver Miners Esg</td>
+            <td><strong>HL</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Silver Miners Esg</td>
+            <td><strong>PAAS</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.9</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.9</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.2</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.2</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.3</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Silver Miners Esg</td>
+            <td><strong>SVM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.2</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Silver Miners Esg</td>
+            <td><strong>WPM</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.5</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Tech Stocks</td>
+            <td><strong>DLO</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.9</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.2</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Tech Stocks</td>
+            <td><strong>NOW</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.4</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.5</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.4</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">6.4</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Tech Stocks</td>
+            <td><strong>PATH</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.9</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.9</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.4</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-3.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.4</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Tech Stocks</td>
+            <td><strong>PGY</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.5</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Tech Stocks</td>
+            <td><strong>TMUS</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-2.3</td>
+            <td class="score-cell" style="background-color:#FF4500;color:white;font-weight:bold;">-3.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.7</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.8</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.8</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">4.8</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.5</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.5</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.0</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Utilities</td>
+            <td><strong>AEP</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.3</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.1</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.5</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Utilities</td>
+            <td><strong>D</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.7</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.3</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-0.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.0</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-2.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.1</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.0</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Utilities</td>
+            <td><strong>DUK</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.7</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.6</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.0</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">1.9</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.2</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+        <tr>
+            <td>Utilities</td>
+            <td><strong>SO</strong></td>
+            <td>—</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#006400;color:white;font-weight:bold;">7.6</td>
+            <td class="score-cell" style="background-color:#32CD32;color:white;font-weight:bold;">5.6</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFD700;color:white;font-weight:bold;">0.9</td>
+            <td class="score-cell" style="background-color:#FFA500;color:white;font-weight:bold;">-1.1</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">2.8</td>
+            <td class="score-cell" style="background-color:#90EE90;color:white;font-weight:bold;">3.9</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+            <td class="esg-cell">—</td>
+        </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -46,6 +46,60 @@ def calculate_fibonacci_levels(high: float, low: float) -> Dict[str, float]:
         'fib_786': high - (diff * 0.786),
     }
 
+def _build_wave_count(
+    trend: str,
+    wave_start: float,
+    recent_extreme: float,
+    current_price: float,
+    fib_levels: Dict[str, float],
+    wave_3_target: float,
+    wave_5_target: float,
+) -> Dict:
+    """
+    Build wave_count structure: primary (waves 1-5 with start_usd, end_usd, current_wave).
+    Secondary (alternative count) optional.
+    """
+    waves = []
+    if trend == "uptrend":
+        # Wave 1: start -> first high (recent_extreme is the high)
+        w1_end = recent_extreme
+        w2_end = fib_levels.get("fib_618", (wave_start + recent_extreme) / 2)
+        waves = [
+            {"number": 1, "start_usd": round(wave_start, 2), "end_usd": round(w1_end, 2), "current_wave": False},
+            {"number": 2, "start_usd": round(w1_end, 2), "end_usd": round(w2_end, 2), "current_wave": False},
+            {"number": 3, "start_usd": round(w2_end, 2), "end_usd": round(wave_3_target, 2), "current_wave": False},
+            {"number": 4, "start_usd": round(wave_3_target, 2), "end_usd": round(w2_end, 2), "current_wave": False},
+            {"number": 5, "start_usd": round(w2_end, 2), "end_usd": round(wave_5_target, 2), "current_wave": False},
+        ]
+        # Mark current wave by price position
+        for i, w in enumerate(waves):
+            lo = min(w["start_usd"], w["end_usd"])
+            hi = max(w["start_usd"], w["end_usd"])
+            if lo <= current_price <= hi or abs(current_price - w["end_usd"]) / (hi - lo + 1e-9) < 0.2:
+                waves[i] = {**w, "current_wave": True}
+                break
+    else:
+        w1_end = recent_extreme
+        w2_end = fib_levels.get("fib_618", (wave_start + recent_extreme) / 2)
+        waves = [
+            {"number": 1, "start_usd": round(wave_start, 2), "end_usd": round(w1_end, 2), "current_wave": False},
+            {"number": 2, "start_usd": round(w1_end, 2), "end_usd": round(w2_end, 2), "current_wave": False},
+            {"number": 3, "start_usd": round(w2_end, 2), "end_usd": round(wave_3_target, 2), "current_wave": False},
+            {"number": 4, "start_usd": round(wave_3_target, 2), "end_usd": round(w2_end, 2), "current_wave": False},
+            {"number": 5, "start_usd": round(w2_end, 2), "end_usd": round(wave_5_target, 2), "current_wave": False},
+        ]
+        for i, w in enumerate(waves):
+            lo = min(w["start_usd"], w["end_usd"])
+            hi = max(w["start_usd"], w["end_usd"])
+            if lo <= current_price <= hi or abs(current_price - w["end_usd"]) / (hi - lo + 1e-9) < 0.2:
+                waves[i] = {**w, "current_wave": True}
+                break
+    return {
+        "primary": {"waves": waves},
+        "secondary": None,
+    }
+
+
 def identify_elliott_wave_pattern(close: pd.Series, lookback: int = 20) -> Optional[Dict]:
     """
     Identify Elliott Wave pattern and calculate price targets
@@ -121,6 +175,17 @@ def identify_elliott_wave_pattern(close: pd.Series, lookback: int = 20) -> Optio
         else:
             wave_position = "Wave 1 or correction"
     
+    # Build wave_count structure: primary (and optional secondary) with waves array
+    wave_count = _build_wave_count(
+        trend=trend,
+        wave_start=wave_start,
+        recent_extreme=wave_high if trend == "uptrend" else wave_low,
+        current_price=current_price,
+        fib_levels=fib_levels,
+        wave_3_target=wave_3_target,
+        wave_5_target=wave_5_target,
+    )
+
     return {
         'trend': trend,
         'wave_position': wave_position,
@@ -133,6 +198,7 @@ def identify_elliott_wave_pattern(close: pd.Series, lookback: int = 20) -> Optio
         },
         'support_resistance': support_levels,
         'fibonacci_levels': fib_levels,
+        'wave_count': wave_count,
     }
 
 def calculate_elliott_wave_targets(close: pd.Series, high: pd.Series, low: pd.Series) -> Optional[Dict]:

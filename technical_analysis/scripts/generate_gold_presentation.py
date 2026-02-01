@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Generate beautiful presentation page for tickers scoring 6-7 and 7+ against Gold
+Generate beautiful presentation page for top scorers vs Gold and USD (Monthly only).
+Shows tickers scoring 6-7 and 7+ against Gold on the 1M timeframe, with USD and Silver monthly scores.
 """
 
 import sys
@@ -13,17 +14,17 @@ from datetime import datetime
 from collections import defaultdict
 
 def generate_gold_presentation():
-    """Generate HTML presentation of high-scoring tickers vs Gold"""
+    """Generate HTML presentation of top scorers vs Gold and USD (Monthly 1M only)."""
     
     result_dir = Path("result_scores")
     result_files = list(result_dir.glob("*_results.json"))
     
-    # Timeframes to check (monthly or lower)
-    relevant_timeframes = ['1M', '2M', '1W', '2W', '2D']
+    # Monthly only: top scorers against Gold and USD on 1M
+    relevant_timeframes = ['1M']
     
-    # Score ranges
-    score_6_7 = []  # Scores 6.0 to 6.9
-    score_7_plus = []  # Scores 7.0 and above
+    # Score ranges (by monthly Gold score)
+    score_6_7 = []  # Gold 1M score 6.0 to 6.9
+    score_7_plus = []  # Gold 1M score 7.0 and above
     
     for result_file in sorted(result_files):
         category = result_file.name.replace("_results.json", "")
@@ -33,46 +34,43 @@ def generate_gold_presentation():
                 data = json.load(f)
             
             for symbol, symbol_data in data.items():
-                if isinstance(symbol_data, dict):
-                    for tf in relevant_timeframes:
-                        if tf in symbol_data:
-                            tf_data = symbol_data[tf]
-                            
-                            # Get scores
-                            usd_score = None
-                            gold_score = None
-                            silver_score = None
-                            
-                            if 'yfinance' in tf_data:
-                                if 'usd' in tf_data['yfinance'] and 'ta_library' in tf_data['yfinance']['usd']:
-                                    usd_score = tf_data['yfinance']['usd']['ta_library'].get('score')
-                                
-                                if 'gold' in tf_data['yfinance'] and 'ta_library' in tf_data['yfinance']['gold']:
-                                    gold_score = tf_data['yfinance']['gold']['ta_library'].get('score')
-                                
-                                if 'silver' in tf_data['yfinance'] and 'ta_library' in tf_data['yfinance']['silver']:
-                                    silver_score = tf_data['yfinance']['silver']['ta_library'].get('score')
-                            
-                            # Categorize by gold score
-                            if gold_score is not None:
-                                entry = {
-                                    'symbol': symbol,
-                                    'category': category,
-                                    'timeframe': tf,
-                                    'gold_score': gold_score,
-                                    'usd_score': usd_score,
-                                    'silver_score': silver_score
-                                }
-                                
-                                if 6.0 <= gold_score < 7.0:
-                                    score_6_7.append(entry)
-                                elif gold_score >= 7.0:
-                                    score_7_plus.append(entry)
+                if not isinstance(symbol_data, dict):
+                    continue
+                if '1M' not in symbol_data:
+                    continue
+                tf_data = symbol_data['1M']
+                
+                usd_score = None
+                gold_score = None
+                silver_score = None
+                
+                if 'yfinance' in tf_data:
+                    if 'usd' in tf_data['yfinance'] and 'ta_library' in tf_data['yfinance']['usd']:
+                        usd_score = tf_data['yfinance']['usd']['ta_library'].get('score')
+                    if 'gold' in tf_data['yfinance'] and 'ta_library' in tf_data['yfinance']['gold']:
+                        gold_score = tf_data['yfinance']['gold']['ta_library'].get('score')
+                    if 'silver' in tf_data['yfinance'] and 'ta_library' in tf_data['yfinance']['silver']:
+                        silver_score = tf_data['yfinance']['silver']['ta_library'].get('score')
+                
+                if gold_score is None:
+                    continue
+                entry = {
+                    'symbol': symbol,
+                    'category': category,
+                    'timeframe': '1M',
+                    'gold_score': gold_score,
+                    'usd_score': usd_score,
+                    'silver_score': silver_score
+                }
+                if 6.0 <= gold_score < 7.0:
+                    score_6_7.append(entry)
+                elif gold_score >= 7.0:
+                    score_7_plus.append(entry)
         except Exception as e:
             print(f"Error reading {result_file.name}: {e}")
             continue
     
-    # Sort by score
+    # Sort by gold score (monthly) descending
     score_6_7.sort(key=lambda x: x['gold_score'], reverse=True)
     score_7_plus.sort(key=lambda x: x['gold_score'], reverse=True)
     
@@ -106,6 +104,7 @@ def generate_html(score_6_7, score_7_plus):
         html = f'''
         <div class="section" id="{id_name}">
             <h2>{title} <span class="count">({len(entries)} tickers)</span></h2>
+            <p class="table-caption">Gold (1M) = score vs gold · USD (1M) = score in US dollars · Silver (1M) = score vs silver (same idea as gold, priced in silver)</p>
             <div class="table-container">
                 <table>
                     <thead>
@@ -113,10 +112,9 @@ def generate_html(score_6_7, score_7_plus):
                             <th>Rank</th>
                             <th>Symbol</th>
                             <th>Category</th>
-                            <th>Timeframe</th>
-                            <th>Gold Score</th>
-                            <th>USD Score</th>
-                            <th>Silver Score</th>
+                            <th>Gold (1M)</th>
+                            <th>USD (1M)</th>
+                            <th>Silver (1M)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -129,7 +127,6 @@ def generate_html(score_6_7, score_7_plus):
                             <td class="rank">{i}</td>
                             <td class="symbol"><strong>{entry['symbol']}</strong></td>
                             <td class="category">{category_display}</td>
-                            <td class="timeframe">{entry['timeframe']}</td>
                             <td class="score gold">{format_score(entry['gold_score'])}</td>
                             <td class="score usd">{format_score(entry['usd_score'])}</td>
                             <td class="score silver">{format_score(entry['silver_score'])}</td>
@@ -151,7 +148,7 @@ def generate_html(score_6_7, score_7_plus):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>High-Scoring Tickers vs Gold</title>
+    <title>Top Scorers vs Gold & USD (Monthly)</title>
     <style>
         * {{
             margin: 0;
@@ -247,6 +244,12 @@ def generate_html(score_6_7, score_7_plus):
             font-size: 0.6em;
             color: #666;
             font-weight: normal;
+        }}
+        
+        .table-caption {{
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 12px;
         }}
         
         .table-container {{
@@ -386,8 +389,8 @@ def generate_html(score_6_7, score_7_plus):
 <body>
     <div class="container">
         <div class="header">
-            <h1>🏆 High-Scoring Tickers vs Gold</h1>
-            <p>Premium Buy Opportunities (Gold-Denominated Scores)</p>
+            <h1>🏆 Top Scorers vs Gold & USD (Monthly)</h1>
+            <p>High-scoring tickers on 1M: Gold score 6–7 & 7+ with USD and Silver monthly scores</p>
             <div class="timestamp">Generated: {timestamp}</div>
         </div>
         

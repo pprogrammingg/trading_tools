@@ -1,0 +1,549 @@
+{
+"as_of": "2026-02-01",
+"data": {
+"IEMG": {
+"1M_vs_spy": 8.78,
+"1W_vs_spy": 0.05
+},
+"MNRS": {
+"1M_vs_spy": 13.94,
+"1W_vs_spy": -3.69
+},
+"WULF": {
+"1M_vs_spy": 12.12,
+"1W_vs_spy": -2.94
+},
+"ZW=F": {
+"1M_vs_spy": 3.4,
+"1W_vs_spy": 3.37
+},
+"HLAL": {
+"1M_vs_spy": 0.08,
+"1W_vs_spy": -0.3
+},
+"DUK": {
+"1M_vs_spy": 0.27,
+"1W_vs_spy": 2.28
+},
+"TMO": {
+"1M_vs_spy": -0.2,
+"1W_vs_spy": -7.56
+},
+"SPY": {
+"1M_vs_spy": 0.0,
+"1W_vs_spy": 0.0
+},
+"DIA": {
+"1M_vs_spy": -1.11,
+"1W_vs_spy": -0.91
+},
+"SVM": {
+"1M_vs_spy": 12.44,
+"1W_vs_spy": -21.06
+},
+"ARM": {
+"1M_vs_spy": -10.78,
+"1W_vs_spy": -8.07
+},
+"NG=F": {
+"1M_vs_spy": -1.33,
+"1W_vs_spy": -39.76
+},
+"ZS=F": {
+"1M_vs_spy": -1.92,
+"1W_vs_spy": 0.86
+},
+"SCHH": {
+"1M_vs_spy": -0.7,
+"1W_vs_spy": 0.72
+},
+"ETH-USD": {
+"1M_vs_spy": -26.28,
+"1W_vs_spy": -20.91
+},
+"BTC-USD": {
+"1M_vs_spy": -16.34,
+"1W_vs_spy": -12.31
+},
+"RGTI": {
+"1M_vs_spy": -21.54,
+"1W_vs_spy": -16.41
+},
+"MATIC-USD": {
+"1M_vs_spy": null,
+"1W_vs_spy": null
+},
+"WDC": {
+"1M_vs_spy": 46.03,
+"1W_vs_spy": 4.01
+},
+"AMZN": {
+"1M_vs_spy": 4.93,
+"1W_vs_spy": 0.48
+},
+"KC=F": {
+"1M_vs_spy": -7.22,
+"1W_vs_spy": -5.44
+},
+"LINK-USD": {
+"1M_vs_spy": -28.35,
+"1W_vs_spy": -17.34
+},
+"NKE": {
+"1M_vs_spy": -8.7,
+"1W_vs_spy": -4.79
+},
+"AMSC": {
+"1M_vs_spy": -0.03,
+"1W_vs_spy": -5.06
+},
+"ASML": {
+"1M_vs_spy": 35.97,
+"1W_vs_spy": 0.79
+},
+"IREN": {
+"1M_vs_spy": 54.36,
+"1W_vs_spy": 2.75
+},
+"CL=F": {
+"1M_vs_spy": 13.7,
+"1W_vs_spy": 8.23
+},
+"DOT-USD": {
+"1M_vs_spy": -30.39,
+"1W_vs_spy": -18.29
+},
+"SOL-USD": {
+"1M_vs_spy": -24.14,
+"1W_vs_spy": -16.61
+},
+"BNB-USD": {
+"1M_vs_spy": -15.75,
+"1W_vs_spy": -15.26
+},
+"ACWI": {
+"1M_vs_spy": 1.89,
+"1W_vs_spy": -0.04
+},
+"GC=F": {
+"1M_vs_spy": 13.1,
+"1W_vs_spy": -0.13
+},
+"UNH": {
+"1M_vs_spy": -16.05,
+"1W_vs_spy": -18.31
+},
+"ALB": {
+"1M_vs_spy": 22.9,
+"1W_vs_spy": -9.98
+},
+"AVAX-USD": {
+"1M_vs_spy": -30.3,
+"1W_vs_spy": -16.57
+},
+"CIFR": {
+"1M_vs_spy": 7.61,
+"1W_vs_spy": -3.11
+},
+"JPM": {
+"1M_vs_spy": -5.77,
+"1W_vs_spy": 1.72
+},
+"PA=F": {
+"1M_vs_spy": 5.83,
+"1W_vs_spy": -15.25
+},
+"PL=F": {
+"1M_vs_spy": 13.96,
+"1W_vs_spy": -20.33
+},
+"GS": {
+"1M_vs_spy": 4.04,
+"1W_vs_spy": 0.49
+},
+"ON": {
+"1M_vs_spy": 8.96,
+"1W_vs_spy": -1.92
+},
+"CT=F": {
+"1M_vs_spy": -3.37,
+"1W_vs_spy": 0.43
+},
+"NVDA": {
+"1M_vs_spy": 8.49,
+"1W_vs_spy": 2.61
+},
+"BITF": {
+"1M_vs_spy": -2.14,
+"1W_vs_spy": -9.55
+},
+"MS": {
+"1M_vs_spy": 1.47,
+"1W_vs_spy": 0.62
+},
+"WAHED": {
+"1M_vs_spy": null,
+"1W_vs_spy": null
+},
+"CCJ": {
+"1M_vs_spy": 41.1,
+"1W_vs_spy": 1.87
+},
+"HUT": {
+"1M_vs_spy": 34.89,
+"1W_vs_spy": -0.88
+},
+"MPWR": {
+"1M_vs_spy": 19.57,
+"1W_vs_spy": 5.36
+},
+"CRWD": {
+"1M_vs_spy": -8.88,
+"1W_vs_spy": -5.65
+},
+"PGY": {
+"1M_vs_spy": -14.6,
+"1W_vs_spy": -10.34
+},
+"WFC": {
+"1M_vs_spy": -5.17,
+"1W_vs_spy": 2.88
+},
+"QCOM": {
+"1M_vs_spy": -14.65,
+"1W_vs_spy": -1.79
+},
+"HD": {
+"1M_vs_spy": 1.88,
+"1W_vs_spy": -2.98
+},
+"VTWO": {
+"1M_vs_spy": 1.53,
+"1W_vs_spy": -1.51
+},
+"PAAS": {
+"1M_vs_spy": 5.95,
+"1W_vs_spy": -15.67
+},
+"GM": {
+"1M_vs_spy": 1.23,
+"1W_vs_spy": 5.87
+},
+"IYR": {
+"1M_vs_spy": -0.53,
+"1W_vs_spy": 0.39
+},
+"DHR": {
+"1M_vs_spy": -4.6,
+"1W_vs_spy": -7.43
+},
+"HG=F": {
+"1M_vs_spy": 8.81,
+"1W_vs_spy": 0.63
+},
+"NOW": {
+"1M_vs_spy": -27.45,
+"1W_vs_spy": -14.08
+},
+"RB=F": {
+"1M_vs_spy": 11.72,
+"1W_vs_spy": 7.3
+},
+"QTUM": {
+"1M_vs_spy": 4.94,
+"1W_vs_spy": -1.64
+},
+"VWO": {
+"1M_vs_spy": 3.13,
+"1W_vs_spy": -0.7
+},
+"LCID": {
+"1M_vs_spy": -3.5,
+"1W_vs_spy": 4.16
+},
+"AEM": {
+"1M_vs_spy": 10.34,
+"1W_vs_spy": -11.47
+},
+"ZC=F": {
+"1M_vs_spy": -5.89,
+"1W_vs_spy": -0.12
+},
+"CORZ": {
+"1M_vs_spy": 28.63,
+"1W_vs_spy": -5.46
+},
+"AG": {
+"1M_vs_spy": 23.45,
+"1W_vs_spy": -18.88
+},
+"EEMV": {
+"1M_vs_spy": 3.24,
+"1W_vs_spy": -0.63
+},
+"MCD": {
+"1M_vs_spy": -4.1,
+"1W_vs_spy": 0.77
+},
+"HO=F": {
+"1M_vs_spy": 14.81,
+"1W_vs_spy": -0.85
+},
+"META": {
+"1M_vs_spy": 7.04,
+"1W_vs_spy": 6.68
+},
+"PLUG": {
+"1M_vs_spy": -4.77,
+"1W_vs_spy": -7.72
+},
+"F": {
+"1M_vs_spy": 1.18,
+"1W_vs_spy": 3.39
+},
+"AVGO": {
+"1M_vs_spy": -1.4,
+"1W_vs_spy": 2.1
+},
+"IWM": {
+"1M_vs_spy": 1.9,
+"1W_vs_spy": -1.53
+},
+"INTC": {
+"1M_vs_spy": 25.07,
+"1W_vs_spy": 9.49
+},
+"BAC": {
+"1M_vs_spy": -5.37,
+"1W_vs_spy": 2.38
+},
+"RIVN": {
+"1M_vs_spy": -18.82,
+"1W_vs_spy": -6.25
+},
+"SI=F": {
+"1M_vs_spy": 44.29,
+"1W_vs_spy": -14.31
+},
+"LI": {
+"1M_vs_spy": -0.09,
+"1W_vs_spy": -1.72
+},
+"AEP": {
+"1M_vs_spy": 1.32,
+"1W_vs_spy": 1.6
+},
+"D": {
+"1M_vs_spy": -2.88,
+"1W_vs_spy": -0.01
+},
+"TMUS": {
+"1M_vs_spy": -4.03,
+"1W_vs_spy": 5.04
+},
+"VNQ": {
+"1M_vs_spy": -1.45,
+"1W_vs_spy": 0.53
+},
+"AMD": {
+"1M_vs_spy": 15.94,
+"1W_vs_spy": -5.7
+},
+"MSFT": {
+"1M_vs_spy": -12.31,
+"1W_vs_spy": -8.4
+},
+"GOOGL": {
+"1M_vs_spy": 10.53,
+"1W_vs_spy": 1.53
+},
+"ZN=F": {
+"1M_vs_spy": -3.75,
+"1W_vs_spy": 0.05
+},
+"SLDP": {
+"1M_vs_spy": 0.62,
+"1W_vs_spy": -11.89
+},
+"^GSPC": {
+"1M_vs_spy": 0.17,
+"1W_vs_spy": -0.05
+},
+"PATH": {
+"1M_vs_spy": -23.46,
+"1W_vs_spy": -15.47
+},
+"SEDG": {
+"1M_vs_spy": 3.84,
+"1W_vs_spy": -9.96
+},
+"ALI=F": {
+"1M_vs_spy": 7.33,
+"1W_vs_spy": -0.59
+},
+"NFLX": {
+"1M_vs_spy": -14.54,
+"1W_vs_spy": -2.47
+},
+"UNI-USD": {
+"1M_vs_spy": null,
+"1W_vs_spy": null
+},
+"ABBV": {
+"1M_vs_spy": -3.53,
+"1W_vs_spy": 1.13
+},
+"TSLA": {
+"1M_vs_spy": -10.62,
+"1W_vs_spy": -0.99
+},
+"DX-Y.NYB": {
+"1M_vs_spy": -4.18,
+"1W_vs_spy": 0.22
+},
+"ADA-USD": {
+"1M_vs_spy": -26.97,
+"1W_vs_spy": -18.01
+},
+"SCHE": {
+"1M_vs_spy": 5.06,
+"1W_vs_spy": -0.76
+},
+"CLSK": {
+"1M_vs_spy": 0.07,
+"1W_vs_spy": -4.72
+},
+"PFE": {
+"1M_vs_spy": 2.45,
+"1W_vs_spy": 2.28
+},
+"XRP-USD": {
+"1M_vs_spy": -21.93,
+"1W_vs_spy": -14.86
+},
+"QBTS": {
+"1M_vs_spy": -13.49,
+"1W_vs_spy": -10.55
+},
+"BMNR": {
+"1M_vs_spy": -16.94,
+"1W_vs_spy": -9.61
+},
+"ENPH": {
+"1M_vs_spy": 13.51,
+"1W_vs_spy": -6.09
+},
+"ABNB": {
+"1M_vs_spy": -6.17,
+"1W_vs_spy": -2.91
+},
+"NIO": {
+"1M_vs_spy": -6.17,
+"1W_vs_spy": 2.06
+},
+"MU": {
+"1M_vs_spy": 78.5,
+"1W_vs_spy": 6.75
+},
+"XPEV": {
+"1M_vs_spy": -3.56,
+"1W_vs_spy": -4.21
+},
+"XLRE": {
+"1M_vs_spy": -1.31,
+"1W_vs_spy": 0.62
+},
+"SBUX": {
+"1M_vs_spy": 4.7,
+"1W_vs_spy": -4.44
+},
+"TSM": {
+"1M_vs_spy": 15.81,
+"1W_vs_spy": -0.54
+},
+"DLO": {
+"1M_vs_spy": -6.72,
+"1W_vs_spy": -8.52
+},
+"TM": {
+"1M_vs_spy": 2.74,
+"1W_vs_spy": 0.66
+},
+"EFA": {
+"1M_vs_spy": 3.82,
+"1W_vs_spy": 0.38
+},
+"JNJ": {
+"1M_vs_spy": 4.83,
+"1W_vs_spy": 2.71
+},
+"FCX": {
+"1M_vs_spy": 22.21,
+"1W_vs_spy": -1.43
+},
+"SO": {
+"1M_vs_spy": -0.43,
+"1W_vs_spy": 1.42
+},
+"EEM": {
+"1M_vs_spy": 9.02,
+"1W_vs_spy": -0.01
+},
+"IONQ": {
+"1M_vs_spy": -15.39,
+"1W_vs_spy": -7.72
+},
+"APLD": {
+"1M_vs_spy": 49.42,
+"1W_vs_spy": -6.25
+},
+"ATOM-USD": {
+"1M_vs_spy": -14.89,
+"1W_vs_spy": -12.05
+},
+"SB=F": {
+"1M_vs_spy": -6.46,
+"1W_vs_spy": -3.68
+},
+"HL": {
+"1M_vs_spy": 12.57,
+"1W_vs_spy": -24.78
+},
+"C": {
+"1M_vs_spy": 0.73,
+"1W_vs_spy": 0.89
+},
+"WGMI": {
+"1M_vs_spy": 19.75,
+"1W_vs_spy": -3.16
+},
+"SPUS": {
+"1M_vs_spy": 0.14,
+"1W_vs_spy": -0.37
+},
+"RUN": {
+"1M_vs_spy": 7.93,
+"1W_vs_spy": -4.94
+},
+"MRVL": {
+"1M_vs_spy": -6.27,
+"1W_vs_spy": -3.38
+},
+"AAPL": {
+"1M_vs_spy": -7.38,
+"1W_vs_spy": 1.71
+},
+"QQQ": {
+"1M_vs_spy": 0.5,
+"1W_vs_spy": -0.46
+},
+"WPM": {
+"1M_vs_spy": 11.18,
+"1W_vs_spy": -10.72
+},
+"QS": {
+"1M_vs_spy": -20.05,
+"1W_vs_spy": -10.6
+}
+}
+}

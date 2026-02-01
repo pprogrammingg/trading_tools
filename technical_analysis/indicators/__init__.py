@@ -33,6 +33,10 @@ from .elliott_wave import (
     identify_swing_points, calculate_fibonacci_levels,
     identify_elliott_wave_pattern, calculate_elliott_wave_targets
 )
+from .cup_pattern import (
+    detect_cup_and_breakout,
+    get_cup_signal_for_scoring,
+)
 
 __all__ = [
     'get_cme_direction_for_symbol',
@@ -64,4 +68,6 @@ __all__ = [
     'calculate_fibonacci_levels',
     'identify_elliott_wave_pattern',
     'calculate_elliott_wave_targets',
+    'detect_cup_and_breakout',
+    'get_cup_signal_for_scoring',
 ]

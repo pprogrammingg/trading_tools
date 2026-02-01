@@ -286,6 +286,9 @@ def detect_adx_trend(adx_series, periods=5):
     if pd.isna(current_adx) or pd.isna(past_adx):
         return None
     
+    if past_adx == 0 or abs(past_adx) < 1e-9:
+        return 'stable'
+    
     change_pct = ((current_adx / past_adx) - 1) * 100
     
     if change_pct > 10:  # Rising by 10%+

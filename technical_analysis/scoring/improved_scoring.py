@@ -588,15 +588,50 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
                 'wave_position': wave_analysis['wave_position'],
                 'price_targets': wave_analysis['price_targets'],
                 'support_resistance': wave_analysis['support_resistance'],
+                'wave_count': wave_analysis.get('wave_count'),
             }
             
-            # Add bonus if in wave 2 or 4 (correction = buying opportunity)
-            if "Wave 2 or 4" in wave_analysis['wave_position']:
-                wave_bonus = 1.5 * timeframe_mult
+            # Elliott Wave bonus/penalty from backtest: Wave 3 or 5 → best forward returns; Wave 2 or 4 → weak.
+            wave_pos = wave_analysis.get('wave_position') or ''
+            if "Wave 3 or 5" in wave_pos:
+                wave_bonus = 1.5 * timeframe_mult  # Backtest: ~61% win_3, +2.8% avg forward return
                 score += wave_bonus
-                breakdown['elliott_wave_correction'] = round(wave_bonus, 1)
+                breakdown['elliott_wave_continuation'] = round(wave_bonus, 1)
+            elif "Wave 2 or 4" in wave_pos:
+                # Backtest: ~43% win_3, -0.04% avg_3 → no bonus (was 1.5, removed)
+                pass
+            elif "Wave 1 or correction" in wave_pos:
+                wave_bonus = 0.5 * timeframe_mult  # Moderate forward returns
+                score += wave_bonus
+                breakdown['elliott_wave_early'] = round(wave_bonus, 1)
     except ImportError:
         pass
+    
+    # ===== CUP-AND-HANDLE BREAKOUT =====
+    # Cup formed (U-shaped bottom), breakout above rim. Backtest supports bonus for recent breakout.
+    try:
+        from indicators.cup_pattern import get_cup_signal_for_scoring
+        cup_signal = get_cup_signal_for_scoring(close, timeframe=timeframe)
+        if cup_signal.get("recent_breakout"):
+            cup_bonus = 0.5 * timeframe_mult
+            score += cup_bonus
+            breakdown["cup_breakout"] = round(cup_bonus, 1)
+        indicators["cup_formed"] = cup_signal.get("cup_formed", False)
+        indicators["cup_breakout"] = cup_signal.get("cup_breakout", False)
+        indicators["cup_recent_breakout"] = cup_signal.get("recent_breakout", False)
+    except ImportError:
+        try:
+            from technical_analysis.indicators.cup_pattern import get_cup_signal_for_scoring
+            cup_signal = get_cup_signal_for_scoring(close, timeframe=timeframe)
+            if cup_signal.get("recent_breakout"):
+                cup_bonus = 0.5 * timeframe_mult
+                score += cup_bonus
+                breakdown["cup_breakout"] = round(cup_bonus, 1)
+            indicators["cup_formed"] = cup_signal.get("cup_formed", False)
+            indicators["cup_breakout"] = cup_signal.get("cup_breakout", False)
+            indicators["cup_recent_breakout"] = cup_signal.get("recent_breakout", False)
+        except ImportError:
+            pass
     
     # ===== SUPER GUPPY (CRYPTO ONLY) =====
     # Grey = ribbons compressed → bad times / caution. Orange at bottom = double-bottom signal.

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wealth Transfer Phase</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1100px; margin: 0 auto; padding: 24px; background: linear-gradient(135deg, #0f0f14 0%, #1a1a2e 100%); color: #e0e0e0; }
+        h1 { text-align: center; color: #fff; margin-bottom: 8px; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 16px; }
+        .flow-bar { text-align: center; color: #82b1ff; font-size: 0.9em; margin-bottom: 24px; padding: 10px; background: rgba(0,0,0,0.2); border-radius: 8px; }
+        .toggle-bar { text-align: center; margin-bottom: 20px; }
+        .toggle-bar button { padding: 8px 20px; margin: 0 4px; border-radius: 8px; cursor: pointer; font-weight: bold; border: 2px solid #82b1ff; background: #1a1a2e; color: #82b1ff; }
+        .toggle-bar button.active { background: #82b1ff; color: #1a1a2e; }
+        a.back { display: inline-block; margin-bottom: 24px; color: #82b1ff; text-decoration: none; }
+        a.back:hover { text-decoration: underline; }
+        .phase-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; align-items: stretch; }
+        @media (max-width: 900px) { .phase-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 500px) { .phase-grid { grid-template-columns: 1fr; } }
+        .phase-card { min-height: 280px; border-radius: 12px; padding: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .phase-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.4); }
+        .phase-icon { font-size: 48px; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
+        .phase-name { font-size: 1em; color: #fff; margin: 0 0 4px 0; }
+        .phase-desc { font-size: 0.8em; color: #aaa; line-height: 1.35; margin: 0; flex-grow: 1; }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back">← Back to Index</a>
+    <h1>Phase of Wealth Transfer</h1>
+    <p class="subtitle">Color = relative strength (e.g. SPX vs Metals, Commodities vs Metals, High risk vs normal). Toggle Monthly / Weekly:</p>
+    <div class="toggle-bar">
+        <button type="button" id="toggle-monthly" class="active">Monthly</button>
+        <button type="button" id="toggle-weekly">Weekly</button>
+    </div>
+    <div class="flow-bar">Cash / Fiat &nbsp; → &nbsp; Metals &nbsp; → &nbsp; Commodities &nbsp; → &nbsp; Index / Top Companies &nbsp; → &nbsp; Hot Stocks &nbsp; → &nbsp; Highest Risk Curve</div>
+    <div class="phase-grid">
+        <div class="phase-card" id="phase-cash" data-temp-1m="very_cold" data-temp-1w="very_cold" data-avg-1m="—" data-avg-1w="—" data-color-1m="#1a237e" data-color-1w="#1a237e">
+            <div class="phase-order" style="font-size: 0.75em; margin-bottom: 4px;">Phase 1 | next →</div>
+            <div class="phase-icon phase-icon-default">💵</div>
+            <h3 class="phase-name">Cash / Fiat</h3>
+            <p class="phase-temp" style="font-weight: bold; font-size: 0.8em; margin: 4px 0;"></p>
+            <p class="phase-perf" style="font-size: 0.85em; margin: 2px 0;"></p>
+            <p class="phase-desc">Money in cash and short-term instruments. First refuge and base.</p>
+        </div>
+        <div class="phase-card" id="phase-metals" data-temp-1m="very_hot" data-temp-1w="slightly_cold" data-avg-1m="+15.9%" data-avg-1w="-15.7%" data-color-1m="#b71c1c" data-color-1w="#0288d1">
+            <div class="phase-order" style="font-size: 0.75em; margin-bottom: 4px;">Phase 2 ← prev | next →</div>
+            <div class="phase-icon phase-icon-default">🥇</div>
+            <h3 class="phase-name">Metals</h3>
+            <p class="phase-temp" style="font-weight: bold; font-size: 0.8em; margin: 4px 0;"></p>
+            <p class="phase-perf" style="font-size: 0.85em; margin: 2px 0;"></p>
+            <p class="phase-desc">Gold, Silver. Store of value; hot when SPX drops vs metals.</p>
+        </div>
+        <div class="phase-card" id="phase-commodities" data-temp-1m="neutral" data-temp-1w="slightly_hot" data-avg-1m="+0.7%" data-avg-1w="-3.6%" data-color-1m="#43a047" data-color-1w="#fb8c00">
+            <div class="phase-order" style="font-size: 0.75em; margin-bottom: 4px;">Phase 3 ← prev | next →</div>
+            <div class="phase-icon phase-icon-default">🌾</div>
+            <h3 class="phase-name">Commodities</h3>
+            <p class="phase-temp" style="font-weight: bold; font-size: 0.8em; margin: 4px 0;"></p>
+            <p class="phase-perf" style="font-size: 0.85em; margin: 2px 0;"></p>
+            <p class="phase-desc">Agricultural, Energy, Industrial. Real assets; next after metals in risk-on flow.</p>
+        </div>
+        <div class="phase-card" id="phase-index" data-temp-1m="slightly_hot" data-temp-1w="very_hot" data-avg-1m="+2.1%" data-avg-1w="-0.4%" data-color-1m="#fb8c00" data-color-1w="#b71c1c">
+            <div class="phase-order" style="font-size: 0.75em; margin-bottom: 4px;">Phase 4 ← prev | next →</div>
+            <div class="phase-icon phase-icon-default">📈</div>
+            <h3 class="phase-name">Index / Top Companies</h3>
+            <p class="phase-temp" style="font-weight: bold; font-size: 0.8em; margin: 4px 0;"></p>
+            <p class="phase-perf" style="font-size: 0.85em; margin: 2px 0;"></p>
+            <p class="phase-desc">SPY, QQQ, DIA. Broad market; capital moves to large caps as confidence builds.</p>
+        </div>
+        <div class="phase-card" id="phase-hot" data-temp-1m="hot" data-temp-1w="hot" data-avg-1m="+3.1%" data-avg-1w="-1.7%" data-color-1m="#e65100" data-color-1w="#e65100">
+            <div class="phase-order" style="font-size: 0.75em; margin-bottom: 4px;">Phase 5 ← prev | next →</div>
+            <div class="phase-icon phase-icon-default">🔥</div>
+            <h3 class="phase-name">Hot Stocks</h3>
+            <p class="phase-temp" style="font-weight: bold; font-size: 0.8em; margin: 4px 0;"></p>
+            <p class="phase-perf" style="font-size: 0.85em; margin: 2px 0;"></p>
+            <p class="phase-desc">FAANG, Semis, momentum. Higher risk–reward as cycle extends.</p>
+        </div>
+        <div class="phase-card" id="phase-risk" data-temp-1m="slightly_cold" data-temp-1w="neutral" data-avg-1m="-5.4%" data-avg-1w="-9.9%" data-color-1m="#0288d1" data-color-1w="#43a047">
+            <div class="phase-order" style="font-size: 0.75em; margin-bottom: 4px;">Phase 6 ← prev</div>
+            <div class="phase-icon phase-icon-default">🚀</div>
+            <h3 class="phase-name">Highest Risk Curve</h3>
+            <p class="phase-temp" style="font-weight: bold; font-size: 0.8em; margin: 4px 0;"></p>
+            <p class="phase-perf" style="font-size: 0.85em; margin: 2px 0;"></p>
+            <p class="phase-desc">Emerging markets, Crypto, Quantum, AI/Robots. Last phase of wealth transfer.</p>
+        </div>
+    </div>
+    <script>
+    (function() {
+        var mode = '1m';
+        function applyMode() {
+            document.querySelectorAll('.phase-card').forEach(function(card) {
+                var temp = mode === '1m' ? card.dataset.temp1m : card.dataset.temp1w;
+                var color = mode === '1m' ? card.dataset.color1m : card.dataset.color1w;
+                var avg = mode === '1m' ? card.dataset.avg1m : card.dataset.avg1w;
+                card.style.borderLeftColor = color;
+                card.style.background = 'linear-gradient(180deg, ' + color + '22 0%, ' + color + '55 50%, ' + color + '33 100%)';
+                card.querySelector('.phase-temp').textContent = temp ? temp.replace(/_/g, ' ').replace(/\b\w/g, function(c) { return c.toUpperCase(); }) : '—';
+                card.querySelector('.phase-temp').style.color = color;
+                card.querySelector('.phase-perf').textContent = (mode === '1m' ? '1M vs SPY: ' : '1W vs SPY: ') + avg;
+                card.querySelector('.phase-icon').style.background = color + '44';
+            });
+            document.getElementById('toggle-monthly').classList.toggle('active', mode === '1m');
+            document.getElementById('toggle-weekly').classList.toggle('active', mode === '1w');
+        }
+        document.getElementById('toggle-monthly').onclick = function() { mode = '1m'; applyMode(); };
+        document.getElementById('toggle-weekly').onclick = function() { mode = '1w'; applyMode(); };
+        applyMode();
+    })();
+    </script>
+</body>
+</html>

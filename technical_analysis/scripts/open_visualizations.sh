@@ -4,13 +4,13 @@
 # Usage: ./open_visualizations.sh          # open index only
 #        ./open_visualizations.sh --all    # open all category HTML files
 #
-# Uses: open -a Safari (hard fix; bypasses default file:// handler / AppleScript -10661).
+# Uses: open -a Safari by default (bypasses default file:// handler / AppleScript -10661).
 # To use Chrome instead: BROWSER="Google Chrome" ./open_visualizations.sh
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$SCRIPT_DIR/.." || exit 1
 
-BROWSER="${BROWSER:-Google Chrome}"
+BROWSER="${BROWSER:-Safari}"
 
 if [ ! -d "visualizations_output" ]; then
     echo "Error: visualizations_output directory not found!"
