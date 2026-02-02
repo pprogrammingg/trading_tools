@@ -1,0 +1,46 @@
+[
+  {
+    "account_name": "Example Broker TFSA",
+    "date": "2026-01-15",
+    "ticker": "AAPL",
+    "action": "buy",
+    "quantity": 10,
+    "price": 185.50,
+    "currency": "USD",
+    "fees": 0,
+    "notes": "Sample — fill out manually"
+  },
+  {
+    "account_name": "Example Broker Non-Reg",
+    "date": "2026-01-20",
+    "ticker": "AAPL",
+    "action": "buy",
+    "quantity": 5,
+    "price": 190.00,
+    "currency": "USD",
+    "fees": 0,
+    "notes": "Sample"
+  },
+  {
+    "account_name": "Example Broker Non-Reg",
+    "date": "2026-02-01",
+    "ticker": "AAPL",
+    "action": "sell",
+    "quantity": 6,
+    "price": 195.00,
+    "currency": "USD",
+    "fees": 1.00,
+    "notes": "FIFO: 5@190 + 1@185.50 -> cost 1135.50, proceeds 1169, gain 33.50"
+  },
+  {
+    "account_name": "Example Broker Non-Reg",
+    "date": "2026-02-01",
+    "ticker": "ETH-USD",
+    "action": "buy",
+    "quantity": 0.5,
+    "price": 3200.00,
+    "currency": "USD",
+    "fees": 0,
+    "notes": "Sample"
+  }
+]

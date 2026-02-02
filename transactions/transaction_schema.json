@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Transaction",
+  "description": "Single buy or sell transaction for PnL and tax reporting",
+  "type": "object",
+  "required": ["account_name", "date", "ticker", "action", "quantity", "price"],
+  "properties": {
+    "account_name": {
+      "type": "string",
+      "description": "Broker or account identifier (e.g. 'Questrade TFSA', 'Wealthsimple')"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Trade date YYYY-MM-DD"
+    },
+    "ticker": {
+      "type": "string",
+      "description": "Symbol (e.g. AAPL, BTC-USD)"
+    },
+    "action": {
+      "type": "string",
+      "enum": ["buy", "sell"],
+      "description": "Buy or sell"
+    },
+    "quantity": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Number of shares/units"
+    },
+    "price": {
+      "type": "number",
+      "minimum": 0,
+      "description": "Price per unit"
+    },
+    "currency": {
+      "type": "string",
+      "default": "USD",
+      "description": "Currency of price"
+    },
+    "fees": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0,
+      "description": "Commission or fees"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional note"
+    }
+  }
+}

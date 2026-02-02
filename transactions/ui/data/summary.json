@@ -1,0 +1,44 @@
+{
+  "2026": {
+    "pnl_by_category": {
+      "faang_hot_stocks": 56.0
+    },
+    "overall_pnl": 56.0,
+    "transaction_count": 4,
+    "tax_fifo": 24.0,
+    "tax_lifo": 24.0,
+    "tax_average_cost": 24.0
+  },
+  "2027": {
+    "pnl_by_category": {},
+    "overall_pnl": 0.0,
+    "transaction_count": 0,
+    "tax_fifo": 0.0,
+    "tax_lifo": 0.0,
+    "tax_average_cost": 0.0
+  },
+  "2028": {
+    "pnl_by_category": {},
+    "overall_pnl": 0.0,
+    "transaction_count": 0,
+    "tax_fifo": 0.0,
+    "tax_lifo": 0.0,
+    "tax_average_cost": 0.0
+  },
+  "2029": {
+    "pnl_by_category": {},
+    "overall_pnl": 0.0,
+    "transaction_count": 0,
+    "tax_fifo": 0.0,
+    "tax_lifo": 0.0,
+    "tax_average_cost": 0.0
+  },
+  "2030": {
+    "pnl_by_category": {},
+    "overall_pnl": 0.0,
+    "transaction_count": 0,
+    "tax_fifo": 0.0,
+    "tax_lifo": 0.0,
+    "tax_average_cost": 0.0
+  }
+}

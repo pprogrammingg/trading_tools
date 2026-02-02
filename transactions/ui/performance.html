@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Performance by category</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .perf-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .perf-table th, .perf-table td { padding: 0.5rem 0.75rem; text-align: right; border-bottom: 1px solid var(--border); }
+    .perf-table th:first-child, .perf-table td:first-child { text-align: left; }
+    .perf-table .positive { color: var(--gain); }
+    .perf-table .negative { color: var(--loss); }
+    .perf-table thead th { background: #243044; color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Performance by category</h1>
+    <nav>
+      <a href="index.html">Transactions</a>
+      <a href="performance.html">Performance</a>
+    </nav>
+  </header>
+  <main>
+    <section class="summary" aria-label="Performance summary">
+      <p class="muted">PnL by category and year (from transaction analysis).</p>
+      <div id="perf-table-container"></div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      fetch("data/summary.json")
+        .then(function (r) { return r.json(); })
+        .then(function (summary) {
+          const years = ["2026", "2027", "2028", "2029", "2030"];
+          const categories = new Set();
+          years.forEach(function (y) {
+            const s = summary[y];
+            if (s && s.pnl_by_category) Object.keys(s.pnl_by_category).forEach(function (c) { categories.add(c); });
+          });
+          const catList = Array.from(categories).sort();
+          const container = document.getElementById("perf-table-container");
+          const table = document.createElement("table");
+          table.className = "perf-table";
+          let thead = "<thead><tr><th>Category</th>";
+          years.forEach(function (y) { thead += "<th>" + y + "</th>"; });
+          thead += "<th>Total</th></tr></thead><tbody>";
+          let totalByYear = {};
+          years.forEach(function (y) { totalByYear[y] = 0; });
+          let totalAll = 0;
+          catList.forEach(function (cat) {
+            let row = "<tr><td>" + cat + "</td>";
+            let rowTotal = 0;
+            years.forEach(function (y) {
+              const s = summary[y];
+              const val = (s && s.pnl_by_category && s.pnl_by_category[cat]) ? s.pnl_by_category[cat] : 0;
+              totalByYear[y] += val;
+              rowTotal += val;
+              const cls = val >= 0 ? "positive" : "negative";
+              row += "<td class=\"" + cls + "\">" + Number(val).toLocaleString("en", { minimumFractionDigits: 2 }) + "</td>";
+            });
+            totalAll += rowTotal;
+            const rowCls = rowTotal >= 0 ? "positive" : "negative";
+            row += "<td class=\"" + rowCls + "\"><strong>" + Number(rowTotal).toLocaleString("en", { minimumFractionDigits: 2 }) + "</strong></td></tr>";
+            thead += row;
+          });
+          thead += "<tr><td><strong>Total</strong></td>";
+          years.forEach(function (y) {
+            const v = totalByYear[y];
+            thead += "<td class=\"" + (v >= 0 ? "positive" : "negative") + "\"><strong>" + Number(v).toLocaleString("en", { minimumFractionDigits: 2 }) + "</strong></td>";
+          });
+          thead += "<td class=\"" + (totalAll >= 0 ? "positive" : "negative") + "\"><strong>" + Number(totalAll).toLocaleString("en", { minimumFractionDigits: 2 }) + "</strong></td></tr></tbody>";
+          table.innerHTML = thead;
+          container.appendChild(table);
+        })
+        .catch(function () {
+          document.getElementById("perf-table-container").innerHTML =
+            "<p>Load data first: run <code>python3 transactions/scripts/generate_summary.py</code> from the repo root.</p>";
+        });
+    })();
+  </script>
+</body>
+</html>
