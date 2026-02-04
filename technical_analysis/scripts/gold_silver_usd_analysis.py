@@ -22,9 +22,12 @@ os.chdir(ROOT)
 
 RESULTS_FILE = ROOT / "result_scores" / "precious_metals_results.json"
 TIMEFRAMES_ORDER = ["2D", "1W", "2W", "1M", "2M", "6M"]
-SYMBOLS_PRETTY = {"GC=F": "Gold", "SI=F": "Silver"}
-# Elliott Wave timeframes and resample rules
 EW_TIMEFRAMES = {"1W": "7D", "2W": "14D", "1M": "30D"}
+
+try:
+    from config_loader import get_display_name_symbol, get_gold_silver_tickers, get_download_category_for_ticker
+except ImportError:
+    from technical_analysis.config_loader import get_display_name_symbol, get_gold_silver_tickers, get_download_category_for_ticker
 
 
 def run_refresh_and_analysis():
@@ -75,11 +78,8 @@ def get_ohlcv_and_elliott_wave_targets():
         from technical_analysis.indicators.elliott_wave import calculate_elliott_wave_targets
 
     out = {}
-    symbols_cfg = [
-        ("GC=F", "gold"),
-        ("SI=F", "precious_metals"),
-    ]
-    for symbol, category in symbols_cfg:
+    for symbol in get_gold_silver_tickers():
+        category = get_download_category_for_ticker(symbol)
         df = download_data(symbol, period="5y", category=category, use_cache=True, force_refresh=False)
         if df is None or len(df) < 50:
             continue
@@ -106,10 +106,10 @@ def print_elliott_wave_levels(ew_data):
     print("=" * 72)
     print("  ELLIOTT WAVE — Weekly, 2W & Monthly price targets (Gold & Silver)")
     print("=" * 72)
-    for symbol in ["GC=F", "SI=F"]:
+    for symbol in get_gold_silver_tickers():
         if symbol not in ew_data or not ew_data[symbol]:
             continue
-        name = SYMBOLS_PRETTY.get(symbol, symbol)
+        name = get_display_name_symbol(symbol)
         print()
         print("-" * 72)
         print(f"  {name} ({symbol})")
@@ -183,10 +183,10 @@ def main():
     print(f"  Time: {datetime.now().isoformat()}")
     print()
 
-    for symbol in ["GC=F", "SI=F"]:
+    for symbol in get_gold_silver_tickers():
         if symbol not in data:
             continue
-        name = SYMBOLS_PRETTY.get(symbol, symbol)
+        name = get_display_name_symbol(symbol)
         symbol_data = data[symbol]
 
         # Get 1M (monthly) first

@@ -8,6 +8,16 @@ import os
 import sys
 from pathlib import Path
 from datetime import datetime
+
+# Config from single source
+SCRIPT_DIR = Path(__file__).resolve().parent
+ROOT = SCRIPT_DIR.parent
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+try:
+    from config_loader import get_display_name_category
+except ImportError:
+    from technical_analysis.config_loader import get_display_name_category
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import smtplib
@@ -66,18 +76,13 @@ def generate_email_html():
         <div class="content">
     """.format(date=datetime.now().strftime("%Y-%m-%d %H:%M:%S UTC")))
     
-    # List all categories
-    categories = {
-        "cryptocurrencies": "Cryptocurrencies",
-        "faang_hot_stocks": "FAANG / Hot Stocks",
-        "quantum": "Quantum Computing",
-        "miner_hpc": "Mining / HPC",
-        "precious_metals": "Precious Metals",
-        "index_etfs": "Index ETFs",
-        "tech_stocks": "Tech Stocks"
-    }
-    
-    for category_key, category_name in categories.items():
+    # Category keys to include; display names from configuration.json
+    category_keys = [
+        "cryptocurrencies", "faang_hot_stocks", "quantum", "miner_hpc",
+        "precious_metals", "index_etfs", "tech_stocks",
+    ]
+    for category_key in category_keys:
+        category_name = get_display_name_category(category_key)
         html_file = viz_dir / f"{category_key}_scores.html"
         if html_file.exists():
             html_parts.append(f"""
