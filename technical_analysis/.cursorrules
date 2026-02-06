@@ -1,3 +1,9 @@
+# Python and venv
+- When running Python commands in this project, **use the project venv** (e.g. `../venv/bin/python` from `technical_analysis/`, or `./venv/bin/python` from repo root). See `.cursor/rules/python-venv.mdc` at repo root.
+
+# Configuration (single file)
+- **configuration.json** is the single config: categories (symbols by category), aliases, display names, tf_rules, default_timeframes, result_file_exclude. **symbols_config.json** is deprecated; categories live in `configuration.json` under `"categories"`. Use `config_loader.get_symbols_config()` or `load_symbols_config()` (which reads from config first).
+
 # File Organization Rules
 
 ## When creating new files, always organize them in the proper directory structure:

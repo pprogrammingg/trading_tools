@@ -238,20 +238,16 @@ def load_symbol_categories() -> Tuple[List[str], ...]:
     Returns:
         Tuple of (tech_stocks, cryptocurrencies, precious_metals)
     """
-    # Try loading from config file first
-    config_path = Path('symbols_config.json')
-    if config_path.exists():
-        try:
-            with open(config_path, 'r') as f:
-                config = json.load(f)
-            # Flatten categories for backward compatibility
+    try:
+        from config_loader import get_symbols_config
+        config = get_symbols_config()
+        if config:
             all_symbols = []
             for category_symbols in config.values():
                 all_symbols.extend(category_symbols)
-            return all_symbols, [], []  # Return as single list for compatibility
-        except Exception:
-            pass
-    
+            return all_symbols, [], []
+    except Exception:
+        pass
     # Fallback to module import
     try:
         from technical_analysis import TECH_STOCKS, CRYPTOCURRENCIES, PRECIOUS_METALS
@@ -348,28 +344,19 @@ def organize_symbols(data: Dict[str, Any]) -> List[str]:
     Returns:
         Ordered list of symbols
     """
-    # Try loading from config file
-    config_path = Path('symbols_config.json')
-    if config_path.exists():
-        try:
-            with open(config_path, 'r') as f:
-                config = json.load(f)
-            # Flatten all categories in order
+    try:
+        from config_loader import get_symbols_config
+        config = get_symbols_config()
+        if config:
             category_order = []
             for category_symbols in config.values():
                 category_order.extend(category_symbols)
-            
-            # Filter to only symbols that exist in data, maintaining category order
             all_symbols = [s for s in category_order if s in data]
-            
-            # Add any remaining symbols not in categories (sorted)
             remaining = sorted(set(data.keys()) - set(all_symbols))
             all_symbols.extend(remaining)
-            
             return all_symbols
-        except Exception:
-            pass
-    
+    except Exception:
+        pass
     # Fallback to module import
     tech_stocks, cryptocurrencies, precious_metals = load_symbol_categories()
     

@@ -15,8 +15,10 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Change to parent directory (technical_analysis root)
 cd "$SCRIPT_DIR/.." || exit 1
 
-# Determine Python executable
-if [ -f "../venv/bin/python" ]; then
+# Determine Python executable (prefer .venv in technical_analysis to avoid duplicate venvs)
+if [ -f ".venv/bin/python" ]; then
+    PYTHON=".venv/bin/python"
+elif [ -f "../venv/bin/python" ]; then
     PYTHON="../venv/bin/python"
 elif [ -f "../env/bin/python" ]; then
     PYTHON="../env/bin/python"

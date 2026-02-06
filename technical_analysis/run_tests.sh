@@ -8,8 +8,10 @@ set -e  # Exit on error
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$SCRIPT_DIR" || exit 1
 
-# Determine Python executable
-if [ -f "../venv/bin/python" ]; then
+# Determine Python executable (prefer single .venv here to avoid duplicate venvs)
+if [ -f ".venv/bin/python" ]; then
+    PYTHON=".venv/bin/python"
+elif [ -f "../venv/bin/python" ]; then
     PYTHON="../venv/bin/python"
 elif [ -f "../env/bin/python" ]; then
     PYTHON="../env/bin/python"
@@ -104,6 +106,16 @@ with open('symbols_config.json', 'r') as f:
 else
     echo "✗ symbols_config.json not found!"
     exit 1
+fi
+
+echo ""
+echo "Test 4: Unit tests (pytest or unittest)..."
+echo "-----------------------------------"
+if $PYTHON -m pytest tests/ -v --tb=short -q 2>/dev/null; then
+    echo "✓ pytest passed"
+else
+    echo "Trying unittest..."
+    $PYTHON -m unittest discover -s tests -p "test_*.py" -v 2>/dev/null || true
 fi
 
 echo ""

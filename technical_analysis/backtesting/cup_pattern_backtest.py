@@ -25,11 +25,11 @@ from indicators.cup_pattern import detect_cup_and_breakout
 
 
 def _load_config():
-    config_path = Path(__file__).resolve().parent.parent / "symbols_config.json"
-    if not config_path.exists():
+    try:
+        from config_loader import get_symbols_config
+        return get_symbols_config()
+    except Exception:
         return {}
-    with open(config_path) as f:
-        return json.load(f)
 
 
 def _convert_to_benchmark_terms(df: pd.DataFrame, bench_df: pd.DataFrame) -> pd.DataFrame:
@@ -163,7 +163,7 @@ def summarize_backtest(agg: dict) -> dict:
 if __name__ == "__main__":
     config = _load_config()
     if not config:
-        print("No symbols_config.json found")
+        print("No categories in configuration.json found")
         sys.exit(1)
     print("Running cup pattern backtest (sample of symbols per category)...")
     agg = backtest_cup_pattern(config)

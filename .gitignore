@@ -8,8 +8,9 @@ __pycache__/
 dist/
 build/
 
-# Virtual environments
+# Virtual environments (use only technical_analysis/.venv to avoid ~550 MB duplicate)
 venv/
+.venv/
 env/
 ENV/
 

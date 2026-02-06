@@ -25,15 +25,18 @@ for BATCH in $(seq 0 $((NUM_BATCHES - 1))); do
     
     # Run analysis for this batch
     cd "$(dirname "$0")/.."
-    ../venv/bin/python3 technical_analysis.py --batch-size $BATCH_SIZE --batch-index $BATCH --refresh
-    
+    PYTHON3=".venv/bin/python3"
+    [ -f "$PYTHON3" ] || PYTHON3="../venv/bin/python3"
+    [ -f "$PYTHON3" ] || PYTHON3="python3"
+    $PYTHON3 technical_analysis.py --batch-size $BATCH_SIZE --batch-index $BATCH --refresh
+
     if [ $? -eq 0 ]; then
         echo ""
         echo "✅ Batch $((BATCH + 1)) complete!"
-        
+
         # Generate visualizations for completed categories
         echo "Generating visualizations..."
-        ../venv/bin/python3 visualize_scores.py
+        $PYTHON3 visualize_scores.py
         
         # Open visualizations for this batch
         echo "Opening visualizations..."

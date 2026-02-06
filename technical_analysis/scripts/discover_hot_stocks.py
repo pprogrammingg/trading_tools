@@ -39,18 +39,15 @@ KNOWN_TICKERS = set()  # Will be populated from existing config
 
 
 def load_existing_symbols():
-    """Load all existing symbols from config."""
-    config_path = Path("symbols_config.json")
-    if not config_path.exists():
-        return set()
-    
-    with open(config_path, 'r') as f:
-        config = json.load(f)
-    
+    """Load all existing symbols from configuration.json 'categories'."""
+    try:
+        from config_loader import get_symbols_config
+        config = get_symbols_config()
+    except Exception:
+        config = {}
     all_symbols = set()
     for category_symbols in config.values():
         all_symbols.update(category_symbols)
-    
     return all_symbols
 
 
@@ -168,16 +165,15 @@ def categorize_ticker(ticker, existing_symbols):
     if any(pattern in ticker_upper for pattern in crypto_patterns) or ticker_upper.endswith('-USD'):
         return 'cryptocurrencies'
     
-    # Check if it's already in a category
-    config_path = Path("symbols_config.json")
-    if config_path.exists():
-        with open(config_path, 'r') as f:
-            config = json.load(f)
-        
+    try:
+        from config_loader import get_symbols_config
+        config = get_symbols_config()
         for category, symbols in config.items():
             if ticker_upper in [s.upper() for s in symbols]:
                 return category
-    
+    except Exception:
+        pass
+
     # Default to general stocks
     return 'general_stocks'
 
@@ -274,48 +270,33 @@ def get_manual_input_stocks():
 
 
 def update_symbols_config(hot_stocks, dry_run=False):
-    """
-    Update symbols_config.json with discovered stocks.
-    
-    Args:
-        hot_stocks: Dictionary of discovered stocks
-        dry_run: If True, don't actually update file
-    """
-    config_path = Path("symbols_config.json")
-    
-    # Load existing config
-    if config_path.exists():
-        with open(config_path, 'r') as f:
-            config = json.load(f)
-    else:
+    """Update configuration.json 'categories' with discovered stocks."""
+    try:
+        from config_loader import get_symbols_config, update_categories
+        config = get_symbols_config()
+    except Exception:
         config = {}
-    
-    # Ensure general_stocks category exists
-    if 'general_stocks' not in config:
-        config['general_stocks'] = []
-    
-    # Add new stocks to appropriate categories
+    if "general_stocks" not in config:
+        config["general_stocks"] = []
     added_count = 0
     for ticker, data in hot_stocks.items():
-        category = data['category']
-        
+        category = data["category"]
         if category not in config:
             config[category] = []
-        
-        # Add if not already present
         if ticker not in config[category]:
             config[category].append(ticker)
             added_count += 1
             print(f"  ✓ Added {ticker} to {category} ({data['mentions']} mentions)")
-    
-    # Save updated config
+
     if not dry_run and added_count > 0:
-        with open(config_path, 'w') as f:
-            json.dump(config, f, indent=2)
-        print(f"\n✓ Updated symbols_config.json with {added_count} new stock(s)")
+        try:
+            from config_loader import update_categories
+            update_categories(config)
+            print(f"\n✓ Updated configuration.json categories with {added_count} new stock(s)")
+        except Exception as e:
+            print(f"\nWarning: could not update configuration.json: {e}")
     elif dry_run:
         print(f"\n[DRY RUN] Would add {added_count} new stock(s)")
-    
     return config
 
 

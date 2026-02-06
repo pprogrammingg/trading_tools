@@ -16,11 +16,12 @@ def get_progress():
     """Get current analysis progress"""
     result_dir = Path("result_scores")
     result_files = list(result_dir.glob("*_results.json"))
-    
-    config_file = Path("symbols_config.json")
-    with open(config_file, 'r') as f:
-        config = json.load(f)
-    
+
+    try:
+        from config_loader import get_symbols_config
+        config = get_symbols_config()
+    except Exception:
+        config = {}
     total_categories = len(config)
     completed_categories = len(result_files)
     

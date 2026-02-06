@@ -2,26 +2,32 @@
 """
 Print indicators for any category or symbol and timeframes.
 
+Module layout:
+- Indicator enum; constants from configuration.json (tf_rules, default_timeframes, result_file_exclude)
+- Resolution: resolve_categories_or_symbols, _resolve_one, _load_symbols_config
+- Data: _load_result_file, _get_ta_from_results, _find_result_file_for_symbol, _get_ta_for_symbol_tf,
+  _fetch_and_compute, _get_indicator_value
+- Formatting: _format_elliott_wave, _format_indicator_value
+- Report: _normalize_indicators, _normalize_timeframes, build_report_lines, print_indicators
+- CLI: main()
+
 Programmatic usage:
-  from scripts.print_indicators import print_indicators, Indicator
+  from scripts.print_indicators import print_indicators, build_report_lines, Indicator
 
   print_indicators(
     [Indicator.SMA_50, Indicator.SMA_100, Indicator.SMA_200, Indicator.ELLIOTT_WAVE_COUNT],
     ["BTC-USD", "precious_metals", "index_etfs"],
     ["1D", "1W", "1M"],
   )
+  # Or get lines without printing (e.g. for tests):
+  lines = build_report_lines(indicators, categories_or_symbols, timeframes, get_indicator_value=mock_fn)
 
-Aliases and tickers live in technical_analysis/configuration.json (symbol_aliases, category_aliases).
-- "BTC" -> config resolves to BTC-USD data; "GOLD" -> GC=F.
-- "BTC/GOLD" -> BTC vs GOLD: both symbols resolved and printed (BTC-USD, GC=F).
-
+Aliases and tickers: configuration.json (symbol_aliases, category_aliases). "BTC" -> BTC-USD, "GOLD" -> GC=F.
 Default run: precious_metals, [sma50, sma100, sma200, elliott_wave], [1W, 1M].
 
-Run in console (from technical_analysis/):
-  python scripts/print_indicators.py
-  python scripts/print_indicators.py --indicators sma50 sma200 elliott_wave --categories BTC PRECIOUS_METALS --timeframes 1W 1M
-  python scripts/print_indicators.py --categories BTC/GOLD --timeframes 1W 1M
-  python scripts/print_indicators.py --help
+Run (from technical_analysis/, use project venv):
+  ../venv/bin/python scripts/print_indicators.py
+  ../venv/bin/python scripts/print_indicators.py --indicators sma50 sma200 --categories BTC --timeframes 1W 1M
 """
 
 import json
@@ -29,7 +35,7 @@ import os
 import sys
 from enum import Enum
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Sequence, Tuple
+from typing import Any, Callable, Dict, List, Optional, Sequence, Tuple
 
 # Allow running from scripts/ or technical_analysis/
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -40,12 +46,23 @@ if getattr(sys, "_print_indicators_chdir", True):
     os.chdir(ROOT)
 
 RESULTS_DIR = ROOT / "result_scores"
-SYMBOLS_CONFIG_PATH = ROOT / "symbols_config.json"
 
 try:
-    from config_loader import load_configuration
+    from config_loader import (
+        load_configuration,
+        get_tf_rules,
+        get_default_timeframes,
+        get_result_file_exclude,
+        get_symbols_config,
+    )
 except ImportError:
-    from technical_analysis.config_loader import load_configuration
+    from technical_analysis.config_loader import (
+        load_configuration,
+        get_tf_rules,
+        get_default_timeframes,
+        get_result_file_exclude,
+        get_symbols_config,
+    )
 
 
 class Indicator(str, Enum):
@@ -57,10 +74,8 @@ class Indicator(str, Enum):
 
 
 def _load_symbols_config() -> Dict[str, List[str]]:
-    if not SYMBOLS_CONFIG_PATH.exists():
-        return {}
-    with open(SYMBOLS_CONFIG_PATH) as f:
-        return json.load(f)
+    """Load category -> tickers from configuration.json 'categories'."""
+    return get_symbols_config()
 
 
 def _load_result_file(category_key: str) -> Optional[Dict]:
@@ -189,15 +204,23 @@ def _get_ta_from_results(symbol: str, tf: str, category_key: str) -> Optional[Di
     tf_data = data[symbol].get(tf, {})
     yf = tf_data.get("yfinance", {})
     usd = yf.get("usd", {})
-    return usd.get("ta_library") or usd.get("tradingview_library")
+    ta = usd.get("ta_library") or {}
+    tv = usd.get("tradingview_library") or {}
+    # Merge so any key from either is available (prefer non-None)
+    merged = dict(ta)
+    for k, v in tv.items():
+        if merged.get(k) is None and v is not None:
+            merged[k] = v
+    return merged if merged else (ta or tv or None)
 
 
 def _find_result_file_for_symbol(symbol: str) -> Optional[Tuple[Dict, str]]:
     """Search result_scores for a file containing symbol. Returns (data, category_key) or None."""
     if not RESULTS_DIR.exists():
         return None
+    exclude = get_result_file_exclude()
     for path in RESULTS_DIR.glob("*_results.json"):
-        if path.name in ("market_caps.json", "esg_ratings.json", "performance_vs_btc_eth.json", "performance_vs_spy.json"):
+        if path.name in exclude:
             continue
         try:
             with open(path) as f:
@@ -256,17 +279,44 @@ def _fetch_and_compute(
     try:
         from technical_analysis import download_data, resample_ohlcv
     except ImportError:
-        return None
-    tf_rules = {"1D": "1D", "1W": "7D", "2W": "14D", "1M": "30D", "2D": "2D", "2M": "60D", "6M": "180D"}
+        try:
+            import importlib.util
+            _ta_path = ROOT / "technical_analysis.py"
+            if _ta_path.exists():
+                spec = importlib.util.spec_from_file_location("_ta_module", _ta_path)
+                _ta = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(_ta)
+                download_data = _ta.download_data
+                resample_ohlcv = _ta.resample_ohlcv
+            else:
+                return None
+        except Exception:
+            return None
+    tf_rules = get_tf_rules()
     rule = tf_rules.get(tf, "7D")
-    period = "2y" if tf == "1M" else "1y"
+    need_long = indicator in (Indicator.SMA_100, Indicator.SMA_200)
+    min_bars = 200 if indicator == Indicator.SMA_200 else (100 if indicator == Indicator.SMA_100 else 50)
     cat = category_key if category_key != "unknown" else "precious_metals"
+    # For 1W + SMA100/SMA200 we need 100/200 weekly bars; crypto gets max to ensure enough history
+    if tf == "1M":
+        period = "10y" if (need_long and indicator == Indicator.SMA_200) else "2y"
+    elif tf == "1W" and need_long:
+        period = "max" if cat == "cryptocurrencies" else "5y"
+    else:
+        period = "2y" if tf == "1M" else "1y"
     df = download_data(symbol, period=period, category=cat, use_cache=True, force_refresh=False)
-    if df is None or len(df) < 100:
+    if df is None or len(df) < 50:
         return None
     resampled = resample_ohlcv(df, rule)
-    if resampled is None or len(resampled) < 50:
-        return None
+    if resampled is None or len(resampled) < min_bars:
+        if need_long and period != "10y":
+            period_refetch = "max" if cat == "cryptocurrencies" else ("5y" if tf == "1W" else "10y")
+            df = download_data(symbol, period=period_refetch, category=cat, use_cache=False, force_refresh=True)
+            if df is None or len(df) < 50:
+                return None
+            resampled = resample_ohlcv(df, rule)
+        if resampled is None or len(resampled) < min_bars:
+            return None
     close = resampled["Close"]
     high = resampled["High"] if "High" in resampled.columns else close
     low = resampled["Low"] if "Low" in resampled.columns else close
@@ -296,8 +346,10 @@ def _get_indicator_value(
         if indicator == Indicator.SMA_200:
             return ta.get("sma200")
         if indicator == Indicator.SMA_100:
-            # Often not in results; compute on the fly below
-            pass
+            val = ta.get("sma100")
+            if val is not None:
+                return val
+            # Fall through to on-the-fly if not in results yet
         if indicator == Indicator.ELLIOTT_WAVE_COUNT:
             ew = ta.get("elliott_wave")
             if isinstance(ew, dict):
@@ -329,6 +381,91 @@ def _format_elliott_wave(ew: Optional[Dict]) -> str:
     return str(pos)
 
 
+def _format_indicator_value(ind: Indicator, val: Any) -> str:
+    """Format a single indicator value for report output."""
+    if ind == Indicator.ELLIOTT_WAVE_COUNT and isinstance(val, dict):
+        return _format_elliott_wave(val)
+    if val is None:
+        return "—"
+    if isinstance(val, (int, float)):
+        return f"{ind.value}={val}"
+    return f"{ind.value}={val}"
+
+
+def _normalize_indicators(indicators: Sequence[Any]) -> List[Indicator]:
+    """Accept Indicator enum or string (e.g. 'sma50', 'elliott_wave') and return list of Indicator."""
+    ind_list: List[Indicator] = []
+    for i in indicators:
+        if isinstance(i, Indicator):
+            ind_list.append(i)
+        elif isinstance(i, str):
+            s = (i or "").strip().lower().replace(" ", "_")
+            try:
+                ind_list.append(Indicator(s))
+            except ValueError:
+                for e in Indicator:
+                    if e.name == (i or "").strip().upper().replace(" ", "_") or e.value == s:
+                        ind_list.append(e)
+                        break
+    return ind_list
+
+
+def _normalize_timeframes(timeframes: Sequence[str]) -> List[str]:
+    """Return non-empty timeframe list or default from configuration.json."""
+    tf_list = [t.strip().upper() or "1W" for t in (timeframes or []) if t and str(t).strip()]
+    return tf_list if tf_list else get_default_timeframes()
+
+
+# Type for optional override when building report (e.g. in tests)
+GetIndicatorValueFn = Callable[[str, str, Indicator, str], Any]
+
+
+def build_report_lines(
+    indicators: Sequence[Indicator],
+    categories_or_symbols: Sequence[str],
+    timeframes: Sequence[str],
+    *,
+    symbols_config: Optional[Dict[str, List[str]]] = None,
+    get_indicator_value: Optional[GetIndicatorValueFn] = None,
+) -> List[str]:
+    """
+    Build the indicators report as a list of lines (no print).
+    Used by print_indicators and by tests to assert on content.
+    If get_indicator_value is provided, it is used instead of _get_indicator_value.
+    """
+    ind_list = _normalize_indicators(indicators)
+    if symbols_config is None:
+        symbols_config = _load_symbols_config()
+    resolved = resolve_categories_or_symbols(categories_or_symbols, symbols_config)
+    if not resolved:
+        return ["No symbols resolved from categories_or_symbols."]
+
+    tf_list = _normalize_timeframes(timeframes)
+    get_val = get_indicator_value or _get_indicator_value
+    sep = "=" * 80
+    lines: List[str] = [
+        sep,
+        "  INDICATORS REPORT",
+        f"  Indicators: {[i.value for i in ind_list]}",
+        f"  Timeframes: {tf_list}",
+        sep,
+    ]
+
+    for symbol, category_key in resolved:
+        lines.append("")
+        lines.append(f"  {symbol}  (category: {category_key})")
+        lines.append("-" * 60)
+        for tf in tf_list:
+            row: List[str] = [f"  {tf}:"]
+            for ind in ind_list:
+                val = get_val(symbol, tf, ind, category_key)
+                row.append(_format_indicator_value(ind, val))
+            lines.append(" | ".join(row))
+        lines.append("")
+    lines.append(sep)
+    return lines
+
+
 def print_indicators(
     indicators: Sequence[Indicator],
     categories_or_symbols: Sequence[str],
@@ -343,56 +480,9 @@ def print_indicators(
     - categories_or_symbols: e.g. ["BTC-USD", "precious_metals", "index_etfs"]
     - timeframes: e.g. ["1D", "1W", "1M"]
     """
-    # Normalize: accept strings like "SMA_50" or "elliott_wave"
-    ind_list: List[Indicator] = []
-    for i in indicators:
-        if isinstance(i, Indicator):
-            ind_list.append(i)
-        elif isinstance(i, str):
-            try:
-                ind_list.append(Indicator(i.strip().lower().replace(" ", "_")))
-            except ValueError:
-                for e in Indicator:
-                    if e.name == i.upper() or e.value == i.lower():
-                        ind_list.append(e)
-                        break
-
-    symbols_config = _load_symbols_config()
-    resolved = resolve_categories_or_symbols(categories_or_symbols, symbols_config)
-    if not resolved:
-        print("No symbols resolved from categories_or_symbols.")
-        return
-
-    tf_list = [t.strip().upper() or "1W" for t in timeframes if t and str(t).strip()]
-    if not tf_list:
-        tf_list = ["1W", "1M"]
-
-    sep = "=" * 80
-    print(sep)
-    print("  INDICATORS REPORT")
-    print(f"  Indicators: {[i.value for i in ind_list]}")
-    print(f"  Timeframes: {tf_list}")
-    print(sep)
-
-    for symbol, category_key in resolved:
-        print()
-        print(f"  {symbol}  (category: {category_key})")
-        print("-" * 60)
-        for tf in tf_list:
-            row: List[str] = [f"  {tf}:"]
-            for ind in ind_list:
-                val = _get_indicator_value(symbol, tf, ind, category_key)
-                if ind == Indicator.ELLIOTT_WAVE_COUNT and isinstance(val, dict):
-                    row.append(_format_elliott_wave(val))
-                elif val is None:
-                    row.append("—")
-                elif isinstance(val, (int, float)):
-                    row.append(f"{ind.value}={val}")
-                else:
-                    row.append(f"{ind.value}={val}")
-            print(" | ".join(row))
-        print()
-    print(sep)
+    lines = build_report_lines(indicators, categories_or_symbols, timeframes)
+    for line in lines:
+        print(line)
 
 
 def main():
@@ -422,28 +512,17 @@ Examples (run from technical_analysis/):
     parser.add_argument(
         "--timeframes",
         nargs="+",
-        default=["1W", "1M"],
-        help="Timeframes: 1D 1W 1M",
+        default=get_default_timeframes(),
+        help="Timeframes: 1D 1W 1M (default from configuration.json)",
     )
     args = parser.parse_args()
 
-    inds = []
-    for a in args.indicators:
-        a = (a or "").strip().lower().replace(" ", "_")
-        try:
-            inds.append(Indicator(a))
-        except ValueError:
-            if a == "sma50":
-                inds.append(Indicator.SMA_50)
-            elif a == "sma100":
-                inds.append(Indicator.SMA_100)
-            elif a == "sma200":
-                inds.append(Indicator.SMA_200)
-            elif "elliott" in a or "wave" in a:
-                inds.append(Indicator.ELLIOTT_WAVE_COUNT)
-            else:
-                print(f"Unknown indicator: {a}", file=sys.stderr)
+    inds = _normalize_indicators(args.indicators)
     if not inds:
+        for a in args.indicators:
+            a = (a or "").strip().lower()
+            if a and a not in ("sma50", "sma100", "sma200") and "elliott" not in a and "wave" not in a:
+                print(f"Unknown indicator: {a}", file=sys.stderr)
         inds = [Indicator.SMA_50, Indicator.SMA_100, Indicator.SMA_200, Indicator.ELLIOTT_WAVE_COUNT]
 
     print_indicators(inds, args.categories, args.timeframes)

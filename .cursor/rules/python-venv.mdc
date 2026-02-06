@@ -1,0 +1,18 @@
+---
+description: Use project venv when running Python commands
+alwaysApply: true
+---
+
+# Python and virtual environment
+
+When running Python commands in this project (e.g. tests, scripts, `technical_analysis.py`), **use the project virtual environment**.
+
+- **From repo root (`trading_tools/`):**
+  - Activate: `source venv/bin/activate` then run `python` / `python3` / `pytest`
+  - Or run directly: `./venv/bin/python -m pytest technical_analysis/tests/`
+- **From `technical_analysis/`:**
+  - `../venv/bin/python scripts/print_indicators.py ...` or `source ../venv/bin/activate` then `python scripts/print_indicators.py`
+  - Prefer the same venv at repo root: `../venv/bin/python` when one level deep
+- Do **not** run `python3` or `python` from the system if a `venv` (or `env`) exists in the project; use the venv interpreter so dependencies (e.g. `yfinance`, `pandas`) are available.
+
+If no venv exists, suggest creating one: `python3 -m venv venv && source venv/bin/activate && pip install -r technical_analysis/requirements.txt`

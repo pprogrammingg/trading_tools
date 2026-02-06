@@ -22,12 +22,17 @@ os.chdir(ROOT)
 
 RESULTS_FILE = ROOT / "result_scores" / "precious_metals_results.json"
 TIMEFRAMES_ORDER = ["2D", "1W", "2W", "1M", "2M", "6M"]
-EW_TIMEFRAMES = {"1W": "7D", "2W": "14D", "1M": "30D"}
 
 try:
-    from config_loader import get_display_name_symbol, get_gold_silver_tickers, get_download_category_for_ticker
+    from config_loader import get_display_name_symbol, get_gold_silver_tickers, get_download_category_for_ticker, get_tf_rules
 except ImportError:
-    from technical_analysis.config_loader import get_display_name_symbol, get_gold_silver_tickers, get_download_category_for_ticker
+    from technical_analysis.config_loader import get_display_name_symbol, get_gold_silver_tickers, get_download_category_for_ticker, get_tf_rules
+
+# Elliott Wave timeframes: subset of configuration.json tf_rules
+_tf_rules = get_tf_rules()
+EW_TIMEFRAMES = {k: _tf_rules[k] for k in ("1W", "2W", "1M") if k in _tf_rules}
+if not EW_TIMEFRAMES:
+    EW_TIMEFRAMES = {"1W": "7D", "2W": "14D", "1M": "30D"}
 
 
 def run_refresh_and_analysis():

@@ -1,4 +1,4 @@
-"""Tests for print_indicators script: Indicator enum, resolve_categories_or_symbols, print_indicators."""
+"""Tests for print_indicators script: Indicator enum, resolve_categories_or_symbols, print_indicators, and that technical indicators are printed."""
 
 import io
 import json
@@ -19,11 +19,14 @@ from scripts.print_indicators import (
     Indicator,
     resolve_categories_or_symbols,
     print_indicators,
+    build_report_lines,
+    _format_indicator_value,
+    _normalize_indicators,
+    _normalize_timeframes,
     _load_symbols_config,
     _get_ta_from_results,
     _format_elliott_wave,
     RESULTS_DIR,
-    SYMBOLS_CONFIG_PATH,
 )
 
 
@@ -103,6 +106,103 @@ class TestResolveCategoriesOrSymbols(unittest.TestCase):
         self.assertIn("GC=F", symbols)
 
 
+class TestFormatIndicatorValue(unittest.TestCase):
+    def test_format_numeric_sma50(self):
+        self.assertEqual(_format_indicator_value(Indicator.SMA_50, 100.5), "sma50=100.5")
+
+    def test_format_numeric_sma100_sma200(self):
+        self.assertEqual(_format_indicator_value(Indicator.SMA_100, 99.0), "sma100=99.0")
+        self.assertEqual(_format_indicator_value(Indicator.SMA_200, 98.25), "sma200=98.25")
+
+    def test_format_none_returns_dash(self):
+        self.assertEqual(_format_indicator_value(Indicator.SMA_50, None), "—")
+
+    def test_format_elliott_wave_dict(self):
+        ew = {"wave_position": "Wave 3", "wave_count": {"primary": {"waves": []}}}
+        out = _format_indicator_value(Indicator.ELLIOTT_WAVE_COUNT, ew)
+        self.assertIn("Wave 3", out)
+
+
+class TestNormalizeIndicators(unittest.TestCase):
+    def test_accepts_enum(self):
+        self.assertEqual(_normalize_indicators([Indicator.SMA_50]), [Indicator.SMA_50])
+
+    def test_accepts_string_value(self):
+        self.assertEqual(_normalize_indicators(["sma50", "sma100"]), [Indicator.SMA_50, Indicator.SMA_100])
+
+    def test_accepts_mixed(self):
+        self.assertEqual(_normalize_indicators([Indicator.SMA_200, "elliott_wave"]), [Indicator.SMA_200, Indicator.ELLIOTT_WAVE_COUNT])
+
+
+class TestNormalizeTimeframes(unittest.TestCase):
+    def test_empty_uses_default(self):
+        self.assertEqual(_normalize_timeframes([]), ["1W", "1M"])
+
+    def test_preserves_valid(self):
+        self.assertEqual(_normalize_timeframes(["1W", "1M"]), ["1W", "1M"])
+        self.assertEqual(_normalize_timeframes(["1D"]), ["1D"])
+
+
+class TestBuildReportLinesWithMockedIndicators(unittest.TestCase):
+    """Tests that prove technical indicators (sma50, sma100, sma200) appear in the report when values are provided."""
+
+    def _mock_get_value(self, sma50_val=None, sma100_val=None, sma200_val=None, elliott_val=None):
+        def get_val(symbol: str, tf: str, ind: Indicator, category_key: str):
+            if ind == Indicator.SMA_50:
+                return sma50_val
+            if ind == Indicator.SMA_100:
+                return sma100_val
+            if ind == Indicator.SMA_200:
+                return sma200_val
+            if ind == Indicator.ELLIOTT_WAVE_COUNT:
+                return elliott_val
+            return None
+        return get_val
+
+    def test_report_lines_contain_sma50_sma100_sma200_values_when_mocked(self):
+        """When get_indicator_value returns fixed numbers, report lines must contain sma50=..., sma100=..., sma200=..."""
+        get_val = self._mock_get_value(sma50_val=100.5, sma100_val=99.0, sma200_val=98.25)
+        lines = build_report_lines(
+            [Indicator.SMA_50, Indicator.SMA_100, Indicator.SMA_200],
+            ["BTC-USD"],
+            ["1W"],
+            get_indicator_value=get_val,
+        )
+        report_text = "\n".join(lines)
+        self.assertIn("sma50=100.5", report_text, "Report should show sma50 value")
+        self.assertIn("sma100=99.0", report_text, "Report should show sma100 value")
+        self.assertIn("sma200=98.25", report_text, "Report should show sma200 value")
+        self.assertIn("INDICATORS REPORT", report_text)
+        self.assertIn("BTC-USD", report_text)
+
+    def test_report_lines_show_dash_for_missing_indicator(self):
+        """When an indicator value is None, report should show — for that indicator."""
+        get_val = self._mock_get_value(sma50_val=1.0, sma100_val=None, sma200_val=2.0)
+        lines = build_report_lines(
+            [Indicator.SMA_50, Indicator.SMA_100, Indicator.SMA_200],
+            ["GC=F"],
+            ["1M"],
+            get_indicator_value=get_val,
+        )
+        report_text = "\n".join(lines)
+        self.assertIn("sma50=1.0", report_text)
+        self.assertIn("sma200=2.0", report_text)
+        # Line for 1M should contain two numbers and one dash
+        for line in lines:
+            if "1M:" in line:
+                self.assertIn("—", line, "Missing indicator should appear as —")
+                break
+
+    def test_report_no_symbols_resolved_message(self):
+        lines = build_report_lines(
+            [Indicator.SMA_50],
+            [],
+            ["1W"],
+        )
+        self.assertEqual(len(lines), 1)
+        self.assertIn("No symbols resolved", lines[0])
+
+
 class TestPrintIndicators(unittest.TestCase):
     def test_print_indicators_captures_stdout(self):
         buf = io.StringIO()
@@ -142,6 +242,25 @@ class TestPrintIndicators(unittest.TestCase):
             )
         out = buf.getvalue()
         self.assertIn("INDICATORS REPORT", out)
+
+    def test_printed_report_contains_indicator_values_when_from_results(self):
+        """When result file exists, printed report should contain at least one line with indicator=number (technical indicators being printed)."""
+        if not (RESULTS_DIR / "precious_metals_results.json").exists():
+            self.skipTest("precious_metals_results.json not found")
+        buf = io.StringIO()
+        with patch("sys.stdout", buf):
+            print_indicators(
+                [Indicator.SMA_50, Indicator.SMA_200],
+                ["precious_metals"],
+                ["1W"],
+            )
+        out = buf.getvalue()
+        # At least one line should match sma50=<number> or sma200=<number> (indicator values printed)
+        self.assertRegex(
+            out,
+            r"sma50=\d+\.?\d*|sma200=\d+\.?\d*",
+            "Report should show at least one numeric indicator (sma50 or sma200) when results exist",
+        )
 
 
 class TestFormatElliottWave(unittest.TestCase):

@@ -76,21 +76,19 @@ PRECIOUS_METALS = [
 # Combine all symbols
 SYMBOLS = TECH_STOCKS + CRYPTOCURRENCIES + PRECIOUS_METALS
 
-# Default timeframes (4H and 1D excluded as they are noisy)
-TIMEFRAMES = {
-    "2D": "2D",      # 2 calendar days
-    "1W": "7D",      # 7 calendar days (not trading days)
-    "2W": "14D",     # 14 calendar days
-    "1M": "30D",     # 30 calendar days
-    "2M": "60D",     # 60 calendar days
-    "6M": "180D",    # 180 calendar days
-}
-
-# Optional noisy timeframes (can be enabled via --include-intraday flag)
-OPTIONAL_TIMEFRAMES = {
-    "4H": "4H",      # 4 hours (intraday) - NOISY
-    "1D": "1D",      # 1 calendar day - NOISY
-}
+# Timeframes: from configuration.json tf_rules when available (single source of truth)
+try:
+    from config_loader import get_tf_rules
+    _all_tf = get_tf_rules()
+    _main_keys = ("2D", "3D", "1W", "2W", "1M", "2M", "6M")
+    _optional_keys = ("4H", "1D")
+    TIMEFRAMES = {k: v for k, v in _all_tf.items() if k in _main_keys}
+    OPTIONAL_TIMEFRAMES = {k: v for k, v in _all_tf.items() if k in _optional_keys}
+except ImportError:
+    TIMEFRAMES = {
+        "2D": "2D", "1W": "7D", "2W": "14D", "1M": "30D", "2M": "60D", "6M": "180D",
+    }
+    OPTIONAL_TIMEFRAMES = {"4H": "4H", "1D": "1D"}
 
 INDICATOR_WINDOWS = {
     "rsi": 14,
@@ -112,17 +110,21 @@ CRYPTOCURRENCIES = []
 PRECIOUS_METALS = []
 SYMBOLS = []
 
-def load_symbols_config(config_path: str = "symbols_config.json") -> dict:
-    """Load symbols configuration from JSON file."""
-    config_file = Path(config_path)
-    if not config_file.exists():
-        # Try parent directory
-        config_file = Path(__file__).parent.parent / config_path
-        if not config_file.exists():
-            raise FileNotFoundError(f"Symbols config not found: {config_path}")
-    
-    with open(config_file, 'r') as f:
-        return json.load(f)
+def load_symbols_config(config_path: str = None) -> dict:
+    """Load symbols by category from configuration.json 'categories'. Optional config_path overrides (path to JSON with category -> list of tickers)."""
+    if config_path:
+        config_file = Path(config_path)
+        if not config_file.is_absolute():
+            config_file = Path(__file__).parent / config_file
+        if config_file.exists():
+            with open(config_file, "r") as f:
+                return json.load(f)
+    try:
+        from config_loader import get_symbols_config
+        return get_symbols_config()
+    except ImportError:
+        pass
+    raise FileNotFoundError("configuration.json 'categories' not available. Install config_loader or pass --config path.")
 
 # ======================================================
 # DATA HELPERS
@@ -172,20 +174,20 @@ def should_refresh_cache(cache_file: Path, force_refresh: bool = False) -> bool:
     
     return False
 
-def get_cache_path(category: str, symbol: str) -> Path:
-    """Get cache file path for a symbol in a category."""
+def get_cache_path(category: str, symbol: str, interval: str = "1d") -> Path:
+    """Get cache file path for a symbol in a category. Uses interval so 1h and 1d are cached separately."""
     category_dir = CACHE_DIR / category
     category_dir.mkdir(exist_ok=True)
-    # Sanitize symbol for filename (replace special chars)
     safe_symbol = symbol.replace("=", "_").replace("-", "_")
-    return category_dir / f"{safe_symbol}.pkl"
+    suffix = "" if interval == "1d" else f"_{interval.replace(' ', '_')}"
+    return category_dir / f"{safe_symbol}{suffix}.pkl"
 
-def load_cached_data(category: str, symbol: str, force_refresh: bool = False):
+def load_cached_data(category: str, symbol: str, force_refresh: bool = False, interval: str = "1d"):
     """
     Load cached data if available and fresh.
-    Returns (dataframe, is_cached)
+    Returns (dataframe, is_cached). Uses interval so 1h and 1d caches are separate.
     """
-    cache_file = get_cache_path(category, symbol)
+    cache_file = get_cache_path(category, symbol, interval=interval)
     
     if not should_refresh_cache(cache_file, force_refresh=force_refresh):
         try:
@@ -199,12 +201,12 @@ def load_cached_data(category: str, symbol: str, force_refresh: bool = False):
     
     return pd.DataFrame(), False
 
-def save_cached_data(category: str, symbol: str, df: pd.DataFrame):
-    """Save downloaded data to cache."""
+def save_cached_data(category: str, symbol: str, df: pd.DataFrame, interval: str = "1d"):
+    """Save downloaded data to cache. Uses interval in path so 1h and 1d are stored separately."""
     if len(df) == 0:
         return
-    
-    cache_file = get_cache_path(category, symbol)
+
+    cache_file = get_cache_path(category, symbol, interval=interval)
     try:
         with open(cache_file, 'wb') as f:
             pickle.dump(df, f)
@@ -232,10 +234,10 @@ def download_data(symbol, period="5y", interval="1d", category: str = None, use_
         period = "max"  # yfinance supports "max" for maximum available data
     # Try to load from cache if category provided and caching enabled
     if use_cache and category and not force_refresh:
-        cached_df, is_cached = load_cached_data(category, symbol, force_refresh=force_refresh)
+        cached_df, is_cached = load_cached_data(category, symbol, force_refresh=force_refresh, interval=interval)
         if is_cached:
             return cached_df
-    
+
     # Download fresh data
     try:
         df = yf.download(symbol, period=period, interval=interval, auto_adjust=False, progress=False)
@@ -245,8 +247,8 @@ def download_data(symbol, period="5y", interval="1d", category: str = None, use_
         
         # Save to cache if category provided and caching enabled
         if use_cache and category and len(df) > 0:
-            save_cached_data(category, symbol, df)
-        
+            save_cached_data(category, symbol, df, interval=interval)
+
         return df
     except Exception as e:
         print(f"  yFinance error for {symbol}: {e}")
@@ -522,6 +524,7 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
         "ema50": None,
         "ema200": None,
         "sma50": None,
+        "sma100": None,
         "sma200": None,
         "4w_low": None,
         "gmma_bullish": None,
@@ -551,7 +554,7 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
     
     result["close"] = round(close.iloc[-1], 4)
     
-    # === Key Moving Averages (simplified - only 50 and 200) ===
+    # === Key Moving Averages (50, 100, 200) ===
     # EMA50
     if len(close) >= 50:
         ema50_values = ema(close, 50)
@@ -566,6 +569,11 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
     if len(close) >= 50:
         sma50_values = sma(close, 50)
         result["sma50"] = round(sma50_values.iloc[-1], 4)
+    
+    # SMA100
+    if len(close) >= 100:
+        sma100_values = sma(close, 100)
+        result["sma100"] = round(sma100_values.iloc[-1], 4)
     
     # SMA200
     if len(close) >= 200:
@@ -1044,6 +1052,7 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
         "ema50": None,
         "ema200": None,
         "sma50": None,
+        "sma100": None,
         "sma200": None,
         "4w_low": None,
         "gmma_bullish": None,
@@ -1088,6 +1097,11 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
     if len(close) >= 50:
         sma50 = SMAIndicator(close, window=50).sma_indicator()
         result["sma50"] = round(sma50.iloc[-1], 4)
+    
+    # SMA100
+    if len(close) >= 100:
+        sma100 = SMAIndicator(close, window=100).sma_indicator()
+        result["sma100"] = round(sma100.iloc[-1], 4)
     
     # SMA200
     if len(close) >= 200:
@@ -2086,7 +2100,7 @@ def main():
     """Main function - processes all categories or a specific category."""
     parser = argparse.ArgumentParser(description='Generate investment score sheets')
     parser.add_argument('--category', type=str, help='Process only this category (e.g., quantum, miner_hpc)')
-    parser.add_argument('--config', type=str, default='symbols_config.json', help='Path to symbols config JSON')
+    parser.add_argument('--config', type=str, default=None, help='Path to symbols JSON (optional; default: configuration.json categories)')
     parser.add_argument('--calculate-potential', action='store_true', 
                        help='Calculate relative potential (slower, requires market cap API calls). '
                             'Saves ~30-45%% time when disabled.')
@@ -2100,12 +2114,12 @@ def main():
                        help='Process batch number N (0-indexed, use with --batch-size)')
     args = parser.parse_args()
     
-    # Load symbols configuration
+    # Load symbols configuration (configuration.json 'categories' or --config path)
     try:
         symbols_config = load_symbols_config(args.config)
     except FileNotFoundError as e:
         print(f"Error: {e}")
-        print("Please create symbols_config.json with category structure.")
+        print("Use configuration.json with 'categories' key.")
         sys.exit(1)
     
     # Determine timeframes to use

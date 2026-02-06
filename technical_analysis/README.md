@@ -27,6 +27,35 @@ bash open_visualizations.sh
 python optimize_scoring.py
 ```
 
+## 💾 Data and storage (reducing ~1 GB)
+
+**Canonical venv:** Use **only** `technical_analysis/.venv`. All scripts (run_tests.sh, run_full_analysis.sh, run_visualization.sh, run_optimization.sh, run_analysis_batches.sh) prefer `.venv/bin/python` when run from `technical_analysis/`. Root-level `venv/` and `env/` are ignored by `.gitignore` and are redundant.
+
+**To reclaim ~550 MB:** From the repo root, remove duplicate virtual envs:
+```bash
+cd /path/to/trading_tools
+rm -rf venv env
+```
+Keep only `technical_analysis/.venv`. Recreate it if needed: `cd technical_analysis && python3 -m venv .venv && .venv/bin/pip install -r requirements.txt`.
+
+**Biggest culprits** (approximate):
+
+| Location | Size | Notes |
+|----------|------|--------|
+| `venv` / `env` / `technical_analysis/.venv` | **~400 MB each** | Use **one** venv: `technical_analysis/.venv` only. |
+| `technical_analysis/data_cache` | ~12 MB | Cached OHLCV per symbol. Shrinks with `max_symbols_per_category`. |
+| `technical_analysis/result_scores` | ~9 MB | JSON result files per category. |
+| `technical_analysis/backtesting` | ~4 MB | Backtest outputs. |
+
+**Savings from current setup:**
+
+| Optimization | Approx. savings |
+|--------------|-----------------|
+| **Venv:** one venv instead of three (`venv` + `env` + `technical_analysis/.venv`) | **~550 MB** |
+| **Categories:** `max_symbols_per_category: 3` (66 symbols vs 155 full) | **~12 MB** (cache + result_scores scale with symbol count; ~57% fewer symbols) |
+
+**To reduce data:** In `configuration.json`, **`max_symbols_per_category`: 3** (default) uses the **top 3 symbols** per industry—fewer downloads and smaller cache/result files. Set to `null` or remove the key to use the full symbol list again.
+
 ## 📊 Features
 
 ### Advanced Technical Indicators
