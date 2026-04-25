@@ -1,0 +1,136 @@
+{
+  "_comment": "Halal/Islamic ETFs and mutual funds. Holdings from public factsheets; verify latest. Add esg per ticker as known.",
+  "sources": [
+    "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001683471&type=NPORT",
+    "https://stockanalysis.com/etf/hlal/holdings/",
+    "https://stockanalysis.com/etf/spus/holdings/",
+    "https://stockanalysis.com/etf/umma/holdings/",
+    "https://stockanalysis.com/quote/mutf/AMAGX/holdings/",
+    "https://stockanalysis.com/quote/mutf/AMANX/holdings/",
+    "https://stockanalysis.com/quote/mutf/IMANX/holdings/",
+    "https://www.etfdb.com/etf/SPUS/",
+    "https://www.etfdb.com/etf/HLAL/",
+    "https://www.wahed.com/umma",
+    "https://www.morningstar.com/funds/xnas/amagx/portfolio",
+    "https://www.morningstar.com/funds/xnas/amanx/portfolio",
+    "https://www.morningstar.com/funds/xnas/imanx/portfolio",
+    "https://markets.ft.com/data/etfs/tearsheet/holdings?s=UMMA%3ANMQ%3AUSD",
+    "https://markets.ft.com/data/funds/tearsheet/holdings?s=IMANX",
+    "https://forum.islamicfinanceguru.com/t/is-amana-growth-fund-amagx-amana-income-fund-amanx-iman-fund-class-k-imanx-wahed-ftse-etf-hlal-sp-s-p-500-sharia-etf-spus-are-halal-to-invest/3522"
+  ],
+  "funds": [
+    {
+      "name": "Wahed FTSE USA Shariah ETF",
+      "ticker": "HLAL",
+      "provider": "Wahed Invest",
+      "type": "ETF",
+      "esg_notes": "Shariah screen; debt/interest screens. ESG not part of official methodology.",
+      "holdings": [
+        { "ticker": "AAPL", "weight_pct": 14.01, "esg": "—" },
+        { "ticker": "MSFT", "weight_pct": 10.94, "esg": "—" },
+        { "ticker": "GOOGL", "weight_pct": 6.59, "esg": "—" },
+        { "ticker": "GOOG", "weight_pct": 5.37, "esg": "—" },
+        { "ticker": "META", "weight_pct": 5.21, "esg": "—" },
+        { "ticker": "TSLA", "weight_pct": 4.32, "esg": "—" },
+        { "ticker": "LLY", "weight_pct": 2.71, "esg": "—" },
+        { "ticker": "XOM", "weight_pct": 2.32, "esg": "—" },
+        { "ticker": "JNJ", "weight_pct": 2.16, "esg": "—" },
+        { "ticker": "MU", "weight_pct": 1.70, "esg": "—" }
+      ]
+    },
+    {
+      "name": "SP Funds S&P 500 Sharia Industry Exclusions ETF",
+      "ticker": "SPUS",
+      "provider": "SP Funds",
+      "type": "ETF",
+      "esg_notes": "S&P 500 Shariah; excludes alcohol, gambling, weapons, tobacco, high debt. ESG not in index rules.",
+      "holdings": [
+        { "ticker": "NVDA", "weight_pct": 14.0, "esg": "—" },
+        { "ticker": "AAPL", "weight_pct": 11.92, "esg": "—" },
+        { "ticker": "MSFT", "weight_pct": 9.2, "esg": "—" },
+        { "ticker": "GOOGL", "weight_pct": 5.54, "esg": "—" },
+        { "ticker": "AVGO", "weight_pct": 4.82, "esg": "—" },
+        { "ticker": "TSLA", "weight_pct": 3.61, "esg": "—" },
+        { "ticker": "LLY", "weight_pct": 2.54, "esg": "—" },
+        { "ticker": "XOM", "weight_pct": 1.95, "esg": "—" },
+        { "ticker": "JNJ", "weight_pct": 1.81, "esg": "—" },
+        { "ticker": "MU", "weight_pct": 1.43, "esg": "—" }
+      ]
+    },
+    {
+      "name": "Wahed Dow Jones Islamic World ex-US ETF",
+      "ticker": "UMMA",
+      "provider": "Wahed Invest",
+      "type": "ETF",
+      "esg_notes": "Tracks Dow Jones Islamic Market International Titans 100; ex-US; incorporates ESG. ~98% non-US equity.",
+      "holdings": [
+        { "ticker": "TSM", "weight_pct": 10.34, "esg": "—" },
+        { "ticker": "IFNNY", "weight_pct": 3.81, "esg": "Infineon Technologies AG" },
+        { "ticker": "SAP", "weight_pct": 3.76, "esg": "—" },
+        { "ticker": "NSRGY", "weight_pct": 3.72, "esg": "Nestlé S.A." },
+        { "ticker": "ASML", "weight_pct": 3.62, "esg": "—" },
+        { "ticker": "RHHBY", "weight_pct": 3.00, "esg": "Roche Holding AG" },
+        { "ticker": "NVS", "weight_pct": 2.95, "esg": "Novartis AG" },
+        { "ticker": "AZN", "weight_pct": 2.79, "esg": "AstraZeneca PLC" },
+        { "ticker": "NVO", "weight_pct": 2.64, "esg": "Novo Nordisk A/S" },
+        { "ticker": "SSNLF", "weight_pct": 2.39, "esg": "Samsung Electronics" }
+      ]
+    },
+    {
+      "name": "Amana Growth Fund",
+      "ticker": "AMAGX",
+      "provider": "Saturna Capital (Amana)",
+      "type": "Mutual Fund",
+      "esg_notes": "Islamic screening; growth focus. ~95% stocks, 5% cash; Tech 54%, Healthcare 17%.",
+      "holdings": [
+        { "ticker": "AAPL", "weight_pct": 8.14, "esg": "—" },
+        { "ticker": "LLY", "weight_pct": 5.26, "esg": "—" },
+        { "ticker": "MSFT", "weight_pct": 5.25, "esg": "—" },
+        { "ticker": "NVDA", "weight_pct": 4.61, "esg": "—" },
+        { "ticker": "AVGO", "weight_pct": 4.46, "esg": "—" },
+        { "ticker": "GOOGL", "weight_pct": 4.30, "esg": "—" },
+        { "ticker": "ASML", "weight_pct": 4.14, "esg": "—" },
+        { "ticker": "TSM", "weight_pct": 4.07, "esg": "—" },
+        { "ticker": "INTU", "weight_pct": 3.61, "esg": "—" },
+        { "ticker": "NOW", "weight_pct": 3.56, "esg": "—" }
+      ]
+    },
+    {
+      "name": "Amana Income Fund",
+      "ticker": "AMANX",
+      "provider": "Saturna Capital (Amana)",
+      "type": "Mutual Fund",
+      "esg_notes": "Islamic screening; income/dividend focus. ~75% domestic, 15% foreign, ~9.6% cash. Low turnover.",
+      "holdings": [
+        { "ticker": "LLY", "weight_pct": 10.42, "esg": "—" },
+        { "ticker": "MSFT", "weight_pct": 9.84, "esg": "—" },
+        { "ticker": "TSM", "weight_pct": 9.24, "esg": "—" },
+        { "ticker": "ROK", "weight_pct": 5.00, "esg": "Rockwell Automation" },
+        { "ticker": "AVGO", "weight_pct": 4.33, "esg": "—" },
+        { "ticker": "GWW", "weight_pct": 3.94, "esg": "W.W. Grainger" },
+        { "ticker": "ITW", "weight_pct": 3.85, "esg": "Illinois Tool Works" },
+        { "ticker": "NTDOY", "weight_pct": 3.25, "esg": "Nintendo Co Ltd" },
+        { "ticker": "LIN", "weight_pct": 3.02, "esg": "Linde PLC" }
+      ]
+    },
+    {
+      "name": "Iman Fund Class K",
+      "ticker": "IMANX",
+      "provider": "Iman Fund",
+      "type": "Mutual Fund",
+      "esg_notes": "Shariah-compliant large-cap growth. ~85% US, 14% non-US. Tech 39%, Industrials 13%, Healthcare 12%.",
+      "holdings": [
+        { "ticker": "AAPL", "weight_pct": 8.19, "esg": "—" },
+        { "ticker": "MSFT", "weight_pct": 6.57, "esg": "—" },
+        { "ticker": "NVDA", "weight_pct": 5.69, "esg": "—" },
+        { "ticker": "TSM", "weight_pct": 4.94, "esg": "—" },
+        { "ticker": "GOOGL", "weight_pct": 3.92, "esg": "—" },
+        { "ticker": "META", "weight_pct": 3.84, "esg": "—" },
+        { "ticker": "XOM", "weight_pct": 2.79, "esg": "—" },
+        { "ticker": "ORLY", "weight_pct": 2.22, "esg": "—" },
+        { "ticker": "TSLA", "weight_pct": 2.15, "esg": "—" },
+        { "ticker": "AVGO", "weight_pct": 2.14, "esg": "—" }
+      ]
+    }
+  ]
+}

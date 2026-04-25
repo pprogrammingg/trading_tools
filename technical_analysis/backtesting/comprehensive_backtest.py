@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Comprehensive Backtesting Framework
-Tests scoring system across ALL assets in symbols_config.json
+Tests scoring system across ALL assets in configuration.json categories
 """
 
 import json
@@ -282,7 +282,7 @@ def main():
     print("="*80)
     print("COMPREHENSIVE BACKTEST - ALL ASSETS")
     print("="*80)
-    print("\nLoading symbols from symbols_config.json...")
+    print("\nLoading symbols from configuration.json...")
     
     # Load all symbols from config
     symbols_config = load_symbols_config()

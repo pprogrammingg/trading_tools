@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Would the recent drop in altcoins like SOL vs BTC have been predicted?
-Analyzes SOL/BTC ratio history and applies framework indicators (RSI, Elliott Wave)
+Analyzes SOL/BTC ratio history and applies framework indicators (RSI)
 at points before known SOL/BTC declines to see if signals would have flagged risk.
 """
 
@@ -11,7 +11,6 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import pandas as pd
-import numpy as np
 
 try:
     import yfinance as yf
@@ -19,7 +18,6 @@ except ImportError:
     yf = None
 
 from technical_analysis import resample_ohlcv
-from indicators.elliott_wave import identify_elliott_wave_pattern
 
 
 def rsi_series(close: pd.Series, period: int = 14) -> pd.Series:
@@ -34,8 +32,8 @@ def run_sol_btc_analysis(period: str = "2y", forward_weeks: int = 6, drop_thresh
     """
     Load SOL-USD and BTC-USD, resample to 1W, compute SOL/BTC ratio.
     Find weeks where SOL/BTC dropped >= drop_threshold_pct over next forward_weeks.
-    At each such week T, report: SOL RSI, BTC RSI, Elliott wave position for both.
-    Conclusion: would RSI overbought + wave position have predicted the drop?
+    At each such week T, report: SOL RSI, BTC RSI.
+    Conclusion: would RSI overbought have predicted the drop?
     """
     if yf is None:
         return {"error": "yfinance not installed"}
@@ -84,31 +82,26 @@ def run_sol_btc_analysis(period: str = "2y", forward_weeks: int = 6, drop_thresh
             btc_rsi = rsi_series(btc_hist, 14)
             sol_rsi_val = sol_rsi.iloc[-1] if len(sol_rsi) and not pd.isna(sol_rsi.iloc[-1]) else None
             btc_rsi_val = btc_rsi.iloc[-1] if len(btc_rsi) and not pd.isna(btc_rsi.iloc[-1]) else None
-            ew_sol = identify_elliott_wave_pattern(sol_hist, lookback=lookback)
-            ew_btc = identify_elliott_wave_pattern(btc_hist, lookback=lookback)
             events.append({
                 "date": str(t_date)[:10],
                 "sol_btc_drop_pct": round(pct, 2),
                 "sol_rsi": round(sol_rsi_val, 2) if sol_rsi_val is not None else None,
                 "btc_rsi": round(btc_rsi_val, 2) if btc_rsi_val is not None else None,
-                "sol_wave": ew_sol.get("wave_position") if ew_sol else None,
-                "btc_wave": ew_btc.get("wave_position") if ew_btc else None,
             })
     # Sort by drop severity (most negative first)
     events.sort(key=lambda x: x["sol_btc_drop_pct"])
 
-    # Conclusion: would framework have predicted? (SOL RSI > 70 or SOL in Wave 3/5 = risk flag)
+    # Conclusion: would framework have predicted? (SOL RSI > 70 = risk flag)
     predicted = sum(
         1 for e in events
         if (e.get("sol_rsi") is not None and e["sol_rsi"] > 70)
-        or (e.get("sol_wave") and "Wave 3 or 5" in e["sol_wave"])
     )
     conclusion = (
         f"Found {len(events)} periods where SOL/BTC dropped ≥{abs(drop_threshold_pct):.0f}% over {forward_weeks} weeks. "
-        f"In {predicted} of those, framework would have flagged risk (SOL RSI > 70 or SOL in Wave 3/5). "
+        f"In {predicted} of those, framework would have flagged risk (SOL RSI > 70). "
     )
     if len(events):
-        conclusion += "Recent alt underperformance vs BTC could have been partially predicted when SOL was overbought or in extended wave."
+        conclusion += "Recent alt underperformance vs BTC could have been partially predicted when SOL was overbought."
     else:
         conclusion += "No such large drops in sample; extend period or lower threshold to test."
 
@@ -130,8 +123,11 @@ if __name__ == "__main__":
         print(result["error"])
         sys.exit(1)
     print(f"Period: {result['period']}, forward: {result['forward_weeks']}w, threshold: {result['drop_threshold_pct']}%")
-    print(f"Total SOL/BTC drop events: {result['total_events']}; events with risk signal (SOL RSI>70 or Wave 3/5): {result['events_with_risk_signal']}\n")
+    print(f"Total SOL/BTC drop events: {result['total_events']}; events with risk signal (SOL RSI>70): {result['events_with_risk_signal']}\n")
     print("Sample events (worst drops):")
     for e in result["events"][:8]:
-        print(f"  {e['date']}: SOL/BTC drop {e['sol_btc_drop_pct']}% | SOL RSI={e['sol_rsi']} BTC RSI={e['btc_rsi']} | SOL wave={e['sol_wave']} BTC wave={e['btc_wave']}")
+        print(
+            f"  {e['date']}: SOL/BTC drop {e['sol_btc_drop_pct']}% | "
+            f"SOL RSI={e['sol_rsi']} BTC RSI={e['btc_rsi']}"
+        )
     print("\nConclusion:", result["conclusion"])

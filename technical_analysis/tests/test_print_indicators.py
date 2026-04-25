@@ -25,7 +25,6 @@ from scripts.print_indicators import (
     _normalize_timeframes,
     _load_symbols_config,
     _get_ta_from_results,
-    _format_elliott_wave,
     RESULTS_DIR,
 )
 
@@ -35,11 +34,9 @@ class TestIndicatorEnum(unittest.TestCase):
         self.assertEqual(Indicator.SMA_50.value, "sma50")
         self.assertEqual(Indicator.SMA_100.value, "sma100")
         self.assertEqual(Indicator.SMA_200.value, "sma200")
-        self.assertEqual(Indicator.ELLIOTT_WAVE_COUNT.value, "elliott_wave")
 
     def test_enum_from_string_value(self):
         self.assertEqual(Indicator("sma50"), Indicator.SMA_50)
-        self.assertEqual(Indicator("elliott_wave"), Indicator.ELLIOTT_WAVE_COUNT)
 
 
 class TestResolveCategoriesOrSymbols(unittest.TestCase):
@@ -117,11 +114,6 @@ class TestFormatIndicatorValue(unittest.TestCase):
     def test_format_none_returns_dash(self):
         self.assertEqual(_format_indicator_value(Indicator.SMA_50, None), "—")
 
-    def test_format_elliott_wave_dict(self):
-        ew = {"wave_position": "Wave 3", "wave_count": {"primary": {"waves": []}}}
-        out = _format_indicator_value(Indicator.ELLIOTT_WAVE_COUNT, ew)
-        self.assertIn("Wave 3", out)
-
 
 class TestNormalizeIndicators(unittest.TestCase):
     def test_accepts_enum(self):
@@ -131,7 +123,7 @@ class TestNormalizeIndicators(unittest.TestCase):
         self.assertEqual(_normalize_indicators(["sma50", "sma100"]), [Indicator.SMA_50, Indicator.SMA_100])
 
     def test_accepts_mixed(self):
-        self.assertEqual(_normalize_indicators([Indicator.SMA_200, "elliott_wave"]), [Indicator.SMA_200, Indicator.ELLIOTT_WAVE_COUNT])
+        self.assertEqual(_normalize_indicators([Indicator.SMA_200, "sma50"]), [Indicator.SMA_200, Indicator.SMA_50])
 
 
 class TestNormalizeTimeframes(unittest.TestCase):
@@ -146,7 +138,7 @@ class TestNormalizeTimeframes(unittest.TestCase):
 class TestBuildReportLinesWithMockedIndicators(unittest.TestCase):
     """Tests that prove technical indicators (sma50, sma100, sma200) appear in the report when values are provided."""
 
-    def _mock_get_value(self, sma50_val=None, sma100_val=None, sma200_val=None, elliott_val=None):
+    def _mock_get_value(self, sma50_val=None, sma100_val=None, sma200_val=None):
         def get_val(symbol: str, tf: str, ind: Indicator, category_key: str):
             if ind == Indicator.SMA_50:
                 return sma50_val
@@ -154,8 +146,6 @@ class TestBuildReportLinesWithMockedIndicators(unittest.TestCase):
                 return sma100_val
             if ind == Indicator.SMA_200:
                 return sma200_val
-            if ind == Indicator.ELLIOTT_WAVE_COUNT:
-                return elliott_val
             return None
         return get_val
 
@@ -208,14 +198,14 @@ class TestPrintIndicators(unittest.TestCase):
         buf = io.StringIO()
         with patch("sys.stdout", buf):
             print_indicators(
-                [Indicator.SMA_50, Indicator.ELLIOTT_WAVE_COUNT],
+                [Indicator.SMA_50, Indicator.SMA_100],
                 ["precious_metals"],
                 ["1W", "1M"],
             )
         out = buf.getvalue()
         self.assertIn("INDICATORS REPORT", out)
         self.assertIn("sma50", out)
-        self.assertIn("elliott_wave", out)
+        self.assertIn("sma100", out)
         self.assertIn("1W", out)
         self.assertIn("1M", out)
         self.assertIn("GC=F", out)
@@ -236,7 +226,7 @@ class TestPrintIndicators(unittest.TestCase):
         buf = io.StringIO()
         with patch("sys.stdout", buf):
             print_indicators(
-                ["sma50", "elliott_wave"],
+                ["sma50", "sma200"],
                 ["precious_metals"],
                 ["1M"],
             )
@@ -261,36 +251,6 @@ class TestPrintIndicators(unittest.TestCase):
             r"sma50=\d+\.?\d*|sma200=\d+\.?\d*",
             "Report should show at least one numeric indicator (sma50 or sma200) when results exist",
         )
-
-
-class TestFormatElliottWave(unittest.TestCase):
-    def test_format_empty_returns_dash(self):
-        self.assertEqual(_format_elliott_wave(None), "—")
-        self.assertEqual(_format_elliott_wave({}), "—")
-
-    def test_format_position_only(self):
-        self.assertEqual(
-            _format_elliott_wave({"wave_position": "Wave 3 or 5"}),
-            "Wave 3 or 5",
-        )
-
-    def test_format_with_wave_count(self):
-        ew = {
-            "wave_position": "Wave 3 or 5",
-            "wave_count": {
-                "primary": {
-                    "waves": [
-                        {"number": 1, "start_usd": 100.0, "end_usd": 150.0, "current_wave": True},
-                        {"number": 2, "start_usd": 150.0, "end_usd": 120.0, "current_wave": False},
-                    ],
-                },
-            },
-        }
-        out = _format_elliott_wave(ew)
-        self.assertIn("Wave 3 or 5", out)
-        self.assertIn("100.0", out)
-        self.assertIn("150.0", out)
-        self.assertIn("★", out)
 
 
 class TestGetTaFromResults(unittest.TestCase):

@@ -24,15 +24,9 @@ RESULTS_FILE = ROOT / "result_scores" / "precious_metals_results.json"
 TIMEFRAMES_ORDER = ["2D", "1W", "2W", "1M", "2M", "6M"]
 
 try:
-    from config_loader import get_display_name_symbol, get_gold_silver_tickers, get_download_category_for_ticker, get_tf_rules
+    from config_loader import get_display_name_symbol, get_gold_silver_tickers
 except ImportError:
-    from technical_analysis.config_loader import get_display_name_symbol, get_gold_silver_tickers, get_download_category_for_ticker, get_tf_rules
-
-# Elliott Wave timeframes: subset of configuration.json tf_rules
-_tf_rules = get_tf_rules()
-EW_TIMEFRAMES = {k: _tf_rules[k] for k in ("1W", "2W", "1M") if k in _tf_rules}
-if not EW_TIMEFRAMES:
-    EW_TIMEFRAMES = {"1W": "7D", "2W": "14D", "1M": "30D"}
+    from technical_analysis.config_loader import get_display_name_symbol, get_gold_silver_tickers
 
 
 def run_refresh_and_analysis():
@@ -61,90 +55,6 @@ def get_usd_ta(symbol_data, tf):
     yf = symbol_data[tf].get("yfinance", {})
     usd = yf.get("usd", {})
     return usd.get("ta_library") or usd.get("tradingview_library")
-
-
-def get_ohlcv_and_elliott_wave_targets():
-    """
-    Load Gold and Silver OHLCV (from cache or download), resample to 1W, 2W, 1M,
-    compute Elliott Wave price targets, and return a dict: symbol -> tf -> wave_analysis.
-    """
-    try:
-        from technical_analysis import download_data, resample_ohlcv
-    except ImportError:
-        try:
-            import technical_analysis
-            download_data = technical_analysis.download_data
-            resample_ohlcv = technical_analysis.resample_ohlcv
-        except ImportError:
-            return None
-    try:
-        from indicators.elliott_wave import calculate_elliott_wave_targets
-    except ImportError:
-        from technical_analysis.indicators.elliott_wave import calculate_elliott_wave_targets
-
-    out = {}
-    for symbol in get_gold_silver_tickers():
-        category = get_download_category_for_ticker(symbol)
-        df = download_data(symbol, period="5y", category=category, use_cache=True, force_refresh=False)
-        if df is None or len(df) < 50:
-            continue
-        # resample_ohlcv expects Open, High, Low, Close, Volume (yfinance default)
-        out[symbol] = {}
-        for tf_label, rule in EW_TIMEFRAMES.items():
-            resampled = resample_ohlcv(df, rule)
-            if resampled is None or len(resampled) < 50:
-                continue
-            close = resampled["Close"]
-            high = resampled["High"] if "High" in resampled.columns else close
-            low = resampled["Low"] if "Low" in resampled.columns else close
-            wave = calculate_elliott_wave_targets(close, high, low)
-            if wave:
-                out[symbol][tf_label] = wave
-    return out if out else None
-
-
-def print_elliott_wave_levels(ew_data):
-    """Print Elliott Wave price targets and support/resistance for Gold and Silver."""
-    if not ew_data:
-        print("  (Elliott Wave: no data — run from technical_analysis with cache or network)")
-        return
-    print("=" * 72)
-    print("  ELLIOTT WAVE — Weekly, 2W & Monthly price targets (Gold & Silver)")
-    print("=" * 72)
-    for symbol in get_gold_silver_tickers():
-        if symbol not in ew_data or not ew_data[symbol]:
-            continue
-        name = get_display_name_symbol(symbol)
-        print()
-        print("-" * 72)
-        print(f"  {name} ({symbol})")
-        print("-" * 72)
-        for tf in ["1W", "2W", "1M"]:
-            w = ew_data[symbol].get(tf)
-            if not w:
-                continue
-            pt = w.get("price_targets") or {}
-            sr = w.get("support_resistance") or {}
-            trend = w.get("trend", "—")
-            pos = w.get("wave_position", "—")
-            current = w.get("current_price")
-            extreme = w.get("recent_extreme")
-            wave_3 = pt.get("wave_3")
-            wave_5 = pt.get("wave_5")
-            fib_382 = sr.get("fib_382")
-            fib_500 = sr.get("fib_500")
-            fib_618 = sr.get("fib_618")
-            print(f"  {tf} (monthly-style bars):")
-            print(f"    Trend: {trend}  |  Wave: {pos}  |  Close: {current}  |  Recent extreme: {extreme}")
-            w3_str = f"{wave_3:.2f}" if wave_3 is not None else "—"
-            w5_str = f"{wave_5:.2f}" if wave_5 is not None else "—"
-            print(f"    Price targets:  Wave 3 = {w3_str}   Wave 5 = {w5_str}")
-            f382 = f"{fib_382:.2f}" if fib_382 is not None else "—"
-            f500 = f"{fib_500:.2f}" if fib_500 is not None else "—"
-            f618 = f"{fib_618:.2f}" if fib_618 is not None else "—"
-            print(f"    Support/Resistance (Fib):  38.2% = {f382}  50% = {f500}  61.8% = {f618}")
-            print()
-    print("=" * 72)
 
 
 def rsi_verdict(rsi):
@@ -255,10 +165,6 @@ def main():
     print("  (Run with --refresh to update data; e.g. yesterday 5300 vs today 4700 will")
     print("   update closes and RSI. This summary uses the last saved result_scores.)")
     print("=" * 72)
-
-    # Elliott Wave — Weekly, 2W & Monthly price targets
-    ew_data = get_ohlcv_and_elliott_wave_targets()
-    print_elliott_wave_levels(ew_data)
 
 
 if __name__ == "__main__":

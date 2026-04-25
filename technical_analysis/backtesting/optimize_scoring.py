@@ -17,13 +17,6 @@ from scoring.improved_scoring import improved_scoring
 from technical_analysis import load_symbols_config
 
 
-def load_symbols_config():
-    """Load symbols from config"""
-    config_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'symbols_config.json')
-    with open(config_path, 'r') as f:
-        return json.load(f)
-
-
 def optimize_scoring():
     """Optimize scoring system using backtesting"""
     print("="*80)

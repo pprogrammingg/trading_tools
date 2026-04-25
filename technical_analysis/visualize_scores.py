@@ -4,32 +4,24 @@ Optimized visualization script for symbol scores
 Creates a lightweight HTML file with color-coded scores
 """
 
+import argparse
 import json
 import os
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Set, Any
 from dataclasses import dataclass
 from collections import defaultdict
 
-import pandas as pd
-
+from visualization.build_options import VizBuildOptions
+from visualization.perf_loader import load_performance_vs_spy
 
 # ======================================================
 # CONSTANTS
 # ======================================================
 
-SCORE_THRESHOLDS = [
-    (6, "#006400", "Great Buy"),      # Dark green - very strong signals
-    (4, "#32CD32", "Strong Buy"),     # Medium green - strong signals
-    (2, "#90EE90", "OK Buy"),         # Light green - moderate signals
-    (0, "#FFD700", "Neutral"),        # Yellow - weak/neutral signals
-    (-2, "#FFA500", "OK Sell"),       # Orange - moderate bearish signals
-    (float('-inf'), "#FF4500", "Best Sell"),  # Red-orange - strong bearish signals
-]
-
-MISSING_DATA_COLOR = "#CCCCCC"
-MISSING_DATA_LABEL = "N/A"
+# Score color spectrum (Great Buy → Great Sell) is in visualization_common; use get_score_color_common.
 
 CALC_METHODS = ['ta_library', 'tradingview_library']
 DENOMINATIONS = ['usd', 'gold', 'silver']
@@ -147,28 +139,6 @@ class VisualizationData:
 # ======================================================
 # UTILITY FUNCTIONS
 # ======================================================
-
-def get_score_color(score: Optional[float]) -> Tuple[str, str]:
-    """
-    Determine color and label based on score.
-    
-    Args:
-        score: The score value or None
-        
-    Returns:
-        Tuple of (color_hex, label)
-    """
-    if score is None:
-        return MISSING_DATA_COLOR, MISSING_DATA_LABEL
-    
-    # Check thresholds in order (highest to lowest)
-    for threshold, color, label in SCORE_THRESHOLDS:
-        if score >= threshold:
-            return color, label
-    
-    # Fallback (should never reach here)
-    return MISSING_DATA_COLOR, MISSING_DATA_LABEL
-
 
 def sort_timeframes(timeframe: str) -> Tuple[int, int]:
     """
@@ -413,18 +383,16 @@ def prepare_visualization_data(data: Dict[str, Any]) -> VisualizationData:
 # ======================================================
 
 def generate_legend() -> str:
-    """Generate the legend HTML."""
+    """Generate the legend HTML from shared score color spectrum."""
     legend_items = [
-        '<span class="legend-item" style="background-color: #006400;">&gt;=6: Great Buy</span>',
-        '<span class="legend-item" style="background-color: #32CD32;">4-5: Strong Buy</span>',
-        '<span class="legend-item" style="background-color: #90EE90;">2-3: OK Buy</span>',
-        '<span class="legend-item" style="background-color: #FFD700; color: #333;">0-1: Neutral</span>',
-        '<span class="legend-item" style="background-color: #FFA500;">-2 to -1: OK Sell</span>',
-        '<span class="legend-item" style="background-color: #FF4500;">&lt;-2: Best Sell</span>',
+        f'<span class="legend-item" style="background-color:{bg};color:{text};">{label}</span>'
+        for _th, bg, text, label in SCORE_COLOR_SPECTRUM
     ]
-    
+    legend_items.append(
+        f'<span class="legend-item" style="background-color:{SCORE_MISSING_COLOR};color:#333;">—</span>'
+    )
     legend_html = f"""    <div class="legend">
-        <h3>Score Legend:</h3>
+        <h3>Score Legend (Great Buy → Great Sell):</h3>
         {''.join(legend_items)}
         <p style="color: #666; font-size: 0.9em; margin-top: 10px;">
             Enhanced scoring includes: RSI (context-aware), ADX (trend strength), CCI (commodities), MACD, OBV, A/D (volume), EMA50/200, SMA50/200 (Golden Cross), GMMA, Volume, Momentum
@@ -496,14 +464,12 @@ def generate_cell_content(score_info: Optional[ScoreInfo]) -> str:
         HTML string for the cell
     """
     if score_info is None:
-        color = MISSING_DATA_COLOR
-        content = MISSING_DATA_LABEL
+        bg, text_color, _ = get_score_color_common(None)
+        content = SCORE_MISSING_LABEL
         potential_info = ""
     else:
-        color, _ = get_score_color(score_info.score)
+        bg, text_color, _ = get_score_color_common(score_info.score)
         content = str(score_info.score)
-        
-        # Add potential info if available
         if score_info.upside_potential is not None and score_info.downside_potential is not None:
             potential_info = (
                 f"<br><small style='font-size: 0.75em; opacity: 0.8;'>"
@@ -512,10 +478,9 @@ def generate_cell_content(score_info: Optional[ScoreInfo]) -> str:
             )
         else:
             potential_info = ""
-    
     return (
         f"                <td>"
-        f"<div class='score-cell' style='background-color: {color};'>"
+        f"<div class='score-cell' style='background-color:{bg};color:{text_color};'>"
         f"{content}{potential_info}</div></td>"
     )
 
@@ -619,92 +584,117 @@ def create_visualization_for_category(category_name: str, data: Dict[str, Any], 
     return output_file
 
 
-def create_visualization(output_path: Optional[str] = None, category: Optional[str] = None) -> List[Path]:
+def create_visualization(
+    output_path: Optional[str] = None,
+    category: Optional[str] = None,
+    build: Optional[VizBuildOptions] = None,
+) -> List[Path]:
     """
-    Create HTML visualization(s) of scores.
-    
-    Args:
-        output_path: Optional path for output file (legacy mode - single file)
-        category: Optional category name to process only one category
-        
-    Returns:
-        List of paths to created HTML files
-        
-    Raises:
-        FileNotFoundError: If results files cannot be found
-        IOError: If HTML files cannot be written
+    Create HTML visualization(s) of scores. Uses all categories in result_scores/ for
+    the index and aggregate pages; optional ``category`` limits per-category score HTML
+    to one bucket (index still lists all when ``build.write_index`` is true).
+
+    build (VizBuildOptions): no_network, skip_trending, only_index, write_index, max_workers, etc.
     """
     start_time = time.time()
-    
+    opts = build or VizBuildOptions()
+    cat_key = (opts.category or category or "").strip() or None
+
     print("=" * 60)
     print("VISUALIZATION BENCHMARKING")
     print("=" * 60)
-    
-    # Find result files
+
     find_start = time.time()
-    result_files = find_results_files()
+    all_result_files = find_results_files()
     file_find_time = time.time() - find_start
-    
-    if not result_files:
+
+    if not all_result_files:
         raise FileNotFoundError(
             "Could not find any result files. Run technical_analysis.py first."
         )
-    
-    print(f"Found {len(result_files)} result file(s): {file_find_time*1000:.1f}ms")
-    
-    # Filter by category if specified
-    if category:
-        result_files = [(cat, path) for cat, path in result_files if cat == category]
-        if not result_files:
-            raise FileNotFoundError(f"Category '{category}' not found in result files")
-    
-    # Create output directory
-    output_dir = Path('visualizations_output')
+
+    print(f"Found {len(all_result_files)} result file(s): {file_find_time*1000:.1f}ms")
+
+    output_dir = Path("visualizations_output")
     output_dir.mkdir(exist_ok=True)
-    
-    # Process each result file
-    created_files = []
-    total_load_time = 0
-    total_process_time = 0
-    
-    for category_name, result_path in result_files:
-        load_start = time.time()
-        with open(result_path, 'r', encoding='utf-8') as f:
+
+    if opts.only_index:
+        if opts.write_index:
+            cats = [c for c, _ in all_result_files]
+            write_index_with_cme(cats, output_dir, all_result_files, build_options=opts)
+        return []
+
+    to_process = (
+        all_result_files
+        if not cat_key
+        else [(c, p) for c, p in all_result_files if c == cat_key]
+    )
+    if not to_process:
+        raise FileNotFoundError(
+            f"Category '{cat_key}' not found in result files" if cat_key else "No categories to process"
+        )
+
+    loaded: List[Tuple[str, Dict[str, Any], float]] = []
+    total_load_time = 0.0
+    for category_name, result_path in to_process:
+        t0 = time.time()
+        with open(result_path, "r", encoding="utf-8") as f:
             data = json.load(f)
-        load_time = time.time() - load_start
+        load_time = time.time() - t0
         total_load_time += load_time
-        
         print(f"  Loaded {category_name} ({len(data)} symbols): {load_time:.2f}s")
-        
-        html_path = create_visualization_for_category(category_name, data, output_dir)
-        created_files.append(html_path)
-        total_process_time += time.time() - load_start
-    
+        loaded.append((category_name, data, load_time))
+
+    created_files: List[Path] = []
+    total_process_time = 0.0
+    w = max(1, min(opts.max_workers, len(loaded) or 1, 16))
+    if w == 1 or len(loaded) == 1:
+        for category_name, data, _ in loaded:
+            t0 = time.time()
+            created_files.append(
+                create_visualization_for_category(category_name, data, output_dir)
+            )
+            total_process_time += time.time() - t0
+    else:
+        with ThreadPoolExecutor(max_workers=w) as ex:
+            futs = {
+                ex.submit(
+                    create_visualization_for_category, cname, d, output_dir
+                ): cname
+                for cname, d, _ in loaded
+            }
+            for fut in as_completed(futs):
+                t0 = time.time()
+                created_files.append(fut.result())
+                total_process_time += time.time() - t0
+
     total_time = time.time() - start_time
-    
     print(f"\n{'=' * 60}")
     print("VISUALIZATION BENCHMARK SUMMARY")
     print(f"{'=' * 60}")
     print(f"Total time: {total_time:.3f}s")
-    print(f"  File find: {file_find_time*1000:.1f}ms ({file_find_time/total_time*100:.1f}%)")
-    print(f"  JSON load: {total_load_time:.2f}s ({total_load_time/total_time*100:.1f}%)")
-    print(f"  Processing: {total_process_time:.2f}s ({total_process_time/total_time*100:.1f}%)")
+    print(
+        f"  File find: {file_find_time*1000:.1f}ms "
+        f"({file_find_time / total_time * 100 if total_time else 0:.1f}%)"
+    )
+    print(
+        f"  JSON load: {total_load_time:.2f}s "
+        f"({total_load_time / total_time * 100 if total_time else 0:.1f}%)"
+    )
+    print(
+        f"  Processing: {total_process_time:.2f}s "
+        f"({total_process_time / total_time * 100 if total_time else 0:.1f}%)"
+    )
     print(f"{'=' * 60}")
-    
-    print(f"\n✓ Created {len(created_files)} visualization(s):")
-    for path in created_files:
-        print(f"  - {path}")
+    print(f"\n✓ Created {len(created_files)} visualization(s)")
 
-    # Write index page with CME Sunday open section and top scorers by category
-    if not output_path and result_files:
-        categories_for_index = [cat for cat, _ in result_files]
-        write_index_with_cme(categories_for_index, output_dir, result_files=result_files)
+    if not output_path and opts.write_index and all_result_files:
+        index_cats = [c for c, _ in all_result_files]
+        write_index_with_cme(index_cats, output_dir, all_result_files, build_options=opts)
 
-    # Legacy mode: if single file requested, return first file path
     if output_path:
         created_files[0].rename(output_path)
         return [Path(output_path)]
-    
     return created_files
 
 
@@ -716,144 +706,40 @@ from visualization_common import (
     PERF_VS_KEYS,
     INDEX_SECTION_TOP_SCORERS_ID,
     INDEX_SECTION_TOP_SCORERS_HEADER,
-    INDEX_SECTION_ELLIOTT_ID,
-    INDEX_SECTION_ELLIOTT_HEADER,
     INDEX_SECTION_CATEGORY_HEADER,
     INDEX_TOP_SCORER_COLUMNS,
-    INDEX_ELLIOTT_COLUMNS,
     PAGE_TOP_SCORES_BY_CATEGORY,
-    PAGE_ELLIOTT_WAVE_COUNT,
     PAGE_WEALTH_PHASE,
     PAGE_GOLD_PRESENTATION,
     PAGE_CME_SUNDAY_OPEN,
+    PAGE_DIVIDEND_HOLDINGS,
+    PAGE_CRYPTO_ALT_TRENDS,
+    PAGE_TRENDING_INDUSTRIES,
+    PAGE_HALAL_FUNDS,
+    PAGE_HOT_PICK_PLAN,
     table_header_cells,
+    UI_CSS_BASE,
+    UI_CSS_INDEX,
+    UI_CSS_TABLE,
+    UI_CSS_MAIN_CARDS,
+    UI_CSS_TABLE_PAGE,
+    SHARED_CSS_FILENAME,
+    write_shared_css,
+    get_score_color as get_score_color_common,
+    SCORE_MISSING_COLOR,
+    SCORE_MISSING_LABEL,
+    SCORE_COLOR_SPECTRUM,
+    html_back_link,
+    html_link_bar,
+    html_card,
+    html_table,
+    html_page,
 )
 
 
 def _table_header_cells(headers: List[str]) -> str:
     """Build <th>...</th> cells for table header row (delegate to common)."""
     return table_header_cells(headers)
-
-
-def _load_performance_vs_btc_eth(symbols: Set[str], cache_dir: Path, max_age_days: int = 1) -> Dict[str, Dict[str, Optional[float]]]:
-    """
-    For each symbol compute 1M and 2W return vs BTC and vs ETH (%). Uses cache; refreshes if older than max_age_days.
-    Returns {symbol: {"1M_vs_btc": pct, "2W_vs_btc": pct, "1M_vs_eth": pct, "2W_vs_eth": pct}}.
-    """
-    cache_path = cache_dir / "performance_vs_btc_eth.json"
-    today = time.strftime("%Y-%m-%d")
-    cache: Dict[str, Any] = {}
-    if cache_path.exists():
-        try:
-            with open(cache_path, "r") as f:
-                cache = json.load(f)
-            if cache.get("as_of") == today and cache.get("data"):
-                return {k: v for k, v in cache["data"].items() if k in symbols}
-        except Exception:
-            pass
-    # Fetch BTC and ETH history (~60 days)
-    try:
-        import yfinance as yf
-    except ImportError:
-        return {s: {k: None for k in PERF_VS_KEYS} for s in symbols}
-    btc = yf.download("BTC-USD", period="60d", interval="1d", progress=False, auto_adjust=False, threads=False)
-    eth = yf.download("ETH-USD", period="60d", interval="1d", progress=False, auto_adjust=False, threads=False)
-    if btc is None or len(btc) < 30 or eth is None or len(eth) < 30:
-        return {s: {k: None for k in PERF_VS_KEYS} for s in symbols}
-    if isinstance(btc.columns, pd.MultiIndex):
-        btc.columns = btc.columns.get_level_values(0)
-    if isinstance(eth.columns, pd.MultiIndex):
-        eth.columns = eth.columns.get_level_values(0)
-    close_btc = btc["Close"].dropna()
-    close_eth = eth["Close"].dropna()
-    if len(close_btc) < 30 or len(close_eth) < 30:
-        return {s: {k: None for k in PERF_VS_KEYS} for s in symbols}
-    r_btc_1m = (close_btc.iloc[-1] / close_btc.iloc[-min(30, len(close_btc))] - 1) * 100
-    r_btc_2w = (close_btc.iloc[-1] / close_btc.iloc[-min(14, len(close_btc))] - 1) * 100
-    r_eth_1m = (close_eth.iloc[-1] / close_eth.iloc[-min(30, len(close_eth))] - 1) * 100
-    r_eth_2w = (close_eth.iloc[-1] / close_eth.iloc[-min(14, len(close_eth))] - 1) * 100
-    out: Dict[str, Dict[str, Optional[float]]] = {}
-    for sym in list(symbols)[:300]:
-        try:
-            df = yf.download(sym, period="60d", interval="1d", progress=False, auto_adjust=False, threads=False)
-            if df is None or len(df) < 14:
-                out[sym] = {k: None for k in PERF_VS_KEYS}
-                continue
-            if isinstance(df.columns, pd.MultiIndex):
-                df.columns = df.columns.get_level_values(0)
-            close = df["Close"].dropna()
-            if len(close) < 14:
-                out[sym] = {k: None for k in PERF_VS_KEYS}
-                continue
-            r_sym_1m = (close.iloc[-1] / close.iloc[-min(30, len(close))] - 1) * 100
-            r_sym_2w = (close.iloc[-1] / close.iloc[-min(14, len(close))] - 1) * 100
-            vs_btc_1m = ((1 + r_sym_1m / 100) / (1 + r_btc_1m / 100) - 1) * 100
-            vs_btc_2w = ((1 + r_sym_2w / 100) / (1 + r_btc_2w / 100) - 1) * 100
-            vs_eth_1m = ((1 + r_sym_1m / 100) / (1 + r_eth_1m / 100) - 1) * 100
-            vs_eth_2w = ((1 + r_sym_2w / 100) / (1 + r_eth_2w / 100) - 1) * 100
-            out[sym] = {"1M_vs_btc": round(vs_btc_1m, 2), "2W_vs_btc": round(vs_btc_2w, 2), "1M_vs_eth": round(vs_eth_1m, 2), "2W_vs_eth": round(vs_eth_2w, 2)}
-        except Exception:
-            out[sym] = {k: None for k in PERF_VS_KEYS}
-    cache_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(cache_path, "w") as f:
-        json.dump({"as_of": today, "data": out}, f, indent=0)
-    return {k: v for k, v in out.items() if k in symbols}
-
-
-def _load_performance_vs_spy(symbols: Set[str], cache_dir: Path, max_age_days: int = 1) -> Dict[str, Dict[str, Optional[float]]]:
-    """
-    For each symbol compute 1M and 1W return vs SPY (%). Used for wealth-phase hotness (performance-based).
-    Returns {symbol: {"1M_vs_spy": pct, "1W_vs_spy": pct}}.
-    """
-    cache_path = cache_dir / "performance_vs_spy.json"
-    today = time.strftime("%Y-%m-%d")
-    cache: Dict[str, Any] = {}
-    if cache_path.exists():
-        try:
-            with open(cache_path, "r") as f:
-                cache = json.load(f)
-            if cache.get("as_of") == today and cache.get("data"):
-                return {k: v for k, v in cache["data"].items() if k in symbols}
-        except Exception:
-            pass
-    try:
-        import yfinance as yf
-    except ImportError:
-        return {s: {"1M_vs_spy": None, "1W_vs_spy": None} for s in symbols}
-    spy = yf.download("SPY", period="60d", interval="1d", progress=False, auto_adjust=False, threads=False)
-    if spy is None or len(spy) < 30:
-        return {s: {"1M_vs_spy": None, "1W_vs_spy": None} for s in symbols}
-    if isinstance(spy.columns, pd.MultiIndex):
-        spy.columns = spy.columns.get_level_values(0)
-    close_spy = spy["Close"].dropna()
-    if len(close_spy) < 30:
-        return {s: {"1M_vs_spy": None, "1W_vs_spy": None} for s in symbols}
-    r_spy_1m = (close_spy.iloc[-1] / close_spy.iloc[-min(30, len(close_spy))] - 1) * 100
-    r_spy_1w = (close_spy.iloc[-1] / close_spy.iloc[-min(5, len(close_spy))] - 1) * 100
-    out: Dict[str, Dict[str, Optional[float]]] = {}
-    for sym in list(symbols)[:300]:
-        try:
-            df = yf.download(sym, period="60d", interval="1d", progress=False, auto_adjust=False, threads=False)
-            if df is None or len(df) < 5:
-                out[sym] = {"1M_vs_spy": None, "1W_vs_spy": None}
-                continue
-            if isinstance(df.columns, pd.MultiIndex):
-                df.columns = df.columns.get_level_values(0)
-            close = df["Close"].dropna()
-            if len(close) < 5:
-                out[sym] = {"1M_vs_spy": None, "1W_vs_spy": None}
-                continue
-            r_sym_1m = (close.iloc[-1] / close.iloc[-min(30, len(close))] - 1) * 100
-            r_sym_1w = (close.iloc[-1] / close.iloc[-min(5, len(close))] - 1) * 100
-            vs_spy_1m = ((1 + r_sym_1m / 100) / (1 + r_spy_1m / 100) - 1) * 100
-            vs_spy_1w = ((1 + r_sym_1w / 100) / (1 + r_spy_1w / 100) - 1) * 100
-            out[sym] = {"1M_vs_spy": round(vs_spy_1m, 2), "1W_vs_spy": round(vs_spy_1w, 2)}
-        except Exception:
-            out[sym] = {"1M_vs_spy": None, "1W_vs_spy": None}
-    cache_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(cache_path, "w") as f:
-        json.dump({"as_of": today, "data": out}, f, indent=0)
-    return {k: v for k, v in out.items() if k in symbols}
 
 
 def _esg_score_to_rank(score: Optional[float]) -> Optional[str]:
@@ -868,7 +754,7 @@ def _esg_score_to_rank(score: Optional[float]) -> Optional[str]:
     return "Low"
 
 
-def _load_esg_ratings(symbols: Set[str], cache_dir: Path, max_age_days: int = 7) -> Dict[str, Optional[str]]:
+def _load_esg_ratings(symbols: Set[str], cache_dir: Path, max_age_days: int = 7, allow_network: bool = True) -> Dict[str, Optional[str]]:
     """
     Fetch latest ESG ratings for tickers via yfinance sustainability; bucket as High / Medium / Low.
     Cached in result_scores/esg_ratings.json. Does not affect score (informational only).
@@ -881,8 +767,12 @@ def _load_esg_ratings(symbols: Set[str], cache_dir: Path, max_age_days: int = 7)
                 cache = json.load(f)
             if cache.get("as_of") == today and cache.get("data"):
                 return {k: v for k, v in cache["data"].items() if k in symbols}
+            if not allow_network and cache.get("data"):
+                return {k: (cache["data"].get(k)) for k in symbols}
         except Exception:
             pass
+    if not allow_network:
+        return {s: None for s in symbols}
     out: Dict[str, Optional[str]] = {}
     try:
         import yfinance as yf
@@ -942,7 +832,7 @@ def _perf_cell(pct: Optional[float]) -> str:
     return f'<td class="score-cell" style="background-color:{color};color:white;font-weight:bold;">{sign}{pct:.1f}%</td>'
 
 
-def _load_market_caps(result_files: list) -> Dict[str, float]:
+def _load_market_caps(result_files: list, allow_network: bool = True) -> Dict[str, float]:
     """Load market cap for each symbol. Uses cache file; optionally fetches missing via yfinance."""
     cache_path = Path("result_scores") / "market_caps.json"
     cache = {}
@@ -961,6 +851,11 @@ def _load_market_caps(result_files: list) -> Dict[str, float]:
         except Exception:
             continue
     missing = [s for s in symbols_needed if s not in cache or cache.get(s) is None]
+    if missing and not allow_network:
+        for s in missing:
+            if s not in cache:
+                cache[s] = 0
+        return {s: float(cache.get(s) or 0) for s in symbols_needed}
     if missing:
         try:
             import yfinance as yf
@@ -979,7 +874,7 @@ def _load_market_caps(result_files: list) -> Dict[str, float]:
     return cache
 
 
-def _build_top_scorers_by_category(result_files: list):
+def _build_top_scorers_by_category(result_files: list, allow_network: bool = True) -> list:
     """
     Load all result files, extract scores for 1W, 2W, 1M and usd, gold, silver; add 1M/2W scores vs BTC/ETH (same framework); add ESG (informational).
     Return list of (category, [(symbol, market_cap, scores_dict), ...]) with each category sorted by market_cap desc.
@@ -987,7 +882,7 @@ def _build_top_scorers_by_category(result_files: list):
     """
     # category -> [(symbol, market_cap, scores)]
     by_category: Dict[str, List[Tuple[str, float, Dict[str, Any]]]] = defaultdict(list)
-    market_caps = _load_market_caps(result_files)
+    market_caps = _load_market_caps(result_files, allow_network=allow_network)
     symbols_all: Set[str] = set()
     for _cat, path in result_files:
         if not path.exists():
@@ -999,7 +894,7 @@ def _build_top_scorers_by_category(result_files: list):
         except Exception:
             continue
     cache_dir = Path("result_scores")
-    esg_ratings = _load_esg_ratings(symbols_all, cache_dir) if symbols_all else {}
+    esg_ratings = _load_esg_ratings(symbols_all, cache_dir, allow_network=allow_network) if symbols_all else {}
     for category, path in result_files:
         if not path.exists():
             continue
@@ -1043,11 +938,11 @@ def _build_top_scorers_by_category(result_files: list):
     return out
 
 
-def _top_scorers_table_html(result_files: list) -> str:
+def _top_scorers_table_html(result_files: list, allow_network: bool = True) -> str:
     """Generate only the <table>...</table> for top scorers (for standalone page or section)."""
     if not result_files:
         return ""
-    top = _build_top_scorers_by_category(result_files)
+    top = _build_top_scorers_by_category(result_files, allow_network=allow_network)
     header_row = _table_header_cells(INDEX_TOP_SCORER_COLUMNS)
     rows_html = []
     for category, symbol_list in top:
@@ -1062,15 +957,15 @@ def _top_scorers_table_html(result_files: list) -> str:
                     if val is None:
                         cells.append("<td>—</td>")
                     else:
-                        color, _ = get_score_color(val)
-                        cells.append(f'<td class="score-cell" style="background-color:{color};color:white;font-weight:bold;">{val}</td>')
+                        bg, text, _ = get_score_color_common(val)
+                        cells.append(f'<td class="score-cell" style="background-color:{bg};color:{text};font-weight:bold;">{val}</td>')
             for k in TOP_SCORER_BTC_ETH_KEYS:
                 val = scores.get(k)
                 if val is None:
                     cells.append("<td>—</td>")
                 else:
-                    color, _ = get_score_color(val)
-                    cells.append(f'<td class="score-cell" style="background-color:{color};color:white;font-weight:bold;">{val}</td>')
+                    bg, text, _ = get_score_color_common(val)
+                    cells.append(f'<td class="score-cell" style="background-color:{bg};color:{text};font-weight:bold;">{val}</td>')
             esg = scores.get("esg")
             cells.append(f'<td class="esg-cell">{esg or "—"}</td>')
             rows_html.append("        <tr>\n            " + "\n            ".join(cells) + "\n        </tr>")
@@ -1104,340 +999,27 @@ def _top_scorers_html(result_files: list) -> str:
     )
 
 
-def _fmt_price(val: Any) -> str:
-    """Format price for wave display: large numbers as 88.9k / 1.2M."""
-    if val is None or (isinstance(val, float) and (val != val or val == 0)):
-        return "0"
-    v = float(val)
-    if abs(v) >= 1e6:
-        return f"{v/1e6:.1f}M"
-    if abs(v) >= 1e3:
-        return f"{v/1e3:.1f}k"
-    return f"{v:.1f}"
-
-
-def _wave_detail_html(waves: list, label: str) -> str:
-    """Build expandable <details><summary>label</summary> wave list (wave_1: start→end ★)...</summary></details>."""
-    if not waves:
-        return ""
-    items = []
-    for w in waves:
-        start_u = w.get("start_usd")
-        end_u = w.get("end_usd")
-        s = f"Wave {w.get('number', '?')}: {_fmt_price(start_u)} → {_fmt_price(end_u)}"
-        if w.get("current_wave"):
-            s += " ★"
-        items.append(f"<li>{s}</li>")
-    return f'<details class="wave-detail"><summary>{label}</summary><ul style="margin:4px 0 0 0; padding-left:18px;">{"".join(items)}</ul></details>'
-
-
-def _format_wave_count(wave_count: Optional[Dict], wave_position_fallback: Optional[str] = None) -> str:
-    """Format wave_count as Primary/Secondary links that expand to WaveCountDetail (wave_1..wave_5: start_usd→end_usd, current ★). Uses wave_position_fallback when wave_count empty."""
-    if wave_count:
-        parts = []
-        primary = wave_count.get("primary") or {}
-        waves = primary.get("waves") or []
-        if waves:
-            parts.append(_wave_detail_html(waves, "Primary"))
-        secondary = wave_count.get("secondary")
-        if secondary and secondary.get("waves"):
-            parts.append(_wave_detail_html(secondary["waves"], "Secondary"))
-        if parts:
-            block = " ".join(parts)
-            if wave_position_fallback:
-                block = f'<span style="font-size:0.85em; color:#666;">{wave_position_fallback}</span> {block}'
-            return block
-    if wave_position_fallback:
-        return str(wave_position_fallback)
-    return "—"
-
-
-_elliott_wave_cache: Dict[Tuple[str, str], Optional[Dict]] = {}
-
-
-def _compute_elliott_wave_on_the_fly(symbol: str, timeframe: str) -> Optional[Dict]:
-    """Fetch price, resample to timeframe, run Elliott wave; return dict with wave_position, wave_count or None. Cached per (symbol, tf)."""
-    key = (symbol, timeframe)
-    if key in _elliott_wave_cache:
-        return _elliott_wave_cache[key]
-    try:
-        import yfinance as yf
-    except ImportError:
-        return None
-    try:
-        ticker = yf.Ticker(symbol)
-        period = "2y" if timeframe == "1M" else "1y"
-        df = ticker.history(period=period, interval="1d", auto_adjust=False)
-        if df is None or len(df) < 60:
-            return None
-        if isinstance(df.columns, pd.MultiIndex):
-            df.columns = df.columns.get_level_values(0)
-        close = df["Close"].dropna()
-        if timeframe == "1M":
-            close = close.resample("ME").last().dropna()
-        elif timeframe == "1W":
-            close = close.resample("W").last().dropna()
-        else:  # 2D
-            close = close.iloc[::2].dropna()
-        if len(close) < 40:
-            return None
-        try:
-            from technical_analysis.indicators.elliott_wave import identify_elliott_wave_pattern
-        except ImportError:
-            from indicators.elliott_wave import identify_elliott_wave_pattern
-        out = identify_elliott_wave_pattern(close, lookback=min(20, len(close) // 2))
-        _elliott_wave_cache[key] = out
-        return out
-    except Exception:
-        _elliott_wave_cache[key] = None
-        return None
-
-
-def _build_elliott_wave_data(result_files: list):
-    """
-    Build Elliott Wave section data: (category, [(symbol, mc, g1m, g2w, g1w, btc_1m, btc_2w, eth_1m, eth_2w, wc_1m, wc_1w, wc_2d, wp_1m, wp_1w, wp_2d, alt, esg)]).
-    BTC/ETH columns use same score framework; ESG = High/Medium/Low when available (informational).
-    """
-    market_caps = _load_market_caps(result_files)
-    symbols_all: Set[str] = set()
-    for _cat, path in result_files:
-        if not path.exists():
-            continue
-        try:
-            with open(path, "r") as f:
-                data = json.load(f)
-            symbols_all.update(k for k in data if isinstance(data.get(k), dict))
-        except Exception:
-            continue
-    cache_dir = Path("result_scores")
-    esg_ratings = _load_esg_ratings(symbols_all, cache_dir) if symbols_all else {}
-    by_category: Dict[str, List[Tuple]] = defaultdict(list)
-    for category, path in result_files:
-        if not path.exists():
-            continue
-        try:
-            with open(path, "r") as f:
-                data = json.load(f)
-        except Exception:
-            continue
-        for symbol, symbol_data in data.items():
-            if not isinstance(symbol_data, dict):
-                continue
-            ta_1m = None
-            ta_1w = None
-            ta_2d = None
-            for tf in ["1M", "1W", "2D"]:
-                if tf not in symbol_data:
-                    continue
-                yf = symbol_data[tf].get("yfinance", {})
-                usd = yf.get("usd", {})
-                ta = usd.get("ta_library") or usd.get("tradingview_library")
-                if tf == "1M":
-                    ta_1m = ta
-                elif tf == "1W":
-                    ta_1w = ta
-                else:
-                    ta_2d = ta
-            gold_1m = gold_2w = gold_1w = None
-            if "1M" in symbol_data and "gold" in symbol_data["1M"].get("yfinance", {}):
-                g = symbol_data["1M"]["yfinance"]["gold"].get("ta_library") or symbol_data["1M"]["yfinance"]["gold"].get("tradingview_library")
-                gold_1m = g.get("score") if g else None
-            if "2W" in symbol_data and "gold" in symbol_data["2W"].get("yfinance", {}):
-                g = symbol_data["2W"]["yfinance"]["gold"].get("ta_library") or symbol_data["2W"]["yfinance"]["gold"].get("tradingview_library")
-                gold_2w = g.get("score") if g else None
-            if "1W" in symbol_data and "gold" in symbol_data["1W"].get("yfinance", {}):
-                g = symbol_data["1W"]["yfinance"]["gold"].get("ta_library") or symbol_data["1W"]["yfinance"]["gold"].get("tradingview_library")
-                gold_1w = g.get("score") if g else None
-            # Elliott wave: ta_library first, then tradingview_library
-            def _ew(ta: Optional[Dict]) -> Dict:
-                if not ta:
-                    return {}
-                return (ta.get("elliott_wave") or {}) if isinstance(ta.get("elliott_wave"), dict) else {}
-            ew_1m = _ew(ta_1m) or _ew(symbol_data.get("1M", {}).get("yfinance", {}).get("usd", {}).get("tradingview_library"))
-            ew_1w = _ew(ta_1w) or _ew(symbol_data.get("1W", {}).get("yfinance", {}).get("usd", {}).get("tradingview_library"))
-            ew_2d = _ew(ta_2d) or _ew(symbol_data.get("2D", {}).get("yfinance", {}).get("usd", {}).get("tradingview_library"))
-            # On-the-fly Elliott wave when missing from results
-            if not (ew_1m and (ew_1m.get("wave_count") or ew_1m.get("wave_position"))):
-                computed = _compute_elliott_wave_on_the_fly(symbol, "1M")
-                if computed:
-                    ew_1m = computed
-            if not (ew_1w and (ew_1w.get("wave_count") or ew_1w.get("wave_position"))):
-                computed = _compute_elliott_wave_on_the_fly(symbol, "1W")
-                if computed:
-                    ew_1w = computed
-            if not (ew_2d and (ew_2d.get("wave_count") or ew_2d.get("wave_position"))):
-                computed = _compute_elliott_wave_on_the_fly(symbol, "2D")
-                if computed:
-                    ew_2d = computed
-            wc_1m = ew_1m.get("wave_count") if isinstance(ew_1m, dict) else None
-            wc_1w = ew_1w.get("wave_count") if isinstance(ew_1w, dict) else None
-            wc_2d = ew_2d.get("wave_count") if isinstance(ew_2d, dict) else None
-            wp_1m = ew_1m.get("wave_position") if isinstance(ew_1m, dict) else None
-            wp_1w = ew_1w.get("wave_position") if isinstance(ew_1w, dict) else None
-            wp_2d = ew_2d.get("wave_position") if isinstance(ew_2d, dict) else None
-            alt_1m = (wc_1m or {}).get("secondary")
-            alt_1w = (wc_1w or {}).get("secondary")
-            alt_2d = (wc_2d or {}).get("secondary")
-            # BTC/ETH scores from same framework (btc_denominated / eth_denominated when available, e.g. crypto)
-            btc_1m = btc_2w = eth_1m = eth_2w = None
-            for tf in ["1M", "2W", "1W"]:
-                yf_tf = symbol_data.get(tf, {}).get("yfinance", {})
-                ta_btc = (yf_tf.get("btc_denominated") or {}).get("ta_library") or (yf_tf.get("btc_denominated") or {}).get("tradingview_library")
-                ta_eth = (yf_tf.get("eth_denominated") or {}).get("ta_library") or (yf_tf.get("eth_denominated") or {}).get("tradingview_library")
-                if ta_btc and ta_btc.get("score") is not None:
-                    s = round(float(ta_btc["score"]), 1)
-                    if tf == "1M": btc_1m = s
-                    elif tf == "2W": btc_2w = s
-                if ta_eth and ta_eth.get("score") is not None:
-                    s = round(float(ta_eth["score"]), 1)
-                    if tf == "1M": eth_1m = s
-                    elif tf == "2W": eth_2w = s
-            mc = market_caps.get(symbol, 0) or 0
-            esg = esg_ratings.get(symbol)  # High / Medium / Low or None; does not affect score
-            by_category[category].append((
-                symbol,
-                float(mc),
-                gold_1m,
-                gold_2w,
-                gold_1w,
-                btc_1m,
-                btc_2w,
-                eth_1m,
-                eth_2w,
-                wc_1m,
-                wc_1w,
-                wc_2d,
-                wp_1m,
-                wp_1w,
-                wp_2d,
-                alt_1m or alt_1w or alt_2d,
-                esg,
-            ))
-    out = []
-    for cat in sorted(by_category.keys()):
-        rows = by_category[cat]
-        rows.sort(key=lambda x: (
-            -(x[2] or -999),
-            -(x[3] or -999),
-            -(x[1]),
-        ))
-        out.append((cat, rows))
-    return out
-
-
-def _elliott_wave_section_html(result_files: list) -> str:
-    """Elliott Wave Count section: different-style link bar + table (1M/2W/1W vs Gold, Monthly/Weekly/2D Wave Count, Alternative)."""
-    if not result_files:
-        return ""
-    data = _build_elliott_wave_data(result_files)
-    rows_html = []
-    for category, symbol_list in data:
-        cat_name = category.replace("_", " ").title()
-        for row in symbol_list:
-            symbol, mc, g1m, g2w, g1w, btc_1m, btc_2w, eth_1m, eth_2w, wc_1m, wc_1w, wc_2d, wp_1m, wp_1w, wp_2d, alt, esg = row
-            mc_str = f"{mc/1e9:.2f}B" if mc >= 1e9 else f"{mc/1e6:.1f}M" if mc >= 1e6 else str(int(mc)) if mc else "—"
-            g1m_s = f"{g1m:.1f}" if g1m is not None else "—"
-            g2w_s = f"{g2w:.1f}" if g2w is not None else "—"
-            g1w_s = f"{g1w:.1f}" if g1w is not None else "—"
-            btc_1m_s = f"{btc_1m:.1f}" if btc_1m is not None else "—"
-            btc_2w_s = f"{btc_2w:.1f}" if btc_2w is not None else "—"
-            eth_1m_s = f"{eth_1m:.1f}" if eth_1m is not None else "—"
-            eth_2w_s = f"{eth_2w:.1f}" if eth_2w is not None else "—"
-            m_wave = _format_wave_count(wc_1m, wp_1m)
-            w_wave = _format_wave_count(wc_1w, wp_1w)
-            d_wave = _format_wave_count(wc_2d, wp_2d)
-            alt_s = "Yes" if alt else "—"
-            esg_s = esg or "—"
-            rows_html.append(
-                f"        <tr><td>{cat_name}</td><td><strong>{symbol}</strong></td><td>{mc_str}</td>"
-                f"<td>{g1m_s}</td><td>{g2w_s}</td><td>{g1w_s}</td>"
-                f"<td>{btc_1m_s}</td><td>{btc_2w_s}</td><td>{eth_1m_s}</td><td>{eth_2w_s}</td>"
-                f'<td class="wave-cell" style="font-size:0.9em; min-width:100px;">{m_wave}</td><td class="wave-cell" style="font-size:0.9em; min-width:100px;">{w_wave}</td><td class="wave-cell" style="font-size:0.9em; min-width:100px;">{d_wave}</td><td>{alt_s}</td><td class="esg-cell">{esg_s}</td></tr>'
-            )
-    table_body = "\n".join(rows_html)
-    table_html = f'''
-        <table class="top-scorers-table" style="width:100%; border-collapse: collapse; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            <thead>
-                <tr style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white;">
-            {_table_header_cells(INDEX_ELLIOTT_COLUMNS)}
-                </tr>
-            </thead>
-            <tbody>
-{table_body}
-            </tbody>
-        </table>'''
-    return table_html
-
-
-def _write_top_scores_page(result_files: list, output_dir: Path) -> None:
+def _write_top_scores_page(
+    result_files: list, output_dir: Path, allow_network: bool = True
+) -> None:
     """Write top_scores_by_category.html with full table (standalone page)."""
     if not result_files:
         return
-    table = _top_scorers_table_html(result_files)
+    table = _top_scorers_table_html(result_files, allow_network=allow_network)
     if not table:
         return
-    full = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{INDEX_SECTION_TOP_SCORERS_HEADER}</title>
-    <style>
-        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1400px; margin: 0 auto; padding: 24px; background: #f5f5f5; }}
-        h1 {{ color: #333; margin-bottom: 8px; }}
-        a.back {{ display: inline-block; margin-bottom: 16px; color: #0066cc; text-decoration: none; }}
-        a.back:hover {{ text-decoration: underline; }}
-        .top-scorers-table td, .top-scorers-table th {{ padding: 8px; border: 1px solid #ddd; }}
-    </style>
-</head>
-<body>
-    <a href="index.html" class="back">← Back to Index</a>
-    <h1>📊 {INDEX_SECTION_TOP_SCORERS_HEADER}</h1>
-    <p style="color: #666;">Scores: 1M, 2W, 1W vs Gold, Silver, USD. Then 1M/2W performance % vs BTC and ETH.</p>
+    extra_css = (
+        UI_CSS_TABLE
+        + "\n        body { max-width: 1400px; padding: 24px; }\n        .top-scorers-table td, .top-scorers-table th { padding: 8px; border: 1px solid #ddd; }"
+    )
+    body_content = f"""    <h1>📊 {INDEX_SECTION_TOP_SCORERS_HEADER}</h1>
+    <p class="subtitle">Scores: 1M, 2W, 1W vs Gold, Silver, USD. Then 1M/2W performance % vs BTC and ETH.</p>
     <div style="overflow-x: auto;">
 {table}
     </div>
-</body>
-</html>"""
+"""
+    full = html_page(INDEX_SECTION_TOP_SCORERS_HEADER, body_content, extra_css=extra_css, back_link=True)
     (output_dir / PAGE_TOP_SCORES_BY_CATEGORY).write_text(full, encoding="utf-8")
-
-
-def _write_elliott_wave_page(result_files: list, output_dir: Path) -> None:
-    """Write elliott_wave_count.html with full table (standalone page)."""
-    if not result_files:
-        return
-    table_html = _elliott_wave_section_html(result_files)
-    if not table_html:
-        return
-    full = f"""<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{INDEX_SECTION_ELLIOTT_HEADER}</title>
-    <style>
-        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1400px; margin: 0 auto; padding: 24px; background: #f5f5f5; }}
-        h1 {{ color: #1a1a2e; margin-bottom: 8px; }}
-        a.back {{ display: inline-block; margin-bottom: 16px; color: #0066cc; text-decoration: none; }}
-        a.back:hover {{ text-decoration: underline; }}
-        .top-scorers-table td, .top-scorers-table th {{ padding: 8px; border: 1px solid #ddd; }}
-        .wave-cell {{ font-size: 0.9em; min-width: 120px; }}
-        .wave-detail summary {{ cursor: pointer; color: #0066cc; font-weight: 500; list-style: none; }}
-        .wave-detail summary::-webkit-details-marker {{ display: none; }}
-        .wave-detail ul {{ list-style: none; padding-left: 0; }}
-        .wave-detail li {{ margin: 2px 0; }}
-    </style>
-</head>
-<body>
-    <a href="index.html" class="back">← Back to Index</a>
-    <h1>〰 {INDEX_SECTION_ELLIOTT_HEADER}</h1>
-    <p style="color: #666;">1M/2W vs BTC and ETH: scores (same framework as Gold) when available; otherwise —. Wave count: primary/secondary (★ = current); fallback: wave position when count not in results.</p>
-    <div style="overflow-x: auto;">
-{table_html}
-    </div>
-</body>
-</html>"""
-    (output_dir / PAGE_ELLIOTT_WAVE_COUNT).write_text(full, encoding="utf-8")
 
 
 # Category -> wealth phase id (for performance-based hotness: phase temp = f(avg 1M or 1W vs SPY))
@@ -1507,7 +1089,12 @@ TEMP_COLORS = {
 }
 
 
-def _compute_phase_perf(result_files: Optional[List[Tuple[str, Path]]], cache_dir: Path) -> Dict[str, Dict[str, Any]]:
+def _compute_phase_perf(
+    result_files: Optional[List[Tuple[str, Path]]],
+    cache_dir: Path,
+    allow_network: bool = True,
+    perf_workers: int = 8,
+) -> Dict[str, Dict[str, Any]]:
     """Aggregate 1M and 1W performance vs SPY by phase. Returns {phase_id: {temp_1m, temp_1w, avg_1m, avg_1w}}. Cash has no data -> neutral."""
     symbols_by_category: Dict[str, List[str]] = {}
     if result_files:
@@ -1525,7 +1112,13 @@ def _compute_phase_perf(result_files: Optional[List[Tuple[str, Path]]], cache_di
     all_symbols: Set[str] = set()
     for syms in symbols_by_category.values():
         all_symbols.update(syms)
-    perf = _load_performance_vs_spy(all_symbols, cache_dir) if all_symbols else {}
+    perf = (
+        load_performance_vs_spy(
+            all_symbols, cache_dir, allow_network=allow_network, max_workers=perf_workers
+        )
+        if all_symbols
+        else {}
+    )
     phase_to_vals: Dict[str, List[Tuple[Optional[float], Optional[float]]]] = {p["id"]: [] for p in WEALTH_PHASES}
     for cat, syms in symbols_by_category.items():
         phase_id = CATEGORY_TO_PHASE.get(cat)
@@ -1576,10 +1169,21 @@ def _compute_phase_perf(result_files: Optional[List[Tuple[str, Path]]], cache_di
     return out
 
 
-def _write_wealth_phase_page(output_dir: Path, result_files: Optional[List[Tuple[str, Path]]] = None) -> None:
+def _write_wealth_phase_page(
+    output_dir: Path,
+    result_files: Optional[List[Tuple[str, Path]]] = None,
+    allow_network: bool = True,
+    perf_workers: int = 8,
+) -> None:
     """Write wealth_phase.html: hotness from relative performance (Monthly/Weekly toggle). Colors = relative strength (SPX vs Metals, etc.)."""
     cache_dir = Path("result_scores")
-    phase_perf = _compute_phase_perf(result_files, cache_dir) if result_files else {}
+    phase_perf = (
+        _compute_phase_perf(
+            result_files, cache_dir, allow_network=allow_network, perf_workers=perf_workers
+        )
+        if result_files
+        else {}
+    )
     # When no data, use default gradient so cards always show 6 different colors (cash cold → risk hot)
     if not phase_perf:
         default_temps = {"cash": "very_cold", "metals": "cold", "commodities": "slightly_cold", "index": "neutral", "hot": "slightly_hot", "risk": "very_hot"}
@@ -1744,8 +1348,165 @@ def _write_cme_page(output_dir: Path) -> None:
     (output_dir / PAGE_CME_SUNDAY_OPEN).write_text(full, encoding="utf-8")
 
 
-def write_index_with_cme(categories: List[str], output_dir: Path, result_files: Optional[List[Tuple[str, Path]]] = None) -> None:
-    """Generate index.html with category grid, CME Sunday 6pm ET section, and top scorers by category (sorted by market cap; scores 1W/2W/1M vs USD/Gold/Silver)."""
+# Dividend / staking holdings: (industry, ticker, source_service, type, annual yield %)
+# Sources: Kraken (kraken.com/features/staking, Auto Earn), Coinbase (coinbase.com/earn), Binance (binance.com/earn),
+# Lido (lido.fi), Rocket Pool (rocketpool.net), ETF providers. Indicative only; rates subject to change.
+DIVIDEND_HOLDINGS_DATA = [
+    # Cryptocurrencies — Source/Service, Type, yield (on-chain → liquid staking → exchanges → ETF)
+    ("Cryptocurrencies", "ETH", "Ethereum network", "On-chain staking", "~3–4%"),
+    ("Cryptocurrencies", "ETH", "Lido (stETH)", "Liquid staking", "~3.2%"),
+    ("Cryptocurrencies", "ETH", "Rocket Pool (rETH)", "Liquid staking", "~3.4%"),
+    ("Cryptocurrencies", "ETH", "Kraken", "Exchange", "~2.84% (Flexible 1–3%; Bonded 2–5%)"),
+    ("Cryptocurrencies", "ETH", "Coinbase", "Exchange", "~1.86–4%"),
+    ("Cryptocurrencies", "ETH", "Binance", "Exchange", "~3%"),
+    ("Cryptocurrencies", "SOL", "Solana network", "On-chain staking", "~6–7%"),
+    ("Cryptocurrencies", "SOL", "Kraken", "Exchange", "~5.87% (Flexible); 6–8% Bonded"),
+    ("Cryptocurrencies", "SOL", "Coinbase", "Exchange", "~4.25%"),
+    ("Cryptocurrencies", "SOL", "Binance", "Exchange", "~5%"),
+    ("Cryptocurrencies", "ADA", "Cardano network", "On-chain staking", "~4–5%"),
+    ("Cryptocurrencies", "ADA", "Kraken", "Exchange", "~3.26% (2–5% Flexible)"),
+    ("Cryptocurrencies", "ADA", "Coinbase", "Exchange", "~2–5%"),
+    ("Cryptocurrencies", "ADA", "Binance", "Exchange", "~2.4%"),
+    ("Cryptocurrencies", "DOT", "Polkadot network", "On-chain staking", "~12–14%"),
+    ("Cryptocurrencies", "DOT", "Kraken", "Exchange", "~4–8% Flexible; 10–16% Bonded"),
+    ("Cryptocurrencies", "ATOM", "Cosmos network", "On-chain staking", "~18–20%"),
+    ("Cryptocurrencies", "ATOM", "Kraken", "Exchange", "~20.78% (7–11% Flex; 14–20% Bonded)"),
+    ("Cryptocurrencies", "AVAX", "Avalanche network", "On-chain staking", "~7–8%"),
+    ("Cryptocurrencies", "MATIC/POL", "Polygon network", "On-chain staking", "~4%"),
+    ("Cryptocurrencies", "BTC", "iShares, Fidelity, Grayscale (IBIT, FBTC, GBTC)", "ETF US", "0%"),
+    ("Cryptocurrencies", "BTC", "Purpose, CI Galaxy (BTCC-B.TO, BTCX-B.TO)", "ETF Canada", "0%"),
+    ("Cryptocurrencies", "ETH", "iShares, Grayscale (ETHA, ETHE)", "ETF US", "0%"),
+    ("Cryptocurrencies", "ETH", "CI Galaxy (ETHX-B.TO)", "ETF Canada", "0%"),
+    # Other industries — Source = issuer; Type = Dividend
+    ("Financials", "JPM", "JPMorgan Chase", "Dividend", "~2.1%"),
+    ("Financials", "BAC", "Bank of America", "Dividend", "~2.5%"),
+    ("Financials", "WFC", "Wells Fargo", "Dividend", "~2.5%"),
+    ("Utilities", "DUK", "Duke Energy", "Dividend", "~3.5%"),
+    ("Utilities", "SO", "Southern Company", "Dividend", "~3.2%"),
+    ("Utilities", "D", "Dominion Energy", "Dividend", "~3.8%"),
+    ("Healthcare", "JNJ", "Johnson & Johnson", "Dividend", "~3.2%"),
+    ("Healthcare", "UNH", "UnitedHealth", "Dividend", "~0.5%"),
+    ("Healthcare", "PFE", "Pfizer", "Dividend", "~3.5%"),
+    ("Real Estate", "VNQ", "Vanguard REIT", "Dividend (REIT)", "~3.5%"),
+    ("Real Estate", "SCHH", "Schwab REIT", "Dividend (REIT)", "~3%"),
+    ("Real Estate", "IYR", "iShares REIT", "Dividend (REIT)", "~3.2%"),
+    ("Index ETFs", "SPY", "State Street S&P 500", "Dividend", "~1.3%"),
+    ("Index ETFs", "QQQ", "Invesco Nasdaq 100", "Dividend", "~0.5%"),
+    ("Index ETFs", "IWM", "iShares Russell 2000", "Dividend", "~1.2%"),
+    ("Consumer Discretionary", "HD", "Home Depot", "Dividend", "~2.5%"),
+    ("Consumer Discretionary", "NKE", "Nike", "Dividend", "~1.5%"),
+    ("Consumer Discretionary", "SBUX", "Starbucks", "Dividend", "~2.2%"),
+]
+
+
+def _dividend_holdings_table_rows() -> Tuple[List[str], List[List[str]]]:
+    """Build (headers, rows) for dividend_holdings table from DIVIDEND_HOLDINGS_DATA. Columns: Industry, Ticker, Source/Service, Type, Annual yield %."""
+    rows_by_industry: Dict[str, List[Tuple[str, str, str, str]]] = {}
+    for industry, ticker, source_service, type_, yield_pct in DIVIDEND_HOLDINGS_DATA:
+        rows_by_industry.setdefault(industry, []).append((ticker, source_service, type_, yield_pct))
+    rows = []
+    for industry, items in rows_by_industry.items():
+        for i, (ticker, source_service, type_, yield_pct) in enumerate(items):
+            industry_cell = industry if i == 0 else ""
+            rows.append([industry_cell, ticker, source_service, type_, yield_pct])
+    headers = ["Industry", "Ticker / Product", "Source / Service", "Type", "Annual yield %"]
+    return headers, rows
+
+
+def _write_dividend_holdings_page(output_dir: Path) -> None:
+    """Write standalone dividend_holdings.html with full table (linked from index link bar)."""
+    headers, rows = _dividend_holdings_table_rows()
+    table_html = html_table(headers, rows)
+    extra_css = UI_CSS_TABLE + "\n        body { max-width: 1000px; }\n"
+    body_content = f"""    <h1>💰 Dividend / Staking Holdings</h1>
+    <p class="subtitle">Staking or dividend yield (annual). Source/Service = earn provider: Lido, Rocket Pool, Kraken, Coinbase, Binance, ETF issuers. Rates indicative; subject to change.</p>
+    <p class="subtitle" style="font-size: 0.9em;">Crypto sources: Lido (lido.fi), Rocket Pool (rocketpool.net), Kraken (kraken.com/features/staking, Auto Earn), Coinbase (coinbase.com/earn), Binance (binance.com/earn). ETF: iShares, Fidelity, Grayscale, Purpose, CI Galaxy.</p>
+    <div style="overflow-x: auto;">
+{table_html}
+    </div>
+"""
+    full = html_page("Dividend / Staking Holdings", body_content, extra_css=extra_css.strip(), back_link=True)
+    (output_dir / PAGE_DIVIDEND_HOLDINGS).write_text(full, encoding="utf-8")
+
+
+def _build_dividend_holdings_html() -> str:
+    """Build HTML for index: section with a card linking to dividend_holdings page (table is on that page)."""
+    return (
+        '    <h2>Dividend / Staking Holdings</h2>\n'
+        '    <p class="subtitle">Staking or dividend yield by industry. Click the button above or the card below to view the table.</p>\n'
+        + html_card(
+            "dividend_holdings",
+            f'\n        <a href="{PAGE_DIVIDEND_HOLDINGS}" target="_blank">View Dividend / Staking table →</a>\n',
+            card_id="dividend_holdings",
+            extra_style="margin-bottom: 24px;",
+        )
+    )
+
+
+def _write_halal_funds_page(output_dir: Path) -> None:
+    """Generate halal_funds.html from halal_funds_data.json (Halal/Islamic ETFs and mutual funds with holdings and ESG notes)."""
+    data_path = Path(__file__).resolve().parent / "halal_funds_data.json"
+    if not data_path.exists():
+        html = html_page(
+            "Halal Index & Mutual Funds",
+            "    <p>Data file halal_funds_data.json not found. Add it to technical_analysis/ with keys: sources, funds (name, ticker, provider, type, holdings with ticker, weight_pct, esg).</p>",
+            back_link=True,
+        )
+        (output_dir / PAGE_HALAL_FUNDS).write_text(html, encoding="utf-8")
+        return
+    with open(data_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    funds = data.get("funds") or []
+    sections = []
+    for fund in funds:
+        name = fund.get("name") or ""
+        ticker = fund.get("ticker") or ""
+        provider = fund.get("provider") or ""
+        ftype = fund.get("type") or ""
+        holdings = fund.get("holdings") or []
+        rows = []
+        for h in holdings:
+            tk = h.get("ticker") or ""
+            wt = h.get("weight_pct")
+            wt_str = f"{wt}%" if wt is not None else "—"
+            esg = h.get("esg") or fund.get("esg_notes") or "—"
+            rows.append(f"        <tr><td>{tk}</td><td>{wt_str}</td><td>{esg}</td></tr>")
+        tbody = "\n".join(rows) if rows else "        <tr><td colspan=\"3\">—</td></tr>"
+        sections.append(f"""
+    <div class="section-block">
+    <h3>{name} ({ticker})</h3>
+    <p><strong>Provider:</strong> {provider} &nbsp; <strong>Type:</strong> {ftype}</p>
+    <table class="data-table">
+        <thead><tr><th>Ticker</th><th>Weight %</th><th>ESG / Notes</th></tr></thead>
+        <tbody>
+{tbody}
+        </tbody>
+    </table>
+    </div>""")
+    body = "\n".join(sections)
+    if data.get("sources"):
+        body += '\n    <p class="subtitle" style="margin-top:24px">Useful links: ' + ", ".join(f'<a href="{s}" target="_blank" rel="noopener">source</a>' for s in data["sources"][:3]) + "</p>"
+    full = html_page("Halal Index & Mutual Funds", body, back_link=True, use_shared_css=True, body_class="page-table")
+    (output_dir / PAGE_HALAL_FUNDS).write_text(full, encoding="utf-8")
+
+
+def _write_modular_landing_assets(output_dir: Path) -> None:
+    """index_landing + hot_pick_plan static CSS/JS; hot_pick_plan.html (modular, generated from ui_assets)."""
+    from ui_assets import write_landing_artifacts
+    write_landing_artifacts(output_dir, SHARED_CSS_FILENAME, PAGE_HOT_PICK_PLAN)
+
+
+def write_index_with_cme(
+    categories: List[str],
+    output_dir: Path,
+    result_files: Optional[List[Tuple[str, Path]]] = None,
+    build_options: Optional[VizBuildOptions] = None,
+) -> None:
+    """Generate index.html with category grid, CME + dividend + halal + top scorers + optional trending."""
+    opts = build_options or VizBuildOptions()
+    allow_net = not opts.no_network
+    write_shared_css(output_dir)
+    _write_modular_landing_assets(output_dir)
     cme = _get_cme_context()
     category_cards = []
     for cat in categories:
@@ -1764,61 +1525,139 @@ def write_index_with_cme(categories: List[str], output_dir: Path, result_files: 
 
     if result_files:
         try:
-            _write_top_scores_page(result_files, output_dir)
-            _write_elliott_wave_page(result_files, output_dir)
+            _write_top_scores_page(result_files, output_dir, allow_network=allow_net)
         except Exception:
             pass
 
-    _write_wealth_phase_page(output_dir, result_files)
+    _write_wealth_phase_page(
+        output_dir,
+        result_files,
+        allow_network=allow_net,
+        perf_workers=opts.max_workers * 2 if opts.max_workers else 8,
+    )
     _write_cme_page(output_dir)
-    link_bar_style = "display: inline-block; padding: 15px 30px; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0,0,0,0.2);"
-    link_bar_hover = " onmouseover=\"this.style.transform='translateY(-2px)'\" onmouseout=\"this.style.transform='translateY(0)'\""
-
+    _write_dividend_holdings_page(output_dir)
+    _write_halal_funds_page(output_dir)
+    if not opts.skip_trending:
+        try:
+            from scripts.build_trending_industries import main as build_trending_main
+            build_trending_main()
+        except Exception:
+            pass
+    dividend_holdings_html = _build_dividend_holdings_html()
+    link_bar_html = html_link_bar()
+    main_cards_block = (
+        f'        <a href="{PAGE_TRENDING_INDUSTRIES}" target="_blank" class="main-card main-card--trending">\n'
+        '            <div class="main-card-title">📈 Top trending industries</div>\n'
+        '            <div class="main-card-desc">Per-industry top 5–10 tickers with scores vs Gold, BTC, SPX, Silver (M&amp;W), ESG, horizon and special notes. Includes Index Funds.</div>\n'
+        '        </a>\n'
+        f'        <a href="{PAGE_HALAL_FUNDS}" target="_blank" class="main-card main-card--halal">\n'
+        '            <div class="main-card-title">☪ Halal index &amp; mutual funds</div>\n'
+        '            <div class="main-card-desc">Halal ETFs and mutual funds (HLAL, SPUS, UMMA, Amana, Iman) with holdings, weights and ESG notes.</div>\n'
+        '        </a>\n'
+        f'        <a href="{PAGE_HOT_PICK_PLAN}" target="_blank" class="main-card main-card--hot">\n'
+        '            <div class="main-card-title">🔥 Hot pick plan</div>\n'
+        '            <div class="main-card-desc">Horizon tables (3–24 mo): three picks per industry niche and crypto with ticker, USD price, fundies, technicals. Excludes defense, alcohol, gambling, and “savings yield” laggards—replace rows with your pipeline as needed.</div>\n'
+        '        </a>\n'
+    )
+    index_toc = """    <nav class="index-toc" aria-label="On this page">
+        <span class="index-toc__label">Jump to</span>
+        <a href="#section-main">Main views</a>
+        <a href="#section-other">Other views</a>
+        <a href="#section-categories">By industry (category pages)</a>
+    </nav>
+    <p class="index-fold__toolbar">
+        <button type="button" id="index-fold-expand">Expand all</button>
+        <button type="button" id="index-fold-collapse">Collapse all</button>
+    </p>
+"""
+    index_body = f"""    <h1>📊 Technical Analysis Visualizations</h1>
+    <p class="subtitle">Start here: <strong>Jump to</strong> a section, expand or collapse a block, or use the main cards and category grid.</p>
+{index_toc}
+    <div class="index-landing">
+    <details class="index-fold" id="section-main" open>
+        <summary>Main views</summary>
+        <div class="index-fold__body">
+        <p class="subtitle">Three entry points: per-industry trending, Halal funds, and a horizon hot-pick plan (3, 6, 9, 12, 15, 18, 21, 24 months).</p>
+    <div class="main-cards-grid main-cards-grid--three">
+{main_cards_block}    </div>
+        </div>
+    </details>
+    <details class="index-fold" id="section-other" open>
+        <summary>Other views &amp; quick links</summary>
+        <div class="index-fold__body">
+        <p class="subtitle">CME open, dividend holdings, crypto trends, top scorers, wealth phase, hot pick plan, and more.</p>
+{link_bar_html}        </div>
+    </details>
+    <details class="index-fold" id="section-categories" open>
+        <summary>{INDEX_SECTION_CATEGORY_HEADER}</summary>
+        <div class="index-fold__body">
+        <p class="subtitle">Open a category to view the score page: <strong>{INDEX_SECTION_CATEGORY_HEADER}</strong> pages below (each symbol, market cap, scores, ESG, etc.).</p>
+    <div class="category-grid">
+{grid_html}
+    </div>
+        </div>
+    </details>
+    </div>
+    <script src="index_landing.js" defer></script>
+"""
     index_content = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technical Analysis Visualizations - Index</title>
-    <style>
-        body {{ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f5f5f5; }}
-        h1 {{ color: #333; text-align: center; margin-bottom: 30px; }}
-        .category-grid {{ display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }}
-        .category-card {{ background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }}
-        .category-card:hover {{ transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }}
-        .category-card a {{ text-decoration: none; color: #0066cc; font-weight: 500; font-size: 16px; display: block; }}
-        .category-card a:hover {{ color: #0052a3; text-decoration: underline; }}
-        .category-name {{ text-transform: capitalize; margin-bottom: 10px; color: #333; }}
-        .cme-item {{ margin-right: 12px; }}
-    </style>
+    <link href="{SHARED_CSS_FILENAME}" rel="stylesheet">
+    <link href="index_landing.css" rel="stylesheet">
 </head>
 <body>
-    <h1>📊 Technical Analysis Visualizations</h1>
-    <p style="text-align: center; color: #666;">Click on any category to view its analysis</p>
-    <div class="link-bar" style="text-align: center; margin: 30px 0; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
-        <a href="{PAGE_GOLD_PRESENTATION}" style="{link_bar_style} background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"{link_bar_hover}>🏆 Top Scorers vs Gold &amp; USD (Monthly)</a>
-        <a href="{PAGE_TOP_SCORES_BY_CATEGORY}" style="{link_bar_style} background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);"{link_bar_hover}>📊 Top scores by industry/category</a>
-        <a href="{PAGE_ELLIOTT_WAVE_COUNT}" style="{link_bar_style} background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e94560; border: 2px solid #e94560;"{link_bar_hover}>〰 Elliott Wave Count</a>
-        <a href="{PAGE_WEALTH_PHASE}" style="{link_bar_style} background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);"{link_bar_hover}>Which phase of wealth transfer? →</a>
-        <a href="{PAGE_CME_SUNDAY_OPEN}" style="{link_bar_style} background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);"{link_bar_hover}>CME Sunday 6pm ET Open (table)</a>
-    </div>
-{cme_html}
-    <h2 style="color: #333; margin-top: 48px; margin-bottom: 16px;">{INDEX_SECTION_CATEGORY_HEADER}</h2>
-    <p style="color: #666; margin-bottom: 12px;">Card links to each industry or category analysis.</p>
-    <div class="category-grid">
-{grid_html}
-    </div>
-
-    <div style="text-align: center; margin-top: 40px; color: #666;">
-        <p>Total categories: {len(categories)}</p>
-    </div>
+{index_body}
 </body>
 </html>"""
     index_path = output_dir / "index.html"
     index_path.write_text(index_content, encoding="utf-8")
     print(f"  ✓ Updated {index_path.name}")
-    print(f"  ✓ Updated {PAGE_TOP_SCORES_BY_CATEGORY}, {PAGE_ELLIOTT_WAVE_COUNT}, {PAGE_WEALTH_PHASE}")
+    print(
+        f"  ✓ Updated {PAGE_TOP_SCORES_BY_CATEGORY}, {PAGE_WEALTH_PHASE}, {PAGE_DIVIDEND_HOLDINGS}, {PAGE_HOT_PICK_PLAN}"
+    )
+
+
+def _parse_viz_args() -> VizBuildOptions:
+    p = argparse.ArgumentParser(description="Generate score HTML from result_scores JSON.")
+    p.add_argument("--category", type=str, default=None, help="Regenerate one category’s *_scores.html only.")
+    p.add_argument(
+        "--index-only",
+        action="store_true",
+        help="Regenerate index + aggregate pages; skip per-category score HTML (needs existing result JSON).",
+    )
+    p.add_argument(
+        "--no-index",
+        action="store_true",
+        help="Only write per-category pages; do not run index/aggregate (halal, wealth, ...).",
+    )
+    p.add_argument(
+        "--no-network",
+        action="store_true",
+        help="Cache-only: do not use yfinance for ESG, market cap refresh, or SPY-relative perf (uses disk cache).",
+    )
+    p.add_argument(
+        "--skip-trending",
+        action="store_true",
+        help="Skip build_trending_industries (avoids yfinance in that step).",
+    )
+    p.add_argument(
+        "--max-workers", type=int, default=4, help="Thread pool for category HTML (default: 4)."
+    )
+    ns, _ = p.parse_known_args()
+    return VizBuildOptions(
+        category=(ns.category or None),
+        only_index=bool(ns.index_only),
+        write_index=not ns.no_index,
+        no_network=bool(ns.no_network),
+        skip_trending=bool(ns.skip_trending),
+        max_workers=max(1, min(ns.max_workers, 32)),
+    )
 
 
 if __name__ == "__main__":
-    create_visualization()
+    create_visualization(build=_parse_viz_args())

@@ -17,6 +17,12 @@ data_cache/
 # result_scores/
 # visualizations_output/
 
+# Generated backtest outputs
+backtesting/*_results.json
+backtesting/*.txt
+comprehensive_backtest_results.json
+results/analysis_output.log
+
 # IDE
 .vscode/
 .idea/

@@ -6,7 +6,7 @@ Parallel to `technical_analysis/`. Holds transaction data, PnL and tax scripts, 
 
 - **transaction_schema.json** — JSON schema for a single transaction (includes `account_name`, `date`, `ticker`, `action`, `quantity`, `price`, etc.).
 - **2026/ … 2030/** — One folder per year; put `transactions.json` in each (you can fill manually).
-- **transaction_analysis.py** — PnL by category and overall for a year. Category comes from `technical_analysis/symbols_config.json`.
+- **transaction_analysis.py** — PnL by category and overall for a year. Category comes from `technical_analysis/configuration.json` (key `categories`).
 - **tax_calculation.py** — Taxable gain/loss for a year; excludes accounts whose name contains `TFSA`. Methods: `Average Cost Basis`, `FIFO`, `LIFO`.
 - **ui/** — Static HTML/CSS/JS: year tabs, transactions by category, yearly PnL and taxes; plus a Performance dashboard.
 

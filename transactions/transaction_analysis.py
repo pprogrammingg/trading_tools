@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Transaction PnL analysis by category and overall for a given year.
-Uses technical_analysis/symbols_config.json for ticker -> category lookup.
+Uses technical_analysis/configuration.json 'categories' for ticker -> category lookup.
 FIFO matching for realized PnL.
 """
 from __future__ import annotations
@@ -12,14 +12,15 @@ from pathlib import Path
 from collections import defaultdict
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-SYMBOLS_CONFIG = REPO_ROOT / "technical_analysis" / "symbols_config.json"
+CONFIG_PATH = REPO_ROOT / "technical_analysis" / "configuration.json"
 TRANSACTIONS_DIR = Path(__file__).resolve().parent
 
 
 def load_ticker_to_category() -> dict[str, str]:
-    """Build ticker -> category from symbols_config.json (first match wins)."""
-    with open(SYMBOLS_CONFIG) as f:
-        categories = json.load(f)
+    """Build ticker -> category from configuration.json 'categories' (first match wins)."""
+    with open(CONFIG_PATH) as f:
+        data = json.load(f)
+    categories = data.get("categories") or {}
     ticker_to_cat = {}
     for cat, tickers in categories.items():
         for t in tickers:

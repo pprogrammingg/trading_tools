@@ -10,15 +10,12 @@ from pathlib import Path
 
 from visualization_common import (
     INDEX_SECTION_TOP_SCORERS_HEADER,
-    INDEX_SECTION_ELLIOTT_HEADER,
     INDEX_SECTION_CATEGORY_HEADER,
-    INDEX_TOP_SCORER_COLUMNS,
-    INDEX_ELLIOTT_COLUMNS,
     PAGE_TOP_SCORES_BY_CATEGORY,
-    PAGE_ELLIOTT_WAVE_COUNT,
     PAGE_GOLD_PRESENTATION,
     PAGE_WEALTH_PHASE,
     PAGE_CME_SUNDAY_OPEN,
+    PAGE_HOT_PICK_PLAN,
 )
 
 # Paths relative to technical_analysis/
@@ -72,14 +69,20 @@ class TestIndexPage(unittest.TestCase):
     def test_has_link_to_top_scores_by_category(self):
         self.assertIn(f'href="{PAGE_TOP_SCORES_BY_CATEGORY}"', self.html)
 
-    def test_has_link_to_elliott_wave_count(self):
-        self.assertIn(f'href="{PAGE_ELLIOTT_WAVE_COUNT}"', self.html)
-
     def test_has_link_to_wealth_phase(self):
         self.assertIn(f'href="{PAGE_WEALTH_PHASE}"', self.html)
 
     def test_has_link_to_cme_sunday_open(self):
         self.assertIn(f'href="{PAGE_CME_SUNDAY_OPEN}"', self.html)
+
+    def test_has_link_to_hot_pick_plan(self):
+        self.assertIn(f'href="{PAGE_HOT_PICK_PLAN}"', self.html)
+
+    def test_index_has_toc(self):
+        self.assertIn("index-toc", self.html)
+        self.assertIn('id="section-main"', self.html)
+        self.assertIn("index_landing.css", self.html)
+        self.assertIn("index_landing.js", self.html)
 
     def test_industry_category_header_present(self):
         self.assertIn(INDEX_SECTION_CATEGORY_HEADER, self.html)
@@ -123,57 +126,6 @@ class TestTopScoresByCategoryPage(unittest.TestCase):
         self.assertIn('href="index.html"', self.html)
 
 
-# ---- Elliott Wave count (standalone page) ----
-class TestElliottWaveCountPage(unittest.TestCase):
-    """Elliott Wave count standalone page: table headers and wave data format."""
-
-    @classmethod
-    def setUpClass(cls):
-        cls.html = _load_html(PAGE_ELLIOTT_WAVE_COUNT)
-
-    def test_page_has_header(self):
-        self.assertIn(INDEX_SECTION_ELLIOTT_HEADER, self.html)
-
-    def test_table_headers(self):
-        headers = _table_header_row_in_fragment(self.html)
-        self.assertGreater(len(headers), 0, "Table has no header row")
-        core = ["Industry", "Symbol", "MktCap", "1M Gold", "2W Gold", "1W Gold", "Monthly Wave Count", "Weekly Wave Count", "2D Wave Count", "Alternative", "ESG"]
-        for expected in core:
-            self.assertIn(expected, headers, f"Expected column '{expected}'; got {headers}")
-        self.assertGreaterEqual(len(headers), len(core), "Table should have at least core columns")
-
-    def test_table_has_data_rows(self):
-        n = _count_data_rows(self.html)
-        self.assertGreater(n, 0, "Table should have at least one data row")
-
-    def test_data_format_industry_and_symbol(self):
-        self.assertIn("<td>", self.html)
-        self.assertIn("<strong>", self.html)
-
-    def test_wave_cells_visible(self):
-        # Wave columns: — or wave position text or primary wave format (e.g. 1: 88.9k→95.0k ★)
-        has_wave_or_na = (
-            "—" in self.html
-            or "Wave " in self.html
-            or "Primary" in self.html
-            or "★" in self.html
-            or re.search(r">\d+\.?\d*[kM]?→", self.html)
-        )
-        self.assertTrue(has_wave_or_na, "Wave count columns should show — or wave data (position/primary/★)")
-
-    def test_wave_cell_class_present(self):
-        self.assertIn("wave-cell", self.html, "Wave cells should have wave-cell class for styling")
-
-    def test_wave_detail_expandable(self):
-        # When wave_count exists, cells show Primary/Secondary as <details>; otherwise fallback (— or wave position)
-        has_expandable = "<details" in self.html and "Primary" in self.html
-        has_fallback = "—" in self.html or "Wave " in self.html
-        self.assertTrue(has_expandable or has_fallback, "Wave count should have expandable detail or fallback")
-
-    def test_back_link_to_index(self):
-        self.assertIn('href="index.html"', self.html)
-
-
 # ---- Wealth phase page ----
 class TestWealthPhasePage(unittest.TestCase):
     """Wealth phase page: phases, performance-based hotness, Monthly/Weekly toggle."""
@@ -198,6 +150,35 @@ class TestWealthPhasePage(unittest.TestCase):
 
     def test_back_link_to_index(self):
         self.assertIn('href="index.html"', self.html)
+
+
+# ---- Hot pick plan page ----
+class TestHotPickPlanPage(unittest.TestCase):
+    """Horizon hot-pick tables: Ticker, price, niche, fundies, technicals."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.html = _load_html(PAGE_HOT_PICK_PLAN)
+
+    def test_table_headers(self):
+        headers = _table_header_row_in_fragment(self.html)
+        for expected in ["Ticker", "USD Price", "Fundamental", "Technical"]:
+            self.assertTrue(
+                any(expected in h for h in headers),
+                f"Expected a column containing '{expected}'; got {headers}",
+            )
+
+    def test_back_link_to_index(self):
+        self.assertIn('href="index.html"', self.html)
+
+    def test_has_horizon_section_ids(self):
+        self.assertIn('id="horizon-3"', self.html)
+        self.assertIn("3-Month hot picks", self.html)
+        self.assertIn('id="horizon-24"', self.html)
+
+    def test_links_modular_css_js(self):
+        self.assertIn("hot_pick_plan.css", self.html)
+        self.assertIn("hot_pick_plan.js", self.html)
 
 
 # ---- CME Sunday Open page ----

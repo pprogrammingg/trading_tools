@@ -10,25 +10,9 @@
 
 set -e  # Exit on error
 
-# Get the directory where this script is located
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-# Change to parent directory (technical_analysis root)
 cd "$SCRIPT_DIR/.." || exit 1
-
-# Determine Python executable (prefer .venv in technical_analysis to avoid duplicate venvs)
-if [ -f ".venv/bin/python" ]; then
-    PYTHON=".venv/bin/python"
-elif [ -f "../venv/bin/python" ]; then
-    PYTHON="../venv/bin/python"
-elif [ -f "../env/bin/python" ]; then
-    PYTHON="../env/bin/python"
-elif command -v python3 >/dev/null 2>&1; then
-    PYTHON="python3"
-else
-    echo "Error: Python not found. Please ensure Python 3 is installed."
-    exit 1
-fi
-
+. scripts/_common.sh
 echo "Using Python: $PYTHON"
 echo ""
 

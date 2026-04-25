@@ -7,20 +7,7 @@ set -e  # Exit on error
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd "$SCRIPT_DIR" || exit 1
-
-# Determine Python executable (prefer single .venv here to avoid duplicate venvs)
-if [ -f ".venv/bin/python" ]; then
-    PYTHON=".venv/bin/python"
-elif [ -f "../venv/bin/python" ]; then
-    PYTHON="../venv/bin/python"
-elif [ -f "../env/bin/python" ]; then
-    PYTHON="../env/bin/python"
-elif command -v python3 >/dev/null 2>&1; then
-    PYTHON="python3"
-else
-    echo "Error: Python not found."
-    exit 1
-fi
+. scripts/_common.sh
 
 echo "=========================================="
 echo "Running Comprehensive Tests"
@@ -90,21 +77,22 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ""
-echo "Test 3: Testing symbols_config.json..."
+echo "Test 3: Testing configuration.json (categories)..."
 echo "-----------------------------------"
-if [ -f "symbols_config.json" ]; then
+if [ -f "configuration.json" ]; then
     $PYTHON -c "
 import json
-with open('symbols_config.json', 'r') as f:
-    config = json.load(f)
-    print(f'✓ symbols_config.json loaded successfully')
-    print(f'  Categories: {len(config)}')
-    for cat, symbols in list(config.items())[:3]:
-        print(f'    - {cat}: {len(symbols)} symbols')
+with open('configuration.json') as f:
+    data = json.load(f)
+cats = data.get('categories') or {}
+print('✓ configuration.json loaded successfully')
+print(f'  Categories: {len(cats)}')
+for cat, symbols in list(cats.items())[:3]:
+    print(f'    - {cat}: {len(symbols)} symbols')
 "
-    echo "✓ symbols_config.json is valid"
+    echo "✓ configuration.json categories valid"
 else
-    echo "✗ symbols_config.json not found!"
+    echo "✗ configuration.json not found!"
     exit 1
 fi
 

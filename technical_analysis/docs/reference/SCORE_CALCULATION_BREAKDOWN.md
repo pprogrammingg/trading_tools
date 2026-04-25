@@ -10,7 +10,7 @@ This document provides a comprehensive breakdown of how scores are calculated fo
 2. **Category-Specific Adjustments** → Apply category-specific parameters
 3. **Explosive Bottom Detection** → Identify potential explosive moves
 4. **Trend Continuation** → Detect continuation opportunities
-5. **Pattern Recognition** → Bottoming structures and Elliott Wave
+5. **Pattern Recognition** → Bottoming structures
 6. **Seasonality (Crypto Only)** → Monthly/quarterly adjustments
 7. **Market Context** → SPX/Gold, VIX, ISM adjustments
 8. **Timeframe Multiplier** → Apply timeframe-specific strictness
@@ -529,19 +529,7 @@ This document provides a comprehensive breakdown of how scores are calculated fo
 
 ---
 
-### 11. Elliott Wave Analysis
-**Meaning:** Identifies wave positions and price targets based on Elliott Wave theory. Wave 2 and 4 are corrections in uptrends, representing buying opportunities.
-
-**Weight by Category:**
-- **All Categories:**
-  - Wave 2 or 4 (correction): +1.5 points
-  - **Why:** Corrections in uptrends are buying opportunities. Applies universally across all asset classes.
-
-**Timeframe Impact:** Multiplied by timeframe multiplier
-
----
-
-### 12. Seasonality (Cryptocurrencies Only)
+### 11. Seasonality (Cryptocurrencies Only)
 **Meaning:** Historical monthly/quarterly return patterns. Analyzes which months/quarters historically perform better for cryptocurrencies.
 
 **Weight by Timeframe:**
@@ -565,9 +553,9 @@ This document provides a comprehensive breakdown of how scores are calculated fo
 
 ---
 
-### 13. Market Context Adjustments
+### 12. Market Context Adjustments
 
-#### 13a. SPX/Gold Ratio
+#### 12a. SPX/Gold Ratio
 **Meaning:** Macro indicator of market health, falling ratio indicates bear market. When stocks underperform gold, it suggests risk-off sentiment.
 
 **Weight:** Same across all categories and timeframes
@@ -578,7 +566,7 @@ This document provides a comprehensive breakdown of how scores are calculated fo
 
 **Timeframe Impact:** None (same across all timeframes)
 
-#### 13b. VIX (Volatility Index)
+#### 12b. VIX (Volatility Index)
 **Meaning:** Measures expected market volatility, high VIX = high risk. VIX above 30 indicates fear, below 20 indicates complacency.
 
 **Weight:** Same across all categories and timeframes
@@ -590,7 +578,7 @@ This document provides a comprehensive breakdown of how scores are calculated fo
 
 **Timeframe Impact:** None (same across all timeframes)
 
-#### 13c. ISM Business Cycle
+#### 12c. ISM Business Cycle
 **Meaning:** Economic expansion/contraction indicator (PMI scale). PMI above 50 indicates expansion, below 50 indicates contraction.
 
 **Weight by Timeframe:**
@@ -617,7 +605,7 @@ This document provides a comprehensive breakdown of how scores are calculated fo
 
 ---
 
-### 14. Timeframe Multiplier
+### 13. Timeframe Multiplier
 **Meaning:** Adjusts scores based on timeframe length (shorter = stricter). Shorter timeframes have more noise, longer timeframes have more reliable signals.
 
 **Multipliers:**
@@ -636,7 +624,7 @@ This document provides a comprehensive breakdown of how scores are calculated fo
 
 ---
 
-### 15. Final Score Cap
+### 14. Final Score Cap
 **Meaning:** Prevents over-optimistic scores. Very high scores may indicate overfitting or unrealistic expectations.
 
 **Cap:** Maximum score of 20 points

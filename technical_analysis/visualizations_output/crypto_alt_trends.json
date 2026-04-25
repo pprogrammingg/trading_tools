@@ -1,0 +1,86 @@
+{
+  "as_of": "2026-02-12T18:50:02Z",
+  "source": "CoinGecko trending + markets",
+  "top_10": [
+    {
+      "symbol": "ESP",
+      "name": "Espresso",
+      "currency": "USD",
+      "market_cap": 39596369.0,
+      "fully_diluted_valuation": 273078410.0,
+      "sentiment_score": 7.9
+    },
+    {
+      "symbol": "PENGU",
+      "name": "Pudgy Penguins",
+      "currency": "USD",
+      "market_cap": 386450938.0,
+      "fully_diluted_valuation": 490186774.0,
+      "sentiment_score": 7.7
+    },
+    {
+      "symbol": "ZRO",
+      "name": "LayerZero",
+      "currency": "USD",
+      "market_cap": 402331108.0,
+      "fully_diluted_valuation": 1985555139.0,
+      "sentiment_score": 6.6
+    },
+    {
+      "symbol": "BERA",
+      "name": "Berachain",
+      "currency": "USD",
+      "market_cap": 153444620.0,
+      "fully_diluted_valuation": 382301605.0,
+      "sentiment_score": 6.3
+    },
+    {
+      "symbol": "UNI",
+      "name": "Uniswap",
+      "currency": "USD",
+      "market_cap": 2030785176.0,
+      "fully_diluted_valuation": 2879679841.0,
+      "sentiment_score": 5.9
+    },
+    {
+      "symbol": "AZTEC",
+      "name": "Aztec",
+      "currency": "USD",
+      "market_cap": 56142468.0,
+      "fully_diluted_valuation": 201790050.0,
+      "sentiment_score": 5.8
+    },
+    {
+      "symbol": "MON",
+      "name": "Monad",
+      "currency": "USD",
+      "market_cap": 210224619.0,
+      "fully_diluted_valuation": 1941027658.0,
+      "sentiment_score": 5.7
+    },
+    {
+      "symbol": "SUI",
+      "name": "Sui",
+      "currency": "USD",
+      "market_cap": 3487678963.0,
+      "fully_diluted_valuation": 9067921259.0,
+      "sentiment_score": 5.4
+    },
+    {
+      "symbol": "LIT",
+      "name": "Lighter",
+      "currency": "USD",
+      "market_cap": 357322606.0,
+      "fully_diluted_valuation": 1429290426.0,
+      "sentiment_score": 5.4
+    },
+    {
+      "symbol": "TAO",
+      "name": "Bittensor",
+      "currency": "USD",
+      "market_cap": 1435494075.0,
+      "fully_diluted_valuation": 3140964194.0,
+      "sentiment_score": 5.2
+    }
+  ]
+}

@@ -576,37 +576,7 @@ def improved_scoring(df: pd.DataFrame, category: str, pi_value: Optional[float] 
             }
     except ImportError:
         pass
-    
-    # ===== ELLIOTT WAVE ANALYSIS =====
-    try:
-        from ..indicators.elliott_wave import calculate_elliott_wave_targets
-        wave_analysis = calculate_elliott_wave_targets(close, high, low)
-        
-        if wave_analysis:
-            indicators['elliott_wave'] = {
-                'trend': wave_analysis['trend'],
-                'wave_position': wave_analysis['wave_position'],
-                'price_targets': wave_analysis['price_targets'],
-                'support_resistance': wave_analysis['support_resistance'],
-                'wave_count': wave_analysis.get('wave_count'),
-            }
-            
-            # Elliott Wave bonus/penalty from backtest: Wave 3 or 5 → best forward returns; Wave 2 or 4 → weak.
-            wave_pos = wave_analysis.get('wave_position') or ''
-            if "Wave 3 or 5" in wave_pos:
-                wave_bonus = 1.5 * timeframe_mult  # Backtest: ~61% win_3, +2.8% avg forward return
-                score += wave_bonus
-                breakdown['elliott_wave_continuation'] = round(wave_bonus, 1)
-            elif "Wave 2 or 4" in wave_pos:
-                # Backtest: ~43% win_3, -0.04% avg_3 → no bonus (was 1.5, removed)
-                pass
-            elif "Wave 1 or correction" in wave_pos:
-                wave_bonus = 0.5 * timeframe_mult  # Moderate forward returns
-                score += wave_bonus
-                breakdown['elliott_wave_early'] = round(wave_bonus, 1)
-    except ImportError:
-        pass
-    
+
     # ===== CUP-AND-HANDLE BREAKOUT =====
     # Cup formed (U-shaped bottom), breakout above rim. Backtest supports bonus for recent breakout.
     try:

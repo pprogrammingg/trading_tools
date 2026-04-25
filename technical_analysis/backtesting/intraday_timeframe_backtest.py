@@ -286,7 +286,6 @@ def find_explosive_moves(symbol, category, timeframe, min_move_pct=30, lookback_
                         'has_explosive_bottom': 'explosive_bottom_base' in breakdown,
                         'has_continuation': 'trend_continuation_strong' in breakdown or 'trend_continuation_moderate' in breakdown,
                         'has_bottoming_pattern': 'bottoming_pattern' in breakdown,
-                        'has_elliott_wave': 'elliott_wave_correction' in breakdown,
                     })
                 except Exception as e:
                     continue

@@ -5,8 +5,7 @@ Tests improved scoring with:
 1. Timeframe-specific scoring
 2. Market context (SPX/Gold ratio)
 3. Bottoming structure detection
-4. Elliott Wave analysis
-5. Continuation signals
+4. Continuation signals
 """
 
 import sys
@@ -124,7 +123,6 @@ def find_explosive_moves(symbol, category, timeframe, min_move_pct=30, lookback_
                         'has_explosive_bottom': 'explosive_bottom_base' in breakdown,
                         'has_continuation': 'trend_continuation_strong' in breakdown or 'trend_continuation_moderate' in breakdown,
                         'has_bottoming_pattern': 'bottoming_pattern' in breakdown,
-                        'has_elliott_wave': 'elliott_wave_correction' in breakdown,
                     })
                 except:
                     continue
@@ -137,7 +135,7 @@ def main():
     """Run comprehensive backtest"""
     print("\n" + "="*80)
     print("COMPREHENSIVE SCORING BACKTEST")
-    print("Testing: Timeframe-Specific + Market Context + Bottoming + Elliott Wave")
+    print("Testing: Timeframe-Specific + Market Context + Bottoming + Continuation")
     print("="*80 + "\n")
     
     # Get market context
@@ -190,7 +188,6 @@ def main():
         explosive_bottom = sum(1 for m in timeframe_moves if m.get('has_explosive_bottom'))
         continuation = sum(1 for m in timeframe_moves if m.get('has_continuation'))
         bottoming_pattern = sum(1 for m in timeframe_moves if m.get('has_bottoming_pattern'))
-        elliott_wave = sum(1 for m in timeframe_moves if m.get('has_elliott_wave'))
         
         avg_return_high = sum(m['return_pct'] for m in timeframe_moves if m['score_at_entry'] >= 6) / high_score if high_score > 0 else 0
         avg_return_all = sum(m['return_pct'] for m in timeframe_moves) / len(timeframe_moves)
@@ -203,7 +200,6 @@ def main():
         print(f"  Explosive Bottom: {explosive_bottom} ({explosive_bottom/len(timeframe_moves)*100:.1f}%)")
         print(f"  Trend Continuation: {continuation} ({continuation/len(timeframe_moves)*100:.1f}%)")
         print(f"  Bottoming Pattern: {bottoming_pattern} ({bottoming_pattern/len(timeframe_moves)*100:.1f}%)")
-        print(f"  Elliott Wave: {elliott_wave} ({elliott_wave/len(timeframe_moves)*100:.1f}%)")
         print(f"  Avg Return (High Score): {avg_return_high:.1f}%")
         print(f"  Avg Return (All): {avg_return_all:.1f}%")
         print()

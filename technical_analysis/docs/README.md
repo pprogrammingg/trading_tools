@@ -4,12 +4,14 @@
 
 Essential documentation for the technical analysis system. Only the most valuable documents are kept here.
 
+**Commands (copy-paste):** see **[../README.md](../README.md)** in the `technical_analysis` package. Run from that directory; use `../.venv/bin/python` when a repo venv exists.
+
 ## Documentation Structure
 
 ### 📚 [reference/](reference/)
 **Core reference documentation:**
 - `SCORE_CALCULATION_BREAKDOWN.md` - **ESSENTIAL** - Complete breakdown of scoring system, all indicators, weights, and category-specific adjustments for all asset classes
-- `README.md` - Main project documentation
+- [../README.md](../README.md) (package root) — **command list** (six bullets; sole quick-start in repo)
 - `QUICK_START.md` - Quick start guide
 - `DOCUMENTATION.md` - General documentation
 

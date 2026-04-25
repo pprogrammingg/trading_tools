@@ -382,7 +382,7 @@ def main():
     test_symbols = quantum_symbols + crypto_symbols
     
     if len(test_symbols) == 0:
-        print("No symbols found! Check symbols_config.json")
+        print("No symbols found! Check configuration.json categories.")
         return
     
     print(f"Selected symbols: {test_symbols}")

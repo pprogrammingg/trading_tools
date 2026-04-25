@@ -8,7 +8,7 @@ __pycache__/
 dist/
 build/
 
-# Virtual environments (use only technical_analysis/.venv to avoid ~550 MB duplicate)
+# Virtual environment: single venv at repo root (venv/ or .venv/)
 venv/
 .venv/
 env/
@@ -33,6 +33,8 @@ all_results.json
 # Generated files
 scores_visualization.html
 README.pdf
+recovery_last_run.txt
+recovery_phrase_cache.json
 
 # OS
 .DS_Store

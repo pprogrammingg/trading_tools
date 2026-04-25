@@ -12,7 +12,6 @@
 - All indicator calculation modules → `indicators/`
   - Market context analysis → `indicators/market_context.py`
   - Pattern detection → `indicators/bottoming_structures.py`
-  - Wave analysis → `indicators/elliott_wave.py`
   - Advanced indicators → `indicators/advanced_indicators.py`
   - Common indicators → `indicators/indicators_common.py`
 - **Always update** `indicators/__init__.py` to export new functions

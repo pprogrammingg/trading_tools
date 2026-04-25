@@ -1,0 +1,8 @@
+{
+  "_comment": "Optional. Per-symbol or per-category horizon (long=decade/5yr, mid=1-2yr, short=next months) and special notes. Keys: ticker symbols or category keys (e.g. clean_energy_materials).",
+  "NVDA": { "horizon": "mid", "special": "AI capex cycle; volatility high." },
+  "TSLA": { "horizon": "mid", "special": "EV adoption; margins under pressure." },
+  "AAPL": { "horizon": "long", "special": "Quality; services growth." },
+  "clean_energy_materials": { "horizon": "long", "special": "Energy transition theme." },
+  "index_etfs": { "horizon": "long", "special": "Core portfolio building blocks." }
+}

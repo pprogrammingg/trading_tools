@@ -4,31 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Technical Analysis Visualizations - Index</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
-        h1 { color: #333; text-align: center; margin-bottom: 30px; }
-        .category-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
-        .category-card { background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s, box-shadow 0.2s; }
-        .category-card:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
-        .category-card a { text-decoration: none; color: #0066cc; font-weight: 500; font-size: 16px; display: block; }
-        .category-card a:hover { color: #0052a3; text-decoration: underline; }
-        .category-name { text-transform: capitalize; margin-bottom: 10px; color: #333; }
-        .cme-item { margin-right: 12px; }
-    </style>
+    <link href="shared.css" rel="stylesheet">
+    <link href="index_landing.css" rel="stylesheet">
 </head>
 <body>
     <h1>📊 Technical Analysis Visualizations</h1>
-    <p style="text-align: center; color: #666;">Click on any category to view its analysis</p>
-    <div class="link-bar" style="text-align: center; margin: 30px 0; display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
-        <a href="gold_high_scores_presentation.html" style="display: inline-block; padding: 15px 30px; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0,0,0,0.2); background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">🏆 Top Scorers vs Gold &amp; USD (Monthly)</a>
-        <a href="top_scores_by_category.html" style="display: inline-block; padding: 15px 30px; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0,0,0,0.2); background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">📊 Top scores by industry/category</a>
-        <a href="elliott_wave_count.html" style="display: inline-block; padding: 15px 30px; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0,0,0,0.2); background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e94560; border: 2px solid #e94560;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">〰 Elliott Wave Count</a>
-        <a href="wealth_phase.html" style="display: inline-block; padding: 15px 30px; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0,0,0,0.2); background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">Which phase of wealth transfer? →</a>
-        <a href="cme_sunday_open.html" style="display: inline-block; padding: 15px 30px; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 1.2em; box-shadow: 0 4px 15px rgba(0,0,0,0.2); background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">CME Sunday 6pm ET Open (table)</a>
-    </div>
+    <p class="subtitle">Start here: <strong>Jump to</strong> a section, expand or collapse a block, or use the main cards and category grid.</p>
+    <nav class="index-toc" aria-label="On this page">
+        <span class="index-toc__label">Jump to</span>
+        <a href="#section-main">Main views</a>
+        <a href="#section-other">Other views</a>
+        <a href="#section-categories">By industry (category pages)</a>
+    </nav>
+    <p class="index-fold__toolbar">
+        <button type="button" id="index-fold-expand">Expand all</button>
+        <button type="button" id="index-fold-collapse">Collapse all</button>
+    </p>
 
-    <h2 style="color: #333; margin-top: 48px; margin-bottom: 16px;">Industry / Category</h2>
-    <p style="color: #666; margin-bottom: 12px;">Card links to each industry or category analysis.</p>
+    <div class="index-landing">
+    <details class="index-fold" id="section-main" open>
+        <summary>Main views</summary>
+        <div class="index-fold__body">
+        <p class="subtitle">Three entry points: per-industry trending, Halal funds, and a horizon hot-pick plan (3, 6, 9, 12, 15, 18, 21, 24 months).</p>
+    <div class="main-cards-grid main-cards-grid--three">
+        <a href="trending_industries.html" target="_blank" class="main-card main-card--trending">
+            <div class="main-card-title">📈 Top trending industries</div>
+            <div class="main-card-desc">Per-industry top 5–10 tickers with scores vs Gold, BTC, SPX, Silver (M&amp;W), ESG, horizon and special notes. Includes Index Funds.</div>
+        </a>
+        <a href="halal_funds.html" target="_blank" class="main-card main-card--halal">
+            <div class="main-card-title">☪ Halal index &amp; mutual funds</div>
+            <div class="main-card-desc">Halal ETFs and mutual funds (HLAL, SPUS, UMMA, Amana, Iman) with holdings, weights and ESG notes.</div>
+        </a>
+        <a href="hot_pick_plan.html" target="_blank" class="main-card main-card--hot">
+            <div class="main-card-title">🔥 Hot pick plan</div>
+            <div class="main-card-desc">Horizon tables (3–24 mo): three picks per industry niche and crypto with ticker, USD price, fundies, technicals. Excludes defense, alcohol, gambling, and “savings yield” laggards—replace rows with your pipeline as needed.</div>
+        </a>
+    </div>
+        </div>
+    </details>
+    <details class="index-fold" id="section-other" open>
+        <summary>Other views &amp; quick links</summary>
+        <div class="index-fold__body">
+        <p class="subtitle">CME open, dividend holdings, crypto trends, top scorers, wealth phase, hot pick plan, and more.</p>
+    <div class="link-bar">
+        <a href="gold_high_scores_presentation.html" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%)" class="link-bar-item">🏆 Top Scorers vs Gold &amp; USD (Monthly)</a>
+        <a href="hot_pick_plan.html" style="background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%)" class="link-bar-item">🔥 Hot pick plan (3–24 mo by horizon)</a>
+        <a href="top_scores_by_category.html" style="background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%)" class="link-bar-item">📊 Top scores by industry/category</a>
+        <a href="wealth_phase.html" style="background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%)" class="link-bar-item">Which phase of wealth transfer? →</a>
+        <a href="cme_sunday_open.html" style="background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%)" class="link-bar-item">CME Sunday 6pm ET Open (table)</a>
+        <a href="dividend_holdings.html" style="background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%)" class="link-bar-item">💰 Dividend / Staking Holdings</a>
+        <a href="crypto_alt_trends.html" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%)" class="link-bar-item">🔥 Crypto Alt Trends (Micro/Mid Cap)</a>
+    </div>
+        </div>
+    </details>
+    <details class="index-fold" id="section-categories" open>
+        <summary>Industry / Category</summary>
+        <div class="index-fold__body">
+        <p class="subtitle">Open a category to view the score page: <strong>Industry / Category</strong> pages below (each symbol, market cap, scores, ESG, etc.).</p>
     <div class="category-grid">
         <div class="category-card">
             <div class="category-name">Clean Energy Materials</div>
@@ -65,6 +97,10 @@
         <div class="category-card">
             <div class="category-name">Energy Commodities</div>
             <a href="energy_commodities_scores.html" target="_blank">View Analysis →</a>
+        </div>
+        <div class="category-card">
+            <div class="category-name">Space Defense</div>
+            <a href="space_defense_scores.html" target="_blank">View Analysis →</a>
         </div>
         <div class="category-card">
             <div class="category-name">Battery Storage</div>
@@ -119,9 +155,10 @@
             <a href="healthcare_scores.html" target="_blank">View Analysis →</a>
         </div>
     </div>
-
-    <div style="text-align: center; margin-top: 40px; color: #666;">
-        <p>Total categories: 22</p>
+        </div>
+    </details>
     </div>
+    <script src="index_landing.js" defer></script>
+
 </body>
 </html>

@@ -1,31 +1,8 @@
-# Technical Analysis System
+# Technical Analysis System (supplemental)
 
-Automated technical analysis system that calculates buy/sell scores for financial instruments using multiple technical indicators. Based on research into why RSI failed to predict gold's 1970s 600% move, this system incorporates trend-following indicators (ADX, CCI, OBV) alongside mean-reverting ones (RSI), with **explosive bottom detection** optimized through comprehensive backtesting.
+**Commands and copy-paste instructions** live in **[../../README.md](../../README.md)** in the `technical_analysis` package root. Use that file as the single source of truth for *what to run*.
 
-## 🚀 Quick Start
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run full analysis (all categories)
-./run_full_analysis.sh
-
-# Run specific category
-python technical_analysis.py --category faang_hot_stocks
-
-# Force refresh all data
-python technical_analysis.py --refresh
-
-# Generate visualizations only
-python visualize_scores.py
-
-# Open all visualizations
-bash open_visualizations.sh
-
-# Run optimization backtest
-python optimize_scoring.py
-```
+The sections below (features, backtesting, structure, etc.) are **reference and background** only, not a duplicate command list.
 
 ## 📊 Features
 
@@ -135,7 +112,7 @@ technical_analysis/
 ├── indicators_common.py      # Common indicator calculations (shared)
 ├── predictive_indicators.py   # Predictive indicator helpers
 ├── visualize_scores.py        # HTML visualization generator
-├── symbols_config.json        # Symbol categories configuration
+├── configuration.json         # Categories, aliases, tf_rules
 ├── run_full_analysis.sh       # Full pipeline script
 ├── docs/                      # All documentation (23 files)
 │   ├── OPTIMIZATION_SUMMARY.md
@@ -230,7 +207,7 @@ framework.print_analysis(analysis)
 
 ## ⚙️ Configuration
 
-Symbols and categories are configured in `symbols_config.json`. Add new symbols or categories as needed.
+Symbols and categories are in `configuration.json` under `"categories"`.
 
 ## 📝 License
 

@@ -6,17 +6,30 @@ Doesn't require full technical_analysis module imports
 """
 
 import json
+import sys
+from pathlib import Path
+
+import numpy as np
 import pandas as pd
 import yfinance as yf
-from pathlib import Path
 from datetime import datetime
-import numpy as np
+
+# Allow running from backtesting/ or technical_analysis/
+_ROOT = Path(__file__).resolve().parents[1]
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
 
 
 def load_symbols_config():
-    """Load symbols from config"""
-    with open('symbols_config.json', 'r') as f:
-        return json.load(f)
+    """Load category -> symbols from configuration.json."""
+    try:
+        from config_loader import get_symbols_config
+        return get_symbols_config()
+    except Exception:
+        config_path = _ROOT / "configuration.json"
+        with open(config_path) as f:
+            data = json.load(f)
+        return data.get("categories") or {}
 
 
 def calculate_price_intensity(close, volume, period=14):

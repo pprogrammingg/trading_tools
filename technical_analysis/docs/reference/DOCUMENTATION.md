@@ -49,11 +49,15 @@ python visualize_scores.py
 
 ## Configuration
 
-### Symbols Configuration (`symbols_config.json`)
+### Symbols Configuration (`configuration.json`)
+
+Categories live under the `"categories"` key:
 
 ```json
 {
-  "category_name": ["SYMBOL1", "SYMBOL2", ...]
+  "categories": {
+    "category_name": ["SYMBOL1", "SYMBOL2", ...]
+  }
 }
 ```
 
@@ -216,7 +220,7 @@ python technical_analysis.py [OPTIONS]
 
 Options:
   --category CATEGORY     Process only this category
-  --config PATH           Path to symbols config (default: symbols_config.json)
+  --config PATH           Path to config JSON (optional override; default: configuration.json)
   --calculate-potential   Calculate relative potential (slower)
   --refresh               Force refresh all data (ignore cache)
 ```
@@ -267,9 +271,9 @@ rm -rf data_cache/*
 ```
 
 ### Missing Dependencies
-Install requirements:
+Install requirements for this module only (from repo root):
 ```bash
-pip install -r requirements.txt
+cd /path/to/trading_tools && .venv/bin/pip install -r technical_analysis/requirements.txt
 ```
 
 ## Technical Details

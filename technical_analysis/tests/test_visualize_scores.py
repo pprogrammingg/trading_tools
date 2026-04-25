@@ -9,8 +9,13 @@ import tempfile
 from pathlib import Path
 from unittest.mock import patch, mock_open, MagicMock
 
-from visualize_scores import (
+from visualization.build_options import VizBuildOptions
+from visualization_common import (
     get_score_color,
+    SCORE_MISSING_COLOR,
+    SCORE_MISSING_LABEL,
+)
+from visualize_scores import (
     sort_timeframes,
     find_results_files,
     load_symbol_categories,
@@ -26,86 +31,87 @@ from visualize_scores import (
     create_visualization_for_category,
     ScoreInfo,
     VisualizationData,
-    SCORE_THRESHOLDS,
-    MISSING_DATA_COLOR,
-    MISSING_DATA_LABEL,
 )
+
+# Test aliases (legacy names in assertions)
+MISSING_DATA_COLOR = SCORE_MISSING_COLOR
+MISSING_DATA_LABEL = SCORE_MISSING_LABEL
 
 
 class TestScoreColor(unittest.TestCase):
-    """Test score color determination"""
-    
+    """Test score color determination (see visualization_common.SCORE_COLOR_SPECTRUM)."""
+
     def test_none_score(self):
         """Test handling of None score"""
-        color, label = get_score_color(None)
-        self.assertEqual(color, MISSING_DATA_COLOR)
-        self.assertEqual(label, MISSING_DATA_LABEL)
-    
+        bg, _text, label = get_score_color(None)
+        self.assertEqual(bg, SCORE_MISSING_COLOR)
+        self.assertEqual(label, SCORE_MISSING_LABEL)
+
     def test_high_scores(self):
         """Test high positive scores"""
         test_cases = [
-            (10, "#006400", "Great Buy"),
-            (6, "#006400", "Great Buy"),
-            (5, "#32CD32", "Strong Buy"),
-            (4, "#32CD32", "Strong Buy"),
-            (3, "#90EE90", "OK Buy"),
-            (2, "#90EE90", "OK Buy"),
+            (10, "#004d00", "Great Buy"),
+            (6, "#004d00", "Great Buy"),
+            (5, "#228B22", "Strong Buy"),
+            (4, "#228B22", "Strong Buy"),
+            (3, "#32CD32", "OK Buy"),
+            (2, "#32CD32", "OK Buy"),
         ]
         for score, expected_color, expected_label in test_cases:
             with self.subTest(score=score):
-                color, label = get_score_color(score)
-                self.assertEqual(color, expected_color)
+                bg, _text, label = get_score_color(score)
+                self.assertEqual(bg, expected_color)
                 self.assertEqual(label, expected_label)
-    
+
     def test_neutral_scores(self):
-        """Test neutral scores"""
-        color, label = get_score_color(0)
-        self.assertEqual(color, "#FFD700")
+        """Test neutral band"""
+        bg, _text, label = get_score_color(0)
+        self.assertEqual(bg, "#FFD700")
         self.assertEqual(label, "Neutral")
-        
-        color, label = get_score_color(1)
-        self.assertEqual(color, "#FFD700")
-        self.assertEqual(label, "Neutral")
-    
+
+        bg, _text, label = get_score_color(1)
+        self.assertEqual(bg, "#90EE90")
+        self.assertEqual(label, "Weak Buy")
+
     def test_negative_scores(self):
-        """Test negative scores"""
+        """Test sell-side scores"""
         test_cases = [
-            (-1, "#FFA500", "OK Sell"),
-            (-2, "#FFA500", "OK Sell"),
-            (-3, "#FF4500", "Best Sell"),
-            (-10, "#FF4500", "Best Sell"),
+            (-1, "#FFA500", "Weak Sell"),
+            (-2, "#FF6347", "OK Sell"),
+            (-3, "#8B0000", "Great Sell"),
+            (-10, "#8B0000", "Great Sell"),
         ]
         for score, expected_color, expected_label in test_cases:
             with self.subTest(score=score):
-                color, label = get_score_color(score)
-                self.assertEqual(color, expected_color)
+                bg, _text, label = get_score_color(score)
+                self.assertEqual(bg, expected_color)
                 self.assertEqual(label, expected_label)
 
 
 class TestSortTimeframes(unittest.TestCase):
-    """Test timeframe sorting"""
-    
+    """Test timeframe sorting (must match sort_timeframes in visualize_scores)"""
+
     def test_weeks(self):
-        """Test week timeframes"""
-        self.assertEqual(sort_timeframes("1W"), (0, 1))
-        self.assertEqual(sort_timeframes("2W"), (0, 2))
-        self.assertEqual(sort_timeframes("12W"), (0, 12))
-    
+        self.assertEqual(sort_timeframes("1W"), (1, 1))
+        self.assertEqual(sort_timeframes("2W"), (1, 2))
+        self.assertEqual(sort_timeframes("12W"), (1, 12))
+
     def test_months(self):
-        """Test month timeframes"""
-        self.assertEqual(sort_timeframes("1M"), (1, 1))
-        self.assertEqual(sort_timeframes("6M"), (1, 6))
-        self.assertEqual(sort_timeframes("12M"), (1, 12))
-    
+        self.assertEqual(sort_timeframes("1M"), (2, 1))
+        self.assertEqual(sort_timeframes("6M"), (2, 6))
+        self.assertEqual(sort_timeframes("12M"), (2, 12))
+
     def test_years(self):
-        """Test year timeframes"""
-        self.assertEqual(sort_timeframes("1Y"), (2, 1))
-        self.assertEqual(sort_timeframes("5Y"), (2, 5))
-    
+        self.assertEqual(sort_timeframes("1Y"), (3, 1))
+        self.assertEqual(sort_timeframes("5Y"), (3, 5))
+
+    def test_intraday(self):
+        self.assertEqual(sort_timeframes("4H"), (-1, 4))
+        self.assertEqual(sort_timeframes("1D"), (0, 1))
+
     def test_unknown_format(self):
-        """Test unknown timeframe format"""
-        self.assertEqual(sort_timeframes("unknown"), (3, 0))
-        self.assertEqual(sort_timeframes(""), (3, 0))
+        self.assertEqual(sort_timeframes("unknown"), (4, 0))
+        self.assertEqual(sort_timeframes(""), (4, 0))
 
 
 class TestFindResultsFiles(unittest.TestCase):
@@ -312,13 +318,11 @@ class TestOrganizeSymbols(unittest.TestCase):
         self.assertEqual(len(result), 3)
     
     def test_with_categories(self):
-        """Test organization with categories"""
-        # This would require mocking the import, which is complex
-        # So we test that it returns a valid list
+        """Test organization: symbols appear in config-driven order; must cover both keys."""
         data = {"AAPL": {}, "GOOGL": {}}
         result = organize_symbols(data)
         self.assertIsInstance(result, list)
-        self.assertEqual(len(result), 2)
+        self.assertEqual(set(result), {"AAPL", "GOOGL"})
 
 
 class TestPrepareVisualizationData(unittest.TestCase):
@@ -366,7 +370,7 @@ class TestGenerateLegend(unittest.TestCase):
         """Test that legend contains required elements"""
         legend = generate_legend()
         
-        self.assertIn("Score Legend", legend)
+        self.assertIn("Score Legend (Great Buy", legend)
         self.assertIn("Great Buy", legend)
         self.assertIn("Strong Buy", legend)
         self.assertIn("Potential Indicators", legend)
@@ -438,8 +442,8 @@ class TestGenerateCellContent(unittest.TestCase):
         
         self.assertIn("5.0", content)
         self.assertIn("score-cell", content)
-        color, _ = get_score_color(5.0)
-        self.assertIn(color, content)
+        bg, _t, _ = get_score_color(5.0)
+        self.assertIn(bg, content)
     
     def test_score_with_potential(self):
         """Test cell with potential info"""
@@ -593,8 +597,10 @@ class TestCreateVisualization(unittest.TestCase):
             results_file.write_text(json.dumps(test_data))
             
             with patch('visualize_scores.find_results_files', return_value=[('test', results_file)]):
-                result_paths = create_visualization()
-                
+                result_paths = create_visualization(
+                    build=VizBuildOptions(write_index=False, no_network=True, skip_trending=True),
+                )
+
                 self.assertIsInstance(result_paths, list)
                 self.assertTrue(len(result_paths) > 0)
                 result_path = result_paths[0]
@@ -659,8 +665,10 @@ class TestIntegration(unittest.TestCase):
             
             with patch('visualize_scores.find_results_files', return_value=[('test', results_file)]):
                 with patch('visualize_scores.Path.cwd', return_value=Path(tmpdir)):
-                    result_paths = create_visualization()
-                    
+                    result_paths = create_visualization(
+                        build=VizBuildOptions(write_index=False, no_network=True, skip_trending=True),
+                    )
+
                     # Verify file was created
                     self.assertTrue(len(result_paths) > 0)
                     result_path = result_paths[0]

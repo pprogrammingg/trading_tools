@@ -879,9 +879,9 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
     # === Overextension Penalty (Price too far above EMA50) ===
     # This catches stocks like AEM (38% above) and AG (88% above) that have already moved
     # CATEGORY-SPECIFIC: Crypto can stay extended longer (reduce penalty)
-    if result["ema50"] is not None and current_price > result["ema50"]:
+    if result["ema50"] is not None and result["ema50"] > 0 and current_price > result["ema50"]:
         price_extension_pct = ((current_price / result["ema50"]) - 1) * 100
-        
+
         # Determine category-specific multiplier
         # Check which function we're in by checking which variables exist
         try:
@@ -892,7 +892,7 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
             # Fall back to first function variables
             crypto_flag = is_crypto
             tech_flag = is_tech_stock
-        
+
         # Crypto: Reduce overextension penalty (crypto can stay extended)
         if crypto_flag:
             extension_multiplier = 0.5  # 50% reduction
@@ -900,7 +900,7 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
             extension_multiplier = 0.75  # 25% reduction
         else:
             extension_multiplier = 1.0  # Full penalty
-        
+
         if price_extension_pct > 100:  # Price > 100% above EMA50 (doubled)
             penalty = -3 * extension_multiplier
             result["score"] += penalty
@@ -1414,9 +1414,9 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
     # === Overextension Penalty (Price too far above EMA50) ===
     # This catches stocks like AEM (38% above) and AG (88% above) that have already moved
     # CATEGORY-SPECIFIC: Crypto can stay extended longer (reduce penalty)
-    if result["ema50"] is not None and current_price > result["ema50"]:
+    if result["ema50"] is not None and result["ema50"] > 0 and current_price > result["ema50"]:
         price_extension_pct = ((current_price / result["ema50"]) - 1) * 100
-        
+
         # Determine category-specific multiplier
         # Check which function we're in by checking which variables exist
         try:
@@ -1427,7 +1427,7 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
             # Fall back to first function variables
             crypto_flag = is_crypto
             tech_flag = is_tech_stock
-        
+
         # Crypto: Reduce overextension penalty (crypto can stay extended)
         if crypto_flag:
             extension_multiplier = 0.5  # 50% reduction
@@ -1435,7 +1435,7 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
             extension_multiplier = 0.75  # 25% reduction
         else:
             extension_multiplier = 1.0  # Full penalty
-        
+
         if price_extension_pct > 100:  # Price > 100% above EMA50 (doubled)
             penalty = -3 * extension_multiplier
             result["score"] += penalty

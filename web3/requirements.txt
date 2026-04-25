@@ -1,0 +1,2 @@
+mnemonic>=0.20
+bip_utils>=2.9.0

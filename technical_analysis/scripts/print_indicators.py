@@ -7,7 +7,7 @@ Module layout:
 - Resolution: resolve_categories_or_symbols, _resolve_one, _load_symbols_config
 - Data: _load_result_file, _get_ta_from_results, _find_result_file_for_symbol, _get_ta_for_symbol_tf,
   _fetch_and_compute, _get_indicator_value
-- Formatting: _format_elliott_wave, _format_indicator_value
+- Formatting: _format_indicator_value
 - Report: _normalize_indicators, _normalize_timeframes, build_report_lines, print_indicators
 - CLI: main()
 
@@ -15,7 +15,7 @@ Programmatic usage:
   from scripts.print_indicators import print_indicators, build_report_lines, Indicator
 
   print_indicators(
-    [Indicator.SMA_50, Indicator.SMA_100, Indicator.SMA_200, Indicator.ELLIOTT_WAVE_COUNT],
+    [Indicator.SMA_50, Indicator.SMA_100, Indicator.SMA_200],
     ["BTC-USD", "precious_metals", "index_etfs"],
     ["1D", "1W", "1M"],
   )
@@ -23,7 +23,7 @@ Programmatic usage:
   lines = build_report_lines(indicators, categories_or_symbols, timeframes, get_indicator_value=mock_fn)
 
 Aliases and tickers: configuration.json (symbol_aliases, category_aliases). "BTC" -> BTC-USD, "GOLD" -> GC=F.
-Default run: precious_metals, [sma50, sma100, sma200, elliott_wave], [1W, 1M].
+Default run: precious_metals, [sma50, sma100, sma200], [1W, 1M].
 
 Run (from technical_analysis/, use project venv):
   ../venv/bin/python scripts/print_indicators.py
@@ -70,7 +70,6 @@ class Indicator(str, Enum):
     SMA_50 = "sma50"
     SMA_100 = "sma100"
     SMA_200 = "sma200"
-    ELLIOTT_WAVE_COUNT = "elliott_wave"
 
 
 def _load_symbols_config() -> Dict[str, List[str]]:
@@ -255,21 +254,6 @@ def _compute_sma(close_series, period: int) -> Optional[float]:
         return None
 
 
-def _compute_elliott_wave(close_series, high_series=None, low_series=None) -> Optional[Dict]:
-    if close_series is None or len(close_series) < 40:
-        return None
-    try:
-        from indicators.elliott_wave import calculate_elliott_wave_targets
-    except ImportError:
-        try:
-            from technical_analysis.indicators.elliott_wave import calculate_elliott_wave_targets
-        except ImportError:
-            return None
-    high = high_series if high_series is not None else close_series
-    low = low_series if low_series is not None else close_series
-    return calculate_elliott_wave_targets(close_series, high, low)
-
-
 def _fetch_and_compute(
     symbol: str,
     tf: str,
@@ -327,8 +311,6 @@ def _fetch_and_compute(
         return _compute_sma(close, 100)
     if indicator == Indicator.SMA_200:
         return _compute_sma(close, 200)
-    if indicator == Indicator.ELLIOTT_WAVE_COUNT:
-        return _compute_elliott_wave(close, high, low)
     return None
 
 
@@ -350,11 +332,6 @@ def _get_indicator_value(
             if val is not None:
                 return val
             # Fall through to on-the-fly if not in results yet
-        if indicator == Indicator.ELLIOTT_WAVE_COUNT:
-            ew = ta.get("elliott_wave")
-            if isinstance(ew, dict):
-                return ew
-            return None
         if indicator.value in ta:
             return ta[indicator.value]
 
@@ -362,29 +339,8 @@ def _get_indicator_value(
     return _fetch_and_compute(symbol, tf, indicator, category_key)
 
 
-def _format_elliott_wave(ew: Optional[Dict]) -> str:
-    if not ew or not isinstance(ew, dict):
-        return "—"
-    pos = ew.get("wave_position", "—")
-    wc = ew.get("wave_count")
-    if wc and isinstance(wc, dict):
-        primary = wc.get("primary") or {}
-        waves = primary.get("waves") or []
-        parts = [pos]
-        for w in waves[:3]:
-            s = w.get("start_usd")
-            e = w.get("end_usd")
-            star = " ★" if w.get("current_wave") else ""
-            if s is not None and e is not None:
-                parts.append(f"W{w.get('number', '?')}: {s}→{e}{star}")
-        return " | ".join(parts) if len(parts) > 1 else pos
-    return str(pos)
-
-
 def _format_indicator_value(ind: Indicator, val: Any) -> str:
     """Format a single indicator value for report output."""
-    if ind == Indicator.ELLIOTT_WAVE_COUNT and isinstance(val, dict):
-        return _format_elliott_wave(val)
     if val is None:
         return "—"
     if isinstance(val, (int, float)):
@@ -393,7 +349,7 @@ def _format_indicator_value(ind: Indicator, val: Any) -> str:
 
 
 def _normalize_indicators(indicators: Sequence[Any]) -> List[Indicator]:
-    """Accept Indicator enum or string (e.g. 'sma50', 'elliott_wave') and return list of Indicator."""
+    """Accept Indicator enum or string (e.g. 'sma50', 'sma200') and return list of Indicator."""
     ind_list: List[Indicator] = []
     for i in indicators:
         if isinstance(i, Indicator):
@@ -476,7 +432,7 @@ def print_indicators(
     """
     Print requested indicators for the given categories/symbols and timeframes.
 
-    - indicators: list of Indicator enum (e.g. [Indicator.SMA_50, Indicator.ELLIOTT_WAVE_COUNT])
+    - indicators: list of Indicator enum (e.g. [Indicator.SMA_50, Indicator.SMA_200])
     - categories_or_symbols: e.g. ["BTC-USD", "precious_metals", "index_etfs"]
     - timeframes: e.g. ["1D", "1W", "1M"]
     """
@@ -492,16 +448,15 @@ def main():
         epilog="""
 Examples (run from technical_analysis/):
   python scripts/print_indicators.py
-  python scripts/print_indicators.py --indicators sma50 sma200 elliott_wave --categories BTC precious_metals --timeframes 1W 1M
-  python scripts/print_indicators.py --indicators elliott_wave --categories precious_metals --timeframes 1W 1M
+  python scripts/print_indicators.py --indicators sma50 sma200 --categories BTC precious_metals --timeframes 1W 1M
 """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument(
         "--indicators",
         nargs="+",
-        default=["sma50", "sma100", "sma200", "elliott_wave"],
-        help="Indicators: sma50, sma100, sma200, elliott_wave",
+        default=["sma50", "sma100", "sma200"],
+        help="Indicators: sma50, sma100, sma200",
     )
     parser.add_argument(
         "--categories",
@@ -521,9 +476,9 @@ Examples (run from technical_analysis/):
     if not inds:
         for a in args.indicators:
             a = (a or "").strip().lower()
-            if a and a not in ("sma50", "sma100", "sma200") and "elliott" not in a and "wave" not in a:
+            if a and a not in ("sma50", "sma100", "sma200"):
                 print(f"Unknown indicator: {a}", file=sys.stderr)
-        inds = [Indicator.SMA_50, Indicator.SMA_100, Indicator.SMA_200, Indicator.ELLIOTT_WAVE_COUNT]
+        inds = [Indicator.SMA_50, Indicator.SMA_100, Indicator.SMA_200]
 
     print_indicators(inds, args.categories, args.timeframes)
 
