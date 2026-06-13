@@ -1,0 +1,68 @@
+{
+  "_comment": "Curated research sources for fundamental context. Agents and scripts should prefer these over random web search.",
+  "general_equity": [
+    {
+      "name": "SEC EDGAR",
+      "url": "https://www.sec.gov/edgar/search/",
+      "use_for": "10-K/10-Q filings, revenue mix, debt, segment breakdown"
+    },
+    {
+      "name": "Yahoo Finance",
+      "url": "https://finance.yahoo.com/",
+      "use_for": "Quick margins, growth, analyst consensus, sector/industry tags"
+    },
+    {
+      "name": "Macrotrends",
+      "url": "https://www.macrotrends.net/",
+      "use_for": "Long-run revenue, EBITDA, FCF history charts"
+    },
+    {
+      "name": "Koyfin (free tier)",
+      "url": "https://www.koyfin.com/",
+      "use_for": "Multiples, estimates, peer comps"
+    }
+  ],
+  "halal_screening": [
+    {
+      "name": "AAOIFI / Shariah standards (reference)",
+      "url": "https://aaoifi.com/",
+      "use_for": "Industry exclusion principles—not a substitute for scholar review"
+    },
+    {
+      "name": "SPUS / HLAL holdings",
+      "url": "https://www.sp-funds.com/spus/",
+      "use_for": "Cross-check whether large-cap names pass common Sharia ETF screens"
+    }
+  ],
+  "crypto": [
+    {
+      "name": "CoinGecko",
+      "url": "https://www.coingecko.com/",
+      "use_for": "Market cap rank, developer activity, category tags"
+    },
+    {
+      "name": "Token Terminal",
+      "url": "https://tokenterminal.com/",
+      "use_for": "Protocol revenue/fees where available"
+    },
+    {
+      "name": "Messari",
+      "url": "https://messari.io/",
+      "use_for": "Research profiles on major L1/L2 assets"
+    }
+  ],
+  "china_adr": [
+    {
+      "name": "HKEX / company announcements",
+      "url": "https://www.hkexnews.hk/",
+      "use_for": "Listed HK/ADR disclosure"
+    }
+  ],
+  "why_now_signals": [
+    "Revenue acceleration vs prior 4 quarters (filings or yfinance revenueGrowth)",
+    "EBITDA margin expansion vs 2Y average",
+    "Insider/cluster institutional buying (13F trend—manual)",
+    "Technical score inflection on 1W+1M (this repo's result_scores)",
+    "Sector RS vs SPY improving (performance_vs_spy.json in technical/result_scores)"
+  ]
+}

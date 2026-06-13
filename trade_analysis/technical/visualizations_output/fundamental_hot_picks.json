@@ -1,0 +1,162 @@
+{
+  "generated_at": "2026-05-12T03:55:05.424421+00:00",
+  "source": "fallback_no_yfinance",
+  "criteria": "Install yfinance to screen your configuration universe; until then this file uses the same static fallback as ui_assets (halal-aware narrative rows).",
+  "universe_size": 0,
+  "rows": [
+    [
+      "NVDA",
+      "\u2014",
+      "Semiconductors (AI compute)",
+      "Illustrative: historically high EBITDA margin vs semis; datacenter growth narrative\u2014refresh JSON for live yfinance fields.",
+      "Align with ai_semiconductors_scores.html; 50/200D trend risk management."
+    ],
+    [
+      "MSFT",
+      "\u2014",
+      "Software / cloud",
+      "Illustrative: durable EBITDA + Azure/AI growth\u2014verify revenue mix; halal screen excludes riba-heavy banking segments.",
+      "Megacap tape + weekly structure; follow category HTML for timing."
+    ],
+    [
+      "CRWD",
+      "\u2014",
+      "Cybersecurity SaaS",
+      "Strong subscription gross retention narrative; check rev growth vs rule-of-40 in filings.",
+      "Stage-2 resets common; confirm vs sector RS."
+    ],
+    [
+      "PANW",
+      "\u2014",
+      "Cybersecurity platform",
+      "Platform attach + margin expansion story; verify billings growth.",
+      "Weekly base typical; pair with security sector scores page."
+    ],
+    [
+      "NET",
+      "\u2014",
+      "Edge / CDN SaaS",
+      "Edge TAM + developer adoption; EBITDA path vs hypergrowth years.",
+      "Multi-month bases frequent; volume on breakouts."
+    ],
+    [
+      "DDOG",
+      "\u2014",
+      "Observability SaaS",
+      "Land-and-expand; enterprise traction\u2014refresh script for YoY growth fields.",
+      "Horizontal support zones common; vs IGV RS."
+    ],
+    [
+      "SNPS",
+      "\u2014",
+      "EDA software",
+      "High-margin software model; semiconductor design cycle leverage.",
+      "Quality compounder tape; shallow pullbacks in uptrends."
+    ],
+    [
+      "CDNS",
+      "\u2014",
+      "EDA software",
+      "Similar EDA tailwinds; acquisition integration risk\u2014check filings.",
+      "Often correlates with SNPS; use timeframe tables for entries."
+    ],
+    [
+      "ANET",
+      "\u2014",
+      "Datacenter switching",
+      "Hyperscale networking; gross margin profile vs commodity hardware.",
+      "Trend following vs semis index."
+    ],
+    [
+      "ZS",
+      "\u2014",
+      "Zero-trust security",
+      "SASE TAM; Rule of 40 trajectory\u2014verify in ER.",
+      "Volatility elevated vs megacaps; position size accordingly."
+    ],
+    [
+      "V",
+      "\u2014",
+      "Payment network (fee-based)",
+      "Transaction fee model; not NIM-based bank\u2014cross-check Sharia policy on residual yield.",
+      "Long-cycle uptrend common; use weekly risk levels."
+    ],
+    [
+      "MA",
+      "\u2014",
+      "Payment network (fee-based)",
+      "Similar to V; services attach growth.",
+      "Pair with payment peers for RS."
+    ],
+    [
+      "MDB",
+      "\u2014",
+      "Database SaaS",
+      "Atlas growth + attach; path to leverage\u2014monitor SBC.",
+      "High beta software; use staged entries."
+    ],
+    [
+      "NOW",
+      "\u2014",
+      "Enterprise workflow SaaS",
+      "Large-deal enterprise motion; stable EBITDA progression at scale.",
+      "Wide-range consolidations; monthly levels matter."
+    ],
+    [
+      "FTNT",
+      "\u2014",
+      "Security / networking",
+      "Product-led security + networking bundle; margin vs pure SaaS peers.",
+      "RS vs cybersecurity ETF for context."
+    ],
+    [
+      "VEEV",
+      "\u2014",
+      "Life-sciences cloud",
+      "Vertical SaaS; high retention\u2014growth estimates in consensus feeds.",
+      "Lower vol growth; 200D often defines trend."
+    ],
+    [
+      "ENPH",
+      "\u2014",
+      "Solar / storage",
+      "IRA tailwind + storage attach; cyclical margin\u2014verify inventory channel.",
+      "High beta clean energy; see renewable_energy scores."
+    ],
+    [
+      "FSLR",
+      "\u2014",
+      "Solar modules",
+      "Domestic module narrative; project timing risk.",
+      "Policy-sensitive; use risk/reward zones."
+    ],
+    [
+      "SHOP",
+      "\u2014",
+      "Digital commerce",
+      "Payments take rate; GMV mix\u2014growth vs profitability tradeoffs.",
+      "Liquid name; pattern traders\u2019 weekly charts."
+    ],
+    [
+      "MELI",
+      "\u2014",
+      "LatAm e-com + fintech",
+      "Regional scale; fintech fee revenue\u2014confirm non-interest mix for your policy.",
+      "ADR liquidity; EM macro sensitivity."
+    ],
+    [
+      "ISRG",
+      "\u2014",
+      "Medical devices",
+      "Installed-base recurring; procedure growth estimates from consensus.",
+      "Defensive growth tape; slower but steadier trends."
+    ],
+    [
+      "IDXX",
+      "\u2014",
+      "Animal diagnostics",
+      "Recurring consumables model; pricing power narrative.",
+      "Quality healthcare tape; pair with sector charts."
+    ]
+  ]
+}

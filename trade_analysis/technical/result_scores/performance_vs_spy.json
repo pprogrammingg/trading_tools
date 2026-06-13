@@ -1,0 +1,49 @@
+{
+"as_of": "2026-06-12",
+"data": {
+"RGTI": {
+"1M_vs_spy": 16.48,
+"1W_vs_spy": -3.94
+},
+"IREN": {
+"1M_vs_spy": 27.18,
+"1W_vs_spy": 0.64
+},
+"ATOM-USD": {
+"1M_vs_spy": -5.15,
+"1W_vs_spy": 12.82
+},
+"SNOW": {
+"1M_vs_spy": null,
+"1W_vs_spy": null
+},
+"CRM": {
+"1M_vs_spy": -12.32,
+"1W_vs_spy": -9.44
+},
+"ON": {
+"1M_vs_spy": 10.13,
+"1W_vs_spy": -3.73
+},
+"SLV": {
+"1M_vs_spy": -12.8,
+"1W_vs_spy": -0.81
+},
+"JNJ": {
+"1M_vs_spy": null,
+"1W_vs_spy": null
+},
+"TMUS": {
+"1M_vs_spy": -6.29,
+"1W_vs_spy": 5.62
+},
+"SEDG": {
+"1M_vs_spy": 37.66,
+"1W_vs_spy": -5.25
+},
+"WPM": {
+"1M_vs_spy": -10.36,
+"1W_vs_spy": 0.73
+},
+"AMD": {
+"1M_vs_spy": 

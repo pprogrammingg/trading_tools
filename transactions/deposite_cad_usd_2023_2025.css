@@ -1,0 +1,282 @@
+:root {
+  --bg: #0f1419;
+  --surface: #1a2332;
+  --border: #2d3a4d;
+  --text: #e8eef5;
+  --muted: #8b9cb3;
+  --cad: #3ecf8e;
+  --cad-dim: rgba(62, 207, 142, 0.25);
+  --usd: #6eb6ff;
+  --usd-dim: rgba(110, 182, 255, 0.25);
+  --radius: 10px;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+}
+
+header {
+  margin-bottom: 1.75rem;
+}
+
+header h1 {
+  margin: 0 0 0.35rem;
+  font-size: 1.35rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+header .hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.sums {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.sum-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+}
+
+.sum-card .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.sum-card .value {
+  font-size: 1.45rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.sum-card.cad .value {
+  color: var(--cad);
+}
+
+.sum-card.usd .value {
+  color: var(--usd);
+}
+
+.sum-card.meta .value {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.sum-note {
+  grid-column: 1 / -1;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+section.block {
+  margin-bottom: 2.25rem;
+}
+
+section.block h2 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.chart-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1rem 0.5rem;
+  overflow-x: auto;
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  min-height: 220px;
+  padding: 0.5rem 0.25rem 0;
+  --chart-h: 200px;
+}
+
+.chart-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 0 42px;
+  min-width: 42px;
+}
+
+.bars {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  height: var(--chart-h);
+  width: 100%;
+}
+
+.bar {
+  width: 44%;
+  max-width: 14px;
+  border-radius: 4px 4px 0 0;
+  min-height: 2px;
+  transition: opacity 0.15s ease;
+}
+
+.bar.cad {
+  background: linear-gradient(180deg, var(--cad), #2a9d62);
+}
+
+.bar.usd {
+  background: linear-gradient(180deg, var(--usd), #3d7eb8);
+}
+
+.bar:hover {
+  opacity: 0.88;
+}
+
+.col-label {
+  margin-top: 0.5rem;
+  font-size: 0.62rem;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.2;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0.75rem 0.25rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legend i {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.legend .cad i {
+  background: var(--cad);
+}
+
+.legend .usd i {
+  background: var(--usd);
+}
+
+.axis-note {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0 0 0.75rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+th,
+td {
+  padding: 0.55rem 0.65rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+td.num {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.badge.cad {
+  background: var(--cad-dim);
+  color: var(--cad);
+}
+
+.badge.usd {
+  background: var(--usd-dim);
+  color: var(--usd);
+}
+
+.error-box {
+  background: #3d2020;
+  border: 1px solid #7a3d3d;
+  color: #ffc9c9;
+  padding: 1rem;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+}
+
+.error-box code {
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+}

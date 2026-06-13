@@ -1,0 +1,17 @@
+body.trade-index { max-width: 1600px; margin: 0 auto; padding: 20px 16px 48px; font-family: system-ui, sans-serif; background: #f1f5f9; color: #1e293b; }
+.trade-index h1 { text-align: center; margin-bottom: 6px; }
+.trade-index .subtitle { text-align: center; color: #64748b; max-width: 900px; margin: 0 auto 20px; line-height: 1.5; }
+.trade-index .meta { text-align: center; font-size: 0.85rem; color: #94a3b8; margin-bottom: 16px; }
+.trade-index-table-wrap { overflow-x: auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; max-height: 85vh; overflow-y: auto; }
+.trade-index-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.trade-index-table th { position: sticky; top: 0; background: #0f766e; color: #fff; padding: 10px 8px; text-align: left; z-index: 2; white-space: nowrap; }
+.trade-index-table td { padding: 8px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+.trade-index-table tr:hover td { background: #f8fafc; }
+.trade-index-table tr.industry-header td { background: #e0f2fe; color: #0c4a6e; font-weight: 700; font-size: 0.95rem; padding: 12px 10px; border-bottom: 2px solid #7dd3fc; position: sticky; top: 42px; z-index: 1; }
+.trade-index-table tr.industry-header:hover td { background: #e0f2fe; }
+.trade-index-table .fund-col { min-width: 220px; max-width: 320px; line-height: 1.35; font-size: 0.8rem; color: #334155; }
+.trade-index-table .num { text-align: center; white-space: nowrap; }
+.trade-index-table .score-final { font-weight: 700; background: #ecfdf5; }
+.trade-index-table .ticker { font-weight: 700; white-space: nowrap; }
+.trade-index-links { text-align: center; margin: 16px 0; font-size: 0.9rem; }
+.trade-index-links a { margin: 0 10px; color: #0d9488; font-weight: 600; }

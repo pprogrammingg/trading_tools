@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Deposits CAD / USD</title>
+    <link rel="stylesheet" href="deposite_cad_usd_2023_2025.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1 id="title">Loading…</h1>
+        <p class="hint">
+          Run <code style="color: var(--muted); background: var(--surface); padding: 0.1rem 0.35rem; border-radius: 4px">open deposite_cad_usd_2023_2025.html</code>
+          from this folder. Bar height scales CAD and USD separately; hover bars for amounts.
+        </p>
+      </header>
+
+      <div id="error" class="error-box" hidden></div>
+
+      <section class="sums" id="sums" aria-label="Totals"></section>
+
+      <section class="block">
+        <h2>Deposits by date</h2>
+        <p class="axis-note">
+          Each column is one calendar day (amounts on the same day are stacked). Green = CAD credited; blue = USD
+          equivalent or USD credited.
+        </p>
+        <div class="chart-panel">
+          <div id="chart" class="chart" role="img" aria-label="Bar chart of deposits by date"></div>
+          <div class="legend">
+            <span class="cad"><i aria-hidden="true"></i> CAD credited</span>
+            <span class="usd"><i aria-hidden="true"></i> USD (equiv. or credited)</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>Transactions</h2>
+        <table id="txn-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th class="num">USD</th>
+              <th class="num">CAD</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+    <!-- Mirrors deposite_cad_usd_2023_2025.json for file:// (e.g. open command). Update both when data changes. -->
+    <script type="application/json" id="deposit-data">
+{
+  "document_title": "CAD / USD deposits (Sept 2024 – Oct 2025)",
+  "notes": [
+    "Failed deposits are omitted from this file.",
+    "For CAD deposits, two amounts appear: US$… (USD equivalent) and +$… (amount credited in CAD).",
+    "Exactly one row is a US Dollar deposit with only a USD amount shown (no paired CAD line): see usd_only_deposits."
+  ],
+  "usd_only_deposits": [
+    {
+      "date": "2025-06-26",
+      "label": "Deposited US Dollar",
+      "status": "completed",
+      "amount_displayed": "USD only",
+      "usd_credited": 2402.94,
+      "cad_credited": null,
+      "usd_equivalent": null
+    }
+  ],
+  "summary": {
+    "by_currency_deposit_type": {
+      "canadian_dollar_deposit": { "total_rows": 11 },
+      "us_dollar_deposit": { "total_rows": 1 }
+    },
+    "total_completed_rows": 12
+  },
+  "sums": {
+    "usd": 23935.6,
+    "cad": 29754.92,
+    "note": "USD = sum of US$ equivalents on CAD deposits plus US$ credited on the USD deposit. CAD = sum of +$ credited on CAD deposits only (USD deposit has no CAD line).",
+    "breakdown": {
+      "cad_deposits_usd_equivalent_subtotal": 21532.66,
+      "cad_deposits_cad_credited_subtotal": 29754.92,
+      "usd_deposit_usd_credited": 2402.94,
+      "usd_deposit_cad_credited": 0
+    }
+  },
+  "transactions": [
+    {
+      "deposit_currency": "CAD",
+      "description": "Deposited Canadian Dollar",
+      "status": "completed",
+      "date": "2025-10-18",
+      "usd_equivalent": 1782.85,
+      "cad_credited": 2500.0
+    },
+    {
+      "deposit_currency": "CAD",
+      "description": "Deposited Canadian Dollar",
+      "status": "completed",
+      "date": "2025-10-16",
+      "usd_equivalent": 3.56,
+      "cad_credited": 5.0
+    },
+    {
+      "deposit_currency": "USD",
+      "description": "Deposited US Dollar",
+      "status": "completed",
+      "date": "2025-06-26",
+      "usd_equivalent": null,
+      "cad_credited": null,
+      "usd_credited": 2402.94,
+      "display": "USD amount only (+US$2,402.94); no US$/CAD pair like CAD deposits"
+    },
+    {
+      "deposit_currency": "CAD",
+      "description": "Deposited Canadian Dollar",
+      "status": "completed",
+      "date": "2025-06-24",
+      "usd_equivalent": 2186.53,
+      "cad_credited": 3000.0
+    },
+    {
+      "deposit_currency": "CAD",
+      "description": "Deposited Canadian Dollar",
+      "status": "completed",
+      "date": "2025-06-13",
+      "usd_equivalent": 2208.08,
+      "cad_credited": 3000.0
+    },
+    {
+      "deposit_currency": "CAD",
+      "description": "Deposited Canadian Dollar",
+      "status": "completed",
+      "date": "2025-05-07",
+      "usd_equivalent": 1087.3,
+      "cad_credited": 1500.0
+    },
+    {
+      "deposit_currency": "CAD",
+      "description": "Deposited Canadian Dollar",
+      "status": "completed",
+      "date": "2025-05-02",
+      "usd_equivalent": 1810.94,
+      "cad_credited": 2500.0
+    },
+    {
+      "deposit_currency": "CAD",
+      "description": "Deposited Canadian Dollar",
+      "status": "completed",
+      "date": "2025-03-24",
+      "usd_equivalent": 1042.47,
+      "cad_credited": 1492.53
+    },
+    {
+      "deposit_currency": "CAD",
+      "description": "Deposited Canadian Dollar",
+      "status": "completed",
+      "date": "2025-03-17",
+      "usd_equivalent": 1039.37,
+      "cad_credited": 1492.53
+    },
+    {
+      "deposit_currency": "CAD",
+      "description": "Deposited Canadian Dollar",
+      "status": "completed",
+      "date": "2025-02-03",
+      "usd_equivalent": 2044.32,
+      "cad_credited": 2985.07
+    },
+    {
+      "deposit_currency": "CAD",
+      "description": "Deposited Canadian Dollar",
+      "status": "completed",
+      "date": "2024-12-06",
+      "usd_equivalent": 913.54,
+      "cad_credited": 1293.53
+    },
+    {
+      "deposit_currency": "CAD",
+      "description": "Deposited Canadian Dollar",
+      "status": "completed",
+      "date": "2024-09-26",
+      "usd_equivalent": 7413.7,
+      "cad_credited": 9986.26
+    }
+  ]
+}
+
+    </script>
+    <script src="deposite_cad_usd_2023_2025.js"></script>
+  </body>
+</html>

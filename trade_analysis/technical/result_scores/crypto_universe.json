@@ -1,0 +1,12 @@
+{
+  "symbols": [
+    "BTC-USD",
+    "ETH-USD",
+    "XRP-USD",
+    "BNB-USD",
+    "SOL-USD",
+    "TAO-USD",
+    "NEAR-USD"
+  ],
+  "policy": "top5_non_stable_plus_tao_near"
+}
