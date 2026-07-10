@@ -241,6 +241,7 @@ def build_rows(
     cache_updates: Dict[str, Dict[str, str]] = {}
     universe = collect_index_rows_from_results(RESULT_SCORES_DIR)
     scored: List[Dict[str, Any]] = []
+    fund_as_of = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     if live_fundamentals:
         print(f"  Live fundamentals: screening {len(universe)} symbols…", flush=True)
@@ -259,7 +260,9 @@ def build_rows(
             prof = profile_from_metrics(fund_m)
             if prof:
                 cache_updates[sym.upper()] = prof
-        fund_text, fund_score = build_fundamentals_column(sym, cat, fund_m, notes)
+        fund_text, fund_score = build_fundamentals_column(
+            sym, cat, fund_m, notes, as_of_date=fund_as_of
+        )
         desc_name, desc_meta, desc_about = build_symbol_description(
             sym,
             display,
@@ -356,16 +359,16 @@ def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
         tt = _tf_titles[tf]
         header.extend(
             [
-                f'<th class="num col-ind" title="{tt} RSI (Relative Strength Index)">{sh}<br><span class="col-ind-sub">RSI</span></th>',
-                f'<th class="num col-ind" title="{tt} Stoch RSI (%K)">{sh}<br><span class="col-ind-sub">Stoch</span></th>',
+                f'<th class="num col-ind" title="{tt} RSI, 0–100 (30 oversold · 70 overbought)">{sh}<br><span class="col-ind-sub">RSI</span></th>',
+                f'<th class="num col-ind" title="{tt} Stoch RSI %K, 0–100 (20 oversold · 80 overbought)">{sh}<br><span class="col-ind-sub">Stoch</span></th>',
             ]
         )
     header.extend(
         [
-            '<th class="col-ta" title="Technical reasons (RSI / Stoch)">TA</th>',
-            '<th class="num col-score" title="Technical score">Tech</th>',
-            '<th class="num col-score" title="Fundamental score">Fund</th>',
-            '<th class="num col-score" title="Weighted final score">Final</th>',
+            '<th class="col-ta" title="Five-tier call from RSI/Stoch (Strong Accumulation → Strong Sell)">TA</th>',
+            '<th class="num col-score" title="Technical score, 0–10 (higher = stronger setup)">Tech<br><span class="col-ind-sub">/10</span></th>',
+            '<th class="num col-score" title="Fundamental score, 0–10 (margins, growth, valuation)">Fund<br><span class="col-ind-sub">/10</span></th>',
+            '<th class="num col-score" title="Final score, 0–10 (55% Tech + 45% Fund)">Final<br><span class="col-ind-sub">/10</span></th>',
         ]
     )
     th_row = "\n            ".join(header)

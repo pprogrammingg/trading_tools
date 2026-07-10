@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 import json
+import re
 from pathlib import Path
-from typing import Any, Dict, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 FUND_ROOT = Path(__file__).resolve().parent
 NOTES_PATH = FUND_ROOT / "ticker_investment_notes.json"
@@ -43,38 +44,88 @@ def note_fallback_score(note: str) -> float:
     return min(max(s, 2.0), 8.5)
 
 
+def _split_note_strengths_weaknesses(note: str) -> Tuple[List[str], List[str]]:
+    """Best-effort split of a manual note into strong vs weak clauses."""
+    strong: List[str] = []
+    weak: List[str] = []
+    parts = [p.strip() for p in re.split(r"[;.]", note) if p.strip()]
+    weak_kw = (
+        "risk",
+        "pressure",
+        "volatile",
+        "binary",
+        "decline",
+        "competition",
+        "cyclical",
+        "pre-production",
+        "high beta",
+    )
+    for part in parts:
+        low = part.lower()
+        if any(k in low for k in weak_kw):
+            weak.append(part)
+        else:
+            strong.append(part)
+    return strong, weak
+
+
+def _format_fundamentals_line(
+    *,
+    as_of_date: str,
+    strong: List[str],
+    weak: List[str],
+) -> str:
+    s_txt = "; ".join(strong) if strong else "—"
+    w_txt = "; ".join(weak) if weak else "—"
+    return f"Last updated {as_of_date}: Strong: {s_txt}. Weak: {w_txt}."
+
+
 def build_fundamentals_column(
     ticker: str,
     category: str,
     metrics: Optional[Dict[str, Any]],
     notes: Dict[str, str],
+    *,
+    as_of_date: str,
 ) -> Tuple[str, float]:
     """
     Return (display text for Fundamentals column, fundamental_score 0-10).
     """
     sym = ticker.upper()
     note = notes.get(sym) or notes.get(ticker)
-    parts = []
-    if note:
-        parts.append(note.strip())
+
     if metrics and not metrics.get("excluded"):
         from fundamental_halal_screen import format_fundamental_blurb
 
-        blurb = format_fundamental_blurb(metrics)
-        if blurb not in (parts[0] if parts else ""):
-            parts.append(blurb)
-    if not parts:
-        cat_label = category.replace("_", " ").title()
-        parts.append(
-            f"{cat_label} name—verify thesis via fundamentals/RESEARCH_CONTEXT.md and research_sources.json."
-        )
-    text = " ".join(parts)
-    if len(text) > 280:
-        text = text[:277] + "…"
-    if metrics and not metrics.get("excluded"):
+        text = format_fundamental_blurb(metrics, as_of_date=as_of_date)
+        if note:
+            note_strong, note_weak = _split_note_strengths_weaknesses(note)
+            if note_strong:
+                text = text.replace("Strong: —", f"Strong: {'; '.join(note_strong)}", 1)
+            elif note:
+                text = text.replace("Strong: —", f"Strong: {note.strip()}", 1)
+            if note_weak:
+                base_weak = text.split("Weak: ", 1)[-1].rstrip(".")
+                text = text.replace(f"Weak: {base_weak}.", f"Weak: {base_weak}; {'; '.join(note_weak)}.", 1)
         f_score = fundamental_score_from_metrics(metrics)
-    elif note:
-        f_score = note_fallback_score(note)
-    else:
-        f_score = 4.5
-    return text, round(f_score, 1)
+        return _truncate(text), round(f_score, 1)
+
+    if note:
+        strong, weak = _split_note_strengths_weaknesses(note)
+        if not strong:
+            strong = [note.strip()]
+        text = _format_fundamentals_line(as_of_date=as_of_date, strong=strong, weak=weak)
+        return _truncate(text), round(note_fallback_score(note), 1)
+
+    text = _format_fundamentals_line(
+        as_of_date=as_of_date,
+        strong=[],
+        weak=["no live fundamentals — run build_trade_index.py --live-fundamentals"],
+    )
+    return _truncate(text), 4.5
+
+
+def _truncate(text: str, limit: int = 320) -> str:
+    if len(text) <= limit:
+        return text
+    return text[: limit - 1].rstrip() + "…"

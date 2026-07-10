@@ -204,23 +204,23 @@
   },
   "BTC-USD": {
     "long_name": "Bitcoin USD",
-    "summary": "Bitcoin (BTC) is a cryptocurrency launched in 2010. Users are able to generate BTC through the process of mining. Bitcoin has a current supply of 20,052,856. The last known price of Bitcoin is 61,816.94539678 USD and…"
+    "summary": "Bitcoin (BTC) is a cryptocurrency launched in 2010. Users are able to generate BTC through the process of mining. Bitcoin has a current supply of 20,054,071. The last known price of Bitcoin is 62,850.93425906 USD and…"
   },
   "ETH-USD": {
     "long_name": "Ethereum USD",
-    "summary": "Ethereum (ETH) is a cryptocurrency . Ethereum has a current supply of 120,683,199.93981396. The last known price of Ethereum is 1,747.51614164 USD and is down -0.96 over the last 24 hours. It is currently trading on 1…"
+    "summary": "Ethereum (ETH) is a cryptocurrency . Ethereum has a current supply of 120,683,100.56925628. The last known price of Ethereum is 1,741.56194499 USD and is up 0.56 over the last 24 hours. It is currently trading on 1213…"
   },
   "BNB-USD": {
     "long_name": "BNB USD",
-    "summary": "BNB (BNB) is a cryptocurrency . BNB has a current supply of 134,782,412.07. The last known price of BNB is 573.74507609 USD and is down -1.83 over the last 24 hours. It is currently trading on 3294 active market(s) wi…"
+    "summary": "BNB (BNB) is a cryptocurrency . BNB has a current supply of 134,782,213.67000002. The last known price of BNB is 569.76301564 USD and is up 1.03 over the last 24 hours. It is currently trading on 3297 active market(s)…"
   },
   "XRP-USD": {
     "long_name": "XRP USD",
-    "summary": "XRP (XRP) is a cryptocurrency . XRP has a current supply of 99,985,645,029 with 62,241,508,805 in circulation. The last known price of XRP is 1.11806588 USD and is down -1.34 over the last 24 hours. It is currently tr…"
+    "summary": "XRP (XRP) is a cryptocurrency . XRP has a current supply of 99,985,639,695 with 62,466,503,703 in circulation. The last known price of XRP is 1.09621929 USD and is up 1.43 over the last 24 hours. It is currently tradi…"
   },
   "SOL-USD": {
     "long_name": "Solana USD",
-    "summary": "Solana (SOL) is a cryptocurrency launched in 2020. Solana has a current supply of 629,847,212.98312235 with 581,247,051.79702711 in circulation. The last known price of Solana is 80.64869853 USD and is down -0.54 over…"
+    "summary": "Solana (SOL) is a cryptocurrency launched in 2020. Solana has a current supply of 629,974,341.66143799 with 581,838,606.2564832 in circulation. The last known price of Solana is 77.88419171 USD and is up 0.99 over the…"
   },
   "TAO-USD": {
     "long_name": "Together As One USD",
@@ -488,7 +488,7 @@
     "long_name": "XPeng Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Auto Manufacturers",
-    "summary": "XPeng Inc. designs, develops, manufactures, and markets smart electric vehicles (EVs) in the People's Republic of China. The company offers P7 and P7i, a four-door sports sedan; G9, a smart EV and a mid- to large-size…"
+    "summary": "XPeng Inc. designs, develops, manufactures, and markets smart electric vehicles (EVs) in the People's Republic of China and globally. The company offers P7 and P7i, a four-door sports sedan; G9, a smart EV and a mid-…"
   },
   "RIVN": {
     "long_name": "Rivian Automotive, Inc.",

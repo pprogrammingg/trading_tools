@@ -142,24 +142,49 @@ def composite_score(metrics: Dict[str, Any]) -> float:
     return s
 
 
-def format_fundamental_blurb(m: Dict[str, Any]) -> str:
-    """One-line summary for the hot-pick table."""
-    parts: List[str] = []
+def fundamental_strengths_weaknesses(m: Dict[str, Any]) -> Tuple[List[str], List[str]]:
+    """Derive short strong/weak bullets from yfinance-style metrics."""
+    strong: List[str] = []
+    weak: List[str] = []
     em = m.get("ebitda_margin_pct")
     rg = m.get("revenue_growth_pct")
     eg = m.get("earnings_growth_pct")
-    if em is not None:
-        parts.append(f"EBITDA margin ~{em:.0f}%")
-    if rg is not None:
-        parts.append(f"rev growth ~{rg:.0f}% YoY (yfinance)")
-    if eg is not None:
-        parts.append(f"earnings growth ~{eg:.0f}% YoY")
     peg = m.get("peg_ratio")
-    if peg is not None and 0 < peg < 5:
-        parts.append(f"PEG ~{peg:.1f}")
-    if not parts:
-        parts.append("Margins/growth: verify in filings—yfinance incomplete.")
-    return "; ".join(parts) + " Halal screen: passed sector/industry keywords."
+
+    if em is not None:
+        if em >= 20:
+            strong.append(f"EBITDA margin ~{em:.0f}%")
+        elif em < 10:
+            weak.append(f"low EBITDA margin (~{em:.0f}%)")
+    if rg is not None:
+        if rg >= 12:
+            strong.append(f"revenue growth ~{rg:.0f}% YoY")
+        elif rg < 0:
+            weak.append(f"revenue declining (~{rg:.0f}% YoY)")
+        elif rg < 5:
+            weak.append(f"slow revenue growth (~{rg:.0f}% YoY)")
+    if eg is not None:
+        if eg >= 12:
+            strong.append(f"earnings growth ~{eg:.0f}% YoY")
+        elif eg < 0:
+            weak.append(f"earnings declining (~{eg:.0f}% YoY)")
+    if peg is not None and 0 < peg < 100:
+        if peg <= 1.5:
+            strong.append(f"PEG ~{peg:.1f}")
+        elif peg >= 3.0:
+            weak.append(f"elevated PEG (~{peg:.1f})")
+
+    if not strong and not weak:
+        weak.append("yfinance margins/growth incomplete — verify in filings")
+    return strong, weak
+
+
+def format_fundamental_blurb(m: Dict[str, Any], *, as_of_date: str) -> str:
+    """Fundamentals column line: last updated + strong/weak points."""
+    strong, weak = fundamental_strengths_weaknesses(m)
+    s_txt = "; ".join(strong) if strong else "—"
+    w_txt = "; ".join(weak) if weak else "—"
+    return f"Last updated {as_of_date}: Strong: {s_txt}. Weak: {w_txt}."
 
 
 _RE_TICKER_OK = re.compile(r"^[A-Z]{1,6}$")

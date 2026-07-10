@@ -14,6 +14,33 @@ python3 -m venv .venv
 ./.venv/bin/pip install -r technical/requirements.txt
 ```
 
+## Fundamentals column
+
+The **Fundamentals** cell shows:
+
+`Last updated YYYY-MM-DD: Strong: … Weak: …`
+
+**Populate from yfinance** (recommended — slow, one fetch per ticker):
+
+```bash
+./.venv/bin/python build_trade_index.py --live-fundamentals
+```
+
+**Full pipeline** (fresh OHLCV + live fundamentals + Stoch RSI):
+
+```bash
+./run_full_analysis.sh --full
+```
+
+**Manual thesis only** (no yfinance): add a line to `fundamentals/ticker_investment_notes.json`, then rebuild:
+
+```bash
+./.venv/bin/python build_trade_index.py
+```
+
+Without `--live-fundamentals` and without a manual note, you'll see  
+`Weak: no live fundamentals — run build_trade_index.py --live-fundamentals`.
+
 ## Build `index.html`
 
 | When | Command | Time |
