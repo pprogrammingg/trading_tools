@@ -105,6 +105,10 @@ def fetch_screen_info(ticker: str) -> Dict[str, Any]:
     except (TypeError, ValueError):
         peg_f = None
     price = info.get("currentPrice") or info.get("regularMarketPreviousClose")
+    summary_raw = info.get("longBusinessSummary") or info.get("description") or ""
+    summary = " ".join(str(summary_raw).split())
+    if len(summary) > 220:
+        summary = summary[:217].rstrip() + "…"
 
     return {
         "ticker": ticker.upper(),
@@ -113,6 +117,7 @@ def fetch_screen_info(ticker: str) -> Dict[str, Any]:
         "sector": sector,
         "industry": ind,
         "long_name": long_name,
+        "business_summary": summary,
         "ebitda_margin_pct": ebitda_m,
         "revenue_growth_pct": rev_g,
         "earnings_growth_pct": earn_g,
@@ -158,12 +163,13 @@ def format_fundamental_blurb(m: Dict[str, Any]) -> str:
 
 
 _RE_TICKER_OK = re.compile(r"^[A-Z]{1,6}$")
+_RE_EXCHANGE_TICKER_OK = re.compile(r"^[A-Z0-9]{1,6}\.[A-Z]{1,4}$")
 
 
 def normalize_equity_symbol(sym: str) -> Optional[str]:
     s = sym.upper().strip()
-    if not _RE_TICKER_OK.match(s):
-        return None
     if s.endswith("-USD") or "=" in s or s.startswith("^"):
         return None
-    return s
+    if _RE_TICKER_OK.match(s) or _RE_EXCHANGE_TICKER_OK.match(s):
+        return s
+    return None

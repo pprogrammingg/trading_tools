@@ -1,6 +1,6 @@
 """
 Shared RSI and Stoch RSI logic: load OHLCV by timeframe, compute RSI(14), Stoch RSI.
-Used by: backtesting/gold_rsi_stoch_rsi_backtest.py, scripts/print_indicator_value.py.
+Used by: build_trade_index.py (Stoch RSI), scripts/print_indicator_value.py.
 """
 
 from pathlib import Path

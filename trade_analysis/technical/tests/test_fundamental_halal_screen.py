@@ -64,6 +64,8 @@ class TestIndustryExcluded(unittest.TestCase):
         self.assertIsNone(normalize_equity_symbol("BTC-USD"))
         self.assertIsNone(normalize_equity_symbol("GC=F"))
         self.assertEqual(normalize_equity_symbol("NVDA"), "NVDA")
+        self.assertEqual(normalize_equity_symbol("NFG.V"), "NFG.V")
+        self.assertEqual(normalize_equity_symbol("IVN.TO"), "IVN.TO")
 
 
 if __name__ == "__main__":

@@ -32,7 +32,9 @@ def load_configuration(force_reload: bool = False) -> Dict[str, Any]:
             "symbol_aliases": {},
             "category_aliases": {},
             "symbol_display_names": {},
+            "symbol_index_labels": {},
             "category_display_names": {},
+            "index_must_include": {},
             "gold_silver_tickers": ["GC=F", "SI=F"],
             "ticker_download_category": {"GC=F": "gold", "SI=F": "precious_metals"},
             "tf_rules": dict(_DEFAULT_TF_RULES),
@@ -60,8 +62,9 @@ def load_configuration(force_reload: bool = False) -> Dict[str, Any]:
             for k, v in (data.get("category_aliases") or {}).items()
         },
         "symbol_display_names": data.get("symbol_display_names") or {},
+        "symbol_index_labels": data.get("symbol_index_labels") or {},
         "category_display_names": data.get("category_display_names") or {},
-        "gold_silver_tickers": data.get("gold_silver_tickers") or ["GC=F", "SI=F"],
+        "index_must_include": data.get("index_must_include") or {},
         "ticker_download_category": data.get("ticker_download_category") or {"GC=F": "gold", "SI=F": "precious_metals"},
         "tf_rules": data.get("tf_rules") or dict(_DEFAULT_TF_RULES),
         "default_timeframes": data.get("default_timeframes") or list(_DEFAULT_DEFAULT_TIMEFRAMES),
@@ -144,11 +147,34 @@ def get_display_name_symbol(ticker: str) -> str:
     return names.get(ticker, ticker)
 
 
+def get_index_ticker_label(yahoo_symbol: str) -> str:
+    """Short label for index table (e.g. NFG.V -> NFG). Falls back to yahoo symbol."""
+    cfg = load_configuration()
+    labels = cfg.get("symbol_index_labels") or {}
+    sym = yahoo_symbol.upper()
+    return labels.get(sym) or labels.get(yahoo_symbol) or yahoo_symbol
+
+
 def get_display_name_category(category_key: str) -> str:
     """Display name for category (e.g. precious_metals -> Precious Metals). Falls back to category_key."""
     cfg = load_configuration()
     names = cfg.get("category_display_names") or {}
     return names.get(category_key, category_key.replace("_", " ").title())
+
+
+def get_index_must_include(category: str) -> List[str]:
+    """Yahoo symbols always shown in index for this category (e.g. NFG.V in gold_miners)."""
+    cfg = load_configuration()
+    raw = cfg.get("index_must_include") or {}
+    if not isinstance(raw, dict):
+        return []
+    syms = raw.get(category) or []
+    out: List[str] = []
+    for s in syms:
+        resolved = get_ticker(str(s)) or str(s)
+        if resolved not in out:
+            out.append(resolved)
+    return out
 
 
 def get_gold_silver_tickers() -> List[str]:

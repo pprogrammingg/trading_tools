@@ -1,24 +1,26 @@
 #!/bin/bash
-# Full trade analysis pipeline: technical scores + fundamentals + unified index.
+# Trade analysis pipeline: technical scores → index.html
 #
-# Usage (from repo root or trade_analysis/):
-#   ./run_full_analysis.sh [--refresh] [--calculate-potential] [--category CATEGORY]
-#   ./run_full_analysis.sh --live-fundamentals --stoch-rsi --index-limit 200
+# Usage (from trade_analysis/):
+#   ./run_full_analysis.sh
+#   ./run_full_analysis.sh --refresh --live-fundamentals --stoch-rsi
 #
-# Extra flags (this script only):
+# Flags:
+#   --refresh             Re-download OHLCV for technical_analysis.py
 #   --live-fundamentals   yfinance fundamental scores in index (slow)
-#   --stoch-rsi           fill Stoch RSI columns in index (slow)
-#   --index-limit N       max rows in index.html (default 150)
+#   --stoch-rsi           Fill Stoch RSI columns in index (slow)
+#   --index-limit N       Max total rows in index.html (default 250)
+#   --max-picks-per-sector N   Max picks per sector (default 10)
 
 set -e
 
 TRADE_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TECH="$TRADE_ROOT/technical"
-FUND="$TRADE_ROOT/fundamentals"
+# shellcheck source=scripts/pipeline_ui.sh
+. "$TRADE_ROOT/scripts/pipeline_ui.sh"
 
 TECH_ARGS=()
-INDEX_ARGS=(--limit 150)
-VIZ_ARGS=()
+INDEX_ARGS=(--limit 250 --max-picks-per-sector 10 --etfs-per-industry 2)
 LIVE_FUND=false
 STOCH_RSI=false
 REFRESH=false
@@ -27,9 +29,12 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     --live-fundamentals) LIVE_FUND=true; shift ;;
     --stoch-rsi) STOCH_RSI=true; shift ;;
-    --index-limit) INDEX_ARGS=(--limit "$2"); shift 2 ;;
-    --index-limit=*) INDEX_ARGS=(--limit "${1#*=}"); shift ;;
+    --index-limit) INDEX_ARGS=(--limit "$2" --max-picks-per-sector 10 --etfs-per-industry 2); shift 2 ;;
+    --index-limit=*) INDEX_ARGS=(--limit "${1#*=}" --max-picks-per-sector 10 --etfs-per-industry 2); shift ;;
+    --max-picks-per-sector) INDEX_ARGS+=(--max-picks-per-sector "$2"); shift 2 ;;
+    --max-picks-per-sector=*) INDEX_ARGS+=(--max-picks-per-sector "${1#*=}"); shift ;;
     --refresh) REFRESH=true; TECH_ARGS+=("$1"); shift ;;
+    --full) REFRESH=true; LIVE_FUND=true; STOCH_RSI=true; TECH_ARGS+=(--refresh); shift ;;
     *) TECH_ARGS+=("$1"); shift ;;
   esac
 done
@@ -37,48 +42,38 @@ done
 $LIVE_FUND && INDEX_ARGS+=(--live-fundamentals)
 $STOCH_RSI && INDEX_ARGS+=(--stoch-rsi)
 
-# Step 2 hits yfinance for ESG, market cap, perf vs SPY. Use cache unless --refresh.
-if ! $REFRESH; then
-  VIZ_ARGS+=(--no-network --skip-trending)
-fi
+export PIPELINE_TOTAL_STEPS=2
+INDEX_STEP=2
 
 cd "$TECH" || exit 1
 # shellcheck source=technical/scripts/_common.sh
 . "$TECH/scripts/_common.sh"
-echo "Using Python: $PYTHON"
-echo "Trade root:   $TRADE_ROOT"
-echo ""
 
-echo "=========================================="
-echo "Step 1/4: Technical — regenerate scores"
-echo "=========================================="
+pipeline_ui_init
+pipeline_print_run_config
+
+# ── Step 1: Technical scores ────────────────────────────────────────────────
+pipeline_step_begin 1 "Technical scores" \
+  "Download OHLCV, compute indicators, write technical/result_scores/*_results.json"
 $PYTHON technical_analysis.py "${TECH_ARGS[@]}"
+pipeline_step_end ok "result JSON updated"
 
-echo ""
-echo "=========================================="
-echo "Step 2/4: Technical — category visualizations"
-echo "=========================================="
-$PYTHON visualize_scores.py "${VIZ_ARGS[@]}"
-
-echo ""
-echo "=========================================="
-echo "Step 3/4: Fundamentals — hot picks JSON (halal screen)"
-echo "=========================================="
-$PYTHON "$FUND/generate_fundamental_hot_picks.py" || echo "  (skipped or fallback — check yfinance)"
-
-echo ""
-echo "=========================================="
-echo "Step 4/4: Combined index — index.html"
-echo "=========================================="
+# ── Unified trade index ─────────────────────────────────────────────────────
+pipeline_step_begin "$INDEX_STEP" "Unified trade index" \
+  "Merge technical + fundamental columns → trade_analysis/index.html"
 $PYTHON "$TRADE_ROOT/build_trade_index.py" "${INDEX_ARGS[@]}"
-
+INDEX_ROWS=""
 if [[ -f "$TRADE_ROOT/index.html" ]]; then
-  echo ""
-  echo "=========================================="
-  echo "✓ Complete! Opening trade_analysis/index.html"
-  echo "=========================================="
-  open -a "${BROWSER:-Safari}" "$TRADE_ROOT/index.html"
+  INDEX_ROWS="index.html ready"
 else
   echo "Error: index.html was not created at $TRADE_ROOT/index.html"
+  pipeline_step_end fail "index.html missing"
   exit 1
+fi
+pipeline_step_end ok "$INDEX_ROWS"
+
+pipeline_print_summary
+
+if [[ -f "$TRADE_ROOT/index.html" ]]; then
+  open -a "${BROWSER:-Safari}" "$TRADE_ROOT/index.html" 2>/dev/null || true
 fi

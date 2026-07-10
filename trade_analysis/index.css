@@ -1,17 +1,61 @@
-body.trade-index { max-width: 1600px; margin: 0 auto; padding: 20px 16px 48px; font-family: system-ui, sans-serif; background: #f1f5f9; color: #1e293b; }
+body.trade-index { max-width: 100%; margin: 0 auto; padding: 20px 12px 48px; font-family: system-ui, sans-serif; background: #f1f5f9; color: #1e293b; }
 .trade-index h1 { text-align: center; margin-bottom: 6px; }
 .trade-index .subtitle { text-align: center; color: #64748b; max-width: 900px; margin: 0 auto 20px; line-height: 1.5; }
 .trade-index .meta { text-align: center; font-size: 0.85rem; color: #94a3b8; margin-bottom: 16px; }
-.trade-index-table-wrap { overflow-x: auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; max-height: 85vh; overflow-y: auto; }
-.trade-index-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
-.trade-index-table th { position: sticky; top: 0; background: #0f766e; color: #fff; padding: 10px 8px; text-align: left; z-index: 2; white-space: nowrap; }
-.trade-index-table td { padding: 8px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+.trade-index-table-wrap { overflow-x: hidden; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; max-height: 85vh; overflow-y: auto; }
+.trade-index-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 0.78rem; }
+.trade-index-table th { position: sticky; top: 0; background: #0f766e; color: #fff; padding: 6px 3px; text-align: left; z-index: 2; font-size: 0.72rem; line-height: 1.2; }
+.trade-index-table th.num { text-align: center; white-space: nowrap; }
+.trade-index-table th.col-ind-sub { font-weight: 500; font-size: 0.62rem; opacity: 0.92; }
+.trade-index-table td { padding: 6px 4px; border-bottom: 1px solid #e2e8f0; vertical-align: top; overflow-wrap: anywhere; }
 .trade-index-table tr:hover td { background: #f8fafc; }
-.trade-index-table tr.industry-header td { background: #e0f2fe; color: #0c4a6e; font-weight: 700; font-size: 0.95rem; padding: 12px 10px; border-bottom: 2px solid #7dd3fc; position: sticky; top: 42px; z-index: 1; }
+.trade-index-table tr.industry-header td { background: #e0f2fe; color: #0c4a6e; font-weight: 700; font-size: 0.9rem; padding: 10px 8px; border-bottom: 2px solid #7dd3fc; position: sticky; top: 36px; z-index: 1; }
+.trade-index-table tr.industry-header.sector-strong-accumulation td { background: #bbf7d0; color: #14532d; border-bottom-color: #4ade80; }
+.trade-index-table tr.industry-header.sector-accumulation td { background: #d1fae5; color: #14532d; border-bottom-color: #86efac; }
+.trade-index-table tr.industry-header.sector-sell td { background: #ffedd5; color: #9a3412; border-bottom-color: #fdba74; }
+.trade-index-table tr.industry-header.sector-strong-sell td { background: #fee2e2; color: #7f1d1d; border-bottom-color: #fca5a5; }
+.trade-index-table tr.industry-header.sector-neutral td { background: #fef9c3; color: #713f12; border-bottom-color: #fde047; }
 .trade-index-table tr.industry-header:hover td { background: #e0f2fe; }
-.trade-index-table .fund-col { min-width: 220px; max-width: 320px; line-height: 1.35; font-size: 0.8rem; color: #334155; }
-.trade-index-table .num { text-align: center; white-space: nowrap; }
+.trade-index-table tr.industry-header.sector-strong-accumulation:hover td { background: #86efac; }
+.trade-index-table tr.industry-header.sector-accumulation:hover td { background: #bbf7d0; }
+.trade-index-table tr.industry-header.sector-sell:hover td { background: #fed7aa; }
+.trade-index-table tr.industry-header.sector-strong-sell:hover td { background: #fecaca; }
+.trade-index-table tr.industry-header.sector-neutral:hover td { background: #fef08a; }
+.trade-index-table tr.sector-signal-row.sector-strong-accumulation td { background: #dcfce7; border-bottom: 2px solid #86efac; }
+.trade-index-table tr.sector-signal-row.sector-strong-accumulation:hover td { background: #bbf7d0; }
+.trade-index-table tr.sector-signal-row.sector-accumulation td { background: #ecfdf5; border-bottom: 2px solid #bbf7d0; }
+.trade-index-table tr.sector-signal-row.sector-accumulation:hover td { background: #d1fae5; }
+.trade-index-table tr.sector-signal-row.sector-sell td { background: #fff7ed; border-bottom: 2px solid #fed7aa; }
+.trade-index-table tr.sector-signal-row.sector-sell:hover td { background: #ffedd5; }
+.trade-index-table tr.sector-signal-row.sector-strong-sell td { background: #fef2f2; border-bottom: 2px solid #fecaca; }
+.trade-index-table tr.sector-signal-row.sector-strong-sell:hover td { background: #fee2e2; }
+.trade-index-table tr.sector-signal-row.sector-neutral td { background: #fefce8; border-bottom: 2px solid #fde68a; }
+.trade-index-table tr.sector-signal-row.sector-neutral:hover td { background: #fef9c3; }
+.trade-index-table .sector-signal-label { color: #0d9488; font-size: 0.72rem; }
+.trade-index-table .sector-signal-call { font-weight: 700; }
+.trade-index-table .sector-signal-etfs { font-size: 0.72rem; }
+.trade-index-table .sector-verdict-strong-accum { color: #14532d; font-weight: 700; }
+.trade-index-table .sector-verdict-accum { color: #15803d; font-weight: 700; }
+.trade-index-table .sector-verdict-sell { color: #b45309; font-weight: 700; }
+.trade-index-table .sector-verdict-strong-sell { color: #b91c1c; font-weight: 700; }
+.trade-index-table .sector-verdict-neutral { color: #a16207; font-weight: 700; }
+.trade-index-table .col-rank { width: 2.2%; }
+.trade-index-table .col-ticker { width: 5.5%; }
+.trade-index-table .col-desc { width: 14%; }
+.trade-index-table .col-fund { width: 14%; }
+.trade-index-table .col-ind { width: 2.8%; }
+.trade-index-table .col-ta { width: 16%; }
+.trade-index-table .col-score { width: 3.2%; }
+.trade-index-table .fund-col { line-height: 1.3; font-size: 0.74rem; color: #334155; }
+.trade-index-table .desc-col { line-height: 1.3; font-size: 0.74rem; color: #334155; }
+.trade-index-table .desc-name { font-weight: 700; color: #0f172a; display: block; margin-bottom: 2px; }
+.trade-index-table .desc-meta { display: block; font-size: 0.68rem; color: #64748b; margin-bottom: 3px; }
+.trade-index-table .desc-about { display: block; color: #475569; font-size: 0.72rem; }
+.trade-index-table .tech-reason-col { line-height: 1.35; font-size: 0.68rem; color: #334155; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.trade-index-table .tech-summary { font-family: system-ui, sans-serif; font-size: 0.72rem; color: #475569; display: block; margin-bottom: 4px; }
+.trade-index-table .tech-verdict { font-weight: 700; font-size: 0.78rem; display: inline-block; margin-bottom: 2px; }
+.trade-index-table .num { text-align: center; white-space: nowrap; font-size: 0.74rem; }
 .trade-index-table .score-final { font-weight: 700; background: #ecfdf5; }
-.trade-index-table .ticker { font-weight: 700; white-space: nowrap; }
+.trade-index-table .ticker { font-weight: 700; font-size: 0.76rem; overflow-wrap: normal; word-break: keep-all; }
 .trade-index-links { text-align: center; margin: 16px 0; font-size: 0.9rem; }
 .trade-index-links a { margin: 0 10px; color: #0d9488; font-weight: 600; }
