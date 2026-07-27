@@ -11,8 +11,9 @@ PROFILES_CACHE_PATH = FUND_ROOT / "symbol_profiles_cache.json"
 
 # Short blurbs when yfinance / notes are unavailable (futures, macro, crypto).
 _STATIC_ABOUT: Dict[str, str] = {
-    "GC=F": "COMEX gold futures; inflation hedge and real-rates sensitivity.",
-    "SI=F": "COMEX silver futures; industrial and precious-metal demand.",
+    "GC=F": "Gold futures (USD); inflation hedge and real-rates sensitivity.",
+    "SI=F": "Silver futures (USD); industrial and precious-metal demand.",
+    "SI/GC": "Silver priced in gold (SI=F / GC=F); relative precious-metal value.",
     "PA=F": "NYMEX palladium futures; auto catalyst and industrial metal.",
     "PL=F": "NYMEX platinum futures; jewelry and industrial demand.",
     "HG=F": "COMEX copper futures; electrification, grid, and construction demand.",
@@ -69,6 +70,12 @@ def profile_from_metrics(metrics: Dict[str, Any]) -> Dict[str, str]:
         val = metrics.get(src)
         if val:
             out[key] = str(val).strip()
+    mc = metrics.get("market_cap")
+    if mc is not None:
+        try:
+            out["market_cap"] = str(int(float(mc)))
+        except (TypeError, ValueError):
+            pass
     return out
 
 

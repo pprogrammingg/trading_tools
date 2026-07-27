@@ -105,6 +105,15 @@ def fetch_screen_info(ticker: str) -> Dict[str, Any]:
     except (TypeError, ValueError):
         peg_f = None
     price = info.get("currentPrice") or info.get("regularMarketPreviousClose")
+    mc_raw = info.get("marketCap") or info.get("totalAssets")
+    mc: Optional[int] = None
+    try:
+        if mc_raw is not None:
+            mcf = float(mc_raw)
+            if mcf == mcf and mcf > 0:
+                mc = int(mcf)
+    except (TypeError, ValueError):
+        mc = None
     summary_raw = info.get("longBusinessSummary") or info.get("description") or ""
     summary = " ".join(str(summary_raw).split())
     if len(summary) > 220:
@@ -123,6 +132,7 @@ def fetch_screen_info(ticker: str) -> Dict[str, Any]:
         "earnings_growth_pct": earn_g,
         "peg_ratio": peg_f,
         "price": float(price) if price is not None and price == price else None,
+        "market_cap": mc,
         "raw_info_keys_ok": bool(info),
     }
 

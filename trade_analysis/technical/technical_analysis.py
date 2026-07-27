@@ -96,12 +96,13 @@ INDICATOR_WINDOWS = {
     "atr": 14,
 }
 
-# Output directory for category-based results
-RESULTS_DIR = Path("result_scores")
+# Output directory for category-based results (absolute — cwd-independent)
+_TECH_DIR = Path(__file__).resolve().parent
+RESULTS_DIR = _TECH_DIR / "result_scores"
 RESULTS_DIR.mkdir(exist_ok=True)
 
-# Data cache directory
-CACHE_DIR = Path("data_cache")
+# Data cache directory (absolute — cwd-independent)
+CACHE_DIR = _TECH_DIR / "data_cache"
 CACHE_DIR.mkdir(exist_ok=True)
 
 # Legacy support - keep old constants for backward compatibility
@@ -417,6 +418,98 @@ def convert_to_silver_terms(df, silver_df):
     
     return silver_terms.dropna()
 
+
+def build_silver_gold_ratio_df(silver_df, gold_df):
+    """Synthetic OHLCV for Silver/Gold (SI=F / GC=F) — stored as SI/GC in results."""
+    if silver_df is None or gold_df is None or len(silver_df) == 0 or len(gold_df) == 0:
+        return pd.DataFrame()
+    all_dates = silver_df.index.union(gold_df.index).sort_values()
+    s = silver_df.reindex(all_dates).ffill().bfill()
+    g = gold_df.reindex(all_dates).ffill().bfill()
+    idx = silver_df.index
+    s = s.loc[idx]
+    g = g.loc[idx]
+    g_close = g["Close"].replace(0, pd.NA)
+    ratio = pd.DataFrame(
+        {
+            "Open": s["Open"] / g["Open"].replace(0, pd.NA),
+            "High": s["High"] / g_close,
+            "Low": s["Low"] / g_close,
+            "Close": s["Close"] / g_close,
+            "Volume": s["Volume"],
+        },
+        index=idx,
+    )
+    ratio["High"] = ratio[["Open", "High", "Low", "Close"]].max(axis=1)
+    ratio["Low"] = ratio[["Open", "High", "Low", "Close"]].min(axis=1)
+    return ratio.dropna()
+
+
+def _score_silver_gold_into_results(
+    results: dict,
+    gold_df,
+    silver_df,
+    timeframes_to_process: dict,
+    category_name: str,
+    market_context,
+):
+    """Add SI/GC (Silver/Gold) scored across timeframes into precious_metals results."""
+    ratio_daily = build_silver_gold_ratio_df(silver_df, gold_df)
+    if len(ratio_daily) == 0:
+        print("  Warning: could not build Silver/Gold (SI/GC) ratio series")
+        return
+    print(f"\nProcessing SI/GC (Silver/Gold ratio)… ({len(ratio_daily)} daily bars)")
+    results["SI/GC"] = {}
+    relative_potential = {
+        "upside_potential_pct": None,
+        "downside_potential_pct": None,
+        "relative_to_category": None,
+        "price_vs_52w_range": None,
+    }
+    for label, rule in timeframes_to_process.items():
+        if label == "4H":
+            results["SI/GC"][label] = {"yfinance": {"error": "4H skipped for ratio series"}}
+            continue
+        try:
+            df_tf = resample_ohlcv(ratio_daily, rule)
+        except Exception as e:
+            results["SI/GC"][label] = {"yfinance": {"error": str(e)}}
+            continue
+        if len(df_tf) == 0:
+            results["SI/GC"][label] = {"yfinance": {"error": "No data after resampling"}}
+            continue
+        try:
+            ta = compute_indicators_with_score(
+                df_tf,
+                category=category_name,
+                is_gold_denominated=True,
+                timeframe=label,
+                market_context=market_context,
+            )
+            tv = compute_indicators_tv(
+                df_tf,
+                category=category_name,
+                is_gold_denominated=True,
+                timeframe=label,
+                market_context=market_context,
+            )
+        except (IndexError, ValueError, KeyError) as e:
+            print(f"    ⚠️  Skipping {label} for SI/GC: {type(e).__name__}")
+            results["SI/GC"][label] = {"yfinance": {"error": f"Insufficient data: {type(e).__name__}"}}
+            continue
+        ta["relative_potential"] = relative_potential
+        tv["relative_potential"] = relative_potential
+        results["SI/GC"][label] = {
+            "yfinance": {
+                "usd": {
+                    "ta_library": ta,
+                    "tradingview_library": tv,
+                }
+            }
+        }
+    print("  ✓ SI/GC (Silver/Gold) scored")
+
+
 def convert_to_crypto_terms(df, crypto_df):
     """Convert price data to crypto terms (price / crypto_price) - for cross-pair analysis"""
     if len(crypto_df) == 0 or len(df) == 0:
@@ -506,6 +599,39 @@ def compute_stochrsi_tv(rsi_values, k_period=3, d_period=3, stoch_period=14):
     stoch_d = stoch_k.rolling(window=d_period).mean()
     
     return stoch_k, stoch_d
+
+
+def attach_stoch_rsi(result: dict, rsi_series: pd.Series) -> None:
+    """Add Stoch RSI %K/%D (0–100) onto an indicators result dict."""
+    result["stoch_rsi_k"] = None
+    result["stoch_rsi_d"] = None
+    if rsi_series is None or len(rsi_series) == 0:
+        return
+    rsi_clean = rsi_series.dropna()
+    if len(rsi_clean) < 16:
+        return
+    for stoch_period, k_period, d_period in ((14, 3, 3), (10, 3, 3), (8, 3, 3)):
+        if len(rsi_clean) < stoch_period + k_period + d_period:
+            continue
+        try:
+            sk, sd = compute_stochrsi_tv(
+                rsi_clean, k_period=k_period, d_period=d_period, stoch_period=stoch_period
+            )
+        except Exception:
+            continue
+        if sk is None or len(sk) == 0 or pd.isna(sk.iloc[-1]):
+            continue
+        sk_v = float(sk.iloc[-1])
+        sd_v = float(sd.iloc[-1]) if sd is not None and len(sd) and not pd.isna(sd.iloc[-1]) else None
+        if sk_v <= 1.0:
+            sk_v *= 100.0
+            if sd_v is not None:
+                sd_v *= 100.0
+        result["stoch_rsi_k"] = round(sk_v, 2)
+        if sd_v is not None:
+            result["stoch_rsi_d"] = round(sd_v, 2)
+        return
+
 
 def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = False, timeframe: str = "1W", market_context: dict = None):
     """
@@ -626,6 +752,7 @@ def compute_indicators_tv(df, category: str = None, is_gold_denominated: bool = 
         rsi_values = RSI(close, INDICATOR_WINDOWS["rsi"])
         rsi_value = rsi_values.iloc[-1]
         result["rsi"] = round(rsi_value, 2)
+        attach_stoch_rsi(result, rsi_values)
         
         # If ADX shows strong trend, RSI signals are less reliable (trend-following > mean-reverting)
         # BUT: For crypto/tech, mean-reversion works better, so don't reduce weight
@@ -1150,6 +1277,7 @@ def compute_indicators_with_score(df, category: str = None, is_gold_denominated:
         rsi = RSIIndicator(close, INDICATOR_WINDOWS["rsi"]).rsi()
         rsi_value = rsi.iloc[-1]
         result["rsi"] = round(rsi_value, 2)
+        attach_stoch_rsi(result, rsi)
         
         # If ADX shows strong trend, RSI signals are less reliable (trend-following > mean-reverting)
         # BUT: For crypto/tech, mean-reversion works better, so don't reduce weight
@@ -2033,6 +2161,13 @@ def process_category(category_name: str, symbols: list, gold_df=None, silver_df=
                                 }
                     except:
                         pass
+
+    # Precious metals focus pairs: Gold/USD (GC=F), Silver/USD (SI=F) already scored above;
+    # add Silver/Gold ratio as SI/GC for the same timeframes.
+    if category_name == "precious_metals" and gold_df is not None and silver_df is not None:
+        tfs = timeframes if timeframes else TIMEFRAMES
+        mctx = process_category._market_context if hasattr(process_category, "_market_context") else None
+        _score_silver_gold_into_results(results, gold_df, silver_df, tfs, category_name, mctx)
 
     # Write JSON
     output_file = RESULTS_DIR / f"{category_name}_results.json"

@@ -6,7 +6,7 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
-from technical_reasons import weighted_oscillator_bias  # noqa: E402
+from technical_reasons import apply_weekly_stoch_cross_gate, weighted_oscillator_bias  # noqa: E402
 
 TA_METHODS: Tuple[str, ...] = ("ta_library", "tradingview_library")
 MISSING_AVG_SCORE = -9999.0
@@ -96,8 +96,11 @@ def _store_ta_fields(metrics: Dict[str, Any], tf: str, ta: Optional[dict], *, st
     for field in TA_BOOL_FIELDS:
         val = ta_bool(ta, field)
         metrics[f"{tf}_{field}"] = val
-    metrics[f"{tf}_{stoch_prefix}"] = None
-    metrics[f"{tf}_{stoch_prefix}_d"] = None
+    # Prefer Stoch RSI baked into result JSON; fall back to None (filled later by --stoch-rsi).
+    sk = ta_float(ta, "stoch_rsi_k") if ta else None
+    sd = ta_float(ta, "stoch_rsi_d") if ta else None
+    metrics[f"{tf}_{stoch_prefix}"] = sk
+    metrics[f"{tf}_{stoch_prefix}_d"] = sd
 
 
 def collect_ta_metrics(
@@ -181,7 +184,9 @@ def tech_score_to_display(avg: float, *, missing_threshold: float = -900.0) -> f
 
 def rsi_score_adjustment(metrics: Dict[str, Any], timeframes: Sequence[str]) -> float:
     """Map weighted RSI + Stoch bias to ±2.5 adjustment on the 0–10 Tech score."""
-    return weighted_oscillator_bias(metrics, timeframes) * 0.65
+    raw = weighted_oscillator_bias(metrics, timeframes)
+    gated = apply_weekly_stoch_cross_gate(raw, metrics)
+    return gated * 0.65
 
 
 def index_tech_score(
@@ -195,11 +200,24 @@ def index_tech_score(
     Blend composite TA score with indicator consensus and RSI rule.
     RSI < 30 lifts score (lower = more); RSI > 70 lowers score (higher = more).
     Stoch < 20 lifts; Stoch > 80 lowers (blended 65/35 with RSI when both present).
+    Weekly Stoch K/D cross gates bullish/bearish oscillator lifts.
     """
     base = tech_score_to_display(avg, missing_threshold=missing_threshold)
     if avg <= missing_threshold:
         return base
     consensus = indicator_consensus_bias(metrics, timeframes)
     rsi_adj = rsi_score_adjustment(metrics, timeframes)
+    # Soften consensus when weekly Stoch has not confirmed direction.
+    cross_state = None
+    try:
+        from technical_reasons import weekly_stoch_cross_state
+
+        cross_state = weekly_stoch_cross_state(metrics)
+    except Exception:
+        pass
+    if rsi_adj > 0.15 and cross_state not in (None, "bull"):
+        consensus = min(consensus, 0.0)
+    elif rsi_adj < -0.15 and cross_state not in (None, "bear"):
+        consensus = max(consensus, 0.0)
     adjusted = base + consensus * 0.8 + rsi_adj
     return round(min(max(adjusted, 0.0), 10.0), 1)

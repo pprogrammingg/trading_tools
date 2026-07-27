@@ -65,10 +65,25 @@ open index.html
 
 Pass extra args through to `technical_analysis.py` (e.g. `./run_full_analysis.sh --category ai_semiconductors`).
 
+### Index indicator columns
+
+Per timeframe (**W · 2W · M · 2M**): **RSI** · **Stoch** · **MACD** (↑ bull / + hist+ / ↓ bear).
+
+### TA score sector backtest
+
+Validates whether high Tech scores beat low Tech on 4w/12w forward returns:
+
+```bash
+cd technical
+../.venv/bin/python scripts/backtest_ta_score_by_sector.py
+```
+
 ## What runs
 
-1. **Technical scores** — `technical/technical_analysis.py` → `technical/result_scores/*_results.json`
-2. **Unified index** — `build_trade_index.py` → **`index.html`** + `index.css`
+1. **Technical scores** — `technical/technical_analysis.py` → `technical/result_scores/*_results.json`  
+   For **precious metals**, also scores **Gold/USD** (`GC=F`), **Silver/USD** (`SI=F`), and **Silver/Gold** (`SI/GC`) across the same timeframes.
+2. **Unified index** — `build_trade_index.py` → **`index.html`** + `index.css`  
+   Those three are always pinned in the Precious Metals section.
 
 ## Layout
 

@@ -27,6 +27,10 @@ class TestTradeIndexPage(unittest.TestCase):
     def test_has_final_score_column(self):
         self.assertIn("Final", self.html)
 
+    def test_has_macd_columns(self):
+        self.assertIn("MACD", self.html)
+        self.assertIn("col-macd", self.html)
+
     def test_has_industry_group_headers(self):
         self.assertIn("industry-header", self.html)
         self.assertIn("Precious Metals", self.html)

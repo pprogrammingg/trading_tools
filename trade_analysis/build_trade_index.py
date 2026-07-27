@@ -68,12 +68,12 @@ body.trade-index { max-width: 100%; margin: 0 auto; padding: 20px 12px 48px; fon
 .trade-index h1 { text-align: center; margin-bottom: 6px; }
 .trade-index .subtitle { text-align: center; color: #64748b; max-width: 900px; margin: 0 auto 20px; line-height: 1.5; }
 .trade-index .meta { text-align: center; font-size: 0.85rem; color: #94a3b8; margin-bottom: 16px; }
-.trade-index-table-wrap { overflow-x: hidden; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; max-height: 85vh; overflow-y: auto; }
-.trade-index-table { width: 100%; table-layout: fixed; border-collapse: collapse; font-size: 0.78rem; }
-.trade-index-table th { position: sticky; top: 0; background: #0f766e; color: #fff; padding: 6px 3px; text-align: left; z-index: 2; font-size: 0.72rem; line-height: 1.2; }
+.trade-index-table-wrap { overflow-x: auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; max-height: 85vh; overflow-y: auto; }
+.trade-index-table { width: 100%; min-width: 1100px; table-layout: fixed; border-collapse: collapse; font-size: 0.74rem; }
+.trade-index-table th { position: sticky; top: 0; background: #0f766e; color: #fff; padding: 5px 2px; text-align: left; z-index: 2; font-size: 0.68rem; line-height: 1.15; }
 .trade-index-table th.num { text-align: center; white-space: nowrap; }
-.trade-index-table th.col-ind-sub { font-weight: 500; font-size: 0.62rem; opacity: 0.92; }
-.trade-index-table td { padding: 6px 4px; border-bottom: 1px solid #e2e8f0; vertical-align: top; overflow-wrap: anywhere; }
+.trade-index-table th.col-ind-sub { font-weight: 500; font-size: 0.58rem; opacity: 0.92; }
+.trade-index-table td { padding: 5px 2px; border-bottom: 1px solid #e2e8f0; vertical-align: top; overflow-wrap: anywhere; }
 .trade-index-table tr:hover td { background: #f8fafc; }
 .trade-index-table tr.industry-header td { background: #e0f2fe; color: #0c4a6e; font-weight: 700; font-size: 0.9rem; padding: 10px 8px; border-bottom: 2px solid #7dd3fc; position: sticky; top: 36px; z-index: 1; }
 .trade-index-table tr.industry-header.sector-strong-accumulation td { background: #bbf7d0; color: #14532d; border-bottom-color: #4ade80; }
@@ -105,22 +105,27 @@ body.trade-index { max-width: 100%; margin: 0 auto; padding: 20px 12px 48px; fon
 .trade-index-table .sector-verdict-sell { color: #b45309; font-weight: 700; }
 .trade-index-table .sector-verdict-strong-sell { color: #b91c1c; font-weight: 700; }
 .trade-index-table .sector-verdict-neutral { color: #a16207; font-weight: 700; }
-.trade-index-table .col-rank { width: 2.2%; }
-.trade-index-table .col-ticker { width: 5.5%; }
-.trade-index-table .col-desc { width: 14%; }
-.trade-index-table .col-fund { width: 14%; }
-.trade-index-table .col-ind { width: 2.8%; }
-.trade-index-table .col-ta { width: 16%; }
-.trade-index-table .col-score { width: 3.2%; }
-.trade-index-table .fund-col { line-height: 1.3; font-size: 0.74rem; color: #334155; }
-.trade-index-table .desc-col { line-height: 1.3; font-size: 0.74rem; color: #334155; }
+.trade-index-table .col-rank { width: 1.8%; }
+.trade-index-table .col-ticker { width: 4.0%; }
+.trade-index-table .col-mcap { width: 3.6%; }
+.trade-index-table .col-desc { width: 10.5%; }
+.trade-index-table .col-fund { width: 12%; }
+.trade-index-table .col-ind { width: 2.0%; }
+.trade-index-table .col-macd { width: 1.9%; }
+.trade-index-table .col-ta { width: 13%; }
+.trade-index-table .col-score { width: 2.6%; }
+.trade-index-table .macd-bull { color: #15803d; font-weight: 600; }
+.trade-index-table .macd-bear { color: #b91c1c; font-weight: 600; }
+.trade-index-table .macd-hist { color: #0d9488; font-weight: 600; }
+.trade-index-table .fund-col { line-height: 1.3; font-size: 0.70rem; color: #334155; }
+.trade-index-table .desc-col { line-height: 1.3; font-size: 0.70rem; color: #334155; }
 .trade-index-table .desc-name { font-weight: 700; color: #0f172a; display: block; margin-bottom: 2px; }
 .trade-index-table .desc-meta { display: block; font-size: 0.68rem; color: #64748b; margin-bottom: 3px; }
 .trade-index-table .desc-about { display: block; color: #475569; font-size: 0.72rem; }
 .trade-index-table .tech-reason-col { line-height: 1.35; font-size: 0.68rem; color: #334155; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 .trade-index-table .tech-summary { font-family: system-ui, sans-serif; font-size: 0.72rem; color: #475569; display: block; margin-bottom: 4px; }
 .trade-index-table .tech-verdict { font-weight: 700; font-size: 0.78rem; display: inline-block; margin-bottom: 2px; }
-.trade-index-table .num { text-align: center; white-space: nowrap; font-size: 0.74rem; }
+.trade-index-table .num { text-align: center; white-space: nowrap; font-size: 0.68rem; }
 .trade-index-table .score-final { font-weight: 700; background: #ecfdf5; }
 .trade-index-table .ticker { font-weight: 700; font-size: 0.76rem; overflow-wrap: normal; word-break: keep-all; }
 .trade-index-links { text-align: center; margin: 16px 0; font-size: 0.9rem; }
@@ -143,6 +148,46 @@ def _fetch_fundamentals(ticker: str, live: bool) -> Optional[Dict[str, Any]]:
         return m
     except Exception:
         return None
+
+
+def _fmt_mcap(v: Any) -> str:
+    """Format market cap as $12.4B / $850M / —."""
+    if v is None or v == "":
+        return "—"
+    try:
+        n = float(v)
+    except (TypeError, ValueError):
+        return "—"
+    if n != n or n <= 0:
+        return "—"
+    abs_n = abs(n)
+    if abs_n >= 1e12:
+        return f"${n / 1e12:.2f}T"
+    if abs_n >= 1e9:
+        return f"${n / 1e9:.1f}B"
+    if abs_n >= 1e6:
+        return f"${n / 1e6:.0f}M"
+    return f"${n:,.0f}"
+
+
+def _market_cap_from_sources(
+    fund_m: Optional[Dict[str, Any]],
+    profiles_cache: Dict[str, Dict[str, str]],
+    yahoo_symbol: str,
+) -> Optional[float]:
+    if fund_m and fund_m.get("market_cap") is not None:
+        try:
+            return float(fund_m["market_cap"])
+        except (TypeError, ValueError):
+            pass
+    cached = profiles_cache.get(yahoo_symbol.upper()) or {}
+    raw = cached.get("market_cap")
+    if raw:
+        try:
+            return float(raw)
+        except (TypeError, ValueError):
+            pass
+    return None
 
 
 def _industry_label(category: str) -> str:
@@ -263,6 +308,11 @@ def build_rows(
         fund_text, fund_score = build_fundamentals_column(
             sym, cat, fund_m, notes, as_of_date=fund_as_of
         )
+        mcap = _market_cap_from_sources(fund_m, profiles_cache, sym)
+        if mcap is not None and fund_m:
+            # Keep cache warm even when profile fields already exist
+            cache_updates.setdefault(sym.upper(), {})
+            cache_updates[sym.upper()]["market_cap"] = str(int(mcap))
         desc_name, desc_meta, desc_about = build_symbol_description(
             sym,
             display,
@@ -290,6 +340,7 @@ def build_rows(
                 "desc_name": desc_name,
                 "desc_meta": desc_meta,
                 "desc_about": desc_about,
+                "market_cap": mcap,
                 "fundamentals": fund_text,
                 "fund_score": fund_score,
                 "tech_score": tech_score,
@@ -320,6 +371,10 @@ def build_rows(
             if denom != "usd":
                 continue
             for tf in RANK_TFS:
+                # Skip re-fetch when Stoch already baked into result JSON
+                if item["metrics"].get(f"{tf}_stoch") is not None:
+                    done += 1
+                    continue
                 sk, sd = fetch_stoch_rsi_for_symbol(sym, tf, cat)
                 item["metrics"][f"{tf}_stoch"] = sk
                 item["metrics"][f"{tf}_stoch_d"] = sd
@@ -345,11 +400,26 @@ def _score_color(v: float) -> str:
     return "#b45309"
 
 
+def _fmt_macd_cell(metrics: Dict[str, Any], tf: str) -> str:
+    """Compact MACD cell: ↑ bull / + hist / ↓ bear / —."""
+    bull = metrics.get(f"{tf}_macd_bullish")
+    pos = metrics.get(f"{tf}_macd_positive")
+    if bull is True:
+        label = "↑" if pos else "↗"
+        return f'<td class="num col-macd macd-bull" title="MACD bullish">{label}</td>'
+    if pos is True:
+        return '<td class="num col-macd macd-hist" title="MACD histogram positive">+</td>'
+    if bull is False or pos is False:
+        return '<td class="num col-macd macd-bear" title="MACD bearish">↓</td>'
+    return '<td class="num col-macd">—</td>'
+
+
 def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
-    n_cols = 5 + len(RANK_TFS) * 2 + 3
+    n_cols = 6 + len(RANK_TFS) * 3 + 3
     header = [
         '<th class="num col-rank">#</th>',
         '<th class="col-ticker">Ticker</th>',
+        '<th class="num col-mcap" title="Market capitalization (USD)">Mkt Cap</th>',
         '<th class="col-desc" title="Name · industry · what they do">DESC</th>',
         '<th class="col-fund" title="Why strong / why now">Fundamentals</th>',
     ]
@@ -361,6 +431,7 @@ def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
             [
                 f'<th class="num col-ind" title="{tt} RSI, 0–100 (30 oversold · 70 overbought)">{sh}<br><span class="col-ind-sub">RSI</span></th>',
                 f'<th class="num col-ind" title="{tt} Stoch RSI %K, 0–100 (20 oversold · 80 overbought)">{sh}<br><span class="col-ind-sub">Stoch</span></th>',
+                f'<th class="num col-macd" title="{tt} MACD: ↑ bull · + hist+ · ↓ bear">{sh}<br><span class="col-ind-sub">MACD</span></th>',
             ]
         )
     header.extend(
@@ -394,6 +465,7 @@ def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
             cells = [
                 '<td class="num">—</td>',
                 '<td class="ticker sector-signal-label">Sector</td>',
+                '<td class="num">—</td>',
                 f'<td class="desc-col sector-signal-call">'
                 f'<span class="tech-verdict {text_class}">{vlabel}</span></td>',
                 f'<td class="fund-col sector-signal-etfs" title="{etf_sum}">'
@@ -401,7 +473,7 @@ def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
                 f'<br><span style="font-size:0.68rem;color:#64748b">{etf_sum}</span></td>',
             ]
             for _tf in RANK_TFS:
-                cells.extend(['<td class="num">—</td>', '<td class="num">—</td>'])
+                cells.extend(['<td class="num">—</td>', '<td class="num">—</td>', '<td class="num col-macd">—</td>'])
             cells.append(
                 '<td class="tech-reason-col">'
                 '<span style="font-size:0.72rem;color:#64748b">Sector call from benchmark ETFs</span>'
@@ -419,6 +491,7 @@ def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
         cells = [
             f'<td class="num">{r["_rank"]}</td>',
             f'<td class="ticker">{esc_html(r["symbol"])}</td>',
+            f'<td class="num col-mcap">{esc_html(_fmt_mcap(r.get("market_cap")))}</td>',
             f'<td class="desc-col">'
             f'<span class="desc-name">{esc_html(r.get("desc_name", r["symbol"]))}</span>'
             f'<span class="desc-meta">{esc_html(r.get("desc_meta", ""))}</span>'
@@ -429,6 +502,7 @@ def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
         for tf in RANK_TFS:
             cells.append(f'<td class="num">{fmt_num(m.get(f"{tf}_rsi"))}</td>')
             cells.append(f'<td class="num">{fmt_num(m.get(f"{tf}_stoch"))}</td>')
+            cells.append(_fmt_macd_cell(m, tf))
         vc = verdict_color(r.get("tech_verdict", "Neutral"))
         vlabel = verdict_display_label(r.get("tech_verdict", "Neutral"))
         ta_body = esc_html(r.get("tech_reasons", "")).replace("\n", "<br>")
@@ -462,7 +536,7 @@ def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
 </head>
 <body class="trade-index">
     <h1>📊 Trade Analysis Index</h1>
-    <p class="subtitle"><strong>{data_count}</strong> picks grouped by <strong>{group_count}</strong> market niches (up to <strong>{MAX_PICKS_PER_INDUSTRY}</strong> per sector: sector ETFs + top stocks by final score). Sections sorted <strong>Strong Accumulation → Accumulation → Neutral → Sell → Strong Sell (Get Out)</strong> by sector ETF signal. TA column uses RSI/Stoch across W · 2W · M · 2M.</p>
+    <p class="subtitle"><strong>{data_count}</strong> picks grouped by <strong>{group_count}</strong> market niches (up to <strong>{MAX_PICKS_PER_INDUSTRY}</strong> per sector: sector ETFs + top stocks by final score). Columns W–2M show <strong>RSI · Stoch · MACD</strong> (↑ bull / + hist / ↓ bear). Sections sorted <strong>Strong Accumulation → Accumulation → Neutral → Sell → Strong Sell (Get Out)</strong>.</p>
     <p class="meta">Generated {generated_at} UTC · Technical data: <code>technical/result_scores/</code></p>
     <div class="trade-index-table-wrap">
         <table class="trade-index-table" aria-label="Top tickers">

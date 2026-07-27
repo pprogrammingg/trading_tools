@@ -253,9 +253,8 @@ def pick_sector_index_rows(
     chosen = list(etf_rows[:etf_cap])
     chosen_keys = {k for r in chosen for k in _row_symbol_keys(r)}
 
+    # Must-include always fits (even if that exceeds max_picks).
     for r in pinned:
-        if len(chosen) >= max_picks:
-            break
         if not (_row_symbol_keys(r) & chosen_keys):
             chosen.append(r)
             chosen_keys |= _row_symbol_keys(r)

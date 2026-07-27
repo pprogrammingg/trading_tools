@@ -29,7 +29,15 @@ def get_ohlcv_for_timeframe(symbol: str, tf: str, category: str = "precious_meta
     """Load OHLCV for symbol and resample to timeframe. Returns DataFrame or None if insufficient data."""
     rules = _tf_rules()
     rule = rules.get(tf, "7D")
-    min_bars = RSI_PERIOD + STOCH_PERIOD + STOCH_K + STOCH_D
+    # Stoch RSI needs ~20–34 bars; longer TFs (2M/6M) have fewer bars — still try if ≥16.
+    min_bars = 16 if tf in ("2M", "6M") else (RSI_PERIOD + STOCH_PERIOD + STOCH_K + STOCH_D)
+    # Longer history helps 2M/6M reach enough bars for Stoch.
+    if tf in ("2M", "6M") and period == "5y":
+        period = "max"
+
+    # Synthetic Silver/Gold ratio — not a Yahoo ticker
+    if symbol.upper() in ("SI/GC", "XAG/XAU", "SILVER/GOLD"):
+        return _silver_gold_ohlcv(tf, rule, min_bars, period=period)
 
     try:
         from technical_analysis import download_data, resample_ohlcv
@@ -56,6 +64,30 @@ def get_ohlcv_for_timeframe(symbol: str, tf: str, category: str = "precious_meta
         res = resample_ohlcv(df, rule)
     except Exception:
         res = df.resample(rule).agg({"Open": "first", "High": "max", "Low": "min", "Close": "last", "Volume": "sum"}).dropna()
+    if res is None or len(res) < min_bars:
+        return None
+    return res
+
+
+def _silver_gold_ohlcv(tf: str, rule: str, min_bars: int, period: str = "5y"):
+    """Build SI/GC ratio OHLCV from cached GC=F + SI=F."""
+    try:
+        from technical_analysis import build_silver_gold_ratio_df, download_data, resample_ohlcv
+    except Exception:
+        return None
+    gold = download_data("GC=F", period=period, category="gold", use_cache=True)
+    silver = download_data("SI=F", period=period, category="precious_metals", use_cache=True)
+    if gold is None or silver is None or len(gold) == 0 or len(silver) == 0:
+        return None
+    ratio = build_silver_gold_ratio_df(silver, gold)
+    if ratio is None or len(ratio) < min_bars:
+        return None
+    try:
+        res = resample_ohlcv(ratio, rule)
+    except Exception:
+        res = ratio.resample(rule).agg(
+            {"Open": "first", "High": "max", "Low": "min", "Close": "last", "Volume": "sum"}
+        ).dropna()
     if res is None or len(res) < min_bars:
         return None
     return res

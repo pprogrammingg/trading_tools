@@ -26,9 +26,17 @@ RSI_BIAS_MAX = 4.0
 STOCH_ACCUM_BELOW = 20.0
 STOCH_SELL_ABOVE = 80.0
 STOCH_BIAS_MAX = 3.0
+# Weekly Stoch %K vs %D: require a clear cross before strong signals.
+STOCH_CROSS_EPS = 1.0
 TF_RSI_WEIGHT: Dict[str, float] = {"1W": 2.0, "2W": 1.5, "1M": 1.0, "2M": 0.75}
 OSC_RSI_WEIGHT = 0.65
 OSC_STOCH_WEIGHT = 0.35
+
+# Tighter bullish bar (needs weekly Stoch K>D); sell side unchanged vs prior.
+VERDICT_STRONG_ACCUM = 2.25
+VERDICT_ACCUM = 1.0
+VERDICT_SELL = -0.75
+VERDICT_STRONG_SELL = -2.0
 
 VERDICT_SORT_RANK: Dict[str, int] = {
     "Strong Accumulation": 0,
@@ -246,17 +254,54 @@ def format_tf_snapshot(
     return f"{label} | " + ", ".join(parts)
 
 
+def weekly_stoch_cross_state(metrics: Dict[str, Any]) -> Optional[str]:
+    """
+    Weekly Stoch RSI fast (%K) vs slow (%D).
+    Returns 'bull' (K>D), 'bear' (K<D), 'flat', or None if missing.
+    """
+    k = metrics.get("1W_stoch")
+    d = metrics.get("1W_stoch_d")
+    if k is None or d is None:
+        return None
+    kf, df = float(k), float(d)
+    if kf > df + STOCH_CROSS_EPS:
+        return "bull"
+    if kf < df - STOCH_CROSS_EPS:
+        return "bear"
+    return "flat"
+
+
+def apply_weekly_stoch_cross_gate(combined: float, metrics: Dict[str, Any]) -> float:
+    """
+    Require weekly Stoch fast/slow alignment for strong signals.
+    No weekly bullish cross → cut / cap bullish bias; no bearish cross → cut / cap sell bias.
+    """
+    state = weekly_stoch_cross_state(metrics)
+    if state is None:
+        if combined > 0.5:
+            return combined * 0.65
+        if combined < -0.5:
+            return combined * 0.65
+        return combined
+    if combined > 0 and state != "bull":
+        # Oversold alone is not enough without weekly K crossing above D.
+        return min(combined * 0.35, VERDICT_ACCUM - 0.15)
+    if combined < 0 and state != "bear":
+        return max(combined * 0.35, VERDICT_SELL + 0.15)
+    return combined
+
+
 def _verdict_from_bias(total: float, n_tf: int) -> Verdict:
     if n_tf <= 0:
         return "Neutral"
     avg = total / max(n_tf, 1)
-    if avg >= 2.0:
+    if avg >= VERDICT_STRONG_ACCUM:
         return "Strong Accumulation"
-    if avg >= 0.75:
+    if avg >= VERDICT_ACCUM:
         return "Accumulation"
-    if avg <= -2.0:
+    if avg <= VERDICT_STRONG_SELL:
         return "Strong Sell (Get Out)"
-    if avg <= -0.75:
+    if avg <= VERDICT_SELL:
         return "Sell"
     return "Neutral"
 
@@ -264,13 +309,14 @@ def _verdict_from_bias(total: float, n_tf: int) -> Verdict:
 def _compute_verdict_bias(metrics: Dict[str, Any], timeframes: Sequence[str], n_tf: int) -> float:
     osc_b = weighted_oscillator_bias(metrics, timeframes)
     if n_tf <= 0:
-        return osc_b
+        return apply_weekly_stoch_cross_gate(osc_b, metrics)
     other = sum(_other_tf_bias(metrics, tf) for tf in timeframes) / n_tf
     if osc_b <= -0.5:
         other = min(other, 0.0)
     elif osc_b >= 0.5:
         other = max(other, 0.0)
-    return osc_b + other * 0.35
+    combined = osc_b + other * 0.35
+    return apply_weekly_stoch_cross_gate(combined, metrics)
 
 
 def _rsi_values(metrics: Dict[str, Any], timeframes: Sequence[str]) -> List[float]:
@@ -300,6 +346,7 @@ def _verdict_summary(verdict: Verdict, metrics: Dict[str, Any], timeframes: Sequ
     min_rsi = min(all_rsi) if all_rsi else None
     max_stoch = max(all_stoch) if all_stoch else None
     min_stoch = min(all_stoch) if all_stoch else None
+    cross = weekly_stoch_cross_state(metrics)
 
     if verdict in ("Strong Accumulation", "Accumulation"):
         parts: List[str] = []
@@ -309,6 +356,8 @@ def _verdict_summary(verdict: Verdict, metrics: Dict[str, Any], timeframes: Sequ
             parts.append(
                 f"Stoch < {STOCH_ACCUM_BELOW:.0f} (weekly {float(w_stoch):.0f})" if w_stoch else f"Stoch < {STOCH_ACCUM_BELOW:.0f}"
             )
+        if cross == "bull":
+            parts.append("weekly Stoch K>D")
         if parts:
             strength = " — deeply oversold." if verdict == "Strong Accumulation" else " — lower = stronger accumulation."
             return " · ".join(parts) + strength
@@ -319,9 +368,16 @@ def _verdict_summary(verdict: Verdict, metrics: Dict[str, Any], timeframes: Sequ
             parts.append(f"RSI > {RSI_SELL_ABOVE:.0f} (peak {max_rsi:.0f})")
         if max_stoch is not None and max_stoch > STOCH_SELL_ABOVE:
             parts.append(f"Stoch > {STOCH_SELL_ABOVE:.0f} (peak {max_stoch:.0f})")
+        if cross == "bear":
+            parts.append("weekly Stoch K<D")
         if parts:
             strength = " — exit / reduce exposure." if verdict == "Strong Sell (Get Out)" else " — trim / take profit."
             return " · ".join(parts) + strength
+
+    if verdict == "Neutral" and cross in ("flat", "bear") and min_stoch is not None and min_stoch < STOCH_ACCUM_BELOW:
+        return "Oversold Stoch but weekly K not above D — wait for bullish cross."
+    if verdict == "Neutral" and cross in ("flat", "bull") and max_stoch is not None and max_stoch > STOCH_SELL_ABOVE:
+        return "Extended Stoch but weekly K not below D — wait for bearish cross."
 
     summaries = {
         "Strong Accumulation": "Deeply oversold RSI/Stoch with confirming signals.",

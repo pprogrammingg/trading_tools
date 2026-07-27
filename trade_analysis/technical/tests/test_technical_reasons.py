@@ -66,8 +66,8 @@ class TestTechnicalReasons(unittest.TestCase):
             {
                 "1W_rsi": 55.0,
                 "1W_score": 5.0,
-                "1W_stoch": 88.0,
-                "1W_stoch_d": 85.0,
+                "1W_stoch": 95.0,
+                "1W_stoch_d": 98.0,  # weekly K < D (bearish alignment)
             },
             timeframes=("1W",),
             tf_labels={"1W": "W"},
@@ -78,6 +78,8 @@ class TestTechnicalReasons(unittest.TestCase):
     def test_deep_oversold_accumulation(self):
         m = self._sample_metrics()
         m["1W_rsi"] = 18.0
+        m["1W_stoch"] = 8.0
+        m["1W_stoch_d"] = 5.0  # weekly bullish K > D
         m["1M_rsi"] = 25.0
         m["1M_score"] = 5.0
         m["1M_macd_bullish"] = False
@@ -86,13 +88,32 @@ class TestTechnicalReasons(unittest.TestCase):
         m["1M_momentum"] = -2.0
         m["1M_close"] = 90.0
         m["1M_ema50"] = 95.0
+        m["1M_stoch"] = 12.0
+        m["1M_stoch_d"] = 10.0
         v, text = build_technical_reasons(m, timeframes=("1W", "1M"), tf_labels={"1W": "W", "1M": "M"})
         self.assertIn(v, ("Strong Accumulation", "Accumulation"))
         self.assertIn("oversold", text.lower())
 
+    def test_oversold_without_weekly_stoch_cross_is_weaker(self):
+        m = self._sample_metrics()
+        m["1W_rsi"] = 18.0
+        m["1W_stoch"] = 8.0
+        m["1W_stoch_d"] = 15.0  # K still below D — no bullish cross
+        m["1M_rsi"] = 22.0
+        m["1M_score"] = 5.0
+        m["1M_stoch"] = 10.0
+        m["1M_stoch_d"] = 12.0
+        v, text = build_technical_reasons(m, timeframes=("1W", "1M"), tf_labels={"1W": "W", "1M": "M"})
+        self.assertNotIn(v, ("Strong Accumulation", "Accumulation"))
+        self.assertIn("cross", text.lower())
+
     def test_overbought_sell(self):
         v, text = build_technical_reasons(
             {
+                "1W_rsi": 72.0,
+                "1W_score": 3.0,
+                "1W_stoch": 88.0,
+                "1W_stoch_d": 92.0,
                 "1M_rsi": 78.0,
                 "1M_score": 3.0,
                 "1M_macd_bullish": False,
@@ -102,9 +123,9 @@ class TestTechnicalReasons(unittest.TestCase):
                 "1M_close": 80.0,
                 "1M_ema50": 90.0,
                 "1M_stoch": 88.0,
-                "1M_stoch_d": 85.0,
+                "1M_stoch_d": 91.0,
             },
-            timeframes=("1M",),
+            timeframes=("1W", "1M"),
         )
         self.assertIn(v, ("Sell", "Strong Sell (Get Out)"))
         self.assertIn("overbought", text.lower())
@@ -145,12 +166,20 @@ class TestTechnicalReasons(unittest.TestCase):
                 "1M_gmma_bullish": True,
                 "2M_rsi": 85.0,
                 "2M_score": 0.0,
+                "2M_stoch": 90.0,
+                "2M_stoch_d": 93.0,
                 "2M_macd_bullish": False,
                 "2M_macd_positive": False,
                 "2M_adx": 49.0,
                 "2M_momentum": 50.0,
                 "2M_obv_trending_up": True,
                 "2M_gmma_bullish": True,
+                "1W_stoch": 82.0,
+                "1W_stoch_d": 88.0,
+                "2W_stoch": 86.0,
+                "2W_stoch_d": 90.0,
+                "1M_stoch": 91.0,
+                "1M_stoch_d": 94.0,
             },
             timeframes=("1W", "2W", "1M", "2M"),
             tf_labels={"1W": "W", "2W": "2W", "1M": "M", "2M": "2M"},

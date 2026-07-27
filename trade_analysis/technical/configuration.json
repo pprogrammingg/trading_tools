@@ -18,12 +18,12 @@
     "performance_vs_btc_eth.json",
     "performance_vs_spy.json"
   ],
-  "max_symbols_per_category": 12,
+  "max_symbols_per_category": 30,
   "categories": {
-    "quantum": ["QTUM", "QUBT", "IONQ", "RGTI", "QBTS", "ARQQ", "GOOGL", "IBM", "MSFT"],
+    "quantum": ["QTUM", "QUBT", "IONQ", "RGTI", "QBTS", "ARQQ", "HQ", "GOOGL", "IBM", "MSFT"],
     "miner_hpc": ["WGMI", "BITQ", "DAPP", "IREN", "BMNR", "HUT", "CIFR", "WULF", "CORZ", "CLSK", "MNRS"],
     "faang_hot_stocks": ["QQQ", "XLK", "META", "AAPL", "AMZN", "NFLX", "GOOGL", "MSFT", "APLD", "ARM", "CRWD", "MU"],
-    "tech_stocks": ["IGV", "SKYY", "WCLD", "NOW", "SNOW", "CRM", "ORCL", "ADBE", "INTU", "TMUS", "PATH", "DLO"],
+    "tech_stocks": ["IGV", "SKYY", "WCLD", "NOW", "SNOW", "CRM", "ORCL", "ADBE", "INTU", "TMUS", "PATH", "DLO", "ZETA"],
     "cryptocurrencies": [],
     "_crypto_comment": "Resolved at runtime: top 5 non-stable by mcap + TAO-USD + NEAR-USD (see crypto_universe.py)",
     "precious_metals": ["GC=F", "SI=F", "GLD", "SLV", "IAU", "GDX", "GDXJ", "PA=F", "PL=F"],
@@ -34,20 +34,24 @@
     "renewable_energy": ["TAN", "ICLN", "QCLN", "ENPH", "FSLR", "NEE", "SEDG", "RUN", "PLUG", "DQ", "CSIQ"],
     "battery_storage": ["LIT", "QCLN", "GRID", "QS", "SLDP", "AMSC", "CHPT", "BLDP", "ALB"],
     "next_gen_automotive": ["DRIV", "KARS", "TSLA", "NIO", "LI", "XPEV", "RIVN", "LCID", "F", "GM", "TM"],
-    "ai_semiconductors": ["SMH", "SOXX", "NVDA", "AMD", "AVGO", "QCOM", "INTC", "TSM", "ASML", "MRVL", "ON", "MPWR"],
+    "ai_semiconductors": ["SMH", "SOXX", "ALAB", "CRDO", "VRT", "AACAY", "TER", "MKSI", "MU", "TOELY", "AMAT", "ASML", "LITE", "COHR", "GLW", "000660.KS", "NVDA", "AMD", "AVGO", "QCOM", "INTC", "TSM", "MRVL", "ON", "MPWR"],
     "energy_commodities": ["XLE", "USO", "UNG", "CL=F", "NG=F", "HO=F", "RB=F"],
     "agricultural_commodities": ["DBA", "MOO", "ZC=F", "ZS=F", "ZW=F", "KC=F", "CT=F", "SB=F"],
     "industrial_metals": ["COPX", "CPER", "PICK", "HG=F", "FCX", "SCCO", "TECK", "IVN.TO", "ERO", "STLD"],
     "real_estate": ["VNQ", "XLRE", "IYR", "SCHH", "VNQI", "RWR", "O", "WELL"],
-    "healthcare": ["XLV", "IHI", "VHT", "ISRG", "DXCM", "VEEV", "TMO", "DHR", "UNH", "MDT", "ABT", "SYK"],
+    "healthcare": ["XLV", "IHI", "VHT", "CLOV", "ISRG", "DXCM", "VEEV", "TMO", "DHR", "UNH", "MDT", "ABT", "SYK"],
     "financials": ["JPM", "BAC", "WFC", "GS", "MS", "C"],
     "consumer_discretionary": ["HD", "NKE", "SBUX", "MCD", "LOW", "TGT", "TJX", "ORLY", "AZO"],
     "utilities": ["DUK", "SO", "D", "AEP", "NEE", "XEL", "WEC", "ES"],
-    "macro_trend": ["^GSPC", "EEM", "DX-Y.NYB", "^VIX", "TLT", "HYG", "LQD"],
-    "space_defense": ["PLTR", "KTOS", "UMAC", "LMT", "RKLB"]
+    "macro_trend": ["^GSPC", "EEM", "DX-Y.NYB", "^VIX", "TLT", "HYG", "LQD"]
   },
   "index_must_include": {
-    "gold_miners": ["NFG.V"]
+    "gold_miners": ["NFG.V"],
+    "healthcare": ["CLOV"],
+    "precious_metals": ["GC=F", "SI=F", "SI/GC"],
+    "ai_semiconductors": ["ALAB", "CRDO", "VRT", "AACAY", "TER", "MKSI", "MU", "TOELY", "AMAT", "ASML", "LITE", "COHR", "GLW", "000660.KS"],
+    "quantum": ["HQ"],
+    "tech_stocks": ["ZETA", "NOW"]
   },
   "symbol_aliases": {
     "BTC": "BTC-USD",
@@ -65,7 +69,17 @@
     "SP500": "SPY",
     "NASDAQ": "QQQ",
     "NFG": "NFG.V",
-    "EDR": "EDR.TO"
+    "EDR": "EDR.TO",
+    "AAC": "AACAY",
+    "MKS": "MKSI",
+    "TKY-GF": "TOELY",
+    "TKY": "TOELY",
+    "TOKYO_ELECTRON": "TOELY",
+    "LUMENTUM": "LITE",
+    "CORNING": "GLW",
+    "SK_HYNIX": "000660.KS",
+    "SKHYNIX": "000660.KS",
+    "HYNIX": "000660.KS"
   },
   "category_aliases": {
     "precious_metals": "precious_metals",
@@ -98,12 +112,12 @@
     "financials": "financials",
     "consumer_discretionary": "consumer_discretionary",
     "utilities": "utilities",
-    "macro_trend": "macro_trend",
-    "space_defense": "space_defense"
+    "macro_trend": "macro_trend"
   },
   "symbol_display_names": {
-    "GC=F": "Gold",
-    "SI=F": "Silver",
+    "GC=F": "Gold/USD",
+    "SI=F": "Silver/USD",
+    "SI/GC": "Silver/Gold",
     "PA=F": "Palladium",
     "PL=F": "Platinum",
     "BTC-USD": "Bitcoin",
@@ -136,9 +150,23 @@
     "CCO": "Cameco (Uranium)",
     "TMQ": "Trilogy Metals",
     "USAR": "U.S. Rare Earth",
-    "PLTR": "Palantir",
-    "KTOS": "Kratos Defense",
-    "UMAC": "Unusual Machines",
+    "ALAB": "Astera Labs",
+    "CRDO": "Credo Technology",
+    "VRT": "Vertiv",
+    "AACAY": "AAC Technologies",
+    "TER": "Teradyne",
+    "MKSI": "MKS Instruments",
+    "MU": "Micron",
+    "TOELY": "Tokyo Electron",
+    "AMAT": "Applied Materials",
+    "ASML": "ASML",
+    "LITE": "Lumentum",
+    "COHR": "Coherent",
+    "GLW": "Corning",
+    "000660.KS": "SK Hynix",
+    "HQ": "Horizon Quantum",
+    "ZETA": "Zeta Global",
+    "NOW": "ServiceNow",
     "NFG.V": "New Found Gold",
     "EDR.TO": "Endeavour Silver",
     "EQX": "Equinox Gold",
@@ -163,7 +191,14 @@
   },
   "symbol_index_labels": {
     "NFG.V": "NFG",
-    "EDR.TO": "EDR"
+    "EDR.TO": "EDR",
+    "GC=F": "Gold/USD",
+    "SI=F": "Silver/USD",
+    "SI/GC": "SI/GC",
+    "AACAY": "AAC",
+    "MKSI": "MKS",
+    "TOELY": "TKY",
+    "000660.KS": "HYNIX"
   },
   "category_display_names": {
     "precious_metals": "Precious Metals",
@@ -188,8 +223,7 @@
     "financials": "Financials",
     "consumer_discretionary": "Consumer Discretionary",
     "utilities": "Utilities",
-    "macro_trend": "Macro Trend",
-    "space_defense": "Space / Satellites / Defense"
+    "macro_trend": "Macro Trend"
   },
   "gold_silver_tickers": ["GC=F", "SI=F"],
   "ticker_download_category": {

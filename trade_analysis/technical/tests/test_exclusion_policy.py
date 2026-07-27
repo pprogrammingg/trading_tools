@@ -39,7 +39,7 @@ class TestExclusionPolicy(unittest.TestCase):
 
     def test_fundamental_skip_superset(self):
         self.assertIn("energy_commodities", FUNDAMENTAL_SCAN_SKIP_CATEGORIES)
-        self.assertIn("space_defense", FUNDAMENTAL_SCAN_SKIP_CATEGORIES)
+        self.assertIn("financials", FUNDAMENTAL_SCAN_SKIP_CATEGORIES)
 
 
 if __name__ == "__main__":

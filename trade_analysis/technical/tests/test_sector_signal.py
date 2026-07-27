@@ -96,25 +96,28 @@ class TestSectorSignal(unittest.TestCase):
         self.assertEqual(picks[0]["symbol"], "SMH")
         self.assertEqual(picks[1]["symbol"], "SOXX")
 
-    def test_must_include_pinned_in_gold_miners(self):
+    def test_must_include_exceeds_max_picks(self):
         rows = [
-            {"symbol": "GDX", "yahoo_symbol": "GDX", "final_score": 5.0, "tech_score": 4.0},
-            {"symbol": "GDXJ", "yahoo_symbol": "GDXJ", "final_score": 4.8, "tech_score": 4.0},
-            {"symbol": "FNV", "yahoo_symbol": "FNV", "final_score": 4.5, "tech_score": 4.0},
-            {"symbol": "NFG", "yahoo_symbol": "NFG.V", "final_score": 3.5, "tech_score": 2.3},
-            {"symbol": "EQX", "yahoo_symbol": "EQX", "final_score": 4.2, "tech_score": 3.8},
+            {"symbol": "SMH", "yahoo_symbol": "SMH", "final_score": 9.0, "tech_score": 9.0},
+            {"symbol": "SOXX", "yahoo_symbol": "SOXX", "final_score": 8.0, "tech_score": 8.0},
         ]
+        must = [f"P{i}" for i in range(12)]
+        for i, sym in enumerate(must):
+            rows.append(
+                {"symbol": sym, "yahoo_symbol": sym, "final_score": float(i), "tech_score": float(i)}
+            )
         picks = pick_sector_index_rows(
-            "gold_miners",
+            "ai_semiconductors",
             rows,
-            max_picks=5,
+            max_picks=10,
             etfs_per_industry=2,
-            sector_etfs={"gold_miners": ["GDX", "GDXJ"]},
-            must_include=["NFG.V"],
+            sector_etfs={"ai_semiconductors": ["SMH", "SOXX"]},
+            must_include=must,
         )
-        symbols = [p["symbol"] for p in picks]
-        self.assertIn("NFG", symbols)
-        self.assertEqual(symbols[:2], ["GDX", "GDXJ"])
+        symbols = {p["symbol"] for p in picks}
+        self.assertEqual(len(picks), 14)  # 2 ETFs + 12 must
+        for sym in must:
+            self.assertIn(sym, symbols)
 
 
 if __name__ == "__main__":

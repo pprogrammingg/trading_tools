@@ -11,7 +11,6 @@ from typing import FrozenSet, Set, Tuple
 # Whole configuration.json categories to drop from trade index / fundamental scans.
 EXCLUDED_CATEGORIES: FrozenSet[str] = frozenset(
     {
-        "space_defense",
         "financials",
         "macro_trend",
     }
@@ -171,7 +170,7 @@ FUNDAMENTAL_SCAN_SKIP_CATEGORIES: FrozenSet[str] = EXCLUDED_CATEGORIES | frozens
     }
 )
 
-_BLOCKLIST_CONFIG_CATEGORIES: Tuple[str, ...] = ("space_defense", "financials")
+_BLOCKLIST_CONFIG_CATEGORIES: Tuple[str, ...] = ("financials",)
 
 
 def base_symbol(yahoo_ticker: str) -> str:
