@@ -5,119 +5,119 @@
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "NVIDIA Corporation operates as a data center scale AI infrastructure company in the United States, Taiwan, China, Hong Kong, Europe, and internationally. It operates through Compute & Networking, and Graphics segments…",
-    "market_cap": "5056375554048"
+    "market_cap": "5009871732736"
   },
   "AMD": {
     "long_name": "Advanced Micro Devices, Inc.",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "Advanced Micro Devices, Inc. operates as a semiconductor company internationally. It operates in three segments: Data Center, Client and Gaming, and Embedded. The company offers artificial intelligence (AI) accelerato…",
-    "market_cap": "880018849792"
+    "market_cap": "851091980288"
   },
   "AVGO": {
     "long_name": "Broadcom Inc.",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "Broadcom Inc. designs, develops, and supplies various semiconductor devices and infrastructure software solutions internationally. The company operates in two segments: Semiconductor Solutions and Infrastructure Softw…",
-    "market_cap": "1867207540736"
+    "market_cap": "1817015091200"
   },
   "QCOM": {
     "long_name": "QUALCOMM Incorporated",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "QUALCOMM Incorporated engages in the development and commercialization of foundational technologies for the wireless industry worldwide. It operates through three segments: Qualcomm CDMA Technologies (QCT); Qualcomm T…",
-    "market_cap": "180349943808"
+    "market_cap": "175986376704"
   },
   "INTC": {
     "long_name": "Intel Corporation",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "Intel Corporation designs, develops, manufactures, markets, sells, and services computing and related end products and services in the United States, Ireland, Israel, and internationally. It operates through three seg…",
-    "market_cap": "503755997184"
+    "market_cap": "465662050304"
   },
   "TSM": {
     "long_name": "Taiwan Semiconductor Manufacturing Company Limited",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "Taiwan Semiconductor Manufacturing Company Limited, together with its subsidiaries, manufactures, packages, tests, and sells integrated circuits and other semiconductor devices in Taiwan, China, Europe, the Middle Eas…",
-    "market_cap": "2155394760704"
+    "market_cap": "2092275466240"
   },
   "ASML": {
     "long_name": "ASML Holding N.V.",
     "sector": "Technology",
     "industry": "Semiconductor Equipment & Materials",
     "summary": "ASML Holding N.V. provides lithography solutions for the development, production, marketing, sales, upgrading, and servicing of advanced semiconductor equipment systems. The company offers lithography, metrology, and…",
-    "market_cap": "692532281344"
+    "market_cap": "674898247680"
   },
   "MRVL": {
     "long_name": "Marvell Technology, Inc.",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "Marvell Technology, Inc., together with its subsidiaries, provides data infrastructure semiconductor solutions and spanning the data center core to network edge in the United States, Argentina, China, India, Israel, J…",
-    "market_cap": "187874017280"
+    "market_cap": "174330052608"
   },
   "ON": {
     "long_name": "ON Semiconductor Corporation",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "ON Semiconductor Corporation provides intelligent sensing and power solutions in Hong Kong, Singapore, the United Kingdom, the United States, and internationally. It operates through three segments: Power Solutions Gr…",
-    "market_cap": "35077296128"
+    "market_cap": "33785200640"
   },
   "MPWR": {
     "long_name": "Monolithic Power Systems, Inc.",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "Monolithic Power Systems, Inc. provides semiconductor-based power electronics solutions in China, Taiwan, South Korea, Southeast Asia, Europe, the United States, Japan, and internationally. The company offers direct c…",
-    "market_cap": "68641980416"
+    "market_cap": "65530089472"
   },
   "QS": {
     "long_name": "QuantumScape Corporation",
     "sector": "Consumer Cyclical",
     "industry": "Auto Parts",
     "summary": "QuantumScape Corporation, together with its subsidiaries, develops solid-state lithium-metal battery technology for electric vehicles and other applications in the United States. The company was founded in 2010 and is…",
-    "market_cap": "3146467072"
+    "market_cap": "3004983808"
   },
   "SLDP": {
     "long_name": "Solid Power, Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Auto Parts",
     "summary": "Solid Power, Inc., a research and development-stage company, develops solid-state battery technologies for the electric vehicles markets in the United States. It engages in the development of sulfide-based solid elect…",
-    "market_cap": "483714976"
+    "market_cap": "467966080"
   },
   "AMSC": {
     "long_name": "American Superconductor Corporation",
     "sector": "Industrials",
     "industry": "Specialty Industrial Machinery",
     "summary": "American Superconductor Corporation, together with its subsidiaries, provides megawatt-scale power resiliency solutions worldwide. The company operates through two segments: Grid and Wind segments. The Grid segment of…",
-    "market_cap": "1599256192"
+    "market_cap": "1479069696"
   },
   "CHPT": {
     "long_name": "ChargePoint Holdings, Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Specialty Retail",
     "summary": "ChargePoint Holdings, Inc., together with its subsidiaries, provides electric vehicle (EV) charging technology solutions in the United States and internationally. The company offers a range of networked charging syste…",
-    "market_cap": "140106192"
+    "market_cap": "132595872"
   },
   "BLDP": {
     "long_name": "Ballard Power Systems Inc.",
     "sector": "Industrials",
     "industry": "Electrical Equipment & Parts",
     "summary": "Ballard Power Systems Inc. engages in the design, development, manufacture, sale, and service of proton exchange membrane (PEM) fuel cell products. The company offers products for various applications focusing on powe…",
-    "market_cap": "898398016"
+    "market_cap": "874279936"
   },
   "LAC": {
     "long_name": "Lithium Americas Corp.",
     "sector": "Basic Materials",
     "industry": "Other Industrial Metals & Mining",
     "summary": "Lithium Americas Corp., a resource and materials company, focuses on developing, building, and operating of lithium deposits and chemical processing facilities in the United States and Canada. The company's flagship a…",
-    "market_cap": "1021591808"
+    "market_cap": "986485504"
   },
   "ALB": {
     "long_name": "Albemarle Corporation",
     "sector": "Basic Materials",
     "industry": "Specialty Chemicals",
     "summary": "Albemarle Corporation provides energy storage solutions worldwide. It operates through three segments: Energy Storage, Specialties, and Ketjen. The Energy Storage segment offers lithium compounds, including lithium ca…",
-    "market_cap": "13787740160"
+    "market_cap": "13544794112"
   },
   "REMX": {
     "long_name": "VanEck Rare Earth and Strategic Metals ETF",
@@ -129,14 +129,14 @@
     "sector": "Basic Materials",
     "industry": "Other Industrial Metals & Mining",
     "summary": "Critical Metals Corp. operates as a mining exploration and development company in Austria and Southern Greenland. The company explores for lithium and rare earth element deposits. The company is headquartered in New Y…",
-    "market_cap": "897490304"
+    "market_cap": "853423616"
   },
   "UUUU": {
     "long_name": "Energy Fuels Inc.",
     "sector": "Energy",
     "industry": "Uranium",
     "summary": "Energy Fuels Inc., together with its subsidiaries, engages in the exploration, recovery, recycling, exploration, operation, development, permitting, evaluation, and sale of uranium mineral properties in the United Sta…",
-    "market_cap": "3001529088"
+    "market_cap": "2824086528"
   },
   "CCO": {
     "long_name": "Clear Channel Outdoor Holdings, Inc.",
@@ -156,109 +156,109 @@
     "sector": "Energy",
     "industry": "Uranium",
     "summary": "Cameco Corporation provides uranium for the generation of electricity in the Americas, Europe, and Asia. It operates in three segments: Uranium, Fuel Services, and Westinghouse. The Uranium segment engages in the expl…",
-    "market_cap": "38906163200"
+    "market_cap": "38265929728"
   },
   "AEM": {
     "long_name": "Agnico Eagle Mines Limited",
     "sector": "Basic Materials",
     "industry": "Gold",
     "summary": "Agnico Eagle Mines Limited, a gold mining company, engages in the exploration, development, and production of precious metals. It explores for gold, silver, copper, and zinc. The company's mines are located in Canada,…",
-    "market_cap": "72260231168"
+    "market_cap": "72570257408"
   },
   "FCX": {
     "long_name": "Freeport-McMoRan Inc.",
     "sector": "Basic Materials",
     "industry": "Copper",
     "summary": "Freeport-McMoRan Inc. engages in the mining of mineral properties in North America, South America, and Indonesia. The company primarily explores for copper, gold, molybdenum, silver, and other metals. Its assets inclu…",
-    "market_cap": "91285045248"
+    "market_cap": "89991241728"
   },
   "HD": {
     "long_name": "The Home Depot, Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Home Improvement Retail",
     "summary": "The Home Depot, Inc. operates as a home improvement retailer in the United States and internationally. It sells various building materials, home improvement products, lawn and garden products, and décor products, as w…",
-    "market_cap": "323773759488"
+    "market_cap": "332019924992"
   },
   "NKE": {
     "long_name": "NIKE, Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Footwear & Accessories",
     "summary": "NIKE, Inc., together with its subsidiaries, designs, develops, markets, and sells athletic footwear, apparel, equipment, accessories, and services for men, women, and kids in North America, Europe, the Middle East, Af…",
-    "market_cap": "60808617984"
+    "market_cap": "61861900288"
   },
   "SBUX": {
     "long_name": "Starbucks Corporation",
     "sector": "Consumer Cyclical",
     "industry": "Restaurants",
     "summary": "Starbucks Corporation, together with its subsidiaries, operates as a roaster, marketer, and retailer of coffee internationally. The company operates through three segments: North America, International, and Channel De…",
-    "market_cap": "117628436480"
+    "market_cap": "117674024960"
   },
   "MCD": {
     "long_name": "McDonald's Corporation",
     "sector": "Consumer Cyclical",
     "industry": "Restaurants",
     "summary": "McDonald's Corporation owns, operates, and franchises restaurants under the McDonald's brand in the United States and internationally. It offers food and beverages, including hamburgers and cheeseburgers, various chic…",
-    "market_cap": "186720927744"
+    "market_cap": "188113534976"
   },
   "LOW": {
     "long_name": "Lowe's Companies, Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Home Improvement Retail",
     "summary": "Lowe's Companies, Inc., together with its subsidiaries, operates as a home improvement retailer in the United States and Canada. It provides a line of products for construction, maintenance, repair, remodeling, and de…",
-    "market_cap": "113217970176"
+    "market_cap": "116425220096"
   },
   "TGT": {
     "long_name": "Target Corporation",
     "sector": "Consumer Defensive",
     "industry": "Discount Stores",
     "summary": "Target Corporation operates as a general merchandise retailer in the United States. It offers apparel for women, men, young adults, kids, toddlers, and babies, as well as jewelry, accessories, and shoes; and beauty pr…",
-    "market_cap": "61079617536"
+    "market_cap": "62124257280"
   },
   "TJX": {
     "long_name": "The TJX Companies, Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Apparel Retail",
     "summary": "The TJX Companies, Inc., together with its subsidiaries, operates as an off-price apparel and home fashions retailer worldwide. It operates through four segments: Marmaxx, HomeGoods, TJX Canada, and TJX International.…",
-    "market_cap": "169550020608"
+    "market_cap": "170367516672"
   },
   "ORLY": {
     "long_name": "O'Reilly Automotive, Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Auto Parts",
     "summary": "O'Reilly Automotive, Inc., together with its subsidiaries, operates as a retailer and supplier of automotive aftermarket parts, tools, supplies, equipment, and accessories in the United States, Puerto Rico, Mexico, an…",
-    "market_cap": "71360651264"
+    "market_cap": "72429699072"
   },
   "AZO": {
     "long_name": "AutoZone, Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Auto Parts",
     "summary": "AutoZone, Inc. operates as a retailer and distributor of automotive replacement parts and accessories in the United States, Mexico, and Brazil. The company offers a product line for cars, sport utility vehicles, vans,…",
-    "market_cap": "47727173632"
+    "market_cap": "48280768512"
   },
   "BTC-USD": {
     "long_name": "Bitcoin USD",
-    "summary": "Bitcoin (BTC) is a cryptocurrency launched in 2010. Users are able to generate BTC through the process of mining. Bitcoin has a current supply of 20,060,503. The last known price of Bitcoin is 65,268.67929064 USD and…",
-    "market_cap": "1304363139072"
+    "summary": "Bitcoin (BTC) is a cryptocurrency launched in 2010. Users are able to generate BTC through the process of mining. Bitcoin has a current supply of 20,061,553. The last known price of Bitcoin is 64,485.59246874 USD and…",
+    "market_cap": "1308730589184"
   },
   "ETH-USD": {
     "long_name": "Ethereum USD",
-    "summary": "Ethereum (ETH) is a cryptocurrency . Ethereum has a current supply of 120,682,712.41641597. The last known price of Ethereum is 1,879.61899064 USD and is down -2.20 over the last 24 hours. It is currently trading on 1…",
-    "market_cap": "227455008768"
+    "summary": "Ethereum (ETH) is a cryptocurrency . Ethereum has a current supply of 120,682,664.78736638. The last known price of Ethereum is 1,885.85086916 USD and is up 0.92 over the last 24 hours. It is currently trading on 1224…",
+    "market_cap": "234643816448"
   },
   "BNB-USD": {
     "long_name": "BNB USD",
-    "summary": "BNB (BNB) is a cryptocurrency . BNB has a current supply of 133,165,760.82. The last known price of BNB is 567.28017465 USD and is down -0.43 over the last 24 hours. It is currently trading on 3316 active market(s) wi…",
-    "market_cap": "75635089408"
+    "summary": "BNB (BNB) is a cryptocurrency . BNB has a current supply of 133,165,667.95. The last known price of BNB is 570.46855964 USD and is up 0.36 over the last 24 hours. It is currently trading on 3318 active market(s) with…",
+    "market_cap": "76224094208"
   },
   "XRP-USD": {
     "long_name": "XRP USD",
-    "summary": "XRP (XRP) is a cryptocurrency . XRP has a current supply of 99,985,639,695 with 62,466,503,703 in circulation. The last known price of XRP is 1.10906386 USD and is down -2.31 over the last 24 hours. It is currently tr…",
-    "market_cap": "69123743744"
+    "summary": "XRP (XRP) is a cryptocurrency . XRP has a current supply of 99,985,635,707 with 62,533,271,955 in circulation. The last known price of XRP is 1.09759007 USD and is up 0.52 over the last 24 hours. It is currently tradi…",
+    "market_cap": "69107335168"
   },
   "SOL-USD": {
     "long_name": "Solana USD",
-    "summary": "Solana (SOL) is a cryptocurrency launched in 2020. Solana has a current supply of 630,867,694.85398519 with 582,865,039.82489872 in circulation. The last known price of Solana is 75.76944289 USD and is down -2.33 over…",
-    "market_cap": "44007727104"
+    "summary": "Solana (SOL) is a cryptocurrency launched in 2020. Solana has a current supply of 630,994,882.33904946 with 582,978,537.12769449 in circulation. The last known price of Solana is 74.86536385 USD and is up 1.08 over th…",
+    "market_cap": "44514914304"
   },
   "TAO-USD": {
     "long_name": "Together As One USD",
@@ -266,64 +266,64 @@
   },
   "NEAR-USD": {
     "long_name": "NEAR Protocol USD",
-    "summary": "NEAR Protocol (NEAR) is a cryptocurrency launched in 2020. NEAR Protocol has a current supply of 1,301,689,177. The last known price of NEAR Protocol is 1.90007191 USD and is up 1.61 over the last 24 hours. It is curr…",
-    "market_cap": "2458885376"
+    "summary": "NEAR Protocol (NEAR) is a cryptocurrency launched in 2020. NEAR Protocol has a current supply of 1,301,875,358. The last known price of NEAR Protocol is 1.79001497 USD and is down -0.38 over the last 24 hours. It is c…",
+    "market_cap": "2399931136"
   },
   "META": {
     "long_name": "Meta Platforms, Inc.",
     "sector": "Communication Services",
     "industry": "Internet Content & Information",
     "summary": "Meta Platforms, Inc. engages in the development of products that enable people to connect and share with friends and family through mobile devices, personal computers, virtual reality (VR) headsets, and AI glasses in…",
-    "market_cap": "1538538340352"
+    "market_cap": "1510844137472"
   },
   "AAPL": {
     "long_name": "Apple Inc.",
     "sector": "Technology",
     "industry": "Consumer Electronics",
     "summary": "Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company offers iPhone, a line of smartphones; Mac, a line of personal computers; iPad,…",
-    "market_cap": "4724335050752"
+    "market_cap": "4891182891008"
   },
   "AMZN": {
     "long_name": "Amazon.com, Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Internet Retail",
     "summary": "Amazon.com, Inc. engages in the retail sale of consumer products, advertising, and subscriptions service through online and physical stores in North America and internationally. The company operates through three segm…",
-    "market_cap": "2513506402304"
+    "market_cap": "2496832733184"
   },
   "NFLX": {
     "long_name": "Netflix, Inc.",
     "sector": "Communication Services",
     "industry": "Entertainment",
     "summary": "Netflix, Inc. provides entertainment services worldwide. The company offers television (TV) series, documentaries, feature films, games, and live programming across various genres and languages. It also provides membe…",
-    "market_cap": "286853791744"
+    "market_cap": "291850518528"
   },
   "GOOGL": {
     "long_name": "Alphabet Inc.",
     "sector": "Communication Services",
     "industry": "Internet Content & Information",
     "summary": "Alphabet Inc. offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. It operates through Google Services, Google Cloud, and Other Bets…",
-    "market_cap": "3885328236544"
+    "market_cap": "3910399426560"
   },
   "MSFT": {
     "long_name": "Microsoft Corporation",
     "sector": "Technology",
     "industry": "Software - Infrastructure",
     "summary": "Microsoft Corporation develops and supports software, services, devices, and solutions worldwide. The Productivity and Business Processes segment offers Microsoft 365 commercial, enterprise mobility + security, window…",
-    "market_cap": "2834542100480"
+    "market_cap": "2835433652224"
   },
   "APLD": {
     "long_name": "Applied Digital Corporation",
     "sector": "Technology",
     "industry": "Information Technology Services",
     "summary": "Applied Digital Corporation designs, develops, and operates digital infrastructure solutions to high-performance computing (HPC) and artificial intelligence industries in North America. It operates through: Data Cente…",
-    "market_cap": "8541651456"
+    "market_cap": "7770073600"
   },
   "ARM": {
     "long_name": "Arm Holdings plc",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "Arm Holdings plc researches, develops, licenses, and markets central processing unit (CPU) intellectual property (IP), graphics processing unit IP, systems IP, compute subsystems (CSS), and associated software, tools…",
-    "market_cap": "302309015552"
+    "market_cap": "277711159296"
   },
   "ABNB": {
     "long_name": "Airbnb, Inc.",
@@ -336,70 +336,70 @@
     "sector": "Technology",
     "industry": "Software - Infrastructure",
     "summary": "CrowdStrike Holdings, Inc. provides cybersecurity solutions in the United States and internationally. Its unified platform provides cloud-delivered protection of endpoints, cloud workloads, identity, and data through…",
-    "market_cap": "186769113088"
+    "market_cap": "186626555904"
   },
   "ISRG": {
     "long_name": "Intuitive Surgical, Inc.",
     "sector": "Healthcare",
     "industry": "Medical Instruments & Supplies",
     "summary": "Intuitive Surgical, Inc. develops, manufactures, and markets products that enable physicians and healthcare providers to enhance the quality of and access to minimally invasive care in the United States and internatio…",
-    "market_cap": "118955474944"
+    "market_cap": "120918843392"
   },
   "DXCM": {
     "long_name": "DexCom, Inc.",
     "sector": "Healthcare",
     "industry": "Medical Devices",
     "summary": "DexCom, Inc., a medical device company, focuses on the design, development, and commercialization of continuous glucose monitoring (CGM) systems for the management of diabetes and metabolic health in the United States…",
-    "market_cap": "27196329984"
+    "market_cap": "27605354496"
   },
   "VEEV": {
     "long_name": "Veeva Systems Inc.",
     "sector": "Healthcare",
     "industry": "Health Information Services",
     "summary": "Veeva Systems Inc. provides cloud-based software for the life sciences industry in North America, Europe, the Asia Pacific, the Middle East, Africa, and Latin America. The company offers Veeva Commercial Cloud compris…",
-    "market_cap": "29171566592"
+    "market_cap": "30253441024"
   },
   "TMO": {
     "long_name": "Thermo Fisher Scientific Inc.",
     "sector": "Healthcare",
     "industry": "Diagnostics & Research",
     "summary": "Thermo Fisher Scientific Inc. provides life sciences solutions, analytical instruments, specialty diagnostics, and laboratory products and biopharma services internationally. It operates through four segments: Life Sc…",
-    "market_cap": "212686405632"
+    "market_cap": "211177619456"
   },
   "DHR": {
     "long_name": "Danaher Corporation",
     "sector": "Healthcare",
     "industry": "Diagnostics & Research",
     "summary": "Danaher Corporation designs, manufactures, and markets professional, medical, research, and industrial products and services in the United States, China, and internationally. The company operates through Biotechnology…",
-    "market_cap": "135324811264"
+    "market_cap": "134621831168"
   },
   "UNH": {
     "long_name": "UnitedHealth Group Incorporated",
     "sector": "Healthcare",
     "industry": "Healthcare Plans",
     "summary": "UnitedHealth Group Incorporated operates as a health care company in the United States and internationally. It operates through four segments: Optum Health, Optum Insight, Optum Rx; and UnitedHealthcare. The Optum Hea…",
-    "market_cap": "384653623296"
+    "market_cap": "382092673024"
   },
   "MDT": {
     "long_name": "Medtronic plc",
     "sector": "Healthcare",
     "industry": "Medical Devices",
     "summary": "Medtronic plc develops, manufactures, and sells device-based medical therapies to healthcare systems, physicians, clinicians, and patients in the United States, Ireland, and internationally. It operates through three…",
-    "market_cap": "104976506880"
+    "market_cap": "106512556032"
   },
   "ABT": {
     "long_name": "Abbott Laboratories",
     "sector": "Healthcare",
     "industry": "Medical Devices",
     "summary": "Abbott Laboratories, together with its subsidiaries, discovers, develops, manufactures, and sells health care products worldwide. It operates in four segments: Established Pharmaceutical Products, Diagnostic Products,…",
-    "market_cap": "175487664128"
+    "market_cap": "179511263232"
   },
   "SYK": {
     "long_name": "Stryker Corporation",
     "sector": "Healthcare",
     "industry": "Medical Devices",
     "summary": "Stryker Corporation operates as a medical technology company in the United States and internationally. It operates through two segments, MedSurg and Neurotechnology, and Orthopaedics. The MedSurg and Neurotechnology s…",
-    "market_cap": "122280583168"
+    "market_cap": "126604894208"
   },
   "SPY": {
     "long_name": "State Street SPDR S&P 500 ETF Trust",
@@ -453,7 +453,7 @@
     "sector": "Basic Materials",
     "industry": "Copper",
     "summary": "Southern Copper Corporation engages in mining, exploring, smelting, and refining copper and other minerals in Mexico, the United States, Peru, Brazil, Chile, and Other American countries. The company is involved in th…",
-    "market_cap": "142866399232"
+    "market_cap": "140569165824"
   },
   "CPER": {
     "long_name": "United States Copper Index Fund, LP",
@@ -463,23 +463,23 @@
   "TECK": {
     "long_name": "Teck Resources Limited",
     "sector": "Basic Materials",
-    "industry": "Other Industrial Metals & Mining",
+    "industry": "Copper",
     "summary": "Teck Resources Limited engages in research, exploration, development, processing, smelting, refining, and reclamation of mineral properties in Asia, the Americas, and Europe. It operates through Copper and Zinc segmen…",
-    "market_cap": "29362409472"
+    "market_cap": "29529212928"
   },
   "ERO": {
     "long_name": "Ero Copper Corp.",
     "sector": "Basic Materials",
     "industry": "Copper",
     "summary": "Ero Copper Corp. engages in the exploration, development, and production of mining projects in Brazil. Its flagship asset includes Caraíba operations that comprise the production and sale of copper concentrates locate…",
-    "market_cap": "2749810176"
+    "market_cap": "2709141504"
   },
   "STLD": {
     "long_name": "Steel Dynamics, Inc.",
     "sector": "Basic Materials",
     "industry": "Steel",
     "summary": "Steel Dynamics, Inc., together with its subsidiaries, operates as a steel producer and metal recycler in the United States. It operates through four segments: Steel Operations, Metals Recycling Operations, Steel Fabri…",
-    "market_cap": "34693271552"
+    "market_cap": "35636420608"
   },
   "ZEC-USD": {
     "long_name": "Zcash USD",
@@ -495,49 +495,49 @@
     "sector": "Financial Services",
     "industry": "Capital Markets",
     "summary": "IREN Limited operates in the vertically integrated data center business in Australia and Canada. The company owns and operates computing hardware, as well as electrical infrastructure and data centers. It also mines B…",
-    "market_cap": "14502427648"
+    "market_cap": "13673308160"
   },
   "BMNR": {
     "long_name": "Bitmine Immersion Technologies, Inc.",
     "sector": "Financial Services",
     "industry": "Capital Markets",
     "summary": "Bitmine Immersion Technologies, Inc. operates as a blockchain technology company primarily in the United States. The company engages in ETH treasury operations; BTC ecosystem services, including consulting and advisor…",
-    "market_cap": "10007525376"
+    "market_cap": "9524943872"
   },
   "HUT": {
     "long_name": "Hut 8 Corp.",
     "sector": "Financial Services",
     "industry": "Capital Markets",
     "summary": "Hut 8 Corp., together with its subsidiaries, operates as an energy infrastructure platform that integrates power, digital infrastructure, and compute at scale to fuel energy-intensive use cases in the United States an…",
-    "market_cap": "13248949248"
+    "market_cap": "12384226304"
   },
   "CIFR": {
     "long_name": "Cipher Digital Inc.",
     "sector": "Technology",
     "industry": "Information Technology Services",
     "summary": "Cipher Digital Inc., together with its subsidiaries, develops and operates industrial-scale data centers for bitcoin mining and high-performance compute (HPC) hosting in the United States. It develops HPC data center…",
-    "market_cap": "10561649664"
+    "market_cap": "9469488128"
   },
   "WULF": {
     "long_name": "TeraWulf Inc.",
     "sector": "Financial Services",
     "industry": "Capital Markets",
     "summary": "TeraWulf Inc., together with its subsidiaries, owns, develops, operates digital infrastructure in the United States. It also develops and operates bitcoin mining facilities for bitcoin mining and high-performance comp…",
-    "market_cap": "9935428608"
+    "market_cap": "9147532288"
   },
   "CORZ": {
     "long_name": "Core Scientific, Inc.",
     "sector": "Technology",
     "industry": "Software - Infrastructure",
     "summary": "Core Scientific, Inc. provides infrastructure for high-density colocation services and digital asset mining in the United States. It operates through three segments: Colocation, Digital Asset Self-Mining, and Digital…",
-    "market_cap": "7616530944"
+    "market_cap": "7231889920"
   },
   "CLSK": {
     "long_name": "CleanSpark, Inc.",
     "sector": "Financial Services",
     "industry": "Capital Markets",
     "summary": "CleanSpark, Inc. operates as a bitcoin mining company in the Americas. The company owns, leases, and operates data centers and power assets. Its infrastructure supports Bitcoin, a digital commodity. The company was fo…",
-    "market_cap": "4005660160"
+    "market_cap": "3725957120"
   },
   "WGMI": {
     "long_name": "CoinShares Bitcoin Mining ETF",
@@ -549,63 +549,63 @@
     "sector": "Consumer Cyclical",
     "industry": "Auto Manufacturers",
     "summary": "Tesla, Inc. designs, develops, manufactures, leases, and sells electric vehicles, and energy generation and storage systems in the United States, China, and internationally. The company operates in two segments, Autom…",
-    "market_cap": "1262630862848"
+    "market_cap": "1236326809600"
   },
   "NIO": {
     "long_name": "NIO Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Auto Manufacturers",
     "summary": "NIO Inc. designs, develops, manufactures, and sells smart electric vehicles in China, Europe, and internationally. It offers five and six-seater electric SUVs, as well as smart electric sedans. The company also offers…",
-    "market_cap": "11626295296"
+    "market_cap": "11250444288"
   },
   "LI": {
     "long_name": "Li Auto Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Auto Manufacturers",
     "summary": "Li Auto Inc. operates in the energy vehicle market in the People's Republic of China. The company designs, develops, manufactures, and sells premium smart electric vehicles. Its product line comprises multi-purpose ve…",
-    "market_cap": "12884081664"
+    "market_cap": "12623691776"
   },
   "XPEV": {
     "long_name": "XPeng Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Auto Manufacturers",
     "summary": "XPeng Inc. designs, develops, manufactures, and markets smart electric vehicles (EVs) in the People's Republic of China and globally. The company offers P7 and P7i, a four-door sports sedan; G9, a smart EV and a mid-…",
-    "market_cap": "12206134272"
+    "market_cap": "11794798592"
   },
   "RIVN": {
     "long_name": "Rivian Automotive, Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Auto Manufacturers",
     "summary": "Rivian Automotive, Inc., together with its subsidiaries, develops, manufactures, and sells category-defining electric vehicles. It operates through two segments, Automotive, and Software and Services. The company offe…",
-    "market_cap": "23823685632"
+    "market_cap": "22926317568"
   },
   "LCID": {
     "long_name": "Lucid Group, Inc.",
     "sector": "Consumer Cyclical",
     "industry": "Auto Manufacturers",
     "summary": "Lucid Group, Inc., a technology company, designs, develops, manufactures, and sells electric vehicles (EV), EV powertrains, and battery systems. The company provides Lucid Air sedan and Lucid Gravity SUV. It also desi…",
-    "market_cap": "2517156352"
+    "market_cap": "2458617856"
   },
   "F": {
     "long_name": "Ford Motor Company",
     "sector": "Consumer Cyclical",
     "industry": "Auto Manufacturers",
     "summary": "Ford Motor Company develops, delivers, and services Ford trucks, sport utility vehicles, commercial vans and cars, and Lincoln luxury vehicles in the United States, Canada, the United Kingdom, Mexico, and internationa…",
-    "market_cap": "56383401984"
+    "market_cap": "57260036096"
   },
   "GM": {
     "long_name": "General Motors Company",
     "sector": "Consumer Cyclical",
     "industry": "Auto Manufacturers",
     "summary": "General Motors Company designs, builds, and sells trucks, crossovers, cars, and automobile parts worldwide. It operates through GM North America, GM International, and GM Financial segments. The company markets its ve…",
-    "market_cap": "72962105344"
+    "market_cap": "74743873536"
   },
   "TM": {
     "long_name": "Toyota Motor Corporation",
     "sector": "Consumer Cyclical",
     "industry": "Auto Manufacturers",
     "summary": "Toyota Motor Corporation designs, manufactures, assembles, and sells passenger vehicles, minivans and commercial vehicles, and related parts and accessories in Japan, North America, Europe, Asia, Central and South Ame…",
-    "market_cap": "209349804032"
+    "market_cap": "210083938304"
   },
   "GLD": {
     "long_name": "SPDR Gold Shares",
@@ -637,7 +637,7 @@
     "sector": "Technology",
     "industry": "Computer Hardware",
     "summary": "IonQ, Inc. develops quantum computing systems in the United States, Switzerland, and Internationally. It sells access to quantum computers of various qubit capacities. The company also makes access to its quantum comp…",
-    "market_cap": "12717306880"
+    "market_cap": "12258185216"
   },
   "QTUM": {
     "long_name": "Defiance Quantum ETF",
@@ -645,39 +645,39 @@
     "market_cap": "6260666368"
   },
   "QBTS": {
-    "long_name": "D-Wave Quantum Inc.",
+    "long_name": "D-Wave Quantum Inc. Common Stock",
     "sector": "Technology",
     "industry": "Computer Hardware",
     "summary": "D-Wave Quantum Inc. engages in the development and delivery of quantum computing systems, software, and services worldwide. It provides Advantage and Advantage 2 quantum computers; Ocean, a suite of open-source tools;…",
-    "market_cap": "6334612992"
+    "market_cap": "6004916224"
   },
   "RGTI": {
     "long_name": "Rigetti Computing, Inc.",
     "sector": "Technology",
     "industry": "Computer Hardware",
     "summary": "Rigetti Computing, Inc., through its subsidiaries, builds and operates quantum computers and the superconducting quantum processors the United States, the United Kingdom, rest of Europe, Asia, and internationally. The…",
-    "market_cap": "4936122368"
+    "market_cap": "4703442944"
   },
   "ARQQ": {
     "long_name": "Arqit Quantum Inc.",
     "sector": "Technology",
     "industry": "Software - Infrastructure",
     "summary": "Arqit Quantum Inc. provides cybersecurity services through satellite and terrestrial platforms in the United Kingdom. The company offers QuantumCloud, a platform as a service that creates unbreakable software encrypti…",
-    "market_cap": "319334272"
+    "market_cap": "289750144"
   },
   "QUBT": {
     "long_name": "Quantum Computing Inc.",
     "sector": "Technology",
     "industry": "Computer Hardware",
     "summary": "Quantum Computing Inc., an integrated photonics company, provides quantum machines to commercial and government markets in the United States. The company develops thin-film lithium niobate chips for optical devices, s…",
-    "market_cap": "1772705024"
+    "market_cap": "1675724928"
   },
   "IBM": {
     "long_name": "International Business Machines Corporation",
     "sector": "Technology",
     "industry": "Information Technology Services",
     "summary": "International Business Machines Corporation, together with its subsidiaries, provides integrated solutions and services in the Americas, Europe, the Middle East, Africa, and the Asia Pacific. It operates through Softw…",
-    "market_cap": "194692071424"
+    "market_cap": "201795764224"
   },
   "VNQ": {
     "long_name": "Vanguard Real Estate Index Fund ETF Shares",
@@ -714,140 +714,140 @@
     "sector": "Real Estate",
     "industry": "REIT - Retail",
     "summary": "Realty Income Corporation, an S&P 500 company, is real estate partner to the world's leading companies. They serve their clients as a full-service real estate capital provider. As of March 31, 2026, They have a portfo…",
-    "market_cap": "60350918656"
+    "market_cap": "61171511296"
   },
   "WELL": {
     "long_name": "Welltower Inc.",
     "sector": "Real Estate",
     "industry": "REIT - Healthcare Facilities",
     "summary": "Welltower Inc., an S&P 500 company, is positioned at the center of the silver economy, focusing on rental housing for aging seniors across the United States, United Kingdom, and Canada. Their portfolio of 2,500+ senio…",
-    "market_cap": "174396162048"
+    "market_cap": "177939857408"
   },
   "ENPH": {
     "long_name": "Enphase Energy, Inc.",
     "sector": "Technology",
     "industry": "Solar",
     "summary": "Enphase Energy, Inc., together with its subsidiaries, designs, develops, manufactures, and sells home energy solutions for the solar photovoltaic industry in the United States and internationally. The company offers s…",
-    "market_cap": "5125633024"
+    "market_cap": "4836995072"
   },
   "SEDG": {
     "long_name": "SolarEdge Technologies, Inc.",
     "sector": "Technology",
     "industry": "Solar",
     "summary": "SolarEdge Technologies, Inc., together with its subsidiaries, operates as an energy technology company in the United States, Europe, and internationally. The company offers power optimizers and DC-to-AC inverters; Sto…",
-    "market_cap": "2745333504"
+    "market_cap": "2590855168"
   },
   "RUN": {
     "long_name": "Sunrun Inc.",
     "sector": "Technology",
     "industry": "Solar",
     "summary": "Sunrun Inc. designs, develops, installs, sells, owns, and maintains residential solar energy systems in the United States. The company sells solar energy systems and products, such as panels and racking; and solar lea…",
-    "market_cap": "2476141568"
+    "market_cap": "2371179776"
   },
   "PLUG": {
     "long_name": "Plug Power Inc.",
     "sector": "Industrials",
     "industry": "Electrical Equipment & Parts",
     "summary": "Plug Power Inc. designs, develops, and sells hydrogen products and solutions in Europe, Australia, North America, and internationally. The company offers GenDrive, a hydrogen fueled PEM fuel cell system, which powers…",
-    "market_cap": "3055201280"
+    "market_cap": "2915694080"
   },
   "FSLR": {
     "long_name": "First Solar, Inc.",
     "sector": "Technology",
     "industry": "Solar",
     "summary": "First Solar, Inc., a solar technology company, provides photovoltaic (PV) solar energy solutions in the United States, France, India, Chile, and internationally. The company manufactures and sells PV solar modules wit…",
-    "market_cap": "22126794752"
+    "market_cap": "21793691648"
   },
   "NEE": {
     "long_name": "NextEra Energy, Inc.",
     "sector": "Utilities",
     "industry": "Utilities - Regulated Electric",
     "summary": "NextEra Energy, Inc., through its subsidiaries, generates, stores, transmits, distributes, and sells electric power to retail and wholesale customers in North America. It operates through Florida Power & Light Company…",
-    "market_cap": "187266514944"
+    "market_cap": "187245641728"
   },
   "DQ": {
     "long_name": "Daqo New Energy Corp.",
     "sector": "Technology",
     "industry": "Semiconductor Equipment & Materials",
     "summary": "Daqo New Energy Corp., together with its subsidiaries, manufactures and sells polysilicon to photovoltaic product manufacturers in the People's Republic of China. The company offers ready-to-use polysilicon, packaged…",
-    "market_cap": "805903680"
+    "market_cap": "789663808"
   },
   "CSIQ": {
     "long_name": "Canadian Solar Inc.",
     "sector": "Technology",
     "industry": "Solar",
     "summary": "Canadian Solar Inc., together with its subsidiaries, provides solar energy and battery energy storage products and solutions in Asia, the United States, Europe, and internationally. It operates through two segments, M…",
-    "market_cap": "997403264"
+    "market_cap": "906421696"
   },
   "PAAS": {
     "long_name": "Pan American Silver Corp.",
     "sector": "Basic Materials",
     "industry": "Gold",
     "summary": "Pan American Silver Corp. engages in the exploration, mine development, extraction, processing, refining, and reclamation of mines in Chile, Peru, Brazil, Mexico, Canada, Argentina, Bolivia, and Guatemala. The Silver…",
-    "market_cap": "18619457536"
+    "market_cap": "18552041472"
   },
   "AG": {
     "long_name": "First Majestic Silver Corp.",
     "sector": "Basic Materials",
     "industry": "Silver",
     "summary": "First Majestic Silver Corp. engages in the acquisition, exploration, development, and production of mineral properties in North America. The company explores for silver and gold deposits. Its projects include the San…",
-    "market_cap": "8122509824"
+    "market_cap": "8053381632"
   },
   "WPM": {
     "long_name": "Wheaton Precious Metals Corp.",
     "sector": "Basic Materials",
     "industry": "Gold",
     "summary": "Wheaton Precious Metals Corp. operates as a precious metal streaming company. It explores for gold, silver, palladium, platinum, and cobalt deposits in Canada, the United States, Mexico, Portugal, Sweden, the United K…",
-    "market_cap": "49967382528"
+    "market_cap": "50625867776"
   },
   "HL": {
     "long_name": "Hecla Mining Company",
     "sector": "Basic Materials",
     "industry": "Other Precious Metals & Mining",
     "summary": "Hecla Mining Company, together with its subsidiaries, provides precious and base metals in the United States, Canada, Japan, Korea, China, and internationally. The company mines for silver, gold, lead, and zinc concen…",
-    "market_cap": "10275313664"
+    "market_cap": "10154586112"
   },
   "SVM": {
     "long_name": "Silvercorp Metals Inc.",
     "sector": "Basic Materials",
     "industry": "Silver",
     "summary": "Silvercorp Metals Inc., together with its subsidiaries, acquires, explores, develops, and mines mineral properties in China. It explores for copper, silver, gold, lead, and zinc metals. The company was formerly known…",
-    "market_cap": "2127968256"
+    "market_cap": "2132392448"
   },
   "NFG.V": {
     "long_name": "New Found Gold Corp.",
     "sector": "Basic Materials",
     "industry": "Gold",
     "summary": "New Found Gold Corp., a mineral exploration company, engages in the identification, evaluation, acquisition, and exploration of mineral properties in the Provinces of Newfoundland and Labrador, Canada. The company pri…",
-    "market_cap": "783528384"
+    "market_cap": "760483456"
   },
   "TMUS": {
     "long_name": "T-Mobile US, Inc.",
     "sector": "Communication Services",
     "industry": "Telecom Services",
     "summary": "T-Mobile US, Inc., together with its subsidiaries, provides wireless communications services in the United States, Puerto Rico, and the United States Virgin Islands. The company offers voice, messaging, and data servi…",
-    "market_cap": "182804692992"
+    "market_cap": "193177419776"
   },
   "NOW": {
     "long_name": "ServiceNow, Inc.",
     "sector": "Technology",
     "industry": "Software - Application",
     "summary": "ServiceNow, Inc. provides cloud-based solution for digital workflows in the North America, Europe, the Middle East and Africa, Asia Pacific, and internationally. The company provides asset management, integrated risk…",
-    "market_cap": "95053275136"
+    "market_cap": "102124888064"
   },
   "PATH": {
     "long_name": "UiPath, Inc.",
     "sector": "Technology",
     "industry": "Software - Infrastructure",
     "summary": "UiPath, Inc. provides an automation platform that offers a range of robotic process automation (RPA) solutions primarily in the United States, Romania, the United Kingdom, the Netherlands, and internationally. It offe…",
-    "market_cap": "5284826624"
+    "market_cap": "5616423424"
   },
   "DLO": {
     "long_name": "DLocal Limited",
     "sector": "Technology",
     "industry": "Software - Infrastructure",
     "summary": "DLocal Limited, together with its subsidiaries, provides payment processing services worldwide. The company offers a robust pay-in solution to help global merchants expand their online presence and receive payments, i…",
-    "market_cap": "4143309312"
+    "market_cap": "4263959552"
   },
   "PGY": {
     "long_name": "Pagaya Technologies Ltd.",
@@ -860,91 +860,91 @@
     "sector": "Technology",
     "industry": "Software - Application",
     "summary": "Snowflake Inc. provides a cloud-based data platform for various organizations in the United States and internationally. The company's platform includes artificial intelligence (AI) Data Cloud, which enables customers…",
-    "market_cap": "91894063104"
+    "market_cap": "92909592576"
   },
   "CRM": {
     "long_name": "Salesforce, Inc.",
     "sector": "Technology",
     "industry": "Software - Application",
     "summary": "Salesforce, Inc. provides customer relationship management technology services that connect companies and customers together in the United States, Europe, and the Asia Pacific. The company offers Agentforce, which ena…",
-    "market_cap": "128525664256"
+    "market_cap": "134037544960"
   },
   "ORCL": {
     "long_name": "Oracle Corporation",
     "sector": "Technology",
     "industry": "Software - Infrastructure",
     "summary": "Oracle Corporation offers products and services that build, run and support enterprise information technology frameworks worldwide. Its Oracle cloud software as a service offering includes various cloud software appli…",
-    "market_cap": "345771737088"
+    "market_cap": "331225366528"
   },
   "ADBE": {
     "long_name": "Adobe Inc.",
     "sector": "Technology",
     "industry": "Software - Application",
     "summary": "Adobe Inc. operates as a technology company worldwide. The Digital Media segment offers products and services that enable individuals, teams, and enterprises to create, publish, and promote content. This segment serve…",
-    "market_cap": "84337573888"
+    "market_cap": "89481224192"
   },
   "INTU": {
     "long_name": "Intuit Inc.",
     "sector": "Technology",
     "industry": "Software - Application",
     "summary": "Intuit Inc. provides financial management, payments and capital, compliance, and marketing products and services in the United States. The company operates in four segments: Global Business Solutions, Consumer, Credit…",
-    "market_cap": "77008871424"
+    "market_cap": "81057210368"
   },
   "DUK": {
     "long_name": "Duke Energy Corporation",
     "sector": "Utilities",
     "industry": "Utilities - Regulated Electric",
     "summary": "Duke Energy Corporation, through its subsidiaries, operates as an energy company in the United States. The company operates through two segments: Electric Utilities and Infrastructure (EU&I); and Gas Utilities and Inf…",
-    "market_cap": "100770603008"
+    "market_cap": "101752905728"
   },
   "SO": {
     "long_name": "The Southern Company",
     "sector": "Utilities",
     "industry": "Utilities - Regulated Electric",
     "summary": "The Southern Company, through its subsidiaries, engages in the sale of electricity. The company offers electric service to retail customers and wholesale customers; and energy-related products and services to natural…",
-    "market_cap": "108897288192"
+    "market_cap": "109630029824"
   },
   "D": {
     "long_name": "Dominion Energy, Inc.",
     "sector": "Utilities",
     "industry": "Utilities - Regulated Electric",
     "summary": "Dominion Energy, Inc. provides regulated electricity and natural gas services in the United States. It operates through Dominion Energy Virginia, Dominion Energy South Carolina, and Contracted Energy segments. The Dom…",
-    "market_cap": "62849961984"
+    "market_cap": "62533337088"
   },
   "AEP": {
     "long_name": "American Electric Power Company, Inc.",
     "sector": "Utilities",
     "industry": "Utilities - Regulated Electric",
     "summary": "American Electric Power Company, Inc., an electric public utility holding company, engages in the generation, transmission, and distribution of electricity for sale to retail and wholesale customers in the United Stat…",
-    "market_cap": "73410650112"
+    "market_cap": "73747988480"
   },
   "XEL": {
     "long_name": "Xcel Energy Inc.",
     "sector": "Utilities",
     "industry": "Utilities - Regulated Electric",
     "summary": "Xcel Energy Inc., through its subsidiaries, operates as an electric and natural gas delivery company in the United States. It operates through Regulated Electric Utility and Regulated Natural Gas Utility segments. The…",
-    "market_cap": "50422251520"
+    "market_cap": "50984095744"
   },
   "WEC": {
     "long_name": "WEC Energy Group, Inc.",
     "sector": "Utilities",
     "industry": "Utilities - Regulated Electric",
     "summary": "WEC Energy Group, Inc., through its subsidiaries, provides regulated natural gas and electricity, and renewable and nonregulated renewable energy services in the United States. The company operates through Wisconsin,…",
-    "market_cap": "37367246848"
+    "market_cap": "37709258752"
   },
   "ES": {
     "long_name": "Eversource Energy",
     "sector": "Utilities",
     "industry": "Utilities - Regulated Electric",
     "summary": "Eversource Energy, a public utility holding company, engages in the energy delivery business. The company operates through Electric Distribution, Electric Transmission, Natural Gas Distribution, and Water Distribution…",
-    "market_cap": "28063092736"
+    "market_cap": "28172156928"
   },
   "IVN.TO": {
     "long_name": "Ivanhoe Mines Ltd.",
     "sector": "Basic Materials",
     "industry": "Other Industrial Metals & Mining",
     "summary": "Ivanhoe Mines Ltd., together with its subsidiaries, engages in the mining, development, and exploration of minerals and precious metals in Africa. The company explores gold, platinum, palladium, rhodium, nickel, coppe…",
-    "market_cap": "15161320448"
+    "market_cap": "15132793856"
   },
   "DBA": {
     "long_name": "Invesco DB Agriculture Fund",
@@ -991,7 +991,7 @@
     "sector": "Basic Materials",
     "industry": "Other Industrial Metals & Mining",
     "summary": "MP Materials Corp., together with its subsidiaries, produces rare earth materials in the Western Hemisphere. It operates in two segments, Materials and Magnetics. The Materials segment owns and operates the Mountain P…",
-    "market_cap": "7948690944"
+    "market_cap": "7352316416"
   },
   "XLE": {
     "long_name": "State Street Energy Select Sector SPDR ETF",
@@ -1018,7 +1018,7 @@
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "Micron Technology, Inc. designs, develops, manufactures, and sells memory and storage products in the United States, Taiwan, Japan, Mainland China, Hong Kong, Europe, and internationally. It operates through the Cloud…",
-    "market_cap": "1118336450560"
+    "market_cap": "1040114647040"
   },
   "GOAU": {
     "long_name": "U.S. Global GO GOLD and Precious Metal Miners ETF",
@@ -1030,35 +1030,35 @@
     "sector": "Basic Materials",
     "industry": "Silver",
     "summary": "Endeavour Silver Corp., a silver mining company, engages in the acquisition, exploration, development, extraction, processing, refining, and reclamation of mineral properties in Mexico, Chile, Peru, and the United Sta…",
-    "market_cap": "3295245824"
+    "market_cap": "3262678272"
   },
   "EQX": {
     "long_name": "Equinox Gold Corp.",
     "sector": "Basic Materials",
     "industry": "Gold",
     "summary": "Equinox Gold Corp. engages in the acquisition, exploration, development, and operation of mineral properties in the Americas. It primarily explores gold and silver deposits. The company was formerly known as Trek Mini…",
-    "market_cap": "7331276288"
+    "market_cap": "7323384320"
   },
   "KGC": {
     "long_name": "Kinross Gold Corporation",
     "sector": "Basic Materials",
     "industry": "Gold",
     "summary": "Kinross Gold Corporation, together with its subsidiaries, engages in the acquisition, exploration, and development of gold properties principally in the United States, Brazil, Chile, Canada, and Mauritania. It is also…",
-    "market_cap": "28264570880"
+    "market_cap": "28479510528"
   },
   "FNV": {
     "long_name": "Franco-Nevada Corporation",
     "sector": "Basic Materials",
     "industry": "Gold",
     "summary": "Franco-Nevada Corporation operates as a royalty and stream company focused on precious metals in South America, Central America, Mexico, the United States, Canada, Australia, Europe, and Africa. The company operates t…",
-    "market_cap": "41313513472"
+    "market_cap": "41402224640"
   },
   "AGI": {
     "long_name": "Alamos Gold Inc.",
     "sector": "Basic Materials",
     "industry": "Gold",
     "summary": "Alamos Gold Inc. operates as a gold producer in Canada and Mexico. It primarily explores for gold deposits. The company was founded in 2003 and is based in Toronto, Canada.",
-    "market_cap": "12338583552"
+    "market_cap": "12422577152"
   },
   "XLV": {
     "long_name": "State Street Health Care Select Sector SPDR ETF",
@@ -1165,104 +1165,121 @@
     "sector": "Healthcare",
     "industry": "Healthcare Plans",
     "summary": "Clover Health Investments, Corp. provides medicare advantage plans in the United States. The company offers preferred provider organization and health maintenance organization plans to medicare-eligible individuals. I…",
-    "market_cap": "2396413696"
+    "market_cap": "2275276288"
   },
   "ALAB": {
     "long_name": "Astera Labs, Inc.",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "Astera Labs, Inc. designs, manufactures, and sells semiconductor-based connectivity solutions for cloud and AI infrastructure in Taiwan and the United States. It offers an intelligent connectivity platform, comprised…",
-    "market_cap": "56045252608"
+    "market_cap": "49979121664"
   },
   "CRDO": {
     "long_name": "Credo Technology Group Holding Ltd",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "Credo Technology Group Holding Ltd provides various high-speed connectivity solutions for optical and electrical Ethernet and PCIe applications in the United States, Taiwan, Mainland China, Hong Kong, and other intern…",
-    "market_cap": "44102025216"
+    "market_cap": "39747764224"
   },
   "VRT": {
     "long_name": "Vertiv Holdings Co",
     "sector": "Industrials",
     "industry": "Electrical Equipment & Parts",
     "summary": "Vertiv Holdings Co designs, manufactures, and services critical digital infrastructure technologies and life cycle services for data centers, communication networks, and commercial and industrial environments in the A…",
-    "market_cap": "116784439296"
+    "market_cap": "111529828352"
   },
   "AACAY": {
     "long_name": "AAC Technologies Holdings Inc.",
     "sector": "Technology",
     "industry": "Communication Equipment",
     "summary": "AAC Technologies Holdings Inc., an investment holding company, engages in the sensory experience solutions in Greater China, the United States, Europe, Other Asian countries, and internationally. It operates through A…",
-    "market_cap": "5698147840"
+    "market_cap": "5605683200"
   },
   "TER": {
     "long_name": "Teradyne, Inc.",
     "sector": "Technology",
     "industry": "Semiconductor Equipment & Materials",
     "summary": "Teradyne, Inc. engages in the design, development, manufacture, and sale of automated test systems and robotics products in the United States, Asia Pacific, Europe, the Middle East, and Africa. The company operates th…",
-    "market_cap": "58507632640"
+    "market_cap": "54777233408"
   },
   "MKSI": {
     "long_name": "MKS Inc.",
     "sector": "Technology",
     "industry": "Scientific & Technical Instruments",
     "summary": "MKS Inc. provides foundational technology solutions to semiconductor manufacturing, electronics and packaging, and specialty industrial applications in the United States, China, South Korea, Japan, Taiwan, Singapore,…",
-    "market_cap": "23322986496"
+    "market_cap": "22234175488"
   },
   "TOELY": {
     "long_name": "Tokyo Electron Limited",
     "sector": "Technology",
     "industry": "Semiconductor Equipment & Materials",
     "summary": "Tokyo Electron Limited, together with its subsidiaries, develops, manufactures, and sells semiconductor production equipment in Japan, South Korea, Taiwan, China, North America, Europe, and internationally. The compan…",
-    "market_cap": "181478572032"
+    "market_cap": "171030691840"
   },
   "AMAT": {
     "long_name": "Applied Materials, Inc.",
     "sector": "Technology",
     "industry": "Semiconductor Equipment & Materials",
     "summary": "Applied Materials, Inc. provides materials engineering solutions, equipment, services, and software to the semiconductor and related industries in the United States, China, Korea, Taiwan, Japan, Southeast Asia, Europe…",
-    "market_cap": "446840340480"
+    "market_cap": "425760751616"
   },
   "LITE": {
     "long_name": "Lumentum Holdings Inc.",
     "sector": "Technology",
     "industry": "Communication Equipment",
     "summary": "Lumentum Holdings Inc. manufactures and sells optical and photonic products in the Americas, the Asia-Pacific, Europe, the Middle East, and Africa. It operates through two segments, Cloud & Networking and Industrial T…",
-    "market_cap": "64857194496"
+    "market_cap": "59360620544"
   },
   "COHR": {
     "long_name": "Coherent Corp.",
     "sector": "Technology",
     "industry": "Scientific & Technical Instruments",
     "summary": "Coherent Corp. develops, manufactures, and markets engineered materials, optoelectronic components and devices, and laser systems for the use in the industrial, communications, electronics, and instrumentation markets…",
-    "market_cap": "61278150656"
+    "market_cap": "55246594048"
   },
   "GLW": {
     "long_name": "Corning Incorporated",
     "sector": "Technology",
     "industry": "Electronic Components",
     "summary": "Corning Incorporated operates in optical communications, display, specialty materials, automotive, and life sciences businesses in the United States, Canada, Mexico, Japan, Taiwan, China, South Korea, Germany, and int…",
-    "market_cap": "134311133184"
+    "market_cap": "126212530176"
   },
   "000660.KS": {
     "long_name": "SK hynix Inc.",
     "sector": "Technology",
     "industry": "Semiconductors",
     "summary": "SK hynix Inc. through its subsidiaries, engages in research, develops, manufactures, distributes, and sells semiconductor devices in Korea, China, rest of Asia, the United States, Europe, and internationally. It offer…",
-    "market_cap": "1248634771341312"
+    "market_cap": "1263541797519360"
   },
   "HQ": {
     "long_name": "Horizon Quantum Holdings Ltd.",
     "sector": "Technology",
     "industry": "Software - Infrastructure",
     "summary": "Horizon Quantum Holdings Ltd. develops programming tools and software that simplify and automate the process of developing applications for quantum computers. The company provides programming tools that enable develop…",
-    "market_cap": "708683584"
+    "market_cap": "603464192"
   },
   "ZETA": {
     "long_name": "Zeta Global Holdings Corp.",
     "sector": "Technology",
     "industry": "Software - Infrastructure",
     "summary": "Zeta Global Holdings Corp. operates an omnichannel data-driven cloud platform that provides enterprises with consumer intelligence and marketing automation software in the United States and internationally. The compan…",
-    "market_cap": "4830612480"
+    "market_cap": "4768297984"
+  },
+  "HIVE": {
+    "long_name": "HIVE Digital Technologies Ltd.",
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "summary": "HIVE Digital Technologies Ltd., a technology company, engages in the building and operating data centers powered by green energy in Bermuda, Paraguay, Sweden, and Canada. The Company operates the mining and sale of di…",
+    "market_cap": "820915712"
+  },
+  "RIOT": {
+    "long_name": "Riot Platforms, Inc.",
+    "sector": "Financial Services",
+    "industry": "Capital Markets",
+    "summary": "Riot Platforms, Inc., together with its subsidiaries, operates as a Bitcoin mining company in the United States. It operates in two segments, Bitcoin Mining and Engineering. The company offers comprehensive and critic…",
+    "market_cap": "8364705792"
+  },
+  "KILO.TO": {
+    "long_name": "Purpose Gold Bullion Fund"
   }
 }

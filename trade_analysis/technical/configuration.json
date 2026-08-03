@@ -21,12 +21,12 @@
   "max_symbols_per_category": 30,
   "categories": {
     "quantum": ["QTUM", "QUBT", "IONQ", "RGTI", "QBTS", "ARQQ", "HQ", "GOOGL", "IBM", "MSFT"],
-    "miner_hpc": ["WGMI", "BITQ", "DAPP", "IREN", "BMNR", "HUT", "CIFR", "WULF", "CORZ", "CLSK", "MNRS"],
+    "miner_hpc": ["WGMI", "BITQ", "DAPP", "IREN", "HIVE", "RIOT", "BMNR", "HUT", "CIFR", "WULF", "CORZ", "CLSK", "MNRS"],
     "faang_hot_stocks": ["QQQ", "XLK", "META", "AAPL", "AMZN", "NFLX", "GOOGL", "MSFT", "APLD", "ARM", "CRWD", "MU"],
     "tech_stocks": ["IGV", "SKYY", "WCLD", "NOW", "SNOW", "CRM", "ORCL", "ADBE", "INTU", "TMUS", "PATH", "DLO", "ZETA"],
     "cryptocurrencies": [],
     "_crypto_comment": "Resolved at runtime: top 5 non-stable by mcap + TAO-USD + NEAR-USD (see crypto_universe.py)",
-    "precious_metals": ["GC=F", "SI=F", "GLD", "SLV", "IAU", "GDX", "GDXJ", "PA=F", "PL=F"],
+    "precious_metals": ["GC=F", "SI=F", "GLD", "SLV", "IAU", "GDX", "GDXJ", "PA=F", "PL=F", "KILO.TO"],
     "gold_miners": ["GDX", "GDXJ", "GOAU", "NFG.V", "EDR.TO", "AEM", "EQX", "KGC", "FNV", "AGI"],
     "index_etfs": ["SPY", "QQQ", "IWM", "DIA", "HLAL", "SPUS", "IBIT", "FBTC", "BITQ", "ETHA", "VTWO", "ACWI"],
     "clean_energy_materials": ["REMX", "LIT", "COPX", "CRML", "UUUU", "CCO", "LAC", "ALB", "CCJ", "AEM", "FCX", "MP"],
@@ -48,10 +48,17 @@
   "index_must_include": {
     "gold_miners": ["NFG.V"],
     "healthcare": ["CLOV"],
-    "precious_metals": ["GC=F", "SI=F", "SI/GC"],
+    "precious_metals": ["GC=F", "SI=F", "SI/GC", "KILO.TO"],
     "ai_semiconductors": ["ALAB", "CRDO", "VRT", "AACAY", "TER", "MKSI", "MU", "TOELY", "AMAT", "ASML", "LITE", "COHR", "GLW", "000660.KS"],
     "quantum": ["HQ"],
-    "tech_stocks": ["ZETA", "NOW"]
+    "tech_stocks": ["ZETA", "NOW"],
+    "miner_hpc": ["IREN", "HIVE", "RIOT"]
+  },
+  "portfolio": {
+    "IREN": {"held": true, "acc": ["MR", "MT"]},
+    "HIVE": {"held": true, "acc": ["MR", "MT"]},
+    "RIOT": {"held": true, "acc": ["MR", "MT"]},
+    "KILO": {"held": true, "acc": ["MR", "MT"]}
   },
   "symbol_aliases": {
     "BTC": "BTC-USD",
@@ -79,7 +86,8 @@
     "CORNING": "GLW",
     "SK_HYNIX": "000660.KS",
     "SKHYNIX": "000660.KS",
-    "HYNIX": "000660.KS"
+    "HYNIX": "000660.KS",
+    "KILO": "KILO.TO"
   },
   "category_aliases": {
     "precious_metals": "precious_metals",
@@ -164,6 +172,10 @@
     "COHR": "Coherent",
     "GLW": "Corning",
     "000660.KS": "SK Hynix",
+    "KILO.TO": "Purpose Gold Bullion (KILO)",
+    "HIVE": "HIVE Digital",
+    "RIOT": "Riot Platforms",
+    "IREN": "IREN",
     "HQ": "Horizon Quantum",
     "ZETA": "Zeta Global",
     "NOW": "ServiceNow",
@@ -198,7 +210,8 @@
     "AACAY": "AAC",
     "MKSI": "MKS",
     "TOELY": "TKY",
-    "000660.KS": "HYNIX"
+    "000660.KS": "HYNIX",
+    "KILO.TO": "KILO"
   },
   "category_display_names": {
     "precious_metals": "Precious Metals",

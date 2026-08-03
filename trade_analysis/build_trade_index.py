@@ -51,6 +51,12 @@ from sector_signal import (  # noqa: E402
     sector_verdict_sort_rank,
 )
 from universe_collectors import collect_index_rows_from_results  # noqa: E402
+from portfolio_positions import (  # noqa: E402
+    format_acc,
+    get_portfolio_map,
+    position_for_symbol,
+    sector_phase_rank,
+)
 
 RANK_TFS: Tuple[str, ...] = ("1W", "2W", "1M", "2M")
 TF_SHORT = {"1W": "W", "2W": "2W", "1M": "M", "2M": "2M"}
@@ -66,22 +72,24 @@ INDUSTRY_ORDER: Tuple[str, ...] = tuple(k for k, _ in INDEX_SECTOR_SECTIONS)
 INDEX_CSS_TEXT = """
 body.trade-index { max-width: 100%; margin: 0 auto; padding: 20px 12px 48px; font-family: system-ui, sans-serif; background: #f1f5f9; color: #1e293b; }
 .trade-index h1 { text-align: center; margin-bottom: 6px; }
-.trade-index .subtitle { text-align: center; color: #64748b; max-width: 900px; margin: 0 auto 20px; line-height: 1.5; }
+.trade-index .subtitle { text-align: center; color: #64748b; max-width: 960px; margin: 0 auto 20px; line-height: 1.5; }
 .trade-index .meta { text-align: center; font-size: 0.85rem; color: #94a3b8; margin-bottom: 16px; }
 .trade-index-table-wrap { overflow-x: auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; max-height: 85vh; overflow-y: auto; }
-.trade-index-table { width: 100%; min-width: 1100px; table-layout: fixed; border-collapse: collapse; font-size: 0.74rem; }
+.trade-index-table { width: 100%; min-width: 1180px; table-layout: fixed; border-collapse: collapse; font-size: 0.74rem; }
 .trade-index-table th { position: sticky; top: 0; background: #0f766e; color: #fff; padding: 5px 2px; text-align: left; z-index: 2; font-size: 0.68rem; line-height: 1.15; }
 .trade-index-table th.num { text-align: center; white-space: nowrap; }
 .trade-index-table th.col-ind-sub { font-weight: 500; font-size: 0.58rem; opacity: 0.92; }
 .trade-index-table td { padding: 5px 2px; border-bottom: 1px solid #e2e8f0; vertical-align: top; overflow-wrap: anywhere; }
 .trade-index-table tr:hover td { background: #f8fafc; }
 .trade-index-table tr.industry-header td { background: #e0f2fe; color: #0c4a6e; font-weight: 700; font-size: 0.9rem; padding: 10px 8px; border-bottom: 2px solid #7dd3fc; position: sticky; top: 36px; z-index: 1; }
+.trade-index-table tr.industry-header.sector-held td { background: #fef3c7; color: #92400e; border-bottom-color: #fbbf24; }
 .trade-index-table tr.industry-header.sector-strong-accumulation td { background: #bbf7d0; color: #14532d; border-bottom-color: #4ade80; }
 .trade-index-table tr.industry-header.sector-accumulation td { background: #d1fae5; color: #14532d; border-bottom-color: #86efac; }
 .trade-index-table tr.industry-header.sector-sell td { background: #ffedd5; color: #9a3412; border-bottom-color: #fdba74; }
 .trade-index-table tr.industry-header.sector-strong-sell td { background: #fee2e2; color: #7f1d1d; border-bottom-color: #fca5a5; }
 .trade-index-table tr.industry-header.sector-neutral td { background: #fef9c3; color: #713f12; border-bottom-color: #fde047; }
 .trade-index-table tr.industry-header:hover td { background: #e0f2fe; }
+.trade-index-table tr.industry-header.sector-held:hover td { background: #fde68a; }
 .trade-index-table tr.industry-header.sector-strong-accumulation:hover td { background: #86efac; }
 .trade-index-table tr.industry-header.sector-accumulation:hover td { background: #bbf7d0; }
 .trade-index-table tr.industry-header.sector-sell:hover td { background: #fed7aa; }
@@ -97,6 +105,8 @@ body.trade-index { max-width: 100%; margin: 0 auto; padding: 20px 12px 48px; fon
 .trade-index-table tr.sector-signal-row.sector-strong-sell:hover td { background: #fee2e2; }
 .trade-index-table tr.sector-signal-row.sector-neutral td { background: #fefce8; border-bottom: 2px solid #fde68a; }
 .trade-index-table tr.sector-signal-row.sector-neutral:hover td { background: #fef9c3; }
+.trade-index-table tr.row-held td { background: #fffbeb; }
+.trade-index-table tr.row-held:hover td { background: #fef3c7; }
 .trade-index-table .sector-signal-label { color: #0d9488; font-size: 0.72rem; }
 .trade-index-table .sector-signal-call { font-weight: 700; }
 .trade-index-table .sector-signal-etfs { font-size: 0.72rem; }
@@ -105,15 +115,17 @@ body.trade-index { max-width: 100%; margin: 0 auto; padding: 20px 12px 48px; fon
 .trade-index-table .sector-verdict-sell { color: #b45309; font-weight: 700; }
 .trade-index-table .sector-verdict-strong-sell { color: #b91c1c; font-weight: 700; }
 .trade-index-table .sector-verdict-neutral { color: #a16207; font-weight: 700; }
-.trade-index-table .col-rank { width: 1.8%; }
-.trade-index-table .col-ticker { width: 4.0%; }
-.trade-index-table .col-mcap { width: 3.6%; }
-.trade-index-table .col-desc { width: 10.5%; }
-.trade-index-table .col-fund { width: 12%; }
-.trade-index-table .col-ind { width: 2.0%; }
-.trade-index-table .col-macd { width: 1.9%; }
-.trade-index-table .col-ta { width: 13%; }
-.trade-index-table .col-score { width: 2.6%; }
+.trade-index-table .col-rank { width: 1.6%; }
+.trade-index-table .col-ticker { width: 3.6%; }
+.trade-index-table .col-held { width: 2.4%; }
+.trade-index-table .col-acc { width: 3.6%; }
+.trade-index-table .col-mcap { width: 3.4%; }
+.trade-index-table .col-desc { width: 10%; }
+.trade-index-table .col-fund { width: 11%; }
+.trade-index-table .col-ind { width: 1.9%; }
+.trade-index-table .col-macd { width: 1.8%; }
+.trade-index-table .col-ta { width: 12%; }
+.trade-index-table .col-score { width: 2.5%; }
 .trade-index-table .macd-bull { color: #15803d; font-weight: 600; }
 .trade-index-table .macd-bear { color: #b91c1c; font-weight: 600; }
 .trade-index-table .macd-hist { color: #0d9488; font-weight: 600; }
@@ -126,6 +138,9 @@ body.trade-index { max-width: 100%; margin: 0 auto; padding: 20px 12px 48px; fon
 .trade-index-table .tech-summary { font-family: system-ui, sans-serif; font-size: 0.72rem; color: #475569; display: block; margin-bottom: 4px; }
 .trade-index-table .tech-verdict { font-weight: 700; font-size: 0.78rem; display: inline-block; margin-bottom: 2px; }
 .trade-index-table .num { text-align: center; white-space: nowrap; font-size: 0.68rem; }
+.trade-index-table .held-yes { color: #b45309; font-weight: 700; }
+.trade-index-table .held-no { color: #94a3b8; }
+.trade-index-table .acc-col { text-align: center; font-size: 0.68rem; font-weight: 600; color: #0f172a; white-space: nowrap; }
 .trade-index-table .score-final { font-weight: 700; background: #ecfdf5; }
 .trade-index-table .ticker { font-weight: 700; font-size: 0.76rem; overflow-wrap: normal; word-break: keep-all; }
 .trade-index-links { text-align: center; margin: 16px 0; font-size: 0.9rem; }
@@ -208,17 +223,24 @@ def _group_rows_by_industry(
     etfs_per_industry: int,
     result_dir: Optional[Path] = None,
 ) -> List[Dict[str, Any]]:
-    """Top picks per niche (max 10); sections sorted by sector ETF signal."""
+    """Top picks per niche; sectors: held first, then Accum → Sell → Neutral."""
     from collections import defaultdict
 
     by_cat: Dict[str, List[Dict[str, Any]]] = defaultdict(list)
     for r in scored:
         by_cat[r["category"]].append(r)
     for cat in by_cat:
-        by_cat[cat].sort(key=lambda x: (-x["final_score"], -x["tech_score"], x["symbol"]))
+        by_cat[cat].sort(
+            key=lambda x: (
+                0 if x.get("held") else 1,
+                -x["final_score"],
+                -x["tech_score"],
+                x["symbol"],
+            )
+        )
 
     industry_index = {cat: i for i, cat in enumerate(INDUSTRY_ORDER)}
-    cat_plan: List[Tuple[int, int, str, List[Dict[str, Any]], Dict[str, Any]]] = []
+    cat_plan: List[Tuple[int, int, int, int, str, List[Dict[str, Any]], Dict[str, Any]]] = []
     seen: Set[str] = set()
 
     def _plan_cat(cat: str) -> None:
@@ -232,15 +254,30 @@ def _group_rows_by_industry(
         )
         if not picks:
             return
+        picks = sorted(
+            picks,
+            key=lambda x: (
+                0 if x.get("held") else 1,
+                -x["final_score"],
+                -x["tech_score"],
+                str(x.get("symbol", "")),
+            ),
+        )
         seen.add(cat)
         sig = compute_sector_signal(cat, result_dir) if result_dir is not None else {"sector_verdict": "Neutral"}
+        verdict = sig.get("sector_verdict", "Neutral")
+        has_held = any(bool(r.get("held")) for r in picks) or any(
+            bool(r.get("held")) for r in by_cat.get(cat, [])
+        )
         cat_plan.append(
             (
-                sector_verdict_sort_rank(sig.get("sector_verdict", "Neutral")),
+                0 if has_held else 1,
+                sector_phase_rank(verdict) if not has_held else sector_phase_rank(verdict),
+                sector_verdict_sort_rank(verdict),
                 industry_index.get(cat, 10_000),
                 cat,
                 picks,
-                sig,
+                {**sig, "_has_held": has_held},
             )
         )
 
@@ -250,12 +287,15 @@ def _group_rows_by_industry(
     for cat in sorted(by_cat.keys()):
         _plan_cat(cat)
 
-    cat_plan.sort(key=lambda x: (x[0], x[1]))
+    # Held sectors first; then Accum → Sell → Neutral; then finer verdict; then config order.
+    cat_plan.sort(key=lambda x: (x[0], x[1], x[2], x[3]))
 
     out: List[Dict[str, Any]] = []
     row_num = 0
-    for _sort_rank, _ord_idx, cat, picks, sig in cat_plan:
+    for _held, _phase, _vrank, _ord_idx, cat, picks, sig in cat_plan:
         row_class = sig.get("sector_row_class", "sector-neutral")
+        if sig.get("_has_held"):
+            row_class = f"{row_class} sector-held".strip()
         out.append(
             {
                 "_kind": "header",
@@ -266,7 +306,7 @@ def _group_rows_by_industry(
             }
         )
         if result_dir is not None:
-            out.append({"_kind": "sector_signal", **sig})
+            out.append({"_kind": "sector_signal", **{k: v for k, v in sig.items() if not str(k).startswith("_")}})
         for r in picks:
             row_num += 1
             out.append({"_kind": "row", "_rank": row_num, **r})
@@ -286,6 +326,7 @@ def build_rows(
     cache_updates: Dict[str, Dict[str, str]] = {}
     universe = collect_index_rows_from_results(RESULT_SCORES_DIR)
     scored: List[Dict[str, Any]] = []
+    portfolio = get_portfolio_map()
     fund_as_of = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     if live_fundamentals:
@@ -348,6 +389,8 @@ def build_rows(
                 "metrics": metrics,
                 "tech_verdict": verdict,
                 "tech_reasons": tech_reasons,
+                "held": position_for_symbol(sym, portfolio)["held"],
+                "acc": position_for_symbol(sym, portfolio)["acc"],
                 "_cat": cat,
                 "_denom": denom,
             }
@@ -415,10 +458,12 @@ def _fmt_macd_cell(metrics: Dict[str, Any], tf: str) -> str:
 
 
 def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
-    n_cols = 6 + len(RANK_TFS) * 3 + 3
+    n_cols = 8 + len(RANK_TFS) * 3 + 3
     header = [
         '<th class="num col-rank">#</th>',
         '<th class="col-ticker">Ticker</th>',
+        '<th class="num col-held" title="Currently held in portfolio">Held</th>',
+        '<th class="col-acc" title="Accounts holding this ticker">Acc</th>',
         '<th class="num col-mcap" title="Market capitalization (USD)">Mkt Cap</th>',
         '<th class="col-desc" title="Name · industry · what they do">DESC</th>',
         '<th class="col-fund" title="Why strong / why now">Fundamentals</th>',
@@ -466,6 +511,8 @@ def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
                 '<td class="num">—</td>',
                 '<td class="ticker sector-signal-label">Sector</td>',
                 '<td class="num">—</td>',
+                '<td class="acc-col">—</td>',
+                '<td class="num">—</td>',
                 f'<td class="desc-col sector-signal-call">'
                 f'<span class="tech-verdict {text_class}">{vlabel}</span></td>',
                 f'<td class="fund-col sector-signal-etfs" title="{etf_sum}">'
@@ -487,10 +534,17 @@ def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
             )
             continue
         r = item
-        m = r["metrics"]
+        m = r.get("metrics") or {}
+        held = bool(r.get("held"))
+        held_cell = (
+            '<td class="num held-yes">true</td>' if held else '<td class="num held-no">false</td>'
+        )
+        acc_cell = f'<td class="acc-col">{esc_html(format_acc(r.get("acc") or []))}</td>'
         cells = [
             f'<td class="num">{r["_rank"]}</td>',
             f'<td class="ticker">{esc_html(r["symbol"])}</td>',
+            held_cell,
+            acc_cell,
             f'<td class="num col-mcap">{esc_html(_fmt_mcap(r.get("market_cap")))}</td>',
             f'<td class="desc-col">'
             f'<span class="desc-name">{esc_html(r.get("desc_name", r["symbol"]))}</span>'
@@ -512,20 +566,22 @@ def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
             f'<span class="tech-summary">{ta_body}</span>'
             f"</td>"
         )
-        fc = _score_color(r["tech_score"])
-        ff = _score_color(r["fund_score"])
-        fn = _score_color(r["final_score"])
+        fc = _score_color(float(r.get("tech_score") or 0))
+        ff = _score_color(float(r.get("fund_score") or 0))
+        fn = _score_color(float(r.get("final_score") or 0))
         cells.extend(
             [
-                f'<td class="num" style="color:{fc};font-weight:600">{r["tech_score"]:.1f}</td>',
-                f'<td class="num" style="color:{ff};font-weight:600">{r["fund_score"]:.1f}</td>',
-                f'<td class="num score-final" style="color:{fn}">{r["final_score"]:.1f}</td>',
+                f'<td class="num" style="color:{fc};font-weight:600">{float(r.get("tech_score") or 0):.1f}</td>',
+                f'<td class="num" style="color:{ff};font-weight:600">{float(r.get("fund_score") or 0):.1f}</td>',
+                f'<td class="num score-final" style="color:{fn}">{float(r.get("final_score") or 0):.1f}</td>',
             ]
         )
-        body_rows.append("        <tr>\n            " + "\n            ".join(cells) + "\n        </tr>")
+        tr_cls = ' class="row-held"' if held else ""
+        body_rows.append(f"        <tr{tr_cls}>\n            " + "\n            ".join(cells) + "\n        </tr>")
 
     data_count = sum(1 for x in items if x.get("_kind") == "row")
     group_count = sum(1 for x in items if x.get("_kind") == "header")
+    held_count = sum(1 for x in items if x.get("_kind") == "row" and x.get("held"))
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -536,8 +592,8 @@ def render_html(items: List[Dict[str, Any]], generated_at: str) -> str:
 </head>
 <body class="trade-index">
     <h1>📊 Trade Analysis Index</h1>
-    <p class="subtitle"><strong>{data_count}</strong> picks grouped by <strong>{group_count}</strong> market niches (up to <strong>{MAX_PICKS_PER_INDUSTRY}</strong> per sector: sector ETFs + top stocks by final score). Columns W–2M show <strong>RSI · Stoch · MACD</strong> (↑ bull / + hist / ↓ bear). Sections sorted <strong>Strong Accumulation → Accumulation → Neutral → Sell → Strong Sell (Get Out)</strong>.</p>
-    <p class="meta">Generated {generated_at} UTC · Technical data: <code>technical/result_scores/</code></p>
+    <p class="subtitle"><strong>{data_count}</strong> picks (<strong>{held_count}</strong> held) grouped by <strong>{group_count}</strong> niches. Sections ordered <strong>Held sectors → Accumulation → Sell / Take-profit → Neutral</strong>. Columns: Held · Acc · W–2M RSI/Stoch/MACD.</p>
+    <p class="meta">Generated {generated_at} UTC · Technical data: <code>technical/result_scores/</code> · Portfolio: <code>configuration.json → portfolio</code></p>
     <div class="trade-index-table-wrap">
         <table class="trade-index-table" aria-label="Top tickers">
             <thead><tr>
@@ -599,11 +655,13 @@ def main() -> int:
     INDEX_HTML.write_text(render_html(items, ts), encoding="utf-8")
     n = sum(1 for x in items if x.get("_kind") == "row")
     g = sum(1 for x in items if x.get("_kind") == "header")
+    h = sum(1 for x in items if x.get("_kind") == "row" and x.get("held"))
     step_done(
         "Unified trade index",
         t0,
         rows=n,
         industry_sections=g,
+        held=h,
         path=str(INDEX_HTML),
     )
     return 0
